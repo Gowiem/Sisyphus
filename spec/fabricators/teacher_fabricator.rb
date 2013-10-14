@@ -1,0 +1,2 @@
+Fabricator(:teacher) do
+end

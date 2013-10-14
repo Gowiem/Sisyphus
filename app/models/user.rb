@@ -23,6 +23,10 @@ class User
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
 
+  ## Single Table Inheritence 
+  ## http://stackoverflow.com/questions/9450477/unique-ids-betweens-users-and-admins-with-devise-rails/9452181
+  field :type
+
 
   ## Confirmable
   # field :confirmation_token,   :type => String
