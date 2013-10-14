@@ -6,6 +6,9 @@ source 'https://rubygems.org'
 
 gem 'mongoid', github: 'mongoid/mongoid'
 
+# Devise Authentication, Github: https://github.com/plataformatec/devise
+gem 'devise'
+
 gem 'haml-rails'
 gem 'ember-rails'
 
@@ -42,6 +45,3 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
