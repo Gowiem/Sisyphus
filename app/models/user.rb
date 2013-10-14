@@ -25,7 +25,7 @@ class User
 
   ## Single Table Inheritence 
   ## http://stackoverflow.com/questions/9450477/unique-ids-betweens-users-and-admins-with-devise-rails/9452181
-  field :type
+  field :type, :type => String
 
 
   ## Confirmable
