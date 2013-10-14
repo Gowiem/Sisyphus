@@ -6,7 +6,14 @@ source 'https://rubygems.org'
 
 gem 'mongoid', github: 'mongoid/mongoid'
 
-gem 'debugger', group: [:development, :test]
+gem 'haml-rails'
+gem 'ember-rails'
+
+group :development, :test do
+  gem "fabrication"
+  gem "rspec-rails"
+  gem 'debugger'
+end
 
 # Default Gems
 ###############
