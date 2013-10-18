@@ -7,11 +7,12 @@ Sisyphus::Application.routes.draw do
   devise_for :students, :teachers
 
   devise_scope :student do 
-    get "/login" => "devise/sessions#new"
-    get "/logout" => "devise/sessions#destroy"
+    get "/login" => "devise/sessions#new", :as => "student_login"
+    get "/logout" => "devise/sessions#destroy", :as => "student_logout"
+    get "/register" => "devise/registrations#new", :as => "student_register"
   end
 
-  root 'projects#index'
+  root 'student/dashboard#index'
   
   ## Default Routes
   ##################
