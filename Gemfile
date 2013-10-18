@@ -14,9 +14,10 @@ gem 'haml-rails'
 gem 'ember-rails'
 
 group :development, :test do
-  gem "fabrication"
-  gem "rspec-rails"
+  gem 'fabrication'
+  gem 'rspec-rails'
   gem 'debugger'
+  gem 'database_cleaner'
 end
 
 # Default Gems
