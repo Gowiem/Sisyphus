@@ -1,5 +1,7 @@
 // For more information see: http://emberjs.com/guides/routing/
 
-Sisyphus.Router.map(function() {
-  // this.resource('posts');
+console.log("--> Loading router.js")
+
+Sis.Router.map(function() {
+  this.resource('projects', { path: '/' })
 });

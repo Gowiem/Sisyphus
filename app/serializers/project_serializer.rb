@@ -1,3 +1,5 @@
-class ProjectSerializer < ActiveModel::Serializer
-  attributes :id
+class ProjectSerializer < BaseSerializer
+  attributes :id, :title
+
+  # has_many :users, embed: :objects
 end

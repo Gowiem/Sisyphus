@@ -20,6 +20,6 @@
 //= require sisyphus
 
 // for more details see: http://emberjs.com/guides/application/
-Sisyphus = Ember.Application.create();
+Sis = Ember.Application.create();
 
 //= require_tree .

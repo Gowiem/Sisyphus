@@ -1,16 +1,20 @@
 class Student::ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_student!
+  before_action :set_project, only: [:show, :edit, :update, :destroy ]
 
   # GET /projects
   # GET /projects.json
   def index
+    ## TODO: We need to query the projects according the the current user. 
+    ## Leaving this alone for now as I'm trying to just get things up and running. 
     @projects = Project.all
-    render "projects/index"
+    render :json => @projects 
   end
 
-  # GET /projects/1
+  # GET /projects/X
   # GET /projects/1.json
   def show
+    render :json => @project
   end
 
   # GET /projects/new
