@@ -3,6 +3,13 @@ class User < BaseDocument
   ## Our Fields/Methods
   ######################
 
+  field :first_name
+  field :last_name
+
+  def full_name 
+    "#{first_name} #{last_name}"
+  end
+
   ## Devise Fields/Settings
   ##########################
 

@@ -8,13 +8,44 @@
 
 puts "--- CREATING SEED DATA ---"
 
-teach = Teacher.create!(:email => "mark@email.com", :password => "password12", :password_confirmation => "password12")
+teach = Teacher.create!(
+  email: "mark@email.com",
+  first_name: "Mark",
+  last_name: "Sivak",
+  password: "password12", 
+  password_confirmation: "password12")
 
-gowie = Student.create!(:email => "gowie@email.com", :password => "password12", :password_confirmation => "password12")
-craig = Student.create!(:email => "craig@email.com", :password => "password12", :password_confirmation => "password12")
-maple = Student.create!(:email => "maple@email.com", :password => "password12", :password_confirmation => "password12")
-john = Student.create!(:email => "john@email.com", :password => "password12", :password_confirmation => "password12")
-sarah = Student.create!(:email => "sarah@email.com", :password => "password12", :password_confirmation => "password12")
+gowie = Student.create!(
+  email: "gowie@email.com",
+  first_name: "Matt",
+  last_name: "Gowie",
+  password: "password12",
+  password_confirmation: "password12")
+craig = Student.create!(
+  email: "craig@email.com", 
+  first_name: "Craig", 
+  last_name: "Berry",
+  password: "password12", 
+  password_confirmation: "password12")
+
+maple = Student.create!(
+  email: "maple@email.com",
+  first_name: "Maple",
+  last_name: "TooLazyToLookUp",
+  password: "password12", 
+  password_confirmation: "password12")
+john = Student.create!(
+  email: "john@email.com",
+  first_name: "John",
+  last_name: "TooLazyToLookUp",
+  password: "password12", 
+  password_confirmation: "password12")
+sarah = Student.create!(
+  email: "sarah@email.com",
+  first_name: "Sarah",
+  last_name: "TooLazyToLookUp",
+  password: "password12", 
+  password_confirmation: "password12")
 
 devs = ProjectGroup.create!( name: "Developers", students: [ gowie, craig ])
 design = ProjectGroup.create!( name: "Designers", students: [ maple, john, sarah ])
