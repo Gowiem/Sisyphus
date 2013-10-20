@@ -3,5 +3,5 @@ class ProjectGroupSerializer < BaseSerializer
   attributes :id, :name
 
   has_one :project, embed_key: :mongo_id
-  has_many :students, embed_key: :mongo_id, serializer: StudentShortSerializer
+  has_many :students, embed_key: :mongo_id
 end
