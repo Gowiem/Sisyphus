@@ -1,5 +1,17 @@
 class User
   include Mongoid::Document
+
+  ## Our Fields/Methods
+  ######################
+
+  def mongo_id
+    puts "\n\n\n\n\n\n SHRED -> #{self._id}"
+    self._id
+  end
+
+  ## Devise Fields/Settings
+  ##########################
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
