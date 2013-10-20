@@ -1,4 +1,4 @@
-class Student::ProjectsController < ApplicationController
+class ProjectsController < ApplicationController
   before_filter :authenticate_student!
   before_action :set_project, only: [:show, :edit, :update, :destroy ]
 
@@ -8,7 +8,7 @@ class Student::ProjectsController < ApplicationController
     ## TODO: We need to query the projects according the the current user. 
     ## Leaving this alone for now as I'm trying to just get things up and running. 
     @projects = Project.all
-    render :json => @projects 
+    render :json => @projects
   end
 
   # GET /projects/X

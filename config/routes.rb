@@ -1,8 +1,6 @@
 Sisyphus::Application.routes.draw do
 
-  namespace :student do     
-    resources :projects
-  end
+  resources :projects
 
   devise_for :students, :teachers
 
