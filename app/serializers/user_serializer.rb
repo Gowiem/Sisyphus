@@ -1,3 +1,4 @@
 class UserSerializer < BaseSerializer
-  attributes :id, :email
+  attributes :id
+  attribute :_type, :key => :type
 end
