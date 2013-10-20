@@ -1,15 +1,5 @@
-// http://emberjs.com/guides/models/defining-a-store/
-console.log("--> Loading store.js")
+// https://github.com/emberjs/data/blob/master/TRANSITION.md#rest-adapter-and-serializer-configuration
 
-Sis.Store = DS.Store.extend({
-  // revision: 11,
-  // adapter: DS.RESTAdapter.create()
-});
-
-// Sis.Adapter.map('project', {
-//   users: { embedded: 'always' }
-// })
-
-Sis.ProjectAdapter = DS.RESTAdapter.extend({
-  namespace: "student"
-});
+// Projects
+////////////
+Sis.ApplicationSerializer = DS.ActiveModelSerializer.extend({});

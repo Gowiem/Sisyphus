@@ -1,8 +1,11 @@
 Sis.User = DS.Model.extend({
-  email: DS.attr('string')
+  type: DS.attr('string'),
+  email: DS.attr('string'),
+  projects: DS.hasMany('project'),
 });
-
 
 Sis.Student = Sis.User.extend({
-  projects: DS.hasMany('project')
+  projectGroups: DS.hasMany('projectGroup')
 });
+
+Sis.Teacher = Sis.User.extend({});

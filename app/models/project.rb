@@ -1,5 +1,4 @@
-class Project
-  include Mongoid::Document
+class Project < BaseDocument
 
   ## Fields
   field :title, :type => String
