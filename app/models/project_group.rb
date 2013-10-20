@@ -1,6 +1,5 @@
-class ProjectGroup
-  include Mongoid::Document
-
+class ProjectGroup < BaseDocument
+  
   field :name, type: String
 
   belongs_to :project

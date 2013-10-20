@@ -1,13 +1,7 @@
-class User
-  include Mongoid::Document
+class User < BaseDocument
 
   ## Our Fields/Methods
   ######################
-
-  def mongo_id
-    puts "\n\n\n\n\n\n SHRED -> #{self._id}"
-    self._id
-  end
 
   ## Devise Fields/Settings
   ##########################
