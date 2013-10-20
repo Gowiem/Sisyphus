@@ -5,9 +5,13 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    ## TODO: We need to query the projects according the the current user. 
-    ## Leaving this alone for now as I'm trying to just get things up and running. 
-    @projects = Project.all
+    if student_signed_in?
+      @projects = current_student.projects
+      # Remove the project_groups which our student isn't associated with.
+      @projects.map { |project| project.filter_groups(current_student) }
+    else 
+      ## TODO: Query according to teacher
+    end
     render :json => @projects
   end
 
