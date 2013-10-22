@@ -21,6 +21,7 @@ gowie = Student.create!(
   last_name: "Gowie",
   password: "password12",
   password_confirmation: "password12")
+
 craig = Student.create!(
   email: "craig@email.com", 
   first_name: "Craig", 
@@ -31,19 +32,21 @@ craig = Student.create!(
 maple = Student.create!(
   email: "maple@email.com",
   first_name: "Maple",
-  last_name: "TooLazyToLookUp",
+  last_name: "Kuo",
   password: "password12", 
   password_confirmation: "password12")
+
 john = Student.create!(
   email: "john@email.com",
   first_name: "John",
-  last_name: "TooLazyToLookUp",
+  last_name: "Reardon",
   password: "password12", 
   password_confirmation: "password12")
+
 sarah = Student.create!(
   email: "sarah@email.com",
   first_name: "Sarah",
-  last_name: "TooLazyToLookUp",
+  last_name: "Park",
   password: "password12", 
   password_confirmation: "password12")
 
@@ -58,6 +61,6 @@ sisyphus = Project.create!(
 )
 
 puts "--- Created Project: #{sisyphus.title}"
-puts "--- Project has teacher: #{sisyphus.teacher} \n"
-puts "--- Project has associated students: #{sisyphus.students.entries} \n"
-puts "--- Project has Project Groups: #{sisyphus.project_groups.entries}"
+puts "--- Project has teacher: #{sisyphus.teacher.full_name} \n"
+puts "--- Project has associated students: #{sisyphus.students.entries.map(&:full_name)} \n"
+puts "--- Project has Project Groups: #{sisyphus.project_groups.entries.map(&:name)}"
