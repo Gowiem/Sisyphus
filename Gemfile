@@ -13,6 +13,8 @@ gem 'devise'
 gem 'haml-rails'
 gem 'ember-rails'
 
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+
 group :development, :test do
   gem 'fabrication'
   gem 'rspec-rails'

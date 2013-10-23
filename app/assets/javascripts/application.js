@@ -10,13 +10,23 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+// Rails Defaults
+//////////////////
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
+// Bootstrap
+/////////////
+//= require bootstrap
+
+// Handlebars, Ember, Ember-Data
+/////////////////////////////////
 //= require handlebars
 //= require ember
 //= require ember-data
-//= require_self
+//= require_self      
 //= require sisyphus
 
 // for more details see: http://emberjs.com/guides/application/
