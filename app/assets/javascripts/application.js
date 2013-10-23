@@ -20,6 +20,8 @@
 //= require sisyphus
 
 // for more details see: http://emberjs.com/guides/application/
-Sis = Ember.Application.create();
+Sis = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
 
 //= require_tree .
