@@ -1,6 +1,26 @@
 Sisyphus::Application.routes.draw do
 
-  resources :projects
+  ## FormatTest class is used to restrict requests to certain formats. We need 
+  ## this with ember because if the user hits '/projects' they will get JSON, 
+  ## which we don't want. We want them to load the ember app and ember will 
+  ## get the JSON. 
+  class FormatTest
+    attr_accessor :mime_type
+
+    def initialize(format)
+      @mime_type = Mime::Type.lookup_by_extension(format)
+    end
+
+    def matches?(request)
+      request.format == mime_type
+    end
+  end
+
+  ## Routes
+  ##########
+
+  resources :projects, :constraints => FormatTest.new(:json)
+  resources :project_groups, :constraints => FormatTest.new(:json)
 
   devise_for :students, :teachers
 
@@ -10,60 +30,8 @@ Sisyphus::Application.routes.draw do
     get "/register" => "devise/registrations#new", :as => "student_register"
   end
 
-  root 'student/dashboard#index'
-  
-  ## Default Routes
-  ##################
+  root 'student/dashboard#index', :constraints => FormatTest.new(:html)
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-  
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  ## Catch all Route which will just render ember, and ember can figure out the route
+  get '*path' => 'student/dashboard#index', :constraints => FormatTest.new(:html)
 end
