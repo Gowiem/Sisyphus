@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_student!
   before_action :set_project, only: [:show, :edit, :update, :destroy ]
+  serialization_scope :current_student
 
   # GET /projects
   # GET /projects.json
