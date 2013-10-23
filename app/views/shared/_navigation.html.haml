@@ -1,7 +1,14 @@
-%header
-  = image_tag "http://placekitten.com/300/150"
-  - if student_signed_in?
-    = link_to 'Log out',  student_logout_path
-  - else 
-    = link_to 'Log in', student_login_path
-    = link_to 'Sign up', student_register_path
+%nav.navbar.navbar-default{ role: "navigation" }
+  .container
+    .navbar-header
+      .brand
+        = image_tag "http://placekitten.com/150/75"
+    %ul.nav.navbar-nav.navbar-right.navbar-text
+      - if student_signed_in?
+        %li.navbar-link
+          = link_to 'Log out',  student_logout_path
+      - else 
+        %li.navbar-link
+          = link_to 'Log in', student_login_path
+        %li.navbar-link
+          = link_to 'Sign up', student_register_path
