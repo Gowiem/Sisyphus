@@ -4,7 +4,7 @@ Sisyphus
 ## Local Development Prereqs
 
 - Install [RVM](http://rvm.io/)
-- Install ruby 2.0.0 => `rvm install 2.0.0-p247`
+- Install ruby 2.0.0-p247 => `rvm install 2.0.0-p247`
 - [Install MongoDB](http://docs.mongodb.org/manual/installation/)
 
 ## Getting localhost up and running
