@@ -1,8 +1,7 @@
-class ProjectGroupSerializer < BaseSerializer
+class RequiredTaskSerializer < BaseSerializer
   embed :ids, include: true
-  attributes :id, :name
+  attributes :id, :title, :description
 
   has_one :project, embed_key: :mongo_id
-  has_many :students, embed_key: :mongo_id
   has_many :subtasks, embed_key: :mongo_id
 end
