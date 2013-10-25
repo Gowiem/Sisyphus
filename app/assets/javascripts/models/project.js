@@ -1,4 +1,3 @@
-
 Sis.Project = DS.Model.extend({
   title: DS.attr('string'),
   teacher: DS.belongsTo('teacher'),

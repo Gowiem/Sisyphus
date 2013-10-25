@@ -3,6 +3,7 @@ class ProjectSerializer < BaseSerializer
   attributes :id, :title
 
   has_one :teacher, embed_key: :mongo_id
+  has_many :required_tasks, embed_key: :mongo_id
   has_many :students, embed_key: :mongo_id
   has_many :project_groups, embed_key: :mongo_id
 end
