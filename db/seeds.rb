@@ -11,6 +11,13 @@ puts "--- CREATING SEED DATA ---"
 ## Users
 #########
 
+## Super Admin
+super_admin = SuperAdmin.create!(
+  email: "superadmin@email.com",
+  first_name: "Super",
+  last_name: "Admin",
+  password: "password12", 
+  password_confirmation: "password12")
 
 ## Teacher
 teach = Teacher.create!(
@@ -113,6 +120,7 @@ design_task1 = Subtask.create!(
   parent_task: design_req_task1
 )
 
+puts "--- Create Super Admin: #{super_admin.email}"
 puts "--- Created Project: #{sisyphus.title}"
 puts "--- Project has Teacher: #{sisyphus.teacher.full_name} \n"
 puts "--- Project has Students: #{sisyphus.students.entries.map(&:full_name)} \n"
