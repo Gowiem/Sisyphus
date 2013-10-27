@@ -1,7 +1,5 @@
 {{title}}
-<a {{action newTask this target="view"}}> Add task </a>
+<a {{bind-attr class="isAddingNewTask:hide"}} {{action showNewTask}}> Add task </a>
 {{#if isAddingNewTask}}
-  <form>
-    <input>
-  </form>
+  {{render newTask}}
 {{/if}}

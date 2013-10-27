@@ -1,0 +1,25 @@
+<form role="form" class="form-horizontal">
+  <div class="form-group col-lg-10">
+    <input class="form-control" type="text" placeholder="Title">
+  </div>
+  <div class="form-group col-lg-10">
+    <label for="subtask-due-date" class="col-lg-2 control-label">Due Date:</label>
+    <div id="new-task-date" class="datepicker input-append date col-lg-2" data-date-format="dd-mm-yyyy">
+      <input class="form-control" size="15" type="text" >
+      <span class="add-on"><i class="icon-th"></i></span>
+    </div>
+    <label for="subtask-users" class="col-lg-3 control-label">Assigned to:</label>
+    <a {{action showUserSelect}}>Select</a>
+    {{#if isShowingUsers}}
+      <div id="select-users-container">
+        {{#each student in selectableStudents}}
+          <input type="checkbox" value="{{student.id}}">{{student.full_name}}</input>
+        {{/each}}
+      </div> 
+    {{/if}}
+  </div>
+  <div class="col-lg-3">
+    <button {{action addNewTask}} type="button" class="btn btn-default">Add Task</button>
+    <button {{action cancelNewTask}} type="button" class="btn btn-default">Cancel</button>
+  </div>
+</form>
