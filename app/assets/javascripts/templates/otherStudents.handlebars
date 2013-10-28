@@ -1,5 +1,11 @@
-<div> Other Students </div>
-{{#each}}
-  <div>{{fullName}}</div>
-  {{!-- <div> Progress Bar Goes Here </div> --}}
+<div class="panel panel-default">
+	<div class="panel-heading"><h3>Group Members</h3></div>
+	<div class="panel-body">
+	{{#each}}
+	<div>{{fullName}}</div>
+	<div class="progress">
+		<div class="progress-bar" style="width: 60%;"></div>
+	</div>
 {{/each}}
+</div>
+</div>
