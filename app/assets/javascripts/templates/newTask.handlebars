@@ -1,25 +1,28 @@
 <form role="form" class="form-horizontal">
   <div class="form-group col-lg-10">
-    <input class="form-control" type="text" placeholder="Title">
+    {{view Ember.TextField valueBinding="title" placeholder="Title" required="true" class="form-control"}}
   </div>
   <div class="form-group col-lg-10">
     <label for="subtask-due-date" class="col-lg-2 control-label">Due Date:</label>
     <div id="new-task-date" class="datepicker input-append date col-lg-2" data-date-format="dd-mm-yyyy">
-      <input class="form-control" size="15" type="text" >
+      {{view Sis.DateField valueBinding="dueDate" class="form-cntrol" size="15"}}
       <span class="add-on"><i class="icon-th"></i></span>
     </div>
     <label for="subtask-users" class="col-lg-3 control-label">Assigned to:</label>
-    <a {{action showUserSelect}}>Select</a>
+    <a {{action toggleUserSelect target="view"}} {{bind-attr class="isShowingUsers:hide"}}>Select</a>
     {{#if isShowingUsers}}
-      <div id="select-users-container">
-        {{#each student in selectableStudents}}
-          <input type="checkbox" value="{{student.id}}">{{student.full_name}}</input>
-        {{/each}}
-      </div> 
+      <div class="select-users-container">
+        <ul id="select-users-list">
+          {{#each student in controllers.requiredTasks.selectableStudents}}
+            {{view view.userCheckbox studentBinding="student" class="user-select-checkbox"}}
+            {{student.fullName}}
+          {{/each}}
+        </ul>
+      </div>
     {{/if}}
   </div>
   <div class="col-lg-3">
-    <button {{action addNewTask}} type="button" class="btn btn-default">Add Task</button>
+    <button {{action addNewTask target="view"}} type="button" class="btn btn-default">Add Task</button>
     <button {{action cancelNewTask}} type="button" class="btn btn-default">Cancel</button>
   </div>
 </form>
