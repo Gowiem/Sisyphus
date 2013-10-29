@@ -4,7 +4,7 @@ Sisyphus
 ## Local Development Prereqs
 
 - Install [RVM](http://rvm.io/)
-- Install ruby 2.0.0 => `rvm install 2.0.0`
+- Install ruby 2.0.0-p247 => `rvm install 2.0.0-p247`
 - [Install MongoDB](http://docs.mongodb.org/manual/installation/)
 
 ## Getting localhost up and running
@@ -12,7 +12,7 @@ Open up a terminal (terminal.app on OSX) and input the following:
 
 - git clone the Project  => `git clone git@github.com:Gowiem/Sisyphus.git`
 - Change into the Sisyphus project => `cd sisyphus`
-- Setup a [.rvmrc file](http://rvm.io/workflow/projects) => `rvm --rvmrc --create 2.0.0@sisyphus`
+- Setup a [.rvmrc file](http://rvm.io/workflow/projects) => `rvm --rvmrc --create 2.0.0-p247@sisyphus`
 - Run bundler to install the project's gems (Gems are just Ruby libraries) => `bundle install`
 - Start the Rails Server => `rails server` or `rails s` for short
 - Go to [localhost:3000](localhost:3000) in your browser and you should be all set. 
