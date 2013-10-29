@@ -1,7 +1,10 @@
-{{title}}
-<a {{action newTask this target="view"}}> Add task </a>
+<h2> {{title}} </h2>
+<ul>
+  {{#each subtask in subtasks}}
+    <li> {{subtask.title}} </li>
+  {{/each}}
+</ul>
 {{#if isAddingNewTask}}
-  <form>
-    <input>
-  </form>
+  {{render newTask}}
 {{/if}}
+<a {{bind-attr class="isAddingNewTask:hide"}} {{action showNewTask}}> Add task </a>

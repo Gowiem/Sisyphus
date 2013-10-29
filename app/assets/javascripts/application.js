@@ -29,6 +29,10 @@
 //= require_self      
 //= require sisyphus
 
+// Other 3rd Party Add ons
+///////////////////////////
+//= require_tree ./vendor
+
 // for more details see: http://emberjs.com/guides/application/
 Sis = Ember.Application.create({
   LOG_TRANSITIONS: true
