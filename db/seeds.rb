@@ -81,41 +81,35 @@ sisyphus = Project.create!(
 
 ## Required Tasks
 dev_req_task1 = RequiredTask.create!(
-  title: "Learn Ember.js", 
-  description: "No cake walk, but mad cool.", 
+  title: "Learn Ember.js",
   project: sisyphus
 )
 
 dev_req_task2 = RequiredTask.create!(
-  title: "Write some Unit Tests", 
-  description: "If theres time to breath... :pray:", 
+  title: "Write some Unit Tests",
   project: sisyphus
 )
 
 design_req_task1 = RequiredTask.create!(
   title: "Design all the things!",
-  description: "Pretty important, no pressure.",
   project: sisyphus
 )
 
 ## Subtasks
 dev_task1 = Subtask.create!(
   title: "Run through the Ember tutorial",
-  description: "It's aight..",
   project_group: devs,
   parent_task: dev_req_task1
 )
 
 dev_task2 = Subtask.create!(
   title: "Write Unit Tests for the frontend",
-  description: "Not sure how we'll go about this yet",
   project_group: devs,
   parent_task: dev_req_task2
 )
 
 design_task1 = Subtask.create!(
   title: "Design the tasks screen",
-  description: "This is pretty meta right here.",
   project_group: design,
   parent_task: design_req_task1
 )
