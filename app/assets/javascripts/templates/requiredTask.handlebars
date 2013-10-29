@@ -1,7 +1,7 @@
 <h2> {{title}} </h2>
 <ul>
-  {{#each subtask in subtasks}}
-    <li> {{subtask.title}} </li>
+  {{#each task in subtasks}}
+	{{render "subtask" task}}
   {{/each}}
 </ul>
 {{#if isAddingNewTask}}
