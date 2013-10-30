@@ -1,7 +1,8 @@
 <form role="form" class="form-horizontal">
   {{partial "subtaskPartial"}}
-  <div class="col-lg-3">
+  <div class="col-lg-10">
     <button {{action saveSubtask}} type="button" class="btn btn-default">Save</button>
     <button {{action cancelEdit}} type="button" class="btn btn-default">Cancel</button>
+    <button {{action deleteSubtask}} type="button" class="btn btn-default pull-right">Delete</button>
   </div>
 </form>

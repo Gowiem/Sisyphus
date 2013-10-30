@@ -66,7 +66,6 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url }
       format.json { head :no_content }
     end
   end

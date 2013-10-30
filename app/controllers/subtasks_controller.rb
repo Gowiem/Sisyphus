@@ -1,5 +1,5 @@
 class SubtasksController < ApplicationController
-  before_action :set_subtask, only: [:update]
+  before_action :set_subtask, only: [:update, :destroy]
   serialization_scope :current_student
 
   # POST /subtasks.json
@@ -22,6 +22,13 @@ class SubtasksController < ApplicationController
       else
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @subtask.destroy
+    respond_to do |format|
+      format.json { head :no_content }
     end
   end
 
