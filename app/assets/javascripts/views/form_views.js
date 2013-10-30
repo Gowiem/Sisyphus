@@ -4,10 +4,8 @@ Sis.DateField = Ember.TextField.extend({
   // that I'll get it later.
   date: function() {
     var value = this.get('value');
-    if (value) {
-      return new Date(value);
-    } else {
-      return null;
+    if (value !== this.get('parentView.controller.content.dueDate')) {
+      this.set('parentView.controller.content.dueDate', value || null);
     }
-  }.property('value')
+  }.observes('value')
 });

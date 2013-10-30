@@ -3,8 +3,8 @@
 </div>
 <div class="form-group col-lg-10">
   <label for="subtask-due-date" class="col-lg-2 control-label">Due Date:</label>
-  <div id="new-task-date" class="datepicker input-append date col-lg-2" data-date-format="dd-mm-yyyy">
-    {{view Sis.DateField valueBinding="dueDate" class="form-control" size="15"}}
+  <div id="new-task-date" class="datepicker input-append date col-lg-2" data-date-format="mm-dd-yyyy" data-alt-format="yyyy-dd-mm">
+    {{view Sis.DateField valueBinding="dueDate" class="form-control" size="40"}}
     <span class="add-on"><i class="icon-th"></i></span>
   </div>
   <label for="subtask-users" class="col-lg-3 control-label">Assigned to:</label>

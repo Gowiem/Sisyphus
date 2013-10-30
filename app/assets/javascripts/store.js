@@ -21,3 +21,23 @@ Sis.ApplicationSerializer = DS.ActiveModelSerializer.extend({
     return json;
   }
 });
+
+Sis.IsodateTransform = DS.Transform.extend({
+  deserialize: function(serialized) {
+    if (serialized) {
+      var date = new Date(serialized),
+          offset = date.getTimezoneOffset();
+      return new Date(date.getTime()+offset*60000)
+    } else {
+      return null;
+    }
+  }, 
+  serialize: function(date) {
+    if (date) {
+      return moment(date).format("YYYY-MM-DD");
+    } else {
+      return null;
+    } 
+  }
+});
+  

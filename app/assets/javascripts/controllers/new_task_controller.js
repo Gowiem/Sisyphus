@@ -10,8 +10,7 @@ Sis.NewTaskController = Sis.AbstractSubtaskController.extend({
       students.forEach(function(student, index){
         student.get('tasks').addObject(content);
       });
-      // Set the associated project, projectGroup, and parentTask
-      content.set('project', projectController.get('model'));
+      // Set the associated projectGroup and parentTask
       content.set('projectGroup', projectController.get('projectGroup'));
       content.set('parentTask', requiredTask);
       // Save the new subtask
