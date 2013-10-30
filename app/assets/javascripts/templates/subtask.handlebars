@@ -1,8 +1,16 @@
-<li>
-  {{view Ember.Checkbox checkedBinding="isCompleted"}} {{title}} 
-  <ul>
-    {{#each student in students}}
-      <li>{{student.fullName}}</li>
-    {{/each}}
-  </ul>
+<li class="subtask-container clearfix" {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+  {{#if isEditing}}
+    {{render "editSubtask" model parentBinding="this"}}
+  {{else}}
+    <div class="title-container">
+      {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
+      <h4 {{action "editTask" on="doubleClick"}} class="subtask-title"> {{title}} </h4>
+    </div>
+  {{/if}}
 </li>
+
+{{!-- <ul>
+  {{#each student in students}}
+  <li>{{student.fullName}}</li>
+  {{/each}}
+</ul> --}}

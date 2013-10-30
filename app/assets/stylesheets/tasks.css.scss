@@ -1,0 +1,13 @@
+
+.subtask-container {
+  list-style-type: none;
+  
+  .title-container {
+    .completed-checkbox {
+      float: left;
+    }
+    .subtask-title {
+      margin-left: 20px;
+    }
+  }
+}

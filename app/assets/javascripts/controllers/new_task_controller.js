@@ -1,6 +1,5 @@
-Sis.NewTaskController = Ember.ObjectController.extend({
-  needs: ["requiredTasks", "project"],
-  isShowingUsers: false,
+Sis.NewTaskController = Sis.AbstractSubtaskController.extend({
+  needs: ["project"],
   actions: {
     createNewSubtask: function(requiredTask) {
       var content = this.get('content'),
