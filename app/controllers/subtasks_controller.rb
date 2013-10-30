@@ -1,5 +1,6 @@
 class SubtasksController < ApplicationController
   before_action :set_subtask, only: [:update]
+  serialization_scope :current_student
 
   # POST /subtasks.json
   def create
@@ -31,7 +32,8 @@ class SubtasksController < ApplicationController
     end
 
     def subtask_params
-      params.require(:subtask).permit(:title, :type, :project_group_id, :parent_task_id, :is_completed)
+      params.require(:subtask).permit(:title, :type, :project_group_id, 
+        :parent_task_id, :is_completed, {:student_ids => []})
     end
 
 end

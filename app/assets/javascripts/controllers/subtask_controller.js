@@ -1,6 +1,5 @@
 Sis.SubtaskController = Ember.ObjectController.extend({
   isCompleted: function(key, value){
-  	debugger
     var model = this.get('model');
 
     if (value === undefined) {

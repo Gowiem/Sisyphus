@@ -1,7 +1,4 @@
 Sis.NewTaskView = Ember.View.extend({
-  // init: function() {
-  //   debugger
-  // },
   content: function() {
     return this.controller.get('content');
   }.property('this.controller.content'),
@@ -13,7 +10,7 @@ Sis.NewTaskView = Ember.View.extend({
     checkedObserver: function(){
       var content = this.get('controller').get('content')
       if(this.get('checked')) {
-        content.get('students').addObject(this.get('student'));
+        content.get('students').pushObject(this.get('student'));
       } else {
         content.get('students').removeObject(this.get('student'));
       }

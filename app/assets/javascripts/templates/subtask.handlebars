@@ -1,3 +1,8 @@
 <li>
   {{view Ember.Checkbox checkedBinding="isCompleted"}} {{title}} 
+  <ul>
+    {{#each student in students}}
+      <li>{{student.fullName}}</li>
+    {{/each}}
+  </ul>
 </li>

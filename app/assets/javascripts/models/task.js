@@ -1,7 +1,6 @@
 Sis.Task = DS.Model.extend({
   type: DS.attr('string'),
   title: DS.attr('string'),
-  description: DS.attr('string'),
   isCompleted: DS.attr('boolean')
 });
 
