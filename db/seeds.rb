@@ -99,13 +99,15 @@ design_req_task1 = RequiredTask.create!(
 dev_task1 = Subtask.create!(
   title: "Run through the Ember tutorial",
   project_group: devs,
-  parent_task: dev_req_task1
+  parent_task: dev_req_task1,
+  students: [craig]
 )
 
 dev_task2 = Subtask.create!(
   title: "Write Unit Tests for the frontend",
   project_group: devs,
-  parent_task: dev_req_task2
+  parent_task: dev_req_task2,
+  students: [gowie]
 )
 
 design_task1 = Subtask.create!(
