@@ -13,7 +13,7 @@ Sis.ProjectController = Ember.ObjectController.extend({
       return student.get('currentUser') === true;
     });
   }.property('students', 'teacher'),
-  otherStudents: function() {
+  groupMembers: function() {
     return this.get('model.students').filter(function(student, idx) {
       return !student.get('currentUser');
     });
