@@ -15,9 +15,18 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment.destroy()
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+  end
+
   private
     def set_comment
-      @comment = Comment.find(params[:id])
+      comment_id = BSON::ObjectId.from_string(params[:id])
+      subtask = Subtask.where("comments._id" => comment_id).first
+      @comment = subtask.comments.find(comment_id)
     end
 
     def comment_params
