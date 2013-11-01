@@ -15,6 +15,7 @@ Sis.NewTaskController = Sis.AbstractSubtaskController.extend({
       content.set('parentTask', requiredTask);
       // Save the new subtask
       content.save();
+      this.set('content', this.store.createRecord(Sis.Subtask, {}));
     },
   }
 });

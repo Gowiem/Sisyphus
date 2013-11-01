@@ -5,6 +5,6 @@
   {{/each}}
 </ul>
 {{#if isAddingNewTask}}
-  {{render newTask}}
+  {{render "newTask"}}
 {{/if}}
 <a {{bind-attr class="isAddingNewTask:hide"}} {{action showNewTask}}> Add task </a>
