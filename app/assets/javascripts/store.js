@@ -22,6 +22,8 @@ Sis.ApplicationSerializer = DS.ActiveModelSerializer.extend({
   }
 });
 
+
+// Convert Dates to and from what Rails expects
 Sis.IsodateTransform = DS.Transform.extend({
   deserialize: function(serialized) {
     if (serialized) {

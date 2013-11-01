@@ -13,5 +13,6 @@ Sis.RequiredTask = Sis.Task.extend({
 Sis.Subtask = Sis.Task.extend({
   projectGroup: DS.belongsTo('projectGroup'),
   parentTask: DS.belongsTo('requiredTask'),
-  students: DS.hasMany('student')
+  students: DS.hasMany('student'),
+  comments: DS.hasMany('comment')
 });

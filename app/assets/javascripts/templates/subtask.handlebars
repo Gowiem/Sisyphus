@@ -7,10 +7,22 @@
       <h4 {{action "editTask" on="doubleClick"}} class="subtask-title"> {{title}} </h4>
     </div>
   {{/if}}
+  {{#if isShowingComments}}
+    <div class="comments-container">
+      {{#each comment in comments}}
+        {{render "comment" comment}}
+      {{/each}}
+      {{#if showingNewComment}}
+        NEW COMMENT FORM
+      {{/if}}
+      <div class="comment-actions">
+        <a href="#" {{action addComment}}> Add Comment </a>
+        <a href="#" {{action closeComments}}> Hide Comments </a>
+      </div>
+    </div>
+  {{else}}
+    {{#if comments}}
+      <a href="#" {{action openComments}}> {{commentsCount}} </a>
+    {{/if}}
+  {{/if}}
 </li>
-
-{{!-- <ul>
-  {{#each student in students}}
-  <li>{{student.fullName}}</li>
-  {{/each}}
-</ul> --}}

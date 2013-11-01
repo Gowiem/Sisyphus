@@ -35,7 +35,10 @@
 
 // for more details see: http://emberjs.com/guides/application/
 Sis = Ember.Application.create({
-  LOG_TRANSITIONS: true
+  LOG_TRANSITIONS: true,
+  // These will probably be useful down the road.
+  // LOG_ACTIVE_GENERATION: true,
+  // LOG_VIEW_LOOKUPS: true,
 });
 
 //= require_tree .
