@@ -1,6 +1,12 @@
 Sis.AbstractSubtaskController = Ember.ObjectController.extend({
   needs: ['requiredTasks'],
   isShowingUsers: false,
+  date: function(key, value) {
+    if (value !== undefined) {
+      this.set('content.dueDate', moment(value));
+    }
+    return moment(this.get('content.dueDate')).calendar();
+  }.property('content.dueDate'),
   actions: {
     toggleUserSelect: function() {
       var controller = this;
