@@ -5,6 +5,7 @@
     <div class="title-container">
       {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
       <h4 {{action "editTask" on="doubleClick"}} class="subtask-title"> {{title}} </h4>
+      <p>{{readableDate}}</p>
     </div>
   {{/if}}
   {{render "comments" comments}}
