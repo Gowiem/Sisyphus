@@ -1,5 +1,5 @@
 Sis.SubtaskController = Ember.ObjectController.extend({
-  isEditing: false, 
+  isEditing: false,
   isCompleted: function(key, value){
     var model = this.get('model');
 
@@ -11,6 +11,10 @@ Sis.SubtaskController = Ember.ObjectController.extend({
       return value;
     }
   }.property('model.isCompleted'),
+  readableDate: function() {
+    var dueDate = this.get('model.dueDate');
+    return dueDate ? moment(dueDate).calendar() : null;
+  }.property('model.dueDate'),
 
   // Actions
   actions: {
@@ -19,6 +23,6 @@ Sis.SubtaskController = Ember.ObjectController.extend({
     }, 
     cancelEdit: function() {
       this.set('isEditing', false);
-    }
+    },
   }
 });

@@ -1,0 +1,7 @@
+<div class="comment">
+  <h5> {{user.fullName}} </h5>
+  {{#if canDelete}}
+    <a class="comment-delete" {{action deleteComment}}>Delete</a>
+  {{/if}}
+  <p> {{body}} </p>
+</div>

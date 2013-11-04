@@ -100,7 +100,7 @@ dev_task1 = Subtask.create!(
   title: "Run through the Ember tutorial",
   project_group: devs,
   parent_task: dev_req_task1,
-  students: [craig]
+  students: [craig],
 )
 
 dev_task2 = Subtask.create!(
@@ -114,6 +114,14 @@ design_task1 = Subtask.create!(
   title: "Design the tasks screen",
   project_group: design,
   parent_task: design_req_task1
+)
+
+
+## Comments
+comment1 = Comment.create!(
+  body: "It helped a bit that we're making a task based app and the tutorial was based on todos",
+  user: gowie,
+  subtask: dev_task1
 )
 
 puts "--- Create Super Admin: #{super_admin.email}"
