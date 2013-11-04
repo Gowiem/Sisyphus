@@ -1,12 +1,16 @@
-<li class="subtask-container clearfix" {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+<li class="subtask-container clearfix row" {{bind-attr class="isCompleted:completed isEditing:editing"}}>
   {{#if isEditing}}
     {{render "editSubtask" model parentBinding="this"}}
   {{else}}
-    <div class="title-container">
+    <div class="title-container col-md-10">
       {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
-      <h4 {{action "editTask" on="doubleClick"}} class="subtask-title"> {{title}} </h4>
-      <p>{{readableDate}}</p>
+      <h4 {{action "editTask" on="doubleClick"}} class="subtask-title center-text"> {{title}} </h4>
+    </div>
+    <div class="date-container col-md-2">
+      <p class="center-text">{{readableDate}}</p>
     </div>
   {{/if}}
-  {{render "comments" comments}}
 </li>
+<div class="row">
+  {{render "comments" comments}}
+</div>
