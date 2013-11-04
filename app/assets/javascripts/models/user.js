@@ -13,7 +13,7 @@ Sis.User = DS.Model.extend({
 
 Sis.Student = Sis.User.extend({
   projectGroups: DS.hasMany('projectGroup'),
-  tasks: DS.hasMany('subtask')
+  subtasks: DS.hasMany('subtask')
 });
 
 Sis.Teacher = Sis.User.extend({});

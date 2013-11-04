@@ -8,7 +8,7 @@ Sis.NewTaskController = Sis.AbstractSubtaskController.extend({
       // TODO: I'm not sure if this is needed or if ember-data will auto-associate the
       // many-to-many relationship on save. Keeping for now.
       students.forEach(function(student, index){
-        student.get('tasks').addObject(content);
+        student.get('subtasks').addObject(content);
       });
       // Set the associated projectGroup and parentTask
       content.set('projectGroup', projectController.get('projectGroup'));
