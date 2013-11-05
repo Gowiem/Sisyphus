@@ -1,17 +1,22 @@
 Sisyphus
 ========
 
+## First things first: [GitHub Emoji](http://www.emoji-cheat-sheet.com/)
+
 ## Local Development Prereqs
 
 - Install [RVM](http://rvm.io/)
+- Install [Xcode Command Line Tools](https://developer.apple.com/downloads/index.action) - You may need a developer account. If you don't have one and can't download it then just get in contact with me. 
 - Install ruby 2.0.0-p247 => `rvm install 2.0.0-p247`
-- [Install MongoDB](http://docs.mongodb.org/manual/installation/)
+- Install [Homebrew](http://brew.sh/) => `ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"`
+- [Install MongoDB](http://docs.mongodb.org/manual/installation/) => `brew update && brew install mongodb`
+- (optional) If you feel up to it follow [these steps](http://stackoverflow.com/a/5601077/1159410) so you don't have to start MongoDB everytime you want to run the local server.  
 
 ## Getting localhost up and running
 Open up a terminal (terminal.app on OSX) and input the following:
 
 - git clone the Project  => `git clone git@github.com:Gowiem/Sisyphus.git`
-- Change into the Sisyphus project => `cd sisyphus`
+- Change into the Sisyphus project => `cd Sisyphus`
 - Setup a [.rvmrc file](http://rvm.io/workflow/projects) => `rvm --rvmrc --create 2.0.0-p247@sisyphus`
 - Run bundler to install the project's gems (Gems are just Ruby libraries) => `bundle install`
 - Start the Rails Server => `rails server` or `rails s` for short
