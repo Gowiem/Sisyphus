@@ -1,7 +1,8 @@
 <div class="comment">
   <h5> {{user.fullName}} </h5>
+  <div class="comment-date pull-right"> Created at: {{readableCreateAtDate}}</div>
+  <p> {{body}} </p>
   {{#if canDelete}}
     <a class="comment-delete" {{action deleteComment}}>Delete</a>
   {{/if}}
-  <p> {{body}} </p>
 </div>
