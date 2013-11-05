@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <div class="brand">
+        <img src="http://placekitten.com/150/75">
+      </div>
+    </div>
+    <ul class="nav navbar-nav navbar-right navbar-text">
+      {{#if currentUser.isSignedIn}}
+        <li class="navbar-link">
+          <a href="/logout"> Log out</a>
+        </li>
+      {{else}}
+        <li class="navbar-link">
+          <a href="/login"> Log in</a>
+        </li>
+        <li class="navbar-link">
+          <a href="/register">Sign up</a>
+        </li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>
