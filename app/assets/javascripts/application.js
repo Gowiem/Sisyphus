@@ -26,7 +26,7 @@
 //= require handlebars
 //= require ember
 //= require ember-data
-//= require_self      
+//= require_self
 //= require sisyphus
 
 // Other 3rd Party Add ons
