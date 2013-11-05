@@ -8,8 +8,6 @@ class ProjectsController < ApplicationController
   def index
     if student_signed_in?
       @projects = current_student.projects
-      # Remove the project_groups which our student isn't associated with.
-      @projects.map { |project| project.filter_groups(current_student) }
     else 
       ## TODO: Query according to teacher
     end
