@@ -22,6 +22,11 @@ Open up a terminal (terminal.app on OSX) and input the following:
 - Start the Rails Server => `rails server` or `rails s` for short
 - Go to [localhost:3000](localhost:3000) in your browser and you should be all set. 
 
+## Running the server once you've installed everything
+Once you've gotten all of the above working and you've been able to check out the site at localhost:3000 you'll only need to do the following two things to get the server running again. 
+- Start MongoDB, in a new terminal window => `mongod`
+- Start the Rails server from the project directory => `cd ~/Workspace/Sisyphus && rails server` Note that '~/Workspace/Sisyphus' is the directory where you cloned the project and it may be in a different location depending on where you put it. 
+
 ## Seed Data
 
 ###Need some data? 
