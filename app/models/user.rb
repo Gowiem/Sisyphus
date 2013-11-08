@@ -10,6 +10,14 @@ class User < BaseDocument
     "#{first_name} #{last_name}"
   end
 
+  def teacher?
+    self._type == "Teacher"
+  end
+
+  def student?
+    self._type == "Student"
+  end
+
   ## Devise Fields/Settings
   ##########################
 

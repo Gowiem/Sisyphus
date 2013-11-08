@@ -1,16 +1,12 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_student!
+  before_filter :authenticate!
   before_action :set_project, only: [:show, :edit, :update, :destroy ]
-  serialization_scope :current_student
+  serialization_scope :current_user
 
   # GET /projects
   # GET /projects.json
   def index
-    if student_signed_in?
-      @projects = current_student.projects
-    else 
-      ## TODO: Query according to teacher
-    end
+    @projects = current_user.projects
     render :json => @projects
   end
 

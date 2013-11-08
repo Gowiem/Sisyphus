@@ -29,7 +29,14 @@ Sisyphus::Application.routes.draw do
   resources :students, :constraints => FormatTest.new(:json)
   resources :comments, :constraints => FormatTest.new(:json)
 
-  devise_for :students, :teachers
+  devise_for :teachers
+  devise_for :students
+
+  devise_scope :teachers do
+    get "/teachers/login" => "devise/sessions#new", :as => "teacher_login"
+    get "/teacher/logout" => "devise/sessions#destroy", :as => "teacher_logout"
+    get "/teacher/register" => "devise/registrations#new", :as => "teacher_register"
+  end
 
   devise_scope :student do 
     get "/login" => "devise/sessions#new", :as => "student_login"
@@ -37,8 +44,8 @@ Sisyphus::Application.routes.draw do
     get "/register" => "devise/registrations#new", :as => "student_register"
   end
 
-  root 'student/dashboard#index', :constraints => FormatTest.new(:html)
+  root :to => "ember#index", as: :ember_root, :constraints => FormatTest.new(:html)
 
   ## Catch all Route which will just render ember, and ember can figure out the route
-  get '*path' => 'student/dashboard#index', :constraints => FormatTest.new(:html)
+  get '*path' => 'ember#index', :constraints => FormatTest.new(:html)
 end
