@@ -1,10 +1,21 @@
 <h2> {{title}} </h2>
+{{#if shouldShowCompletedLink}}
+  <a {{action showCompleted}}>Completed Subtasks</a>
+{{/if}}
+{{#if showingCompleted}}
+  <a {{action hideCompleted}}>Hide completed Subtasks</a>
+{{/if}}
 <ul>
-  {{#each task in subtasks}}
+  {{#if showingCompleted}}
+    {{#each task in completedSubtasks}}
+      {{render "subtask" task}}
+    {{/each}}
+  {{/if}}
+  {{#each task in uncompletedSubtasks}}
     {{render "subtask" task}}
   {{/each}}
 </ul>
-{{#if isAddingNewTask}}
+{{#if addingNewTask}}
   {{render "newTask"}}
 {{/if}}
-<a {{bind-attr class="isAddingNewTask:hide"}} {{action showNewTask}}> Add task </a>
+<a {{bind-attr class="addingNewTask:hide"}} {{action showNewTask}}> Add task </a>

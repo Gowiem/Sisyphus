@@ -1,7 +1,7 @@
 <div class="col-md-9">
   <div class="btn-group task-filter-buttons">
-    <button {{action showAllTasks}} type="button" class="btn btn-default">All Tasks</button>
-    <button {{action showUserTasks}} type="button" class="btn btn-default">My Tasks</button>
+    <button {{action showAllTasks}} type="button" {{bind-attr class=":btn :btn-default showingAllTasks:active"}}>All Tasks</button>
+    <button {{action showUserTasks}} type="button" {{bind-attr class=":btn :btn-default showingAllTasks::active"}}>My Tasks</button>
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -12,10 +12,9 @@
       {{/if}}
     </div>
     <div class="panel-body">
-      {{render "tasks" filteredRequiredTasks}}
+      {{render "requiredTasks" filteredRequiredTasks}}
     </div>
   </div>
-  
 </div>
 <div class="col-md-3">
   {{render "groupMembers" groupMembers}}
