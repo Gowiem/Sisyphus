@@ -2,6 +2,10 @@
 .subtask-container {
   list-style-type: none;
   
+  .dispute-icon {
+    float: left;
+  }
+
   .title-container {
     .completed-checkbox {
       float: left;

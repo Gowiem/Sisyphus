@@ -1,6 +1,12 @@
 Sis.SubtaskController = Ember.ObjectController.extend({
   needs: "project",
   isEditing: false,
+  showingDispute: false,
+
+  disputeModalId: function() {
+    return "dispute-modal-" + this.get('content.id');
+  }.property('content'),
+
   isCompleted: function(key, value){
     var model = this.get('model');
 
@@ -22,9 +28,13 @@ Sis.SubtaskController = Ember.ObjectController.extend({
   actions: {
     editTask: function() {
       this.set('isEditing', true);
-    }, 
+    },
     cancelEdit: function() {
       this.set('isEditing', false);
+    },
+    disputeSubtask: function() {
+      var modalId = this.get('disputeModalId');
+      $('#' + modalId).modal({});
     },
   }
 });

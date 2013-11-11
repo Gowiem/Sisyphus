@@ -2,6 +2,9 @@
   {{#if isEditing}}
     {{render "editSubtask" model parentBinding="this"}}
   {{else}}
+    {{#if showingDispute}}
+      <span {{action disputeSubtask}} class="dispute-icon glyphicon glyphicon-ban-circle"></span>
+    {{/if}}
     <div class="title-container col-md-10">
       {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
       <h4 {{action "editTask" on="doubleClick"}} class="subtask-title center-text"> {{title}} </h4>
@@ -14,3 +17,5 @@
 <div class="row">
   {{render "comments" comments}}
 </div>
+
+{{view Sis.DisputeModal}}
