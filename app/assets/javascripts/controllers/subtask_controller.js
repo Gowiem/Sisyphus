@@ -1,4 +1,5 @@
 Sis.SubtaskController = Ember.ObjectController.extend({
+  needs: "project",
   isEditing: false,
   isCompleted: function(key, value){
     var model = this.get('model');
@@ -8,6 +9,7 @@ Sis.SubtaskController = Ember.ObjectController.extend({
     } else {
       model.set('isCompleted', value);
       model.save();
+      this.get('controllers.project').notifyPropertyChange('progressBarSize');
       return value;
     }
   }.property('model.isCompleted'),

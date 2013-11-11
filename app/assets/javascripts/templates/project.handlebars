@@ -5,7 +5,11 @@
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      {{render "currentUser" currentUser}}
+      {{#if showingAllTasks}}
+        {{partial "projectInfo"}}
+      {{else}}
+        {{render "currentUser" currentUser}}
+      {{/if}}
     </div>
     <div class="panel-body">
       {{render "tasks" filteredRequiredTasks}}
