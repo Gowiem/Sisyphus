@@ -4,7 +4,12 @@
       .brand
         = image_tag "http://placekitten.com/150/75"
     %ul.nav.navbar-nav.navbar-right.navbar-text
-      - if @current_user.student?
+      - if !@current_user
+        %li.navbar-link
+          = link_to 'Teacher Log in', teacher_login_path
+        %li.navbar-link
+          = link_to 'Student Log in', student_login_path
+      - elsif @current_user.student?
         - if student_signed_in?
           %li.navbar-link
             = link_to 'Log out',  student_logout_path
@@ -13,7 +18,7 @@
             = link_to 'Log in', student_login_path
           %li.navbar-link
             = link_to 'Sign up', student_register_path
-      - else
+      - elsif @current_user.teacher?
         - if teacher_signed_in?
           %li.navbar-link
             = link_to 'Log out',  teacher_logout_path

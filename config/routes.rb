@@ -30,18 +30,17 @@ Sisyphus::Application.routes.draw do
   resources :comments, :constraints => FormatTest.new(:json)
 
   devise_for :teachers
-  devise_for :students
-
-  devise_scope :teachers do
+  devise_scope :teacher do
     get "/teachers/login" => "devise/sessions#new", :as => "teacher_login"
-    get "/teacher/logout" => "devise/sessions#destroy", :as => "teacher_logout"
-    get "/teacher/register" => "devise/registrations#new", :as => "teacher_register"
+    get "/teachers/logout" => "devise/sessions#destroy", :as => "teacher_logout"
+    get "/teachers/register" => "devise/registrations#new", :as => "teacher_register"
   end
 
+  devise_for :students
   devise_scope :student do 
-    get "/login" => "devise/sessions#new", :as => "student_login"
-    get "/logout" => "devise/sessions#destroy", :as => "student_logout"
-    get "/register" => "devise/registrations#new", :as => "student_register"
+    get "/students/login" => "devise/sessions#new", :as => "student_login"
+    get "/students/logout" => "devise/sessions#destroy", :as => "student_logout"
+    get "/students/register" => "devise/registrations#new", :as => "student_register"
   end
 
   root :to => "ember#index", as: :ember_root, :constraints => FormatTest.new(:html)

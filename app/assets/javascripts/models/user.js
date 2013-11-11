@@ -11,10 +11,10 @@ Sis.User = DS.Model.extend({
   }.property('firstName', 'lastName'),
   isTeacher: function() {
     return this.get('type') === "Teacher";
-  },
+  }.property('type'),
   isStudent: function() {
     return this.get('type') === "Student";
-  }
+  }.property('type'),
 });
 
 Sis.Student = Sis.User.extend({

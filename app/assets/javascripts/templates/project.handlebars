@@ -1,10 +1,14 @@
 <div class="col-md-9">
+  <div class="btn-group task-filter-buttons">
+    <button {{action showAllTasks}} type="button" class="btn btn-default">All Tasks</button>
+    <button {{action showUserTasks}} type="button" class="btn btn-default">My Tasks</button>
+  </div>
   <div class="panel panel-default">
     <div class="panel-heading">
       {{render "currentUser" currentUser}}
     </div>
     <div class="panel-body">
-      {{render "tasks" requiredTasks}}
+      {{render "tasks" filteredRequiredTasks}}
     </div>
   </div>
   
