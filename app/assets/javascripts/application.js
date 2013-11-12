@@ -41,4 +41,8 @@ Sis = Ember.Application.create({
   // LOG_VIEW_LOOKUPS: true,
 });
 
+Ember.RSVP.configure('onerror', function(error) {
+  Ember.Logger.assert(false, error);
+});
+
 //= require_tree .
