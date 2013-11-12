@@ -4,20 +4,30 @@ Sis.Router.map(function() {
   
   this.route('project', { path: '/projects/:project_id'});
   
-  this.resource('users', function() {
+  this.resource('user', function() {
   	this.route('new');
   });
   
-  this.resource('users', function() {
+  this.resource('session', function() {
   	this.route('new');
   	this.route('destroy');
   });
 
 });
 
-Sis.UsersNewRoute = Ember.Route.exted({
+Sis.StudentsNewRoute = Ember.Route.extend({
 	model: function() {
-		return Sis.User.createRecord();
+		return Sis.Student.createRecord({ type: 'Student' });
+	},
+
+	setupController: function(controller, model) {
+		controller.set('content', model);
+	}
+});
+
+Sis.TeachersNewRoute = Ember.Route.extend({
+	model: function() {
+		return Sis.Teacher.createRecord({ type: 'Teacher' });
 	},
 
 	setupController: function(controller, model) {

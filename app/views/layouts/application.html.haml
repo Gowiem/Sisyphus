@@ -14,7 +14,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = render "shared/navigation"
+    / = render "shared/navigation"
     %main.container 
       - flash.each do |name, msg|
         %div{ class: "alert alert-dismissable alert-#{ name == :notice ? "success" : "info" }" }

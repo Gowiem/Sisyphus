@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
 	def create
-		if true
-			user = Student.new(params[:student])
-		else
-			user = Teacher.new(params[:teacher])
-		end
+		user = User.new(user_params)
 
 		if user.save
 			render json: user, status: :created
@@ -16,4 +12,9 @@ class UsersController < ApplicationController
 	def show
 		respond_with current_user
 	end
+
+	private
+		def user_params
+			params.require(:user).permit(:email, :first_name, :last_mame, :password, :password_confirmation)
+		end
 end
