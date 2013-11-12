@@ -1,12 +1,12 @@
 {{#if isShowingComments}}
   <div class="comments-container">
+    <div class="comment-actions">
+      <a href="#" {{action closeComments}}> Hide Comments </a>
+    </div>
     {{#each comment in content}}
       {{render "comment" comment}}
     {{/each}}
     {{render "newComment"}}
-    <div class="comment-actions">
-      <a href="#" {{action closeComments}}> Hide Comments </a>
-    </div>
   </div>
 {{else}}
   {{#if hasComments}}

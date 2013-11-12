@@ -1,8 +1,10 @@
-<div class="comment">
-  <h5> {{user.fullName}} </h5>
-  <div class="comment-date pull-right"> Created at: {{readableCreateAtDate}}</div>
-  <p> {{body}} </p>
-  {{#if canDelete}}
-    <a class="comment-delete" {{action deleteComment}}>Delete</a>
-  {{/if}}
+<div {{bind-attr class=":comment isDisputed:disputed"}}>
+  <div class="comment-header clearfix">
+    <h4 class="pull-left"> {{user.fullName}} </h4>
+    <div class="comment-date">{{readableCreateAtDate}}</div>
+    {{#if showingDelete}}
+      <a class="comment-delete pull-right" {{action deleteComment}}>Delete</a>
+    {{/if}}
+  </div>
+  <p {{bind-attr class="isDisputed:disputed"}}> {{body}} </p>
 </div>
