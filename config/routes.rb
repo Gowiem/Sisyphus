@@ -28,20 +28,24 @@ Sisyphus::Application.routes.draw do
   resources :subtasks, :constraints => FormatTest.new(:json)
   resources :students, :constraints => FormatTest.new(:json)
   resources :comments, :constraints => FormatTest.new(:json)
+  resources :users, only: [:create, :show]
+ #resources :teachers, only: [:create, :show]
+  resources :sessions, only: [:create, :destroy]
 
-  devise_for :teachers
-  devise_scope :teacher do
-    get "/teachers/login" => "devise/sessions#new", :as => "teacher_login"
-    get "/teachers/logout" => "devise/sessions#destroy", :as => "teacher_logout"
-    get "/teachers/register" => "devise/registrations#new", :as => "teacher_register"
-  end
+  
+  # devise_for :teachers
+  # devise_scope :teacher do
+  #   get "/teachers/login" => "devise/sessions#new", :as => "teacher_login"
+  #   get "/teachers/logout" => "devise/sessions#destroy", :as => "teacher_logout"
+  #   get "/teachers/register" => "devise/registrations#new", :as => "teacher_register"
+  # end
 
-  devise_for :students
-  devise_scope :student do 
-    get "/students/login" => "devise/sessions#new", :as => "student_login"
-    get "/students/logout" => "devise/sessions#destroy", :as => "student_logout"
-    get "/students/register" => "devise/registrations#new", :as => "student_register"
-  end
+  # devise_for :students
+  # devise_scope :student do 
+  #   get "/students/login" => "devise/sessions#new", :as => "student_login"
+  #   get "/students/logout" => "devise/sessions#destroy", :as => "student_logout"
+  #   get "/students/register" => "devise/registrations#new", :as => "student_register"
+  # end
 
   root :to => "ember#index", as: :ember_root, :constraints => FormatTest.new(:html)
 

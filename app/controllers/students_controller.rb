@@ -1,6 +1,22 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:update]
 
+  def create
+    if true
+      user = Student.new(params[:student])
+    end
+
+    if user.save
+      render json: user, status: :created
+    else
+      respond_with user
+    end
+  end
+
+  def show
+    respond_with current_user
+  end
+
   def update
     respond_to do |format|
       if @student.update(student_params)

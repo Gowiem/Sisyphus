@@ -1,6 +1,8 @@
 Sis.User = DS.Model.extend({
   type: DS.attr('string'),
   email: DS.attr('string'),
+  password: DS.attr('string'),
+  passwordConfirmation: DS.attr('string'),
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
   projects: DS.hasMany('project'),

@@ -10,8 +10,9 @@ Sis.initializer({
 
       // Push the user model into the store and then grab the newly created user model
       // TODO: Expecting students here, so we'll have to fix this later to work with teachers as well.
-      store.push('student', userJson);
-      user = store.find('student', userJson.id);
+      var type = userJson['type'] === 'Student' ? 'student' : 'teacher';
+      store.push(type, userJson);
+      user = store.find(type, userJson.id);
 
       // Set the currentUserController's content to this user and inject the controller
       // into all the things. 
