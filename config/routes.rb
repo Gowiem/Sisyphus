@@ -28,6 +28,8 @@ Sisyphus::Application.routes.draw do
   resources :subtasks, :constraints => FormatTest.new(:json)
   resources :students, :constraints => FormatTest.new(:json)
   resources :comments, :constraints => FormatTest.new(:json)
+  resources :user, only: [:create, :show]
+  resources :sessions, only: [:create, :destroy]
 
   devise_for :teachers
   devise_scope :teacher do

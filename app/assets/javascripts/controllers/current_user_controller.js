@@ -1,5 +1,5 @@
 Sis.CurrentUserController = Ember.ObjectController.extend({
   isSignedIn: function() {
-    return this.get('content') != null;
-  }.property('content'),
+    return this.get('content') && this.get('content').get('isLoaded');
+  }.property('content.isLoaded'),
 });
