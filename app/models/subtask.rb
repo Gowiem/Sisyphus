@@ -1,4 +1,5 @@
 class Subtask < Task
+  field :is_disputed, type: Boolean, default: false
 
   belongs_to :project_group
   # Key the belongs_to required_task relation off of 'parent_task'
