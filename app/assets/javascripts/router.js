@@ -48,9 +48,9 @@ Sis.SessionsNewRoute = Ember.Route.extend({
 Sis.SessionDestroyRoute = Ember.Route.extend({
 	enter: function() {
 		var controller = this.controllerFor('currentUser');
-		controller.get('content', undefined);
+		controller.set('content', null);
 
-		Sis.Session.find('current').then(function (session) {
+		this.store.find('session' { id: 'current' }).then(function (session) {
 			session.deleteRecord();
 			controller.store.commit();
 		});

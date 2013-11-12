@@ -20,7 +20,7 @@ Sisyphus::Application.routes.draw do
   ##########
 
   ## Rails Admin Routes
-  devise_for :super_admins
+  # devise_for :super_admins
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :projects, :constraints => FormatTest.new(:json)
@@ -28,8 +28,8 @@ Sisyphus::Application.routes.draw do
   resources :subtasks, :constraints => FormatTest.new(:json)
   resources :students, :constraints => FormatTest.new(:json)
   resources :comments, :constraints => FormatTest.new(:json)
+
   resources :users, only: [:create, :show]
- #resources :teachers, only: [:create, :show]
   resources :sessions, only: [:create, :destroy]
 
   

@@ -2,16 +2,16 @@
 	<div class="container">
 		<div class="navbar-header">
 			<div class="brand">
-				<img src="http://http://coconutheadsets.com/wp-content/uploads/2009/12/sisyphus.jpg">
+				<img src="http://placekitten.com/150/75">
 			</div>
 		</div>
 		<ul class="nav navbar-nav navbar-right navbar-text">
 			{{#if currentUser.isSignedIn}}
 			  Logged in as {{currentUser.email}}
-			  {{#linkTo 'sessions.destroy'}}Logout{{/linkTo}}
+			  {{#linkTo 'session.destroy'}}Logout{{/linkTo}}
 			{{else}}
-			  {{#linkTo 'users.new'}}Sign Up{{/linkTo}} |
-			  {{#linkTo 'sessions.new'}}Login{{/linkTo}}
+			  {{#linkTo 'user.new'}}Sign Up{{/linkTo}} |
+			  {{#linkTo 'session.new'}}Login{{/linkTo}}
 			{{/if}}
 		</ul>
 	</div>
