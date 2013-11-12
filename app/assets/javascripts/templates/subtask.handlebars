@@ -1,4 +1,4 @@
-<li class="subtask-container clearfix row" {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+<li {{bind-attr class=":subtask-container :clearfix :row isDisputed:disputed isCompleted:completed isEditing:editing"}}>
   {{#if isEditing}}
     {{render "editSubtask" model parentBinding="this"}}
   {{else}}

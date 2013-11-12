@@ -7,10 +7,11 @@ Sis.Task = DS.Model.extend({
 
 Sis.RequiredTask = Sis.Task.extend({
   project: DS.belongsTo('project'),
-  subtasks: DS.hasMany('subtask')
+  subtasks: DS.hasMany('subtask'),
 });
 
 Sis.Subtask = Sis.Task.extend({
+  isDisputed: DS.attr('boolean'),
   projectGroup: DS.belongsTo('projectGroup'),
   parentTask: DS.belongsTo('requiredTask'),
   students: DS.hasMany('student'),

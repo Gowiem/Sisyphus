@@ -7,12 +7,16 @@ Sis.NewCommentController = Ember.ObjectController.extend({
     createComment: function() {
       var content = this.get('content'), 
           subtask = this.get('target.target.model');
-      content.set('user', Sis.currentUser);
-      subtask.get('comments').addObject(content);
-      content.set('subtask', subtask);
-      // subtask.save();
-      content.save();
-      this.set('content', this.store.createRecord(Sis.Comment, {}));
+      this.get('currentUser.model').then(function(currentUser) {
+        
+        content.set('user', currentUser);
+        subtask.get('comments').addObject(content);
+        content.set('subtask', subtask);
+
+        content.save();
+
+        this.set('content', this.store.createRecord(Sis.Comment, {}));
+      });
     }
   }
 });

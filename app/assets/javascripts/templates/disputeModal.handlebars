@@ -19,15 +19,16 @@
             {{/each}}
           </ul>
         </div>
-        
+
         {{! Reason Section }}
         <div class="dispute-reason">
           <h4>Reason for Disputing</h4>
-          {{textarea cols="80" rows="6" placeholder="Give constructive feedback on how this task can be improved."}}
+          {{textarea valueBinding="disputeReason" cols="80" rows="6" placeholder="Give constructive feedback on how this task can be improved."}}
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" {{bind-attr class=":btn :btn-primary hasEnteredReason::deactivated"}}>Submit</button>
+        <button type="button" {{bind-attr class=":btn :btn-primary hasEnteredReason::deactivated"}} 
+          {{action submitDisputed}}>Submit</button>
         <a data-dismiss="modal">Cancel</a>
       </div>
     </div>

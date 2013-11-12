@@ -2,6 +2,7 @@ Sis.SubtaskController = Ember.ObjectController.extend({
   needs: "project",
   isEditing: false,
   showingDispute: false,
+  disputeReason: null,
 
   disputeModalId: function() {
     return "dispute-modal-" + this.get('content.id');
@@ -13,6 +14,9 @@ Sis.SubtaskController = Ember.ObjectController.extend({
     if (value === undefined) {
       return model.get('isCompleted');
     } else {
+      // Set this model as undisputed. This is to make sure completed tasks get undisputed. 
+      model.set('isDisputed', false);
+
       model.set('isCompleted', value);
       model.save();
       this.get('controllers.project').notifyPropertyChange('progressBarSize');
@@ -35,6 +39,31 @@ Sis.SubtaskController = Ember.ObjectController.extend({
     disputeSubtask: function() {
       var modalId = this.get('disputeModalId');
       $('#' + modalId).modal({});
+    },
+    submitDisputed: function() {
+      var subtask = this.get('model'),
+          disputeComment = this.store.createRecord(Sis.Comment, {}),
+          modalId = this.get('disputeModalId');
+
+      // Create the new comment which disputes this subtask being completed.
+      // currentUser.model returns a promise so we need to wrap the save in this 'then'
+      this.get('currentUser.model').then(function(currentUser) {
+        disputeComment.set('user', currentUser);
+        disputeComment.save();
+      });
+
+      disputeComment.set('body', this.get('disputeReason'));
+      disputeComment.set('subtask', subtask);
+
+      // Set this subtask as disputed, not completed, add the new comment, and save.
+      subtask.set('isDisputed', true);
+      subtask.set('isCompleted', false);
+      subtask.get('comments').pushObject(disputeComment);
+      subtask.save();
+
+      // Reset the disputeReason and hide the modal
+      this.set('disputeReason', null);
+      $('#' + modalId).modal('hide');
     },
   }
 });
