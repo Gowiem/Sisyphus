@@ -5,8 +5,8 @@ Sis.AuthController = Ember.ObjectController.extend({
     console.log("AuthController - login");
     var self = this,
         postData = {
-          "student[email]": route.currentModel.get('email'), 
-          "student[password]": route.currentModel.get('password') 
+          "student[email]": route.currentModel.get('email'),
+          "student[password]": route.currentModel.get('password')
         };
     $.ajax({
       url: Sis.urls.login,
@@ -48,8 +48,23 @@ Sis.AuthController = Ember.ObjectController.extend({
       }
     });
   },
-  register: function() {
-
+  register: function(route) {
+    var self = this,
+        registrationData = {
+          'student[email]': route.currentModel.get('email'),
+          'student[password]': route.currentModel.get('password'),
+          'student[password_confirmation]': route.currentModel.get('password_confirmation')
+        };
+    $.ajax({
+      url: Sis.urls.register,
+      type: "POST", 
+      data: registrationData,
+      success: function(data) {
+        route.transitionTo('index');
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log("Error while registering: ", errorThrown);
+      }
+    });
   },
-
 });

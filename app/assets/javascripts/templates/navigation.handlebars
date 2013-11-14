@@ -7,9 +7,10 @@
     </div>
     <ul class="nav navbar-nav navbar-right navbar-text">
         {{#if isAuthenticated}}
-            <button class="btn" {{action logout}}>Logout</button>
+            <a href="#" {{action logout}}> Logout </a>
         {{else}}
             {{#link-to 'login' }} Login {{/link-to}}
+            {{#link-to 'registration' }} Sign Up {{/link-to}}
         {{/if}}
     </ul>
   </div>

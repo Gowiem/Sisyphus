@@ -4,6 +4,7 @@ Sis.Router.map(function() {
   this.route('project', { path: '/projects/:project_id'});
 
   this.route('login');
+  this.route('registration', { path: '/sign_up' });
 });
 
 Sis.Router.reopen({
