@@ -4,14 +4,19 @@ Sis.AuthController = Ember.ObjectController.extend({
   login: function(route) {
     console.log("AuthController - login");
     var self = this,
-        postData = { "user[email]": route.currentModel.email, "user[password]": route.currentModel.password };
+        postData = {
+          "student[email]": route.currentModel.get('email'), 
+          "student[password]": route.currentModel.get('password') 
+        };
     $.ajax({
       url: Sis.urls.login,
       type: "POST",
       data: postData,
       success: function(data) {
-        self.set('currentUser', data.user);
-        route.transitionTo('home');
+        self.store.push('student', data.student);
+        user = self.store.find('student', data.student.id);
+        self.set('currentUser', user);
+        route.transitionTo('index');
       },
       error: function(jqXHR, textStatus, errorThrown) {
         if (jqXHR.status==401) {
@@ -19,7 +24,7 @@ Sis.AuthController = Ember.ObjectController.extend({
         } else if (jqXHR.status==406) {
           route.controllerFor('login').set("errorMsg", "Request not acceptable (406):  make sure Devise responds to JSON.")
         } else {
-          console.log("Login Error: #{jqXHR.status} | #{errorThrown}");
+          console.log("Login Error: ", jqXHR.status, "error: ", errorThrown);
         }
       }
     });
@@ -32,10 +37,9 @@ Sis.AuthController = Ember.ObjectController.extend({
       type: "DELETE",
       dataType: "json",
       success: function(data, textStatus, jqXHR) {
-        debugger
-        $('meta[name="csrf-token"]').attr('content', data['csrf-token'])
-        $('meta[name="csrf-param"]').attr('content', data['csrf-param'])
-        console.log('logged out successful');
+        console.log('Logged out successfully');
+        $('meta[name="csrf-token"]').attr('content', data['csrf-token']);
+        $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
         self.set('currentUser', null);
         self.transitionToRoute('login');
       },
