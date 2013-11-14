@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <div class="brand">
+        <img src="http://placekitten.com/150/75">
+      </div>
+    </div>
+    <ul class="nav navbar-nav navbar-right navbar-text">
+        {{#if isAuthenticated}}
+            <button class="btn" {{action logout}}>Logout</button>
+        {{else}}
+            {{#link-to 'login' }} Login {{/link-to}}
+        {{/if}}
+    </ul>
+  </div>
+</nav>

@@ -14,7 +14,6 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = render "shared/navigation"
     %main.container 
       - flash.each do |name, msg|
         %div{ class: "alert alert-dismissable alert-#{ name == :notice ? "success" : "info" }" }
@@ -24,5 +23,5 @@
       / Yield brings in the currently rendered view, which in our case will 
       / only be the devise authentication views (sign in, sign up, ect.)
       / Note: Ember will input it's application.handlebars template outside 
-      / of this container directly under the body element.
+      / of this container directly under this yield.
       = yield
