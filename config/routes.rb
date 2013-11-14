@@ -24,6 +24,7 @@ Sisyphus::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :students, controllers: { sessions: 'sessions' }
+  devise_for :teachers, controllers: { sessions: 'sessions' }
 
   resources :projects, :constraints => FormatTest.new(:json)
   resources :project_groups, :constraints => FormatTest.new(:json)

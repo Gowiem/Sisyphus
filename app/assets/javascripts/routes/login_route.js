@@ -16,3 +16,7 @@ Sis.LoginRoute = Ember.Route.extend({
     }
   }
 });
+
+Sis.StudentLoginRoute = Sis.LoginRoute.extend({});
+Sis.TeacherLoginRoute = Sis.LoginRoute.extend({});
+

@@ -2,21 +2,26 @@ Sis.AuthController = Ember.ObjectController.extend({
   currentUser: null,
   isAuthenticated: Em.computed.notEmpty("currentUser.email"),
   login: function(route) {
-    console.log("AuthController - login");
-    var self = this,
-        postData = {
-          "student[email]": route.currentModel.get('email'),
-          "student[password]": route.currentModel.get('password')
-        };
+    var self = this, 
+        userType = route.routeName === "studentLogin" ? "student" : "teacher",
+        loginUrl = Sis.urls[userType + 'Login'],
+        postData = {};
+    postData[userType + "[email]"] = route.currentModel.get('email');
+    postData[userType + "[password]"] = route.currentModel.get('password');
     $.ajax({
-      url: Sis.urls.login,
+      url: loginUrl,
       type: "POST",
       data: postData,
       success: function(data) {
-        self.store.push('student', data.student);
-        user = self.store.find('student', data.student.id);
-        self.set('currentUser', user);
-        route.transitionTo('index');
+        self.store.push(userType, data[userType]);
+        self.store.find(userType, data[userType].id).then(function(user) {
+          self.set('currentUser', user);
+          if (user.get('isTeacher')) {
+            route.transitionTo('/teachers');
+          } else {
+            route.transitionTo('/projects');
+          }
+        });
       },
       error: function(jqXHR, textStatus, errorThrown) {
         if (jqXHR.status==401) {
@@ -31,9 +36,10 @@ Sis.AuthController = Ember.ObjectController.extend({
   },
   logout: function() {
     console.log("AuthController - logout");
-    var self = this;
+    var self = this,
+        logoutUrl = this.get('currentUser').get('isTeacher') ? Sis.urls['teacherLogout'] : Sis.urls['studentLogout'];
     $.ajax({
-      url: Sis.urls.logout,
+      url: logoutUrl,
       type: "DELETE",
       dataType: "json",
       success: function(data, textStatus, jqXHR) {
@@ -41,7 +47,7 @@ Sis.AuthController = Ember.ObjectController.extend({
         $('meta[name="csrf-token"]').attr('content', data['csrf-token']);
         $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
         self.set('currentUser', null);
-        self.transitionToRoute('login');
+        self.transitionToRoute('home');
       },
       error: function(jqXHR, textStatus, errorThrown) {
         console.log("Error loggin out: ", errorThrown);
