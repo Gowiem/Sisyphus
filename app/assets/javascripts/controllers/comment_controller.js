@@ -1,6 +1,6 @@
 Sis.CommentController = Ember.ObjectController.extend({
   canDelete: function() {
-    return this.get('model.user.id') === this.get('currentUser.id');
+    return this.get('model.user.id') === this.get('auth.currentUser.id');
   }.property('model.user'),
   readableCreateAtDate: function() {
     var createdAt = this.get('model.createdAt');
