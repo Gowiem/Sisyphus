@@ -1,6 +1,6 @@
 Sis.RegistrationRoute = Ember.Route.extend({
   model: function() {
-    return this.store.createRecord('student', {});
+    return this.store.createRecord('user', {});
   }, 
   activate: function() {
     // Reset the registration controller so the user needs to pick their user type agian.
@@ -9,10 +9,11 @@ Sis.RegistrationRoute = Ember.Route.extend({
   },
   actions: {
     register: function() {
-      this.controllerFor('auth').register(this);
+      var userType = this.get('controller.userType');
+      this.controllerFor('auth').register(this, userType);
     }, 
     cancel: function() {
-      // TODO: Need homepage
+      this.transitionTo('home');
     }
   }
 });

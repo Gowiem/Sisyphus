@@ -1,6 +1,9 @@
 Sis.AuthController = Ember.ObjectController.extend({
   currentUser: null,
   isAuthenticated: Em.computed.notEmpty("currentUser.email"),
+
+  // Login
+  /////////
   login: function(route) {
     var self = this, 
         userType = route.routeName === "studentLogin" ? "student" : "teacher",
@@ -34,6 +37,9 @@ Sis.AuthController = Ember.ObjectController.extend({
       }
     });
   },
+
+  // Logout
+  //////////
   logout: function() {
     console.log("AuthController - logout");
     var self = this,
@@ -54,19 +60,22 @@ Sis.AuthController = Ember.ObjectController.extend({
       }
     });
   },
-  register: function(route) {
+
+  // Registration
+  ////////////////
+  register: function(route, userType) {
     var self = this,
-        registrationData = {
-          'student[email]': route.currentModel.get('email'),
-          'student[password]': route.currentModel.get('password'),
-          'student[password_confirmation]': route.currentModel.get('password_confirmation')
-        };
+        registerUrl = Sis.urls[userType + 'Register'],
+        registerData = {};
+    registerData[userType + '[email]'] = route.currentModel.get('email');
+    registerData[userType + '[password]'] = route.currentModel.get('password');
+    registerData[userType + '[password_confirmation]'] = route.currentModel.get('password_confirmation');
     $.ajax({
-      url: Sis.urls.register,
+      url: registerUrl,
       type: "POST", 
-      data: registrationData,
+      data: registerData,
       success: function(data) {
-        route.transitionTo('index');
+        route.transitionTo('home');
       },
       error: function(jqXHR, textStatus, errorThrown) {
         console.log("Error while registering: ", errorThrown);
