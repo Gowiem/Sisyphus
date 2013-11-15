@@ -20,9 +20,9 @@ Sis.AuthController = Ember.ObjectController.extend({
         self.store.find(userType, data[userType].id).then(function(user) {
           self.set('currentUser', user);
           if (user.get('isTeacher')) {
-            route.transitionTo('/teachers');
+            route.transitionTo('teachers');
           } else {
-            route.transitionTo('/projects');
+            route.transitionTo('home');
           }
         });
       },
