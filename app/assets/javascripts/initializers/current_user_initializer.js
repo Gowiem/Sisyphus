@@ -23,6 +23,7 @@ Sis.initializer({
     // and inject the controller into all the things.
     application.register('user:current', Sis.User, { singleton: true });
     controller = container.lookup('controller:auth').set('currentUser', user);
+    controller = container.lookup('controller:currentUser').set('content', user);
     application.inject('controller', 'auth', 'controller:auth');
     application.inject('route', 'auth', 'controller:auth');
   }

@@ -8,7 +8,7 @@
       {{#if showingAllTasks}}
         {{partial "projectInfo"}}
       {{else}}
-        {{render "currentUser" currentUser}}
+        {{render "currentUser" auth.currentUser}}
       {{/if}}
     </div>
     <div class="panel-body">

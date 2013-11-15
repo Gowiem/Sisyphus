@@ -6,10 +6,9 @@ Sis.ProjectController = Ember.ObjectController.extend({
   // Computed Properties
   ///////////////////////
   groupMembers: function() {
-    return this.get('model.students').filter(function(student, idx) {
-      return !student.get('currentUser');
-    });
-  }.property('students'),
+    var currentUserId = this.get('auth.currentUser.id');
+    return this.get('model.students').rejectProperty('id', currentUserId);
+  }.property(),
   
   filteredRequiredTasks: function() {
     var showingAll = this.get('showingAllTasks'),
@@ -17,7 +16,7 @@ Sis.ProjectController = Ember.ObjectController.extend({
     if (showingAll) {
       return this.get('requiredTasks');
     } else {
-      userSubtasks = this.get('currentUser.subtasks');
+      userSubtasks = this.get('auth.currentUser.subtasks');
       return userSubtasks.mapBy('parentTask').uniq();
     }
   }.property('requiredTasks', 'showingAllTasks'),
