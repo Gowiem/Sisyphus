@@ -11,8 +11,7 @@ Sis.LoginRoute = Ember.Route.extend({
       this.controllerFor('auth').login(this);
     },
     cancel: function() {
-      console.log("Cancelling login, TODO: Create a home page which gives logins for both user types and a description of the project.");
-      // Should redirect to a home page, which we dont have. 
+      this.transitionTo('home');
     }
   }
 });

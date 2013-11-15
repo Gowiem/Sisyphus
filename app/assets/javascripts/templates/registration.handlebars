@@ -1,3 +1,5 @@
+
+{{#if hasPickedAUserType}}
 <h2>Create an Account</h2>
 <form class="form-horizontal user-form" role="form">
   <div class="form-group">
@@ -31,3 +33,8 @@
     </div>
   </div>
 </form>
+{{else}}
+  <h2>Please pick a user type</h2>
+  <button {{action pickStudentType}}>Student</button>
+  <button {{action pickTeacherType}}>Teacher</button>
+{{/if}}
