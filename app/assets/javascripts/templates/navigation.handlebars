@@ -7,10 +7,20 @@
     </div>
     <ul class="nav navbar-nav navbar-right navbar-text">
         {{#if isAuthenticated}}
-            <a href="#" {{action logout}}> Logout </a>
+          <li class="dropdown" id="project-nav-container">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Projects <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              {{#each project in projects}}
+                {{project-nav-item project=project name=project.title}}
+              {{/each}}
+            </ul>
+          </li>
+          <li><a href="#" {{action logout}}> Logout </a></li>
         {{else}}
           {{#unless onSignupRoute}}
-            {{#link-to 'registration' }} Sign Up {{/link-to}}
+            <li>{{#link-to 'registration' }} Sign Up {{/link-to}}</li>
           {{/unless}}
         {{/if}}
     </ul>

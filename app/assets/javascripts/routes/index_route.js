@@ -6,7 +6,7 @@ Sis.IndexRoute = Ember.Route.extend({
     } else if (currentUser.get('isTeacher')) {
       this.transitionTo('/teachers');
     } else {
-      this.transitionTo('/projects');
+      this.transitionTo('home');
     }
   }
 });

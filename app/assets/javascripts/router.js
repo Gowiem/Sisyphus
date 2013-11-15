@@ -4,8 +4,7 @@ Sis.Router.map(function() {
   this.route('home', { path: '/' });
 
   this.route('teachers', { path: '/teachers' })
-
-  this.route('projects', { path: '/projects' });
+  
   this.route('project', { path: '/projects/:project_id'});
 
   this.route('studentLogin', { path: '/students/login' });
