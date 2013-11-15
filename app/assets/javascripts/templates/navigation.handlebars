@@ -9,7 +9,9 @@
         {{#if isAuthenticated}}
             <a href="#" {{action logout}}> Logout </a>
         {{else}}
+          {{#unless onSignupRoute}}
             {{#link-to 'registration' }} Sign Up {{/link-to}}
+          {{/unless}}
         {{/if}}
     </ul>
   </div>
