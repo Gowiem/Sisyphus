@@ -33,7 +33,7 @@ Sis.ProjectController = Ember.ObjectController.extend({
 
     // Counldn't figure out what to key this computer propety off of since you 
     // can't chain @each calls like so: 'requiredTasks.@each.subtasks.@each.isCompleted'
-    // so for now we'll just fire the propety change event manually when is subtask 
+    // so for now we'll just fire the propety change event manually when subtask 
     // is completed/uncompleted. 
   }.property(), 
 

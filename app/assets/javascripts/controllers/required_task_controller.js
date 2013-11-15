@@ -1,9 +1,24 @@
 Sis.RequiredTaskController = Ember.ObjectController.extend({
+  needs: "project",
   addingNewTask: false,
   showCompletedVal: false,
 
   // Computed Properties
   ///////////////////////
+
+  currentSubtasks: function() {
+    var showingAllTasks = this.get('controllers.project.showingAllTasks'),
+        currentUserSubtaskIds;
+    if (showingAllTasks) {
+      return this.get('subtasks');
+    } else {
+      currentUserSubtaskIds = this.get('auth.currentUser.subtasks.@each.id');
+      return this.get('subtasks').filter(function(subtask, idx) {
+        return currentUserSubtaskIds.contains(subtask.get('id'));
+      });
+    }
+  }.property(),
+
   showingCompleted: function(key, value) {
     if (value === undefined) {
       var showCompleted = this.get('showCompletedVal');
@@ -23,11 +38,11 @@ Sis.RequiredTaskController = Ember.ObjectController.extend({
   }.property('subtasks.@each.isCompleted'),
 
   uncompletedSubtasks: function() {
-    return this.get('subtasks').filterBy('isCompleted', false);
-  }.property('subtasks.@each.isCompleted'),
+    return this.get('currentSubtasks').filterBy('isCompleted', false);
+  }.property('currentSubtasks.@each.isCompleted'),
   completedSubtasks: function() {
-    return this.get('subtasks').filterBy('isCompleted');
-  }.property('subtasks.@each.isCompleted'),
+    return this.get('currentSubtasks').filterBy('isCompleted');
+  }.property('currentSubtasks.@each.isCompleted'),
 
   // We should only be showing the 'showCompleted' action if showingCompleted is false
   // and there are actaully completedSubtasks to show. 
