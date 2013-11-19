@@ -21,6 +21,7 @@ gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'rails_admin', github: 'jcoleman/rails_admin', branch: 'vendorize-bootstrap-2'
 
 group :development, :test do
+  gem 'railroady'
   gem 'fabrication'
   gem 'rspec-rails'
   gem 'debugger'

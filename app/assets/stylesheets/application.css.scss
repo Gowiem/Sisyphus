@@ -14,3 +14,31 @@
 
 @import "bootstrap";
 @import "bootstrap/theme";
+
+/* variables */
+$font-family: "Proxima Nova", Calibri, Arial, sans-serif;
+$primary-color: #3BA39E;
+
+body {
+  font-family: $font-family;
+  h1,h2,h3,h4,h5,h6 {
+  	font-family: $font-family;
+  }
+}
+
+h1 { 
+	font-weight: bold; 
+}
+h3 {
+	color: #DDD;
+	font-size: 21px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+h4 {
+	font-size: 16px;
+}
+
+a {
+	color: $primary-color;
+}

@@ -24,13 +24,16 @@ Open up a terminal (terminal.app on OSX) and input the following:
 
 ## Running the server once you've installed everything
 Once you've gotten all of the above working and you've been able to check out the site at localhost:3000 you'll only need to do the following two things to get the server running again. 
+- Make sure your local copy of the project is up to date with the master by doing git pull => `cd ~/Workspace/Sisyphus && git pull origin master`
 - Start MongoDB, in a new terminal window => `mongod`
-- Start the Rails server from the project directory => `cd ~/Workspace/Sisyphus && rails server` Note that '~/Workspace/Sisyphus' is the directory where you cloned the project and it may be in a different location depending on where you put it. 
-- Login information => Email: firstname@email.com Password: password12
+- Start the Rails server from the project directory => `cd ~/Workspace/Sisyphus && rails server` 
+- Go to localhost:3000 in your browser and your login information should be => Email: yourfirstname@email.com Password: password12
+
+**Note**: Above I refer to '~/Workspace/Sisyphus' as the directory where you cloned the project. This may be different depending on where you did `git clone ...`. 
 
 ## Seed Data
 
-###Need some data? 
+###Need some data?
 
 Once you're all setup you can run the following command from the root directory of the project to populate your local database with seed data:
 

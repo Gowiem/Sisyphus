@@ -1,3 +1,7 @@
+.task-filter-buttons {
+  margin-bottom: 20px;
+}
+
 .subtask-container {
   list-style-type: none;
   
@@ -5,9 +9,20 @@
     float: left;
   }
 
+  .date-container {
+    padding-top: 7px;
+
+    p {
+      padding-left: 10px;
+      background-color: #EBC5A4;
+    }
+  }
+
   .title-container {
+    margin-bottom: -7px;
     .completed-checkbox {
       float: left;
+      margin-top: 12px;
     }
     .subtask-title {
       margin-left: 20px;
@@ -18,8 +33,19 @@
   }
 }
 
+.subtask-container:hover {
+  background-color: #81C7C4;
+}
+
 .comments-container {
 
+  padding-left: 35px;
+
+  a {
+    font-size: 11px;
+    color: #81C7C4;
+    float: left;
+  }
   .comment {
     .disputed {
       color: red;

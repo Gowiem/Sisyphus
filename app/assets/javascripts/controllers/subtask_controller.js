@@ -44,19 +44,16 @@ Sis.SubtaskController = Ember.ObjectController.extend({
       var subtask = this.get('model'),
           disputeComment = this.store.createRecord(Sis.Comment, {}),
           disputeReason = this.get('disputeReason'),
-          modalId = this.get('disputeModalId');
+          modalId = this.get('disputeModalId'),
+          user = this.get('auth.currentUser');
 
       // Create the new comment which disputes this subtask being completed.
       // currentUser.model returns a promise so we need to wrap the save in this 'then'
-      debugger
-      this.get('auth.currentUser').then(function(currentUser) {
-        disputeComment.set('user', currentUser);
-        disputeComment.save();
-      });
-
       disputeComment.set('isDisputed', true);
       disputeComment.set('body', disputeReason);
       disputeComment.set('subtask', subtask);
+      disputeComment.set('student', user);
+      disputeComment.save();
 
       // Set this subtask as disputed, not completed, add the new comment, and save.
       subtask.set('isDisputed', true);
