@@ -1,7 +1,7 @@
 {{#if isShowingComments}}
   <div class="comments-container">
     <div class="comment-actions">
-      <a href="#" {{action closeComments}}> Hide Comments </a>
+      <a href="#" {{action closeComments}}><span class="glyphicon glyphicon-comment"></span> Hide Comments </a>
     </div>
     {{#each comment in content}}
       {{render "comment" comment}}
@@ -10,8 +10,8 @@
   </div>
 {{else}}
   {{#if hasComments}}
-    <a href="#" {{action openComments}}> {{commentsCount}} </a>
+    <a href="#" {{action openComments}}><span class="glyphicon glyphicon-comment"></span> {{commentsCount}} </a>
   {{else}}
-    <a href="#" {{action openComments}}> Add Comment </a>
+    <a href="#" {{action openComments}}><span class="glyphicon glyphicon-comment"></span> Add Comment </a>
   {{/if}}
 {{/if}}
