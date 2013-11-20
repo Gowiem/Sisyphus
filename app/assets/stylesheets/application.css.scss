@@ -17,7 +17,6 @@
 
 /* variables */
 $font-family: "Proxima Nova", Calibri, Arial, sans-serif;
-$primary-color: #3BA39E;
 
 body {
   font-family: $font-family;
@@ -30,15 +29,11 @@ h1 {
 	font-weight: bold; 
 }
 h3 {
-	color: #DDD;
+	color: #616161;
 	font-size: 21px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
 h4 {
 	font-size: 16px;
-}
-
-a {
-	color: $primary-color;
 }

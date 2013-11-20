@@ -1,3 +1,17 @@
+.panel-heading {
+  background-color: red;
+  border: 1px red solid;
+  a {
+    float: right;
+  }
+}
+
+.panel-body {
+  .completed {
+    border: 1px red solid;
+  }
+}
+
 .task-filter-buttons {
   margin-bottom: 20px;
 }
@@ -32,9 +46,27 @@
     }
   }
 }
-
 .subtask-container:hover {
-  background-color: #81C7C4;
+  background-color: #B0D5E8;
+}
+
+.edit-subtask-container {
+  background-color: #DAECF5;
+  height: 150px;
+  padding-top: 10px;
+  .col-lg-10 {
+    margin-left: 15px;
+    .control-label, .datepicker, .btn {
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+
+
+input[type="checkbox"] {
+  font-size: 120%;
 }
 
 .comments-container {
@@ -43,7 +75,7 @@
 
   a {
     font-size: 11px;
-    color: #81C7C4;
+    color: #C2C2C2;
     float: left;
   }
   .comment {

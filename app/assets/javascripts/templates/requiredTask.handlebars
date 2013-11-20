@@ -1,22 +1,24 @@
 <h3> {{title}} </h3>
-{{#if shouldShowCompletedLink}}
-  <a {{action showCompleted}}>View Completed Tasks</a>
-{{/if}}
-{{#if showingCompleted}}
-  <a {{action hideCompleted}}>Hide Completed Tasks</a>
-{{/if}}
 <ul>
+  {{#each task in uncompletedSubtasks}}
+    {{render "subtask" task}}
+  {{/each}}
   {{#if showingCompleted}}
     {{#each task in completedSubtasks}}
       {{render "subtask" task}}
     {{/each}}
   {{/if}}
-  {{#each task in uncompletedSubtasks}}
-    {{render "subtask" task}}
-  {{/each}}
 </ul>
+
 {{#if addingNewTask}}
   {{render "newTask"}}
 {{/if}}
 <a {{bind-attr class="addingNewTask:hide"}} {{action showNewTask}}><span class="glyphicon glyphicon-plus"></span> Add Task </a>
+
+{{#if shouldShowCompletedLink}}
+  <a {{action showCompleted}}><span class="completed">View Completed Tasks</span></a>
+{{/if}}
+{{#if showingCompleted}}
+  <a {{action hideCompleted}}><span class="completed">Hide Completed Tasks</span></a>
+{{/if}}
 <hr>
