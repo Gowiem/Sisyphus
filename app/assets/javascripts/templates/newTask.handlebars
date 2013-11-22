@@ -1,7 +1,10 @@
 <form role="form" class="form-horizontal">
   {{partial "subtaskPartial"}}
   <div class="col-lg-3">
-    <button {{action addNewTask target="view"}} type="button" class="btn btn-default"><i class="icon-plus"></i> Add Task</button>
+    <button {{action addNewTask target="view"}} 
+            type="button" 
+            {{bind-attr class="userCanSave::disabled :btn :btn-primary"}}>
+            <i class="icon-plus"></i> Add Task</button>
     <button {{action cancelNewTask}} type="button" class="btn btn-default">Cancel</button>
   </div>
 </form>

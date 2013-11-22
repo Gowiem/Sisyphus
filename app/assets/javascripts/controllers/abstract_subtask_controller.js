@@ -11,6 +11,11 @@ Sis.AbstractSubtaskController = Ember.ObjectController.extend({
       return moment().format('l');
     }
   }.property('content.dueDate'),
+  userCanSave: function() {
+    var hasAssignedStudents = this.get('content.students.length') >= 1;
+    var hasTitle = this.get('content.title') !== undefined && this.get('content.title') !== '';
+    return hasAssignedStudents && hasTitle;
+  }.property('content.students.length', 'content.title'),
   actions: {
     toggleUserSelect: function() {
       var controller = this;
