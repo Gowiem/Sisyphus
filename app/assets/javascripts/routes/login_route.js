@@ -1,4 +1,10 @@
 Sis.LoginRoute = Ember.Route.extend({
+  beforeModel: function() {
+    if (this.get('auth.currentUser')) {
+      var projects = this.get('auth.currentUser.projects');
+      this.transitionTo('project', projects.get('firstObject'));
+    }
+  },
   model: function() {
     return this.store.createRecord('student', {});
   },
