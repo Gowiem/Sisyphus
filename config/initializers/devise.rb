@@ -257,7 +257,12 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
 
+  ## Our Devise Changes
+  ######################
 
+  config.omniauth :google_oauth2, '10090461025.apps.googleusercontent.com', 'dCiH43TenQkSmsRHbP1ExFjo'
+
+  config.add_mapping :users, {}
   config.add_mapping :students, {}
   config.add_mapping :teachers, {}
 

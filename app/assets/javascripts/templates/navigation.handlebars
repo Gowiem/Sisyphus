@@ -19,6 +19,7 @@
           </li>
           <li><a href="#" {{action logout}}> Logout </a></li>
         {{else}}
+          <a href="/users/auth/google_oauth2">Sign in with Google</a>
           {{#unless onSignupRoute}}
             <li>{{#link-to 'registration' }} Sign Up {{/link-to}}</li>
           {{/unless}}

@@ -6,4 +6,10 @@ class SessionsController < Devise::SessionsController
       'csrf-token' => form_authenticity_token
     }
   end
+
+  def create
+    superer = super
+    sign_in(resource.type.underscore, resource.type.constantize.send(:find, resource.id)) unless resource.type.nil?
+    superer
+  end
 end
