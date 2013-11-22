@@ -1,8 +1,13 @@
 Sis.LoginRoute = Ember.Route.extend({
   beforeModel: function() {
-    if (this.get('auth.currentUser')) {
-      var projects = this.get('auth.currentUser.projects');
-      this.transitionTo('project', projects.get('firstObject'));
+    var currentUser = this.get('auth.currentUser');
+    if (currentUser) {
+      if (currentUser.get('isTeacher')) {
+        this.transitionTo('teachers');
+      } else {
+        var projects = this.get('auth.currentUser.projects');
+        this.transitionTo('project', projects.get('firstObject'));
+      }
     }
   },
   model: function() {
