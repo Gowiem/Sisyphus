@@ -22,11 +22,16 @@ Sis.ProjectController = Ember.ObjectController.extend({
   }.property('requiredTasks', 'showingAllTasks'),
 
   progressBarSize: function() {
-    var totalTasks = this.get('requiredTasks.@each.subtasks').get('length'),
-        completedTasks = 0, percentCompleted;
+    var totalTasks = 0,
+        completedTasks = 0, 
+        percentCompleted;
+    // Loop through the requiredTasks to find the count of the overall and 
+    // completed subtasks
     this.get('requiredTasks').forEach(function(item, idx){
-      var numberCompleted = item.get('subtasks').filterBy('isCompleted').get('length');
-      completedTasks += numberCompleted;
+      var overallCount = item.get('subtasks.length');
+      var completedCount = item.get('subtasks').filterBy('isCompleted').get('length');
+      totalTasks += overallCount;
+      completedTasks += completedCount;
     });
     percentCompleted = (completedTasks / totalTasks) * 100;
     return "width: " + percentCompleted + "%;";

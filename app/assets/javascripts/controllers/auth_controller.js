@@ -22,7 +22,9 @@ Sis.AuthController = Ember.ObjectController.extend({
           if (user.get('isTeacher')) {
             route.transitionTo('teachers');
           } else {
-            route.transitionTo('home');
+            route.get('store').find('project').then(function(projects) {
+              route.transitionTo('project', projects.get('firstObject'));
+            });
           }
         });
       },
