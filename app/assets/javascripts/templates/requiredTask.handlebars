@@ -13,12 +13,14 @@
 {{#if addingNewTask}}
   {{render "newTask"}}
 {{/if}}
-<a {{bind-attr class="addingNewTask:hide"}} {{action showNewTask}}><span class="glyphicon glyphicon-plus"></span> Add Task </a>
+<a class="col-lg-3" {{bind-attr class="addingNewTask:hide"}} {{action showNewTask}}><span class="glyphicon glyphicon-plus"></span> Add task</a>
 
-{{#if shouldShowCompletedLink}}
-  <a {{action showCompleted}}><span class="completed">View Completed Tasks</span></a>
-{{/if}}
-{{#if showingCompleted}}
-  <a {{action hideCompleted}}><span class="completed">Hide Completed Tasks</span></a>
-{{/if}}
+<div class="completed-container col-lg-9">
+  {{#if shouldShowCompletedLink}}
+    <a {{action showCompleted}}><span class="completed-action">View completed tasks</span></a>
+  {{/if}}
+  {{#if showingCompleted}}
+    <a {{action hideCompleted}}><span class="completed-action">Hide completed tasks</span></a>
+  {{/if}}
+</div>
 <hr>
