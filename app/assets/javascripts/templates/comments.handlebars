@@ -1,8 +1,8 @@
 {{#if isShowingComments}}
+  <div class="comment-actions">
+    <a href="#" {{action closeComments}}>Hide comments</a>
+  </div>
   <div class="comments-container">
-    <div class="comment-actions">
-      <a href="#" {{action closeComments}}><span class="glyphicon glyphicon-comment"></span> Hide comments </a>
-    </div>
     {{#each comment in content}}
       {{render "comment" comment}}
     {{/each}}

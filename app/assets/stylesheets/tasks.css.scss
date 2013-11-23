@@ -55,7 +55,7 @@ hr {
   }
 }
 .subtask-container:hover {
-  background-color: #B0D5E8;
+  background-color: #DAECF5;
   cursor: pointer;
 }
 
@@ -77,6 +77,7 @@ input[type="checkbox"] {
 }
 
 .comments-container, .edit-comments-container {
+  width: 100%;
   float: left;
   clear: both;
   padding-left: 35px;
@@ -86,13 +87,35 @@ input[type="checkbox"] {
     float: left;
     padding-bottom: 5px;
   }
+  .comment-actions a { margin-bottom: 5px; }
   .comment {
     .disputed {
       color: red;
     }
+    h4 {
+      font-weight: bold;
+      margin: 0 15px 0 0;
+    }
+    .comment-date {
+      float: left;
+      width: 100px;
+      color: #AAA;
+    }
   }
+  .btn {
+    margin-top: 10px;
+  }
+  hr { margin-top: 15px; }
 }
 .edit-comments-container {
   background-color: #DAECF5;
   margin-left: 0;
+}
+.comment-header {
+  .comment-delete {
+    color: red;
+  }
+}
+.new-comment-form {
+  margin-top: -8px;
 }
