@@ -1,8 +1,8 @@
 {{#if isShowingComments}}
+  <div class="comment-actions">
+    <a href="#" {{action closeComments}}>Hide comments</a>
+  </div>
   <div class="comments-container">
-    <div class="comment-actions">
-      <a href="#" {{action closeComments}}><span class="glyphicon glyphicon-comment"></span> Hide Comments </a>
-    </div>
     {{#each comment in content}}
       {{render "comment" comment}}
     {{/each}}
@@ -12,6 +12,6 @@
   {{#if hasComments}}
     <a href="#" {{action openComments}}><span class="glyphicon glyphicon-comment"></span> {{commentsCount}} </a>
   {{else}}
-    <a href="#" {{action openComments}}><span class="glyphicon glyphicon-comment"></span> Add Comment </a>
+    <a href="#" {{action openComments}}><span class="glyphicon glyphicon-comment"></span> Add comment </a>
   {{/if}}
 {{/if}}

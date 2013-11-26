@@ -1,4 +1,5 @@
+<hr>
 <form class="new-comment-form">
-  {{view Ember.TextField valueBinding="body"}}
-  <a href="#" {{action createComment}}><span class="glyphicon glyphicon-comment"></span> Add Comment </a>
+ 	{{view Ember.TextField valueBinding="body"}}
 </form>
+<a href="#" {{action createComment}}><button type="button" class="btn btn-default btn-xs">Add comment</button></a>
