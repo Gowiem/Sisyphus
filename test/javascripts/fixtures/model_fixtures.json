@@ -1,0 +1,257 @@
+{
+  "teachers": [
+    {
+      "id": "9f783588476f776f79010000",
+      "email": "mark@email.com",
+      "first_name": "Mark",
+      "last_name": "Sivak",
+      "type": "Teacher",
+      "project_ids": [
+        "eb793588476f776f79080000"
+      ]
+    }
+  ],
+  "required_tasks": [
+    {
+      "id": "047a3588476f776f790b0000",
+      "title": "Write documentation",
+      "due_date": null,
+      "is_completed": false,
+      "project_id": "eb793588476f776f79080000",
+      "subtask_ids": [
+        "1d7a3588476f776f79100000"
+      ]
+    },
+    {
+      "id": "037a3588476f776f790a0000",
+      "title": "Design the web app",
+      "due_date": null,
+      "is_completed": false,
+      "project_id": "eb793588476f776f79080000",
+      "subtask_ids": [
+        "147a3588476f776f790e0000",
+        "197a3588476f776f790f0000"
+      ]
+    },
+    {
+      "id": "007a3588476f776f79090000",
+      "title": "Develope the web app",
+      "due_date": null,
+      "is_completed": false,
+      "project_id": "eb793588476f776f79080000",
+      "subtask_ids": [
+        "0f7a3588476f776f790d0000",
+        "057a3588476f776f790c0000"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "eb793588476f776f79080000",
+      "title": "Sisyphus Project",
+      "teacher_id": "9f783588476f776f79010000",
+      "required_task_ids": [
+        "007a3588476f776f79090000",
+        "037a3588476f776f790a0000",
+        "047a3588476f776f790b0000"
+      ],
+      "student_ids": [
+        "27793588476f776f79030000",
+        "66793588476f776f79040000",
+        "a2793588476f776f79050000",
+        "dd793588476f776f79060000",
+        "e8783588476f776f79020000"
+      ],
+      "project_group_ids": [
+        "df793588476f776f79070000"
+      ]
+    }
+  ],
+  "subtasks": [
+    {
+      "id": "0f7a3588476f776f790d0000",
+      "title": "Develop the Teachers screen",
+      "due_date": null,
+      "is_completed": false,
+      "is_disputed": false,
+      "project_group_id": "df793588476f776f79070000",
+      "parent_task_id": "007a3588476f776f79090000",
+      "student_ids": [
+        "27793588476f776f79030000"
+      ],
+      "comment_ids": []
+    },
+    {
+      "id": "197a3588476f776f790f0000",
+      "title": "Style the home screen",
+      "due_date": null,
+      "is_completed": false,
+      "is_disputed": false,
+      "project_group_id": "df793588476f776f79070000",
+      "parent_task_id": "037a3588476f776f790a0000",
+      "student_ids": [
+        "a2793588476f776f79050000"
+      ],
+      "comment_ids": []
+    },
+    {
+      "id": "1d7a3588476f776f79100000",
+      "title": "Create the wiki",
+      "due_date": null,
+      "is_completed": false,
+      "is_disputed": false,
+      "project_group_id": "df793588476f776f79070000",
+      "parent_task_id": "047a3588476f776f790b0000",
+      "student_ids": [
+        "66793588476f776f79040000",
+        "a2793588476f776f79050000"
+      ],
+      "comment_ids": []
+    },
+    {
+      "id": "057a3588476f776f790c0000",
+      "title": "Integrate Google Oauth and Drive SDK",
+      "due_date": null,
+      "is_completed": false,
+      "is_disputed": false,
+      "project_group_id": "df793588476f776f79070000",
+      "parent_task_id": "007a3588476f776f79090000",
+      "student_ids": [
+        "e8783588476f776f79020000"
+      ],
+      "comment_ids": [
+        "257a3588476f776f79110000"
+      ]
+    },
+    {
+      "id": "147a3588476f776f790e0000",
+      "title": "Stlye the project screen",
+      "due_date": null,
+      "is_completed": false,
+      "is_disputed": false,
+      "project_group_id": "df793588476f776f79070000",
+      "parent_task_id": "037a3588476f776f790a0000",
+      "student_ids": [
+        "66793588476f776f79040000",
+        "dd793588476f776f79060000"
+      ],
+      "comment_ids": []
+    }
+  ],
+  "project_groups": [
+    {
+      "id": "df793588476f776f79070000",
+      "name": "Capstone Team",
+      "project_id": "eb793588476f776f79080000",
+      "student_ids": [
+        "27793588476f776f79030000",
+        "66793588476f776f79040000",
+        "a2793588476f776f79050000",
+        "dd793588476f776f79060000",
+        "e8783588476f776f79020000"
+      ],
+      "subtask_ids": [
+        "0f7a3588476f776f790d0000",
+        "147a3588476f776f790e0000",
+        "197a3588476f776f790f0000",
+        "1d7a3588476f776f79100000",
+        "057a3588476f776f790c0000"
+      ]
+    }
+  ],
+  "students": [
+    {
+      "id": "27793588476f776f79030000",
+      "email": "craig@email.com",
+      "first_name": "Craig",
+      "last_name": "Berry",
+      "type": "Student",
+      "project_ids": [
+        "eb793588476f776f79080000"
+      ],
+      "project_group_ids": [
+        "df793588476f776f79070000"
+      ],
+      "subtask_ids": [
+        "0f7a3588476f776f790d0000"
+      ]
+    },
+    {
+      "id": "66793588476f776f79040000",
+      "email": "maple@email.com",
+      "first_name": "Maple",
+      "last_name": "Kuo",
+      "type": "Student",
+      "project_ids": [
+        "eb793588476f776f79080000"
+      ],
+      "project_group_ids": [
+        "df793588476f776f79070000"
+      ],
+      "subtask_ids": [
+        "147a3588476f776f790e0000",
+        "1d7a3588476f776f79100000"
+      ]
+    },
+    {
+      "id": "a2793588476f776f79050000",
+      "email": "john@email.com",
+      "first_name": "John",
+      "last_name": "Reardon",
+      "type": "Student",
+      "project_ids": [
+        "eb793588476f776f79080000"
+      ],
+      "project_group_ids": [
+        "df793588476f776f79070000"
+      ],
+      "subtask_ids": [
+        "197a3588476f776f790f0000",
+        "1d7a3588476f776f79100000"
+      ]
+    },
+    {
+      "id": "dd793588476f776f79060000",
+      "email": "sarah@email.com",
+      "first_name": "Sarah",
+      "last_name": "Park",
+      "type": "Student",
+      "project_ids": [
+        "eb793588476f776f79080000"
+      ],
+      "project_group_ids": [
+        "df793588476f776f79070000"
+      ],
+      "subtask_ids": [
+        "147a3588476f776f790e0000"
+      ]
+    },
+    {
+      "id": "e8783588476f776f79020000",
+      "email": "gowie@email.com",
+      "first_name": "Matt",
+      "last_name": "Gowie",
+      "type": "Student",
+      "project_ids": [
+        "eb793588476f776f79080000"
+      ],
+      "project_group_ids": [
+        "df793588476f776f79070000"
+      ],
+      "subtask_ids": [
+        "057a3588476f776f790c0000"
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "257a3588476f776f79110000",
+      "body": "I'll probably end up finishing this over christman break.",
+      "created_at": "2013-11-24T03:44:35.365Z",
+      "updated_at": "2013-11-24T03:44:35.365Z",
+      "is_disputed": false,
+      "user_id": "e8783588476f776f79020000",
+      "subtask_id": "057a3588476f776f790c0000"
+    }
+  ]
+}

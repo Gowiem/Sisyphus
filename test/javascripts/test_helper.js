@@ -22,4 +22,29 @@
 //
 // You can require javascript files here. A good place to start is by requiring your application.js.
 //= require application
+//= require support/pavlov
 
+// Teaspoon.defer = true;
+
+fixture.set('<div id="ember-testing-container"><div id="ember-testing"></div></div>');
+
+Sis.rootElement = '#ember-testing';
+Sis.setupForTesting();
+Sis.injectTestHelpers();
+
+document.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>');
+document.write('<style>#ember-testing-container { position: absolute; background: white; top: 600px; bottom: 0; right: 0; width: 100%; height: 100%; overflow: auto; z-index: 9999; border: 1px solid #ccc; } #ember-testing { zoom: 75f%; }</style>');
+
+var fixtures = fixture.load('model_fixtures.json', true);
+
+Sis.Project.FIXTURES = fixtures[0]['projects'];
+Sis.Subtask.FIXTURES = fixtures[0]['subtasks'];
+Sis.ProjectGroup.FIXTURES = fixtures[0]['project_groups'];
+Sis.Comment.FIXTURES = fixtures[0]['comments'];
+Sis.Student.FIXTURES = fixtures[0]['students'];
+Sis.RequiredTask.FIXTURES = fixtures[0]['required_task'];
+
+Ember.run(function() {
+  var studentString = JSON.stringify(Sis.Student.FIXTURES[0]);
+  $('head').append('<meta content=' + studentString + ' name="current-user">')
+});
