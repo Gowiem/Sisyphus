@@ -65,61 +65,74 @@ sarah = Student.create!(
 
 ## Project Groups
 ##################
-devs = ProjectGroup.create!( name: "Developers", students: [ gowie, craig ])
-design = ProjectGroup.create!( name: "Designers", students: [ maple, john, sarah ])
+team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, maple, john, sarah ]);
 
 ## Project
 sisyphus = Project.create!(
   title: "Sisyphus Project", 
   students: [ gowie, craig, maple, john, sarah ],
   teacher: teach,
-  project_groups: [ design, devs ]
+  project_groups: [ team ]
 )
 
 ## Tasks
 #########
 
 ## Required Tasks
-dev_req_task1 = RequiredTask.create!(
-  title: "Learn Ember.js",
+req_task1 = RequiredTask.create!(
+  title: "Develope the web app",
   project: sisyphus
 )
 
-dev_req_task2 = RequiredTask.create!(
-  title: "Write some Unit Tests",
+req_task2 = RequiredTask.create!(
+  title: "Design the web app",
   project: sisyphus
 )
 
-design_req_task1 = RequiredTask.create!(
-  title: "Design all the things!",
+req_task3 = RequiredTask.create!(
+  title: "Write documentation",
   project: sisyphus
 )
 
 ## Subtasks
 dev_task1 = Subtask.create!(
-  title: "Run through the Ember tutorial",
-  project_group: devs,
-  parent_task: dev_req_task1,
-  students: [craig],
+  title: "Integrate Google Oauth and Drive SDK",
+  project_group: team,
+  parent_task: req_task1,
+  students: [gowie],
 )
 
 dev_task2 = Subtask.create!(
-  title: "Write Unit Tests for the frontend",
-  project_group: devs,
-  parent_task: dev_req_task2,
-  students: [gowie]
+  title: "Develop the Teachers screen",
+  project_group: team,
+  parent_task: req_task1,
+  students: [craig]
 )
 
 design_task1 = Subtask.create!(
-  title: "Design the tasks screen",
-  project_group: design,
-  parent_task: design_req_task1
+  title: "Stlye the project screen",
+  project_group: team,
+  parent_task: req_task2,
+  students: [ sarah, maple ]
 )
 
+design_task2 = Subtask.create!(
+  title: "Style the home screen",
+  project_group: team,
+  parent_task: req_task2,
+  students: [ john ]
+)
+
+doc_task1 = Subtask.create!(
+  title: "Create the wiki",
+  project_group: team,
+  parent_task: req_task3,
+  students: [ maple, john ]
+)
 
 ## Comments
 comment1 = Comment.create!(
-  body: "It helped a bit that we're making a task based app and the tutorial was based on todos",
+  body: "I'll probably end up finishing this over christman break.",
   user: gowie,
   subtask: dev_task1
 )
@@ -130,5 +143,4 @@ puts "--- Project has Teacher: #{sisyphus.teacher.full_name} \n"
 puts "--- Project has Students: #{sisyphus.students.entries.map(&:full_name)} \n"
 puts "--- Project has Project Groups: #{sisyphus.project_groups.entries.map(&:name)}"
 puts "--- Project has Required Tasks: #{sisyphus.required_tasks.map(&:title)}"
-puts "--- Dev Subtasks: #{devs.subtasks.map(&:title)}"
-puts "--- Design Subtasks: #{design.subtasks.map(&:title)}"
+puts "--- Team Subtasks: #{team.subtasks.map(&:title)}"

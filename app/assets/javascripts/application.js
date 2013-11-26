@@ -39,6 +39,9 @@ Sis = Ember.Application.create({
   // These will probably be useful down the road.
   // LOG_ACTIVE_GENERATION: true,
   // LOG_VIEW_LOOKUPS: true,
+  ready: function() {
+    console.log("Ember.Application#Ready!");
+  }
 });
 
 Ember.RSVP.configure('onerror', function(error) {
