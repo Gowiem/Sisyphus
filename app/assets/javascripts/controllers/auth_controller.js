@@ -30,14 +30,16 @@ Sis.AuthController = Ember.ObjectController.extend({
           });
         }
       });
+    },
     // Error Callback
-    }, function(jqXHR, textStatus, errorThrown) {
+    function(result) {
+      var jqXHR = result.jqXHR;
       if (jqXHR.status==401) {
         route.controllerFor('login').set("errorMsg", "That email/password combo didn't work.  Please try again");
       } else if (jqXHR.status==406) {
         route.controllerFor('login').set("errorMsg", "Request not acceptable (406):  make sure Devise responds to JSON.")
       } else {
-        console.log("Login Error: ", jqXHR.status, "error: ", errorThrown);
+        console.log("Login Error: ", jqXHR.status);
       }
     });
   },
@@ -48,20 +50,24 @@ Sis.AuthController = Ember.ObjectController.extend({
     console.log("AuthController - logout");
     var self = this,
         logoutUrl = this.get('currentUser').get('isTeacher') ? Sis.urls['teacherLogout'] : Sis.urls['studentLogout'];
-    $.ajax({
+    return ic.ajax({
       url: logoutUrl,
       type: "DELETE",
-      dataType: "json",
-      success: function(data, textStatus, jqXHR) {
-        console.log('Logged out successfully');
-        $('meta[name="csrf-token"]').attr('content', data['csrf-token']);
-        $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
-        self.set('currentUser', null);
-        self.transitionToRoute('home');
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        console.log("Error loggin out: ", errorThrown);
-      }
+      dataType: "json"
+    }).then(
+    // Success Callback
+    function(result) {
+      var data = result.response;
+      console.log('Logged out successfully');
+      console.log("DATA: ", data);
+      $('meta[name="csrf-token"]').attr('content', data['csrf-token']);
+      $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
+      self.set('currentUser', null);
+      self.transitionToRoute('home');
+    },
+    // Error Callback
+    function(result) {
+      console.log("Error loggin out: ", result.jqXHR.status);
     });
   },
 
