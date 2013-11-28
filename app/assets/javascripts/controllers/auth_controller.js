@@ -11,31 +11,33 @@ Sis.AuthController = Ember.ObjectController.extend({
         postData = {};
     postData[userType + "[email]"] = route.currentModel.get('email');
     postData[userType + "[password]"] = route.currentModel.get('password');
-    $.ajax({
+    return ic.ajax({
       url: loginUrl,
       type: "POST",
       data: postData,
-      success: function(data) {
-        self.store.push(userType, data[userType]);
-        self.store.find(userType, data[userType].id).then(function(user) {
-          self.set('currentUser', user);
-          if (user.get('isTeacher')) {
-            route.transitionTo('teachers');
-          } else {
-            route.get('store').find('project').then(function(projects) {
-              route.transitionTo('project', projects.get('firstObject'));
-            });
-          }
-        });
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        if (jqXHR.status==401) {
-          route.controllerFor('login').set("errorMsg", "That email/password combo didn't work.  Please try again");
-        } else if (jqXHR.status==406) {
-          route.controllerFor('login').set("errorMsg", "Request not acceptable (406):  make sure Devise responds to JSON.")
+    }).then(
+    // Success Callback
+    function(result) {
+      var data = result.response;
+      self.store.push(userType, data[userType]);
+      self.store.find(userType, data[userType].id).then(function(user) {
+        self.set('currentUser', user);
+        if (user.get('isTeacher')) {
+          route.transitionTo('teachers');
         } else {
-          console.log("Login Error: ", jqXHR.status, "error: ", errorThrown);
+          route.get('store').find('project').then(function(projects) {
+            route.transitionTo('project', projects.get('firstObject'));
+          });
         }
+      });
+    // Error Callback
+    }, function(jqXHR, textStatus, errorThrown) {
+      if (jqXHR.status==401) {
+        route.controllerFor('login').set("errorMsg", "That email/password combo didn't work.  Please try again");
+      } else if (jqXHR.status==406) {
+        route.controllerFor('login').set("errorMsg", "Request not acceptable (406):  make sure Devise responds to JSON.")
+      } else {
+        console.log("Login Error: ", jqXHR.status, "error: ", errorThrown);
       }
     });
   },
