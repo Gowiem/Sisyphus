@@ -17,7 +17,7 @@
               {{/each}}
             </ul>
           </li>
-          <li><a href="#" {{action logout}}> Logout </a></li>
+          <li><a id="logout-button" href="#" {{action logout}}> Logout </a></li>
         {{else}}
           {{#unless onSignupRoute}}
             <li>{{#link-to 'registration' }} Sign Up {{/link-to}}</li>
