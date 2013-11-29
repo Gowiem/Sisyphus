@@ -4,16 +4,9 @@ pavlov.specify('Project screen', function() {
 
     var server;
     before(function() {
-      // Setup Testing Container 
-      $('#ember-testing-container').remove();
-      $('#teaspoon-interface').after('<div id="ember-testing-container"><h3> Ember Testing Area </h3><div id="ember-testing"></div></div>');
-
-      // Start Ember
-      Sis.reset();
-      Ember.run(Sis, Sis.advanceReadiness);
-
-      server = sinon.fakeServer.create();
-      setupServer(server);
+      initEmber();
+      server = initServer();
+      initAjaxFixtures();
 
       loginStudent("gowie@email.com", "password12");
     });

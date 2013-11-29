@@ -58,12 +58,11 @@ Sis.AuthController = Ember.ObjectController.extend({
     // Success Callback
     function(result) {
       var data = result.response;
-      console.log('Logged out successfully');
-      console.log("DATA: ", data);
       $('meta[name="csrf-token"]').attr('content', data['csrf-token']);
       $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
       self.set('currentUser', null);
       self.transitionToRoute('home');
+      console.log('Logged out successfully');
     },
     // Error Callback
     function(result) {
