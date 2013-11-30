@@ -5,7 +5,7 @@
 var initEmber = function() {
   // Remove previous testing container and add a fresh guy into the dom
   $('#ember-testing-container').remove();
-  $('#teaspoon-interface').after('<div id="ember-testing-container"><h3> Ember Testing Area </h3><div id="ember-testing"></div></div>');
+  $('body').append('<div id="ember-testing-container"><h3> Ember Testing Area </h3><div id="ember-testing"></div></div>');
 
   // Start Ember
   Sis.reset();
