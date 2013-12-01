@@ -25,11 +25,9 @@
 //= require_tree ./support
 //= require support/sinon
 
-
 // Ember Testing Setup
 ///////////////////////
 var fixtures = fixture.load('model_fixtures.json', true);
 Sis.rootElement = '#ember-testing';
 Sis.setupForTesting();
 Sis.injectTestHelpers(Ember.Test);
-console.log("EMBER.TEST: ", Ember.Test);
