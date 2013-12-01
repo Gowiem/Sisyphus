@@ -36,21 +36,15 @@
           <div class="page-header"></div>
           <div class="form-horizontal" role="form">
             <div class="form-group">
-              <label for="currentPasswordInput" class="col-sm-4 control-label">Current Password</label>
-              <div class="col-sm-8">
-                {{view Ember.TextField valueBinding="currentPassword" class="form-control"}}
-              </div>
-            </div>
-            <div class="form-group">
               <label for="newPasswordInput" class="col-sm-4 control-label">New Password</label>
               <div class="col-sm-8">
-                {{view Ember.TextField valueBinding="newPassword" class="form-control"}}
+                {{view Ember.TextField valueBinding="password" class="form-control"}}
               </div>
             </div>
             <div class="form-group">
               <label for="retypePasswordInput" class="col-sm-4 control-label">Retype Password</label>
               <div class="col-sm-8">
-                {{view Ember.TextField valueBinding="retypePassword" class="form-control"}}
+                {{view Ember.TextField valueBinding="passwordConfirmation" class="form-control"}}
               </div>
             </div>
           </div>

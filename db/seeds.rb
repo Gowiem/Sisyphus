@@ -16,6 +16,7 @@ super_admin = SuperAdmin.create!(
   email: "superadmin@email.com",
   first_name: "Super",
   last_name: "Admin",
+  phone: "555-555-5551",
   password: "password12", 
   password_confirmation: "password12")
 
@@ -24,6 +25,7 @@ teach = Teacher.create!(
   email: "mark@email.com",
   first_name: "Mark",
   last_name: "Sivak",
+  phone: "555-555-5552",
   password: "password12", 
   password_confirmation: "password12")
 
@@ -32,6 +34,7 @@ gowie = Student.create!(
   email: "gowie@email.com",
   first_name: "Matt",
   last_name: "Gowie",
+  phone: "555-555-5553",
   password: "password12",
   password_confirmation: "password12")
 
@@ -39,6 +42,7 @@ craig = Student.create!(
   email: "craig@email.com", 
   first_name: "Craig", 
   last_name: "Berry",
+  phone: "555-555-5554",
   password: "password12", 
   password_confirmation: "password12")
 
@@ -46,6 +50,7 @@ maple = Student.create!(
   email: "maple@email.com",
   first_name: "Maple",
   last_name: "Kuo",
+  phone: "555-555-5555",
   password: "password12", 
   password_confirmation: "password12")
 
@@ -53,6 +58,7 @@ john = Student.create!(
   email: "john@email.com",
   first_name: "John",
   last_name: "Reardon",
+  phone: "555-555-5556",
   password: "password12", 
   password_confirmation: "password12")
 
@@ -60,6 +66,7 @@ sarah = Student.create!(
   email: "sarah@email.com",
   first_name: "Sarah",
   last_name: "Park",
+  phone: "555-555-5557",
   password: "password12", 
   password_confirmation: "password12")
 

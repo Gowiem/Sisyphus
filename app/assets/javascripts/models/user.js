@@ -5,6 +5,9 @@ Sis.User = DS.Model.extend({
   lastName: DS.attr('string'),
   projects: DS.hasMany('project'),
   currentUser: DS.attr('boolean'),
+  phone: DS.attr('string'),
+  password: DS.attr('string'),
+  passwordConfirmation: DS.attr('string'),
   // Computed Propeties
   fullName: function(key, value) {
     return this.get('firstName') + ' ' + this.get('lastName');
