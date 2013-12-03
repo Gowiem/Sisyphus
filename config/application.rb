@@ -19,6 +19,9 @@ module Sisyphus
       g.template_engine :haml
     end
 
+    Mongoid.logger.level = Logger::INFO
+    Moped.logger.level = Logger::INFO
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
