@@ -1,8 +1,10 @@
 Sis.EditAccountModalController = Ember.ObjectController.extend({
+  init: function() {
+    this.set('content', this.get('auth.currentUser'));
+  },
 	actions: {
 		saveUser: function () {
-			// Need to refactor at some point, not gauranteed return "promise" 
-			var currentUser = this.get('content.content');
+			var currentUser = this.get('content');
 			currentUser.set('password', this.get('password'));
 			currentUser.set('passwordConfirmation', this.get('passwordConfirmation'));
 			currentUser.save();

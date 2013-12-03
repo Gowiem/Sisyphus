@@ -10,7 +10,11 @@ Sis.User = DS.Model.extend({
   passwordConfirmation: DS.attr('string'),
   // Computed Propeties
   fullName: function(key, value) {
-    return this.get('firstName') + ' ' + this.get('lastName');
+    if (this.get('firstName') && this.get('lastName')) {
+      return this.get('firstName') + ' ' + this.get('lastName');
+    } else {
+      return '';
+    }
   }.property('firstName', 'lastName'),
   isTeacher: function() {
     return this.get('type') === "Teacher";

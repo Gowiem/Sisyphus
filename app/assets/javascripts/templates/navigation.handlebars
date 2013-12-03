@@ -19,7 +19,8 @@
         </li>
         <li class="dropdown" id="user-nav-container">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            {{currentUser.fullName}} <span class="caret"></span>
+            {{currentUser.fullName}}
+            <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li><h5><a href="#" {{action editAccount}}>Account</a></h5></li>
@@ -35,8 +36,6 @@
   </div>
 </nav>
 
-<!--{{view Sis.EditAccountModalView}}-->
-
 {{#if isAuthenticated}}
-  {{render "editAccountModal" currentUser}}
+  {{render "editAccountModal"}}
 {{/if}}

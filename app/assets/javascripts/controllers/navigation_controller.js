@@ -4,9 +4,7 @@ Sis.NavigationController = Ember.ObjectController.extend({
   // Computer Properties
   ///////////////////////
   isAuthenticated: Em.computed.alias("auth.isAuthenticated"),
-  currentUser: function() {
-    return this.get("auth.currentUser"); 
-  }.property('auth.currentUser'), 
+  currentUser: Em.computed.alias("auth.currentUser"),
   onSignupRoute: function() {
     return this.get('controllers.application.currentPath') === 'registration';
   }.property('controllers.application.currentPath'),
@@ -14,7 +12,7 @@ Sis.NavigationController = Ember.ObjectController.extend({
     if (this.get('isAuthenticated')) {
       return this.store.findAll('project');
     }
-  }.property('auth.currentUser.projects'),
+  }.property('auth.currentUser'),
 
   // Actions
   ///////////
