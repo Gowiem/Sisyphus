@@ -4,6 +4,9 @@ Sis.CommentsController = Ember.ArrayController.extend({
   hasComments: function() {
     return this.get('content.length') > 0 ? true : false;
   }.property('content.length'),
+  newComment: function() {
+    return this.store.createRecord(Sis.Comment, {});
+  }.property(),
   commentsCount: function() {
     var comments = this.get('content');
     if (comments.get('length') === 1) {

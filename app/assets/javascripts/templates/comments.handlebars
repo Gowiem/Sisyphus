@@ -6,7 +6,7 @@
     {{#each comment in content}}
       {{render "comment" comment}}
     {{/each}}
-    {{render "newComment"}}
+    {{render "newComment" newComment}}
   </div>
 {{else}}
   {{#if hasComments}}

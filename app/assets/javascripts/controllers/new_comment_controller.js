@@ -1,8 +1,5 @@
 Sis.NewCommentController = Ember.ObjectController.extend({
   needs: ["comments"],
-  init: function() {
-    this.set('content', this.store.createRecord(Sis.Comment, {}));
-  },
   actions: {
     createComment: function() {
       var content = this.get('content'), 
