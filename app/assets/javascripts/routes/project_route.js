@@ -1,4 +1,9 @@
 Sis.ProjectRoute = Ember.Route.extend({
+  beforeModel: function() {
+    if (!this.get('auth.isAuthenticated')) {
+      this.transitionTo('home');
+    }
+  },
   setupController: function(controller, project) {
     // Setup our model and projectGroup on the projectController as we only have one. 
     controller.set('model', project);
