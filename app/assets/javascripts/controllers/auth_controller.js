@@ -1,6 +1,6 @@
 Sis.AuthController = Ember.ObjectController.extend({
   currentUser: null,
-  isAuthenticated: Em.computed.notEmpty("currentUser.email"),
+  isAuthenticated: Em.computed.notEmpty("currentUser"),
 
   // Login
   /////////
@@ -47,7 +47,6 @@ Sis.AuthController = Ember.ObjectController.extend({
   // Logout
   //////////
   logout: function() {
-    console.log("AuthController - logout");
     var self = this,
         logoutUrl = this.get('currentUser').get('isTeacher') ? Sis.urls['teacherLogout'] : Sis.urls['studentLogout'];
     return ic.ajax({
@@ -62,10 +61,10 @@ Sis.AuthController = Ember.ObjectController.extend({
       $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
       self.set('currentUser', null);
       self.transitionToRoute('home');
-      console.log('Logged out successfully');
     },
     // Error Callback
     function(result) {
+      alert(result.jqXHR.responseJSON['error']);
       console.log("Error loggin out: ", result.jqXHR.status);
     });
   },
