@@ -1,21 +1,28 @@
 Sis.NavigationController = Ember.ObjectController.extend({
-  needs: ['auth', 'application'],
-  isAuthenticated: Em.computed.alias("controllers.auth.isAuthenticated"), 
+  needs: ['application'],
+
+  // Computer Properties
+  ///////////////////////
+  isAuthenticated: Em.computed.alias("auth.isAuthenticated"),
   currentUser: function() {
-    return this.get("controllers.auth.currentUser"); 
-  }.property('controllers.auth.currentUser'), 
+    return this.get("auth.currentUser"); 
+  }.property('auth.currentUser'), 
   onSignupRoute: function() {
     return this.get('controllers.application.currentPath') === 'registration';
   }.property('controllers.application.currentPath'),
   projects: function() {
-    return this.store.findAll('project');
-  }.property('controllers.auth.currentUser.projects'),
+    if (this.get('isAuthenticated')) {
+      return this.store.findAll('project');
+    }
+  }.property('auth.currentUser.projects'),
 
+  // Actions
+  ///////////
   actions: {
     logout: function() {
-      this.get('controllers.auth').logout();
+      this.get('auth').logout();
     },
-
+    // Renders the Edit Account Modal
     editAccount: function() {
       $('#edit-account-modal').modal({});
     },
