@@ -20,12 +20,12 @@
         <li class="dropdown" id="user-nav-container">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             {{currentUser.fullName}} <span class="caret"></span>
-            <ul class="dropdown-menu">
-              <li><h5><a href="#" {{action editAccount}}>Account</a></h5></li>
-              <li><h5><a href="#" {{action logout}}>Log Out</a></h5></li>
-            </ul>
-          </div>
-        </li>
+          </a>
+          <ul class="dropdown-menu">
+            <li><h5><a href="#" {{action editAccount}}>Account</a></h5></li>
+            <li><h5><a href="#" {{action logout}}>Log Out</a></h5></li>
+          </ul>
+      </li>
       {{else}}
         {{#unless onSignupRoute}}
           <li>{{#link-to 'registration' }} Sign Up {{/link-to}}</li>
