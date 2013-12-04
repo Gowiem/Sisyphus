@@ -1,4 +1,4 @@
-Sis.NewTaskView = Sis.AbstractSubtaskView.extend({
+Sis.NewSubtaskView = Sis.AbstractSubtaskView.extend({
   templateName: 'newTask',
   actions: {
     addNewTask: function() {
