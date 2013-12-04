@@ -11,7 +11,7 @@
 </ul>
 
 {{#if addingNewTask}}
-  {{render "newTask"}}
+  {{render "newSubtask" newSubtask}}
 {{/if}}
 <a {{bind-attr class="addingNewTask:hide :add-subtask-link :col-lg-3"}} {{action showNewTask}}><span class="glyphicon glyphicon-plus"></span> Add task</a>
 

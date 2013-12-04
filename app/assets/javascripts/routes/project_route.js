@@ -12,9 +12,6 @@ Sis.ProjectRoute = Ember.Route.extend({
     // Setup the requiredTasks controller
     this.controllerFor('requiredTasks').set('content', project.get('requiredTasks'));
     this.controllerFor('requiredTasks').set('project', project);
-
-    // Setup the newTask controller with a new instance of a subtask
-    this.controllerFor('newTask').set('content', this.store.createRecord(Sis.Subtask, {}));
   },
   model: function(params) {
     return this.get('store').find('project', params.project_id);

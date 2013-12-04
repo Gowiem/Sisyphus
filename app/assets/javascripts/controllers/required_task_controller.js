@@ -6,6 +6,10 @@ Sis.RequiredTaskController = Ember.ObjectController.extend({
   // Computed Properties
   ///////////////////////
 
+  newSubtask: function() {
+    return this.store.createRecord(Sis.Subtask, {});
+  }.property(),
+
   currentSubtasks: function() {
     var showingAllTasks = this.get('controllers.project.showingAllTasks'),
         currentUserSubtaskIds;
