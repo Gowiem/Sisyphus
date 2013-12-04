@@ -3,12 +3,14 @@ Sis.AbstractSubtaskController = Ember.ObjectController.extend({
   isShowingUsers: false,
   date: function(key, value) {
     if (value !== undefined) {
-      this.set('content.dueDate', moment(value));
+      this.set('content.dueDate', moment(value).toDate());
     }
     if (this.get('content.dueDate')) {
-      return moment(this.get('content.dueDate')).calendar();
+      return moment(this.get('content.dueDate')).format('L');
     } else {
-      return moment().format('l');
+      var newDate = new Date();
+      this.set('content.dueDate', newDate);
+      return moment(newDate).format('L');
     }
   }.property('content.dueDate'),
   userCanSave: function() {

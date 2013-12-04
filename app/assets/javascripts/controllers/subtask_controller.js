@@ -25,7 +25,7 @@ Sis.SubtaskController = Ember.ObjectController.extend({
   }.property('model.isCompleted'),
   readableDate: function() {
     var dueDate = this.get('model.dueDate');
-    return dueDate ? moment(dueDate).calendar() : null;
+    return dueDate ? moment(dueDate).format('L') : null;
   }.property('model.dueDate'),
 
   // Actions
