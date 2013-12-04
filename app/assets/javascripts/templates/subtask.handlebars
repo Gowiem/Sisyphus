@@ -1,12 +1,12 @@
 <li 
+  {{action "editTask" on="doubleClick"}}
   {{bind-attr class=":subtask-container :clearfix :row isDisputed:disputed isCompleted:completed isEditing:editing"}}>
   {{#if isEditing}}
     {{render "editSubtask" model parentBinding="this"}}
   {{else}}
     <div class="title-container col-md-10">
       {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
-      <h4 {{action "editTask" on="doubleClick"}} 
-        {{bind-attr class=":subtask-title :center-text isDisputed:disputed"}}> 
+      <h4 {{bind-attr class=":subtask-title :center-text isDisputed:disputed"}}>
         {{title}}
       </h4>
     </div>
