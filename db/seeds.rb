@@ -88,17 +88,20 @@ sisyphus = Project.create!(
 ## Required Tasks
 req_task1 = RequiredTask.create!(
   title: "Develope the web app",
-  project: sisyphus
+  project: sisyphus,
+  due_date: Time.now + 10.days
 )
 
 req_task2 = RequiredTask.create!(
   title: "Design the web app",
-  project: sisyphus
+  project: sisyphus,
+  due_date: Time.now + 20.days
 )
 
 req_task3 = RequiredTask.create!(
   title: "Write documentation",
-  project: sisyphus
+  project: sisyphus,
+  due_date: Time.now + 15.days
 )
 
 ## Subtasks
