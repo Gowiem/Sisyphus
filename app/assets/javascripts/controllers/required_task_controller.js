@@ -1,4 +1,4 @@
-Sis.RequiredTaskController = Ember.ObjectController.extend({
+Sis.RequiredTaskController = Sis.TaskController.extend({
   needs: "project",
   addingNewTask: false,
   showCompletedVal: false,

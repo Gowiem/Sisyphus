@@ -3,7 +3,8 @@
 //= require_tree ./models
 //= require_tree ./initializers
 //= require ./extras
-//= require ./controllers/group_member_controller.js
+//= require ./controllers/group_member_controller
+//= require ./controllers/task_controller
 //= require_tree ./controllers
 //= require_tree ./views
 //= require_tree ./helpers

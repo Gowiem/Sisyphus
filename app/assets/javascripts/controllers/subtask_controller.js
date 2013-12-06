@@ -1,9 +1,11 @@
-Sis.SubtaskController = Ember.ObjectController.extend({
+Sis.SubtaskController = Sis.TaskController.extend({
   needs: "project",
   isEditing: false,
   showingDispute: false,
   disputeReason: null,
 
+  // Computed Properties
+  ///////////////////////
   disputeModalId: function() {
     return "dispute-modal-" + this.get('content.id');
   }.property('content'),
@@ -23,12 +25,9 @@ Sis.SubtaskController = Ember.ObjectController.extend({
       return value;
     }
   }.property('model.isCompleted'),
-  readableDate: function() {
-    var dueDate = this.get('model.dueDate');
-    return dueDate ? moment(dueDate).format('D/M') : null;
-  }.property('model.dueDate'),
 
   // Actions
+  ///////////
   actions: {
     editTask: function() {
       this.set('isEditing', true);
