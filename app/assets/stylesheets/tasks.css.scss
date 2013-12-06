@@ -9,6 +9,17 @@ hr {
   }
 }
 
+.date-container {
+  padding-top: 7px;
+  float: right;
+  // width: 35px;
+
+  p {
+    padding: 0 5px;
+    background-color: #EBC5A4;
+  }
+}
+
 .panel-body {
   .completed-container {
     .completed-action { 
@@ -35,15 +46,6 @@ hr {
   .dispute {
     float: right;
     padding-right: 20px;
-  }
-
-  .date-container {
-    padding-top: 7px;
-
-    p {
-      padding-left: 10px;
-      background-color: #EBC5A4;
-    }
   }
 
   .title-container {

@@ -1,4 +1,7 @@
-<h3> {{title}} </h3>
+<h3 class="col-md-11"> {{title}} </h3>
+<div class="date-container">
+  <p class="center-block">{{readableDate}}</p>
+</div>
 <ul>
   {{#each task in uncompletedSubtasks}}
     {{render "subtask" task}}
