@@ -1,6 +1,8 @@
-<h3 class="col-md-11"> {{title}} </h3>
-<div class="date-container">
-  <p class="center-block">{{readableDate}}</p>
+<div class="required-task-container clearfix">
+  <h3 class="col-md-11"> {{title}} </h3>
+  <div class="date-container clearfix">
+    <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
+  </div>
 </div>
 <ul>
   {{#each task in uncompletedSubtasks}}

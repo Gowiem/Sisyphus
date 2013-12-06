@@ -11,7 +11,7 @@
       </h4>
     </div>
     <div class="date-container">
-      <p class="center-block">{{readableDate}}</p>
+      <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
     </div>
     {{#if showingDispute}}
       <a class="dispute" {{action disputeSubtask}}><span class="glyphicon glyphicon-ban-circle"></span> Dispute</a>
