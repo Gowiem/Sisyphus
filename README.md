@@ -1,8 +1,6 @@
 Sisyphus
 ========
 
-## First things first: [GitHub Emoji](http://www.emoji-cheat-sheet.com/)
-
 ## Local Development Prereqs
 
 - Install [RVM](http://rvm.io/)
