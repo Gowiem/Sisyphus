@@ -70,15 +70,25 @@ sarah = Student.create!(
   password: "password12", 
   password_confirmation: "password12")
 
+
 ## Project Groups
 ##################
 team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, maple, john, sarah ]);
 
-## Project
+# Courses
+##########
+capstone_course = Course.create!(
+  semester: "S14",
+  code: "IM4701",
+  title: "Interactive Media Capstone 2",
+  section: "32087")
+
+## Projects
+##################
 sisyphus = Project.create!(
   title: "Sisyphus Project", 
   students: [ gowie, craig, maple, john, sarah ],
-  teacher: teach,
+  course: capstone_course,
   project_groups: [ team ]
 )
 
@@ -147,9 +157,11 @@ comment1 = Comment.create!(
   subtask: dev_task1
 )
 
+
+
 puts "--- Create Super Admin: #{super_admin.email}"
 puts "--- Created Project: #{sisyphus.title}"
-puts "--- Project has Teacher: #{sisyphus.teacher.full_name} \n"
+puts "--- Project has Course: #{sisyphus.course.title} \n"
 puts "--- Project has Students: #{sisyphus.students.entries.map(&:full_name)} \n"
 puts "--- Project has Project Groups: #{sisyphus.project_groups.entries.map(&:name)}"
 puts "--- Project has Required Tasks: #{sisyphus.required_tasks.map(&:title)}"
