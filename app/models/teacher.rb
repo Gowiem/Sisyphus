@@ -1,4 +1,4 @@
 class Teacher < User
 
-  has_many :projects
+  has_many :courses
 end

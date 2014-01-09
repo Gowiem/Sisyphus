@@ -29,4 +29,6 @@ Sis.Student = Sis.User.extend({
   subtasks: DS.hasMany('subtask')
 });
 
-Sis.Teacher = Sis.User.extend({});
+Sis.Teacher = Sis.User.extend({
+  courses: DS.hasMany('courses')
+});
