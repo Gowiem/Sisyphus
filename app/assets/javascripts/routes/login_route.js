@@ -19,6 +19,7 @@ Sis.LoginRoute = Ember.Route.extend({
   },
   actions: {
     login: function() {
+      this.get('controller').updateEmailCookie();
       this.controllerFor('auth').login(this);
     },
     cancel: function() {

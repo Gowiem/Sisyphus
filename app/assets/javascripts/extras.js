@@ -8,6 +8,9 @@ Sis.urls.teacherLogin = "/teachers/sign_in.json";
 Sis.urls.teacherRegister = "/teachers.json";
 Sis.urls.teacherLogout = "/teachers/sign_out.json";
 
+Sis.cookies = Sis.cookies || {};
+Sis.cookies.email = 'SISYPHUS_EMAIL';
+
 // Make sure new CSRF tokens which are passed over to the client via 
 // ApplicationController#set_csrf_token are added to all ajax requests.
 // New tokens come over when we login/logout
