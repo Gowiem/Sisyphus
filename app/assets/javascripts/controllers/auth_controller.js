@@ -9,6 +9,7 @@ Sis.AuthController = Ember.ObjectController.extend({
         userType = route.routeName === "studentLogin" ? "student" : "teacher",
         loginUrl = Sis.urls[userType + 'Login'],
         postData = {};
+        debugger
     postData[userType + "[email]"] = route.currentModel.get('email');
     postData[userType + "[password]"] = route.currentModel.get('password');
     return ic.ajax({
@@ -19,8 +20,13 @@ Sis.AuthController = Ember.ObjectController.extend({
     // Success Callback
     function(result) {
       var data = result.response;
+      debugger
+      var model = route.currentModel
+      model.deleteRecord();
       self.store.push(userType, data[userType]);
+      debugger
       self.store.find(userType, data[userType].id).then(function(user) {
+        debugger
         self.set('currentUser', user);
         if (user.get('isTeacher')) {
           route.transitionTo('teachers');
