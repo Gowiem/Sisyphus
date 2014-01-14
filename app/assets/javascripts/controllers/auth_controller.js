@@ -8,7 +8,10 @@ Sis.AuthController = Ember.ObjectController.extend({
     var self = this, 
         userType = route.routeName === "studentLogin" ? "student" : "teacher",
         loginUrl = Sis.urls[userType + 'Login'],
+        controller = route.controllerFor(userType + '_login');
         postData = {};
+
+    // Set the email and password fields for the post data to those in the form.
     postData[userType + "[email]"] = route.currentModel.get('email');
     postData[userType + "[password]"] = route.currentModel.get('password');
     return ic.ajax({
@@ -19,6 +22,11 @@ Sis.AuthController = Ember.ObjectController.extend({
     // Success Callback
     function(result) {
       var data = result.response;
+
+      // Reset the error message for this controller.
+      controller.set('errorMsg', null);
+
+      // Push out returned user's JSON data into the store
       self.store.push(userType, data[userType]);
       self.store.find(userType, data[userType].id).then(function(user) {
         self.set('currentUser', user);
@@ -34,12 +42,10 @@ Sis.AuthController = Ember.ObjectController.extend({
     // Error Callback
     function(result) {
       var jqXHR = result.jqXHR;
-      if (jqXHR.status==401) {
-        route.controllerFor('login').set("errorMsg", "That email/password combo didn't work.  Please try again");
-      } else if (jqXHR.status==406) {
-        route.controllerFor('login').set("errorMsg", "Request not acceptable (406):  make sure Devise responds to JSON.")
+      if (jqXHR.status === 401 || jqXHR.status === 406) {
+        controller.set("errorMsg", jqXHR.responseJSON['error']);
       } else {
-        console.log("Login Error: ", jqXHR.status);
+        console.assert(false, "Login Error - status: ", jqXHR.status, " error: ", jqXHR.responseJSON['error']);
       }
     });
   },
