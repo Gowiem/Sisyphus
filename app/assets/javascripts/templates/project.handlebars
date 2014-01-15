@@ -5,11 +5,7 @@
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      {{#if showingAllTasks}}
-        {{partial "projectInfo"}}
-      {{else}}
-        {{render "currentUser" auth.currentUser}}
-      {{/if}}
+      {{partial "projectInfo"}}
     </div>
     <div class="panel-body">
       {{render "requiredTasks" filteredRequiredTasks}}
@@ -17,5 +13,5 @@
   </div>
 </div>
 <div class="group-container col-md-3">
-  {{render "groupMembers" groupMembers}}
+  {{render "groupMembers" model.students}}
 </div>
