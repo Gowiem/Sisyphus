@@ -1,5 +1,5 @@
 <li 
-  {{action "editTask" on="doubleClick"}}
+  {{action "editTask" on="click"}}
   {{bind-attr class=":subtask-container :clearfix isDisputed:disputed isCompleted:completed isEditing:editing"}}>
   {{#if isEditing}}
     {{render "editSubtask" model parentBinding="this"}}
