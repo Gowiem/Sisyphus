@@ -7,4 +7,13 @@ Sis.GroupMemberController = Ember.ObjectController.extend({
     var percentCompleted = (completedTasks / totalTasks) * 100;
     return "width: " + percentCompleted + "%;";
   }.property('model.subtasks.@each.isCompleted'),
+
+  // Grab the this group member's index/count from our parent and use it to
+  // create the class which styles the color of our progress bar.
+  // ex: .group-member-1
+  getProgressBarClass: function() {
+    var groupMemberCount = this.get('target.groupMemberCount');
+    this.set('target.groupMemberCount', groupMemberCount + 1);
+    return 'group-member-' + groupMemberCount;
+  }.property(),
 });

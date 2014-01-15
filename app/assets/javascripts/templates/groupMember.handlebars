@@ -1,4 +1,4 @@
-<div><span class="glyphicon glyphicon-user"></span> {{fullName}}</div>
+<div><span class="glyphicon glyphicon-user"></span>{{fullName}}</div>
 <div class="progress">
-	<div class="progress-bar" {{bind-attr style="getProgressBarStyle"}}></div>
+	<div {{bind-attr class="getProgressBarClass :group-member-progress :progress-bar"}} {{bind-attr style="getProgressBarStyle"}}></div>
 </div>

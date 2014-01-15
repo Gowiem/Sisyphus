@@ -1,3 +1,31 @@
+@import "variables";
+
 .group-container {
 	margin-top: 53px;
+}
+
+.group-member-progress {
+  background-image: none;
+}
+
+.group-member-0 {
+  background-color: $darkOrange;
+}
+
+.group-member-1 {
+  background-color: $lightOrange;
+}
+
+.group-member-2 {
+  background-color: $lightGreen;
+}
+
+.group-member-3 {
+  background-color: $lightBlue;
+}
+
+.group-member-4 {
+  // Grabbed this one from the web cause I ran out.
+  // I'm not attached to it. Feel free to change.
+  background-color: #006B75;
 }
