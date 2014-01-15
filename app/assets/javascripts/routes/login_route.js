@@ -10,9 +10,6 @@ Sis.LoginRoute = Ember.Route.extend({
       }
     }
   },
-  model: function() {
-    return this.store.createRecord('student', {});
-  },
   setupController: function(controller, model) {
     controller.set('content', model);
     controller.set('errorMsg', "");
@@ -28,6 +25,14 @@ Sis.LoginRoute = Ember.Route.extend({
   }
 });
 
-Sis.StudentLoginRoute = Sis.LoginRoute.extend({});
-Sis.TeacherLoginRoute = Sis.LoginRoute.extend({});
+Sis.StudentLoginRoute = Sis.LoginRoute.extend({
+  model: function() {
+    return this.store.createRecord('student', {});
+  },
+});
+Sis.TeacherLoginRoute = Sis.LoginRoute.extend({
+  model: function() {
+    return this.store.createRecord('teacher', {});
+  },  
+});
 

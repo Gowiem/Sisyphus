@@ -14,6 +14,7 @@ Sis.AuthController = Ember.ObjectController.extend({
     // Set the email and password fields for the post data to those in the form.
     postData[userType + "[email]"] = route.currentModel.get('email');
     postData[userType + "[password]"] = route.currentModel.get('password');
+
     return ic.ajax({
       url: loginUrl,
       type: "POST",
@@ -26,7 +27,10 @@ Sis.AuthController = Ember.ObjectController.extend({
       // Reset the error message for this controller.
       controller.set('errorMsg', null);
 
-      // Push out returned user's JSON data into the store
+      var model = route.currentModel
+      model.deleteRecord();
+
+      // Push our returned user's JSON data into the store
       self.store.push(userType, data[userType]);
       self.store.find(userType, data[userType].id).then(function(user) {
         self.set('currentUser', user);
@@ -70,8 +74,8 @@ Sis.AuthController = Ember.ObjectController.extend({
     },
     // Error Callback
     function(result) {
-      alert(result.jqXHR.responseJSON['error']);
-      console.log("Error loggin out: ", result.jqXHR.status);
+      var jqXHR = result.jqXHR;
+      console.assert(false, "Logout Error - status: ", jqXHR.status, " error: ", jqXHR.responseJSON['error']);
     });
   },
 

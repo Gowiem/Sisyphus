@@ -30,5 +30,5 @@ Sis.Student = Sis.User.extend({
 });
 
 Sis.Teacher = Sis.User.extend({
-  courses: DS.hasMany('courses')
+  courses: DS.hasMany('course')
 });

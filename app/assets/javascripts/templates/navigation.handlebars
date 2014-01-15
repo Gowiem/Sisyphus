@@ -7,16 +7,30 @@
     </div>
     <ul class="nav navbar-nav navbar-right navbar-text">
       {{#if isAuthenticated}}
-        <li class="dropdown" id="project-nav-container">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Projects <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            {{#each project in projects}}
-              {{project-nav-item project=project name=project.title}}
-            {{/each}}
-          </ul>
-        </li>
+        {{#if currentUser.isTeacher}}
+          <li class="dropdown" id="project-nav-container">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Semester <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>"Spring 2014"</li>
+              <li>{{currentUser.firstName}}</li>
+              <li>{{currentUser.lastName}}</li>
+              <li>{{currentUser.isTeacher}}</li>
+            </ul>
+          </li>
+        {{else}}
+          <li class="dropdown" id="project-nav-container">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Projects <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              {{#each project in projects}}
+                {{project-nav-item project=project name=project.title}}
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
         <li class="dropdown" id="user-nav-container">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             {{currentUser.fullName}}
