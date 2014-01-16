@@ -5,6 +5,10 @@ Sis.ProjectController = Ember.ObjectController.extend({
 
   // Computed Properties
   ///////////////////////
+  groupMembers: function() {
+    var currentUserId = this.get('auth.currentUser.id');
+    return this.get('model.students').rejectProperty('id', currentUserId);
+  }.property(),
   
   filteredRequiredTasks: function() {
     var showingAll = this.get('showingAllTasks'),
@@ -36,7 +40,7 @@ Sis.ProjectController = Ember.ObjectController.extend({
     // can't chain @each calls like so: 'requiredTasks.@each.subtasks.@each.isCompleted'
     // so for now we'll just fire the propety change event manually when subtask 
     // is completed/uncompleted. 
-  }.property(), 
+  }.property(),
 
   // Actions
   ///////////

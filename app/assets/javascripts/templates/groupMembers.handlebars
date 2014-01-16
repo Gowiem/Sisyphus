@@ -1,6 +1,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><h3>Group members</h3></div>
 	<div class="panel-body">
+  {{render "groupMember" auth.currentUser}}
 	{{#each member in controller}}
 		{{render "groupMember" member}}
 	{{/each}}
