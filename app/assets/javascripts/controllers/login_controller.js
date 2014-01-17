@@ -1,5 +1,7 @@
 Sis.LoginController = Ember.ObjectController.extend({
   shouldRemember: undefined,
+  errorMsg: null,
+  
   // So.. it's been a bit since I've written any ember and this seems uglier
   // than I would have originally though. The following three functions allow
   // the login form to remember the users email depending on if they check

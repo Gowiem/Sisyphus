@@ -7,6 +7,8 @@
   {{/if}}
 </div>
 <div class="progress">
-  <div class="progress-bar" {{bind-attr style="progressBarSize"}}></div>
+  {{#each student in model.students}}
+    {{render "progressBarSection" student}}
+  {{/each}}
 </div>
 

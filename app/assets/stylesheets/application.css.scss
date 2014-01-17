@@ -12,11 +12,9 @@
  *= require_tree .
  */
 
+@import "variables";
 @import "bootstrap";
 @import "bootstrap/theme";
-
-/* variables */
-$font-family: "Proxima Nova", Calibri, Arial, sans-serif;
 
 body {
   font-family: $font-family;
