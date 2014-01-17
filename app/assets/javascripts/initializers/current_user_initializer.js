@@ -8,12 +8,14 @@ Sis.initializer({
 
     // If the JSON got set into the current-user meta tag then add it the app
     if (jsonString) {
-      var userJson = JSON.parse(jsonString), controller;
-
+      var userJson = JSON.parse(jsonString),
+          userType = userJson['type'].toLowerCase(),
+          controller;
+          
       // Push the user model into the store and then grab the newly created user model
       // TODO: Expecting students here, so we'll have to fix this later to work with teachers as well.
-      store.push('student', userJson);
-      store.find('student', userJson.id).then(function(user) {
+      store.push(userType, userJson);
+      store.find(userType, userJson.id).then(function(user) {
         container.lookup('controller:auth').set('currentUser', user);
         container.lookup('controller:currentUser').set('content', user);
       });
