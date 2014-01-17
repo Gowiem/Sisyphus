@@ -1,0 +1,12 @@
+{{#each projectGroup in projectGroups}}
+  <table class="table">
+    <thead>
+      <tr>Group Name</tr>
+      <tr>Status</tr>
+      <tr></tr>
+    </thead>
+    <tbody>
+      {{render "facultyProjectGroup" projectGroup}}
+    </tbody>
+  </table>
+{{/each}}

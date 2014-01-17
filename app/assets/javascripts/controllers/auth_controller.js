@@ -10,7 +10,6 @@ Sis.AuthController = Ember.ObjectController.extend({
         loginUrl = Sis.urls[userType + 'Login'],
         controller = route.controllerFor(userType + '_login');
         postData = {};
-
     // Set the email and password fields for the post data to those in the form.
     postData[userType + "[email]"] = route.currentModel.get('email');
     postData[userType + "[password]"] = route.currentModel.get('password');
@@ -27,15 +26,12 @@ Sis.AuthController = Ember.ObjectController.extend({
       // Reset the error message for this controller.
       controller.set('errorMsg', null);
 
-      var model = route.currentModel
-      model.deleteRecord();
-
       // Push our returned user's JSON data into the store
       self.store.push(userType, data[userType]);
       self.store.find(userType, data[userType].id).then(function(user) {
         self.set('currentUser', user);
         if (user.get('isTeacher')) {
-          route.transitionTo('teachers');
+          route.transitionTo('teacher');
         } else {
           route.get('store').find('project').then(function(projects) {
             route.transitionTo('project', projects.get('firstObject'));
