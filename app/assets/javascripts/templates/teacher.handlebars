@@ -1,0 +1,16 @@
+
+<div class="col-md-9">
+  <h1>This is the {{isTeacher}} page</h1>
+  <!-- <ul class="width=100%"> -->
+  <ul class="nav nav-tabs nav-justified">
+    {{#each course in courses}}
+    <!-- style="display:block;" -->
+    <li style="display:block;">{{course.title}}:{{course.code}}</li>
+    {{/each}}
+  </ul>
+  {{render "course" getSelectedCourse}}
+</div>
+
+
+
+
