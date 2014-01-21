@@ -78,10 +78,34 @@ team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, ma
 # Courses
 ##########
 capstone_course = Course.create!(
-  semester: "S14",
-  code: "IM4701",
+  teacher: teach,
+  semester: "Spring 2014",
+  code: "IM4702",
   title: "Interactive Media Capstone 2",
   section: "32087")
+
+software_dev_course = Course.create!(
+  teacher: teach,
+  semester: "Spring 2014",
+  code: "CS4500",
+  title: "Software Development",
+  section: "12345")
+
+mad_course = Course.create!(
+  teacher: teach,
+  semester: "Spring 2014",
+  code: "CS5450",
+  title: "Mobile Application Development",
+  section: "08542")
+
+fall_course = Course.create!(
+  teacher: teach,
+  semester: "Fall 2013",
+  code: "CS4701",
+  title: "Interactive Capstone 1",
+  section: "57849")
+
+
 
 ## Projects
 ##################
@@ -165,4 +189,5 @@ puts "--- Project has Course: #{sisyphus.course.title} \n"
 puts "--- Project has Students: #{sisyphus.students.entries.map(&:full_name)} \n"
 puts "--- Project has Project Groups: #{sisyphus.project_groups.entries.map(&:name)}"
 puts "--- Project has Required Tasks: #{sisyphus.required_tasks.map(&:title)}"
+puts "--- TheCourses: #{Course.all.length}"
 puts "--- Team Subtasks: #{team.subtasks.map(&:title)}"
