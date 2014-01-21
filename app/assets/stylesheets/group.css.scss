@@ -29,3 +29,12 @@
   // I'm not attached to it. Feel free to change.
   background-color: #006B75;
 }
+
+// This is a bit of a hack, but I couldn't figure this out. You designers
+// have fun though!
+.task-count {
+  position: absolute;
+  text-align: right;
+  width: 100%;
+  right: 37px;
+}

@@ -25,7 +25,11 @@ Sis.User = DS.Model.extend({
 
 Sis.Student = Sis.User.extend({
   projectGroups: DS.hasMany('projectGroup'),
-  subtasks: DS.hasMany('subtask')
+  subtasks: DS.hasMany('subtask'),
+
+  completedSubtasks: function() {
+    return this.get('subtasks').filterBy('isCompleted').get('length');
+  }.property('subtasks.@each.isCompleted')
 });
 
 Sis.Teacher = Sis.User.extend({

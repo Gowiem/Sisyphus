@@ -4,6 +4,7 @@
 {{/if}}
 </div>
 <div class="progress">
+  <p class="task-count"> {{completedSubtasks}} / {{subtasks.length}} tasks </p>
 	<div {{bind-attr class="progressBarClass :group-member-progress :progress-bar"}} 
        {{bind-attr style="progressBarStyle"}}></div>
 </div>
