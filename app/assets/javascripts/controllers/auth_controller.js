@@ -21,7 +21,11 @@ Sis.AuthController = Ember.ObjectController.extend({
     }).then(
     // Success Callback
     function(result) {
-      var data = result.response;
+      var data = result.response,
+          userJson;
+
+      // Normalize our JSON object
+      userJson = Sis.normalizeJsonObject(data[userType], userType, self.store);
 
       // Reset the error message for this controller.
       controller.set('errorMsg', null);

@@ -1,7 +1,7 @@
 Sis.TaskController = Ember.ObjectController.extend({
   readableDate: function() {
     var dueDate = this.get('model.dueDate');
-    return dueDate ? moment(dueDate).format('D/M') : null;
+    return dueDate ? moment(dueDate).format('ddd M/D') : null;
   }.property('model.dueDate'),
 
   isDueSoonish: function() {

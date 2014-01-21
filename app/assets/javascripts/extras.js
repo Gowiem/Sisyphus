@@ -19,3 +19,19 @@ $.ajaxPrefilter(function(options, originalOptions, xhr) {
   var token = $.cookie('XSRF-TOKEN');
   xhr.setRequestHeader('X-CSRF-Token', token);
 });
+
+Sis.normalizeJsonObject = function(jsonObj, type, store) {
+  var serializer,
+      dataType;
+
+  // Grab our serializer for this type
+  serializer = store.serializerFor(type);
+
+  // Get Sis.Student/Teacher depending on which userType
+  dataType = Sis[type.charAt(0).toUpperCase() + type.slice(1)];
+  console.assert(serializer && dataType,
+    "serializer or dataType were not found to normalize the given JSON. jsonObj: ", jsonObj, " type: ", type);
+
+  // Use our serializer to normalize the jsonObj of the found dataType
+  return serializer.normalize(dataType, jsonObj);
+}
