@@ -1,4 +1,8 @@
-<div><span class="glyphicon glyphicon-user"></span>{{fullName}}</div>
+<div><span class="glyphicon glyphicon-user"></span>{{fullName}}
+{{#if isCurrentUser}}
+  <span id="me-current-user">(Me)</span>
+{{/if}}
+</div>
 <div class="progress">
 	<div {{bind-attr class="progressBarClass :group-member-progress :progress-bar"}} 
        {{bind-attr style="progressBarStyle"}}></div>
