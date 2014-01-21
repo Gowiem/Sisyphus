@@ -8,7 +8,7 @@
       %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
       %meta{ name: "signet:authors", content: "Matt Gowie"}
       %meta{ name: "signet:links", content: "http://github.com/Gowiem, http://twitter.com/Gowiem, http://gowie.me"}
-    %link{:href=>"//http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", :rel=>"stylesheet"}
+    %link{:href=>"//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", :rel=>"stylesheet"}
     - if user_signed_in?
       %meta{ name: "current-user", content: "#{serialized_user}" }
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
