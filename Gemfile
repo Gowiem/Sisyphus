@@ -20,6 +20,8 @@ gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 ## are fixed. 
 gem 'rails_admin', github: 'jcoleman/rails_admin', branch: 'vendorize-bootstrap-2'
 
+gem 'mongoid-audit'
+
 group :development, :test do
   gem 'teaspoon'
   gem 'railroady'
