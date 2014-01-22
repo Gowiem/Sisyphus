@@ -43,6 +43,7 @@ hr {
 }
 
 .subtask-container {
+  position: relative;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -50,6 +51,12 @@ hr {
   -ms-user-select: none;
   user-select: none;
   list-style-type: none;
+
+  .subtask-edit-pencil {
+    position: absolute;
+    left: -20px;
+    top: 10px;
+  }
   
   .dispute {
     float: right;

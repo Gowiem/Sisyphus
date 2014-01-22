@@ -1,10 +1,14 @@
 Sis.SubtaskView = Ember.View.extend({
   mouseEnter: function() {
-    if (this.get('controller.model.isCompleted')) {
-      this.get('controller').set('showingDispute', true);
+    var controller = this.get('controller');
+    controller.set('isHovering', true);
+    if (controller.get('model.isCompleted')) {
+      controller.set('showingDispute', true);
     }
   },
   mouseLeave: function() {
-    this.get('controller').set('showingDispute', false);
+    var controller = this.get('controller');
+    controller.set('isHovering', false);
+    controller.set('showingDispute', false);
   },
 });
