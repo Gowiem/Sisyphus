@@ -7,7 +7,12 @@ Sis.User = DS.Model.extend({
   phone: DS.attr('string'),
   password: DS.attr('string'),
   passwordConfirmation: DS.attr('string'),
+  lastLogin: DS.attr('isodate'),
   // Computed Propeties
+  readableLastLogin: function() {
+    var lastLogin = moment(this.get('lastLogin'));
+    return lastLogin.format('M/D') + ' at ' + lastLogin.format('h:mma')
+  }.property('lastLogin'),
   fullName: function(key, value) {
     if (this.get('firstName') && this.get('lastName')) {
       return this.get('firstName') + ' ' + this.get('lastName');
