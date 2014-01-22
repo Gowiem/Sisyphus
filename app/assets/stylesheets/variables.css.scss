@@ -1,15 +1,25 @@
-
 // Fonts
 /////////
-$font-family: "Proxima Nova", Calibri, Arial, sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,600);
+$font-family: "Open Sans", Calibri, Arial, sans-serif;
 
 // Color Variables
 ///////////////////
 
 // Teal color
-$primary: #0EBCAE;
+$primary: #32BCAD;
 
-$darkOrange: #FDA44A;
-$lightOrange: #FACD6C;
-$lightGreen: #93CB62;
-$lightBlue: #7FC4E7;
+$red: #F15B4E;
+$orange: #F99D1B;
+$yellow: #F7C943;
+$lightGreen: #8DC63F;
+$darkGreen: #4EB857;
+$blue: #3CB4E7;
+$purple: #956DAF;
+$lightGrey: #BCBEC0;
+$darkGrey: #333333;
+
+// Rounded Corners
+///////////////////
+
+$roundCorners: 3px;

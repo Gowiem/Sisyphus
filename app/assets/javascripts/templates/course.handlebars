@@ -1,20 +1,25 @@
-  <h2>{{getFullTitle}}</h2>
-  <ul style="width=100%;">
-    <div style="display:block;">
+  <h2>{{title}} ({{code}})</h2>
+  {{render "facultyCourseList" facultyCourses}}
+  <ul class="nav nav-tabs nav-justified">
       <li>Project:
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Primary <span class="caret"></span></button>
+        <!--<div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Primary<span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
               {{#each project in projects}}
                 <li><a href="#">{{project.title}}</a></li>
               {{/each}}
             </ul>
-          </div>
+          </div>-->
+          <select>
+            {{#each project in projects}}
+                <option><a href="#">{{project.title}}</a></li>
+              {{/each}}
+          </select>
             <!-- Placeholder for Google Drive -->
         </li>
         <li>Edit Project</li>
         <li>Project Folder</li>
         <li>Email Class</li>
-      </div>
-      {{render "facultyProject" getSelectedProject}}
-  </div>
+      
+    </ul>
+      {{render "facultyProject" selectedProject}}
