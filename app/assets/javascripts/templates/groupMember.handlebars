@@ -1,7 +1,28 @@
-<div>{{fullName}}
-{{#if isCurrentUser}}
-  <span id="me-current-user">(Me)</span>
-{{/if}}
+
+<div class="group-member-info-container">
+  <div class="member-info-name">
+    <h3> {{fullName}} </h3>
+  </div>
+  <div class="member-info-email">
+    <i class="fa fa-envelope-o fa-fw"></i>
+    <span><a {{bind-attr href="emailHref"}} target="_blank">{{email}}</a></span>
+  </div>
+  <div class="member-info-phone">
+    <i class="fa fa-mobile fa-fw"></i>
+    <span>{{phone}}</span>
+  </div>
+  <div class="member-info-online-status">
+    {{#if isCurrentUser}}
+      Online
+    {{/if}}
+  </div>
+</div>
+
+<div>
+  {{fullName}}
+  {{#if isCurrentUser}}
+    <span id="me-current-user">(Me)</span>
+  {{/if}}
 </div>
 <div class="progress">
   <p class="task-count"> {{completedSubtasks}} / {{subtasks.length}} tasks </p>

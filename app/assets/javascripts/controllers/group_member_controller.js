@@ -1,4 +1,5 @@
 Sis.GroupMemberController = Ember.ObjectController.extend({
+  needs: ['project'],
   progressBarStyle: function () {
     var totalTasks = this.get('model.subtasks').get('length');
     var completedTasks = this.get('model.subtasks').filter(function (task, idx) {
@@ -7,6 +8,10 @@ Sis.GroupMemberController = Ember.ObjectController.extend({
     var percentCompleted = (completedTasks / totalTasks) * 100;
     return "width:" + percentCompleted + "%;";
   }.property('model.subtasks.@each.isCompleted'),
+
+  emailHref: function() {
+    return "mailto:" + this.get('email') + "?subject=" + this.get('controllers.project.title') + " on EasyGroupApp.com";
+  }.property('email'),
 
   isCurrentUser: function() {
     return this.get('model.id') === this.get('auth.currentUser.id');
