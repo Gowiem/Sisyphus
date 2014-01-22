@@ -3,8 +3,6 @@ Sis.CourseController = Ember.ObjectController.extend({
   theteacher:null,
 
   facultyCourses: function () {
-    var currentUser = this.get('auth.currentUser');
-    var courses = currentUser.get('courses');
-    
-  }
+    return this.get('auth.currentUser.courses');
+  }.property('auth.currentUser.courses'),
 });
