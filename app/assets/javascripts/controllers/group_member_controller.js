@@ -26,6 +26,9 @@ Sis.GroupMemberController = Ember.ObjectController.extend({
   }.property(),
 
   actions: {
+    editAccount: function() {
+      $('#edit-account-modal').modal({});
+    },
     hoveringMemberOn: function() {
       this.set('isHoveringMember', true);
     },

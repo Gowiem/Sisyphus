@@ -2,6 +2,11 @@
   <div class="member-info-name">
     <h3> {{fullName}} </h3>
   </div>
+  {{#if isCurrentUser}}
+    <div class="edit-account-pencil">
+      <i class="fa fa-pencil-square-o fa-fw" {{action editAccount}}></i>
+    </div>
+  {{/if}}
   <div class="member-info-email">
     <i class="fa fa-envelope-o fa-fw"></i>
     <span><a {{bind-attr href="emailHref"}} target="_blank">{{email}}</a></span>
