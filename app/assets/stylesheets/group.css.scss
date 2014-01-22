@@ -5,10 +5,17 @@
 }
 
 .group-member-info-container {
+  position: absolute;
+  left: -150px;
+  display: none;
   padding: 10px;
   color: white;
   background-color: $lightGrey;
   border-radius: $roundCorners;
+
+  &.showing-group-member-info {
+    display: block;
+  }
 }
 
 .group-member-progress {

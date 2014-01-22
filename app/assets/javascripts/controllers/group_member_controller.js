@@ -1,5 +1,6 @@
 Sis.GroupMemberController = Ember.ObjectController.extend({
   needs: ['project'],
+  isHoveringMember: false,
   progressBarStyle: function () {
     var totalTasks = this.get('model.subtasks').get('length');
     var completedTasks = this.get('model.subtasks').filter(function (task, idx) {
@@ -23,4 +24,13 @@ Sis.GroupMemberController = Ember.ObjectController.extend({
   progressBarClass: function() {
     return 'group-member-' + this.get('index');
   }.property(),
+
+  actions: {
+    hoveringMemberOn: function() {
+      this.set('isHoveringMember', true);
+    },
+    hoveringMemberOff: function() {
+      this.set('isHoveringMember', false);
+    },
+  }
 });

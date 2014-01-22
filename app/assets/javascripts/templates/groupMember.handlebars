@@ -1,5 +1,4 @@
-
-<div class="group-member-info-container">
+<div {{bind-attr class="isHoveringMember:showing-group-member-info :group-member-info-container"}}>
   <div class="member-info-name">
     <h3> {{fullName}} </h3>
   </div>
@@ -18,14 +17,16 @@
   </div>
 </div>
 
-<div>
-  {{fullName}}
-  {{#if isCurrentUser}}
-    <span id="me-current-user">(Me)</span>
-  {{/if}}
-</div>
-<div class="progress">
-  <p class="task-count"> {{completedSubtasks}} / {{subtasks.length}} tasks </p>
-	<div {{bind-attr class="progressBarClass :group-member-progress :progress-bar"}} 
-       {{bind-attr style="progressBarStyle"}}></div>
+<div class="group-member-container">
+  <div>
+    {{fullName}}
+    {{#if isCurrentUser}}
+      <span id="me-current-user">(Me)</span>
+    {{/if}}
+  </div>
+  <div class="progress">
+    <p class="task-count"> {{completedSubtasks}} / {{subtasks.length}} tasks </p>
+    <div {{bind-attr class="progressBarClass :group-member-progress :progress-bar"}}
+         {{bind-attr style="progressBarStyle"}}></div>
+  </div>
 </div>
