@@ -1,29 +1,25 @@
-
 <ul class="nav nav-pills nav-justified">
   <li class="active"><a>{{title}}</a></li>
   {{#each course in nonActiveCourses}}
-    <li><a>{{course.title}}</a></li>
+    <li>{{#link-to 'course' course}} {{course.title}} {{/link-to}}</a></li>
   {{/each}} 
 </ul>
-
-
 <h2>{{title}} ({{code}})</h2>
 <ul class="nav nav-tabs nav-justified">
-    <li>Project:
-        <select>
-          {{#each project in projects}}
-            <option><a href="#">{{project.title}}</a></li>
-          {{/each}}
-        </select>
-      </li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li>Edit Project</li>
-      <li>Project Folder</li>
-      <li>Email Class</li>
-    
-  </ul>
-    {{render "facultyProject" selectedProject}}
+  <li>Project:
+    {{view Ember.Select
+           content=projects
+           optionValuePath="content"
+           optionLabelPath="content.title"
+           selection=selectedProject}}
+  </li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li>Edit Project</li>
+  <li>Project Folder</li>
+  <li>Email Class</li>
+</ul>
+{{render "facultyProject" selectedProjectVal}}

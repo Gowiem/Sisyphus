@@ -3,6 +3,6 @@ Sis.Course = DS.Model.extend({
   code: DS.attr('string'),
   section: DS.attr('string'),
   semester: DS.attr('string'),
-  projects: DS.hasMany('project'),
+  projects: DS.hasMany('project', { async: true }),
   teacher: DS.belongsTo('teacher')
 });
