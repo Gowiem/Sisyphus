@@ -1,4 +1,5 @@
 Sis.TeacherController = Ember.ObjectController.extend({
+
   semesterList: function () {
     var courses = this.get('model.courses');
     var unique = {};

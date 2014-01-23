@@ -1,9 +1,5 @@
 <ul class="nav nav-pills nav-justified">
   {{#each course in controller}}
-   {{#if sameAsSelectedCourse}}
-      <li class="active">{{course.title}}</li>
-    {{else}}
-      <li>{{course.title}}</li>
-    {{/if}}
+    <li {{bind-attr class="isCurrent:active"}}>{{course.title}}</li>
   {{/each}} 
 </ul>

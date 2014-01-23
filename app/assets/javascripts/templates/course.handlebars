@@ -1,11 +1,19 @@
-  {{render "facultyCourseList" facultyCourses}}
+
+<ul class="nav nav-pills nav-justified">
+  <li class="active">{{title}}</li>
+  {{#each course in facultyCourses}}
+    <li>{{course.title}}</li>
+  {{/each}} 
+</ul>
+
+
   <h2>{{title}} ({{code}})</h2>
   <ul class="nav nav-tabs nav-justified">
       <li>Project:
           <select>
             {{#each project in projects}}
-                <option><a href="#">{{project.title}}</a></li>
-              {{/each}}
+              <option><a href="#">{{project.title}}</a></li>
+            {{/each}}
           </select>
         </li>
         <li></li>

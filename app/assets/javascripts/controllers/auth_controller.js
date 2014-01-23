@@ -37,7 +37,7 @@ Sis.AuthController = Ember.ObjectController.extend({
       self.store.find(userType, data[userType].id).then(function(user) {
         self.set('currentUser', user);
         if (user.get('isTeacher')) {
-          route.get('store').find('course').then(function(courses) {
+          route.get('store').find('course').then(function(courses) {        
             route.transitionTo('course', courses.get('firstObject'));
           });
         } else {
