@@ -99,19 +99,22 @@ sisyphus = Project.create!(
 req_task1 = RequiredTask.create!(
   title: "Develope the web app",
   project: sisyphus,
-  due_date: Time.now + 10.days
+  due_date: Time.now + 10.days,
+  modifier: gowie
 )
 
 req_task2 = RequiredTask.create!(
   title: "Design the web app",
   project: sisyphus,
-  due_date: Time.now + 20.days
+  due_date: Time.now + 20.days,
+  modifier: gowie
 )
 
 req_task3 = RequiredTask.create!(
   title: "Write documentation",
   project: sisyphus,
-  due_date: Time.now + 15.days
+  due_date: Time.now + 15.days,
+  modifier: gowie
 )
 
 ## Subtasks
@@ -120,41 +123,47 @@ dev_task1 = Subtask.create!(
   project_group: team,
   parent_task: req_task1,
   students: [gowie],
+  modifier: gowie
 )
 
 dev_task2 = Subtask.create!(
   title: "Develop the Teachers screen",
   project_group: team,
   parent_task: req_task1,
-  students: [craig]
+  students: [craig],
+  modifier: gowie
 )
 
 design_task1 = Subtask.create!(
   title: "Stlye the project screen",
   project_group: team,
   parent_task: req_task2,
-  students: [ sarah, maple ]
+  students: [ sarah, maple ],
+  modifier: gowie
 )
 
 design_task2 = Subtask.create!(
   title: "Style the home screen",
   project_group: team,
   parent_task: req_task2,
-  students: [ john ]
+  students: [ john ],
+  modifier: gowie
 )
 
 doc_task1 = Subtask.create!(
   title: "Create the wiki",
   project_group: team,
   parent_task: req_task3,
-  students: [ maple, john ]
+  students: [ maple, john ],
+  modifier: gowie
 )
 
 ## Comments
 comment1 = Comment.create!(
   body: "I'll probably end up finishing this over christman break.",
   user: gowie,
-  subtask: dev_task1
+  subtask: dev_task1,
+  modifier: gowie
 )
 
 
