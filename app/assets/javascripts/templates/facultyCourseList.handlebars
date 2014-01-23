@@ -1,6 +1,9 @@
-
-<ul class="nav nav-tabs nav-justified">
+<ul class="nav nav-pills nav-justified">
   {{#each course in controller}}
-    {{course.title}}
+    {{#if selectedCourse}}
+      <li>{{course.title}}</li>
+    {{else}}
+      <li>{{course.title}}</li>
+    {{/if}}
   {{/each}} 
 </ul>
