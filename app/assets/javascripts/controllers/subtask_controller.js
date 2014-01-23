@@ -2,6 +2,7 @@ Sis.SubtaskController = Sis.TaskController.extend({
   needs: "project",
   isEditing: false,
   showingDispute: false,
+  isHovering: false,
   disputeReason: null,
 
   // Computed Properties
