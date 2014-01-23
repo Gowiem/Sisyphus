@@ -9,7 +9,7 @@
   <li>Project:
     {{view Ember.Select
            content=projects
-           optionValuePath="content"
+           optionValuePath="content.id"
            optionLabelPath="content.title"
            selection=selectedProject}}
   </li>
@@ -22,4 +22,4 @@
   <li>Project Folder</li>
   <li>Email Class</li>
 </ul>
-{{render "facultyProject" selectedProjectVal}}
+{{render "facultyProject" selectedProject}}
