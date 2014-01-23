@@ -2,20 +2,11 @@
   <h2>{{title}} ({{code}})</h2>
   <ul class="nav nav-tabs nav-justified">
       <li>Project:
-        <!--<div class="btn-group">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Primary<span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu">
-              {{#each project in projects}}
-                <li><a href="#">{{project.title}}</a></li>
-              {{/each}}
-            </ul>
-          </div>-->
           <select>
             {{#each project in projects}}
                 <option><a href="#">{{project.title}}</a></li>
               {{/each}}
           </select>
-            <!-- Placeholder for Google Drive -->
         </li>
         <li></li>
         <li></li>

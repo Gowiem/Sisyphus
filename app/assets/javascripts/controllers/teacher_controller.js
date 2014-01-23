@@ -4,7 +4,6 @@ Sis.TeacherController = Ember.ObjectController.extend({
     var unique = {};
     var distinct = [];
     for ( var i in courses ) {
-      debugger
       if (typeof(unique[courses[i].semester]) == "undefined"){
         distinct.push(courses[i].semester);  
       }
