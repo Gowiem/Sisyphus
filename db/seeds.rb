@@ -70,10 +70,44 @@ sarah = Student.create!(
   password: "password12", 
   password_confirmation: "password12")
 
+bob = Student.create!(
+  email: "bob@email.com", 
+  first_name: "Bob", 
+  last_name: "Berry",
+  phone: "555-555-5554",
+  password: "password12", 
+  password_confirmation: "password12")
+
+alex = Student.create!(
+  email: "alex@email.com",
+  first_name: "Alex",
+  last_name: "Kuo",
+  phone: "555-555-5555",
+  password: "password12", 
+  password_confirmation: "password12")
+
+dave = Student.create!(
+  email: "dave@email.com",
+  first_name: "Dave",
+  last_name: "Reardon",
+  phone: "555-555-5556",
+  password: "password12", 
+  password_confirmation: "password12")
+
+laura = Student.create!(
+  email: "laura@email.com",
+  first_name: "Laura",
+  last_name: "Park",
+  phone: "555-555-5557",
+  password: "password12", 
+  password_confirmation: "password12")
+
+
 
 ## Project Groups
 ##################
 team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, maple, john, sarah ]);
+projectGroup1 = ProjectGroup.create!( name: "Alpha Team", students: [ dave, laura, bob, alex ]);
 
 # Courses
 ##########
@@ -113,7 +147,7 @@ sisyphus = Project.create!(
   title: "Sisyphus Project", 
   students: [ gowie, craig, maple, john, sarah ],
   course: capstone_course,
-  project_groups: [ team ]
+  project_groups: [ team, projectGroup1 ]
 )
 
 ## Tasks

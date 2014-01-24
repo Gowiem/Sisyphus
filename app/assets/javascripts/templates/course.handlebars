@@ -4,7 +4,7 @@
     <li>{{#link-to 'course' course}} {{course.title}} {{/link-to}}</a></li>
   {{/each}} 
 </ul>
-<h2>{{title}} ({{code}})</h2>
+<p><h2>{{title}} ({{code}})</h2></p>
 <ul class="nav nav-tabs nav-justified">
   <li>Project:
     {{view Ember.Select
@@ -17,9 +17,8 @@
   <li></li>
   <li></li>
   <li></li>
-  <li></li>
-  <li>Edit Project</li>
-  <li>Project Folder</li>
-  <li>Email Class</li>
+  <li><span class="glyphicon glyphicon-pencil"></span>  Edit Project</li>
+  <li><span class="glyphicon glyphicon-folder-open"></span>  Project Folder</li>
+  <li><span class="glyphicon glyphicon-envelope"></span>  Email Class</li>
 </ul>
 {{render "facultyProject" selectedProject}}
