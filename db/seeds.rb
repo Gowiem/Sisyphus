@@ -61,7 +61,7 @@ john = Student.create!(
 nicole = Student.create!(
   email: "npnussbaum@gmail.com",
   first_name: "Nicole",
-  last_name: "Nussbum",
+  last_name: "Nussbaum",
   phone: "443-538-8184",
   password: "password12",
   password_confirmation: "password12")
@@ -150,7 +150,7 @@ fall_course = Course.create!(
 ##################
 sisyphus = Project.create!(
   title: "Sisyphus Project", 
-  students: [ gowie, craig, maple, john, sarah ],
+  students: [ gowie, craig, maple, john, sarah, nicole, bob, alex, dave, laura ],
   course: capstone_course,
   project_groups: [ team, projectGroup1 ]
 )
