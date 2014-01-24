@@ -1,10 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 puts "--- CREATING SEED DATA ---"
 
@@ -22,16 +17,17 @@ super_admin = SuperAdmin.create!(
 
 ## Teacher
 teach = Teacher.create!(
-  email: "mark@email.com",
+  email: "sivak.mark@gmail.com",
   first_name: "Mark",
   last_name: "Sivak",
-  phone: "555-555-5552",
+  phone: "978-621-3770",
   password: "password12", 
   password_confirmation: "password12")
 
 ## Students
+############
 gowie = Student.create!(
-  email: "gowie@email.com",
+  email: "gowie.matt@gmail.com",
   first_name: "Matt",
   last_name: "Gowie",
   phone: "555-555-5553",
@@ -39,37 +35,46 @@ gowie = Student.create!(
   password_confirmation: "password12")
 
 craig = Student.create!(
-  email: "craig@email.com", 
+  email: "rjbcc58@gmail.com",
   first_name: "Craig", 
   last_name: "Berry",
-  phone: "555-555-5554",
+  phone: "603-321-7060",
   password: "password12", 
   password_confirmation: "password12")
 
 maple = Student.create!(
-  email: "maple@email.com",
+  email: "kuo.maple@gmail.com",
   first_name: "Maple",
   last_name: "Kuo",
-  phone: "555-555-5555",
+  phone: "626-782-1337",
   password: "password12", 
   password_confirmation: "password12")
 
 john = Student.create!(
-  email: "john@email.com",
+  email: "johnhreardoniv@gmail.com",
   first_name: "John",
   last_name: "Reardon",
-  phone: "555-555-5556",
+  phone: "508-215-8000",
   password: "password12", 
+  password_confirmation: "password12")
+
+nicole = Student.create!(
+  email: "placeholder",
+  first_name: "Nicole",
+  last_name: "Nussbum",
+  phone: "443-538-8184",
+  password: "password12",
   password_confirmation: "password12")
 
 sarah = Student.create!(
-  email: "sarah@email.com",
+  email: "sarahlynnpark@gmail.com",
   first_name: "Sarah",
   last_name: "Park",
-  phone: "555-555-5557",
+  phone: "443-983-1141",
   password: "password12", 
   password_confirmation: "password12")
 
+# Random Students, for testing purposes
 bob = Student.create!(
   email: "bob@email.com", 
   first_name: "Bob", 
@@ -106,7 +111,7 @@ laura = Student.create!(
 
 ## Project Groups
 ##################
-team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, maple, john, sarah ]);
+team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, maple, john, sarah, nicole ]);
 projectGroup1 = ProjectGroup.create!( name: "Alpha Team", students: [ dave, laura, bob, alex ]);
 
 # Courses
@@ -115,7 +120,7 @@ capstone_course = Course.create!(
   teacher: teach,
   semester: "Spring 2014",
   code: "IM4702",
-  title: "Interactive Media Capstone 2",
+  title: "Interactive Capstone 2",
   section: "32087")
 
 software_dev_course = Course.create!(
@@ -155,67 +160,71 @@ sisyphus = Project.create!(
 
 ## Required Tasks
 req_task1 = RequiredTask.create!(
-  title: "Develope the web app",
+  title: "User Experience",
   project: sisyphus,
-  due_date: Time.now + 10.days
+  due_date: Date.new(2014, 4, 21)
 )
 
 req_task2 = RequiredTask.create!(
-  title: "Design the web app",
+  title: "User Interface",
   project: sisyphus,
-  due_date: Time.now + 20.days
+  due_date: Date.new(2014, 4, 21)
 )
 
 req_task3 = RequiredTask.create!(
-  title: "Write documentation",
+  title: "Branding",
   project: sisyphus,
-  due_date: Time.now + 15.days
+  due_date: Date.new(2014, 4, 21)
+)
+
+req_task4 = RequiredTask.create!(
+  title: "Development",
+  project: sisyphus,
+  due_date: Date.new(2014, 4, 21)
 )
 
 ## Subtasks
-dev_task1 = Subtask.create!(
-  title: "Integrate Google Oauth and Drive SDK",
-  project_group: team,
-  parent_task: req_task1,
-  students: [gowie],
-)
+############
 
-dev_task2 = Subtask.create!(
-  title: "Develop the Teachers screen",
-  project_group: team,
-  parent_task: req_task1,
-  students: [craig]
-)
+## No longer need these as we're actually going to use the project. WORD!
 
-design_task1 = Subtask.create!(
-  title: "Stlye the project screen",
-  project_group: team,
-  parent_task: req_task2,
-  students: [ sarah, maple ]
-)
-
-design_task2 = Subtask.create!(
-  title: "Style the home screen",
-  project_group: team,
-  parent_task: req_task2,
-  students: [ john ]
-)
-
-doc_task1 = Subtask.create!(
-  title: "Create the wiki",
-  project_group: team,
-  parent_task: req_task3,
-  students: [ maple, john ]
-)
+# dev_task1 = Subtask.create!(
+#   title: "Integrate Google Oauth and Drive SDK",
+#   project_group: team,
+#   parent_task: req_task1,
+#   students: [gowie],
+# )
+# dev_task2 = Subtask.create!(
+#   title: "Develop the Teachers screen",
+#   project_group: team,
+#   parent_task: req_task1,
+#   students: [craig]
+# )
+# design_task1 = Subtask.create!(
+#   title: "Stlye the project screen",
+#   project_group: team,
+#   parent_task: req_task2,
+#   students: [ sarah, maple ]
+# )
+# design_task2 = Subtask.create!(
+#   title: "Style the home screen",
+#   project_group: team,
+#   parent_task: req_task2,
+#   students: [ john ]
+# )
+# doc_task1 = Subtask.create!(
+#   title: "Create the wiki",
+#   project_group: team,
+#   parent_task: req_task3,
+#   students: [ maple, john ]
+# )
 
 ## Comments
-comment1 = Comment.create!(
-  body: "I'll probably end up finishing this over christman break.",
-  user: gowie,
-  subtask: dev_task1
-)
-
-
+# comment1 = Comment.create!(
+#   body: "I'll probably end up finishing this over christman break.",
+#   user: gowie,
+#   subtask: dev_task1
+# )
 
 puts "--- Create Super Admin: #{super_admin.email}"
 puts "--- Created Project: #{sisyphus.title}"
