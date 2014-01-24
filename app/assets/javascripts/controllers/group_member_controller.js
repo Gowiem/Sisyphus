@@ -3,12 +3,10 @@ Sis.GroupMemberController = Ember.ObjectController.extend({
   isHoveringMember: false,
   progressBarStyle: function () {
     var totalTasks = this.get('model.subtasks').get('length');
-    console.log("totalTasks: ", totalTasks);
     var completedTasks = this.get('model.subtasks').filter(function (task, idx) {
       return task.get('isCompleted') === true;
     }).get('length');
     var percentCompleted = (completedTasks / totalTasks) * 100;
-    console.log("percentCompleted: ", percentCompleted);
     return "width:" + percentCompleted + "%;";
   }.property('model.subtasks.@each.isCompleted'),
 
