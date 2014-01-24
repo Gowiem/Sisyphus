@@ -12,16 +12,16 @@ super_admin = SuperAdmin.create!(
   first_name: "Super",
   last_name: "Admin",
   phone: "555-555-5551",
-  password: "password12", 
+  password: "password12",
   password_confirmation: "password12")
 
 ## Teacher
 teach = Teacher.create!(
-  email: "sivak.mark@gmail.com",
-  first_name: "Mark",
-  last_name: "Sivak",
-  phone: "978-621-3770",
-  password: "password12", 
+  email: "teacher@email.com",
+  first_name: "Johnny",
+  last_name: "Capstone",
+  phone: "555-555-5552",
+  password: "password12",
   password_confirmation: "password12")
 
 ## Students
@@ -30,7 +30,7 @@ gowie = Student.create!(
   email: "gowie.matt@gmail.com",
   first_name: "Matt",
   last_name: "Gowie",
-  phone: "555-555-5553",
+  phone: "484-680-2290",
   password: "password12",
   password_confirmation: "password12")
 
@@ -39,7 +39,7 @@ craig = Student.create!(
   first_name: "Craig", 
   last_name: "Berry",
   phone: "603-321-7060",
-  password: "password12", 
+  password: "password12",
   password_confirmation: "password12")
 
 maple = Student.create!(
@@ -71,8 +71,17 @@ sarah = Student.create!(
   first_name: "Sarah",
   last_name: "Park",
   phone: "443-983-1141",
-  password: "password12", 
+  password: "password12",
   password_confirmation: "password12")
+
+mark = Student.create!(
+  email: "sivak.mark@gmail.com",
+  first_name: "Mark",
+  last_name: "Sivak",
+  phone: "978-621-3770",
+  password: "password12",
+  password_confirmation: "password12")
+
 
 # Random Students, for testing purposes
 bob = Student.create!(
@@ -111,7 +120,7 @@ laura = Student.create!(
 
 ## Project Groups
 ##################
-team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, maple, john, sarah, nicole ]);
+team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, maple, john, sarah, nicole, mark ]);
 projectGroup1 = ProjectGroup.create!( name: "Alpha Team", students: [ dave, laura, bob, alex ]);
 
 # Courses
@@ -150,7 +159,7 @@ fall_course = Course.create!(
 ##################
 sisyphus = Project.create!(
   title: "Sisyphus Project", 
-  students: [ gowie, craig, maple, john, sarah, nicole, bob, alex, dave, laura ],
+  students: [ gowie, craig, maple, john, sarah, mark, nicole, bob, alex, dave, laura ],
   course: capstone_course,
   project_groups: [ team, projectGroup1 ]
 )
