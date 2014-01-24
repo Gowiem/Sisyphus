@@ -59,7 +59,7 @@ john = Student.create!(
   password_confirmation: "password12")
 
 nicole = Student.create!(
-  email: "placeholder",
+  email: "npnussbaum@gmail.com",
   first_name: "Nicole",
   last_name: "Nussbum",
   phone: "443-538-8184",
