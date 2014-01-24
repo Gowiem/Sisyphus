@@ -4,11 +4,16 @@
     <button {{action showAllTasks}} type="button" {{bind-attr class=":btn :btn-default showingAllTasks:active"}}>All tasks</button>
     <button {{action showUserTasks}} type="button" {{bind-attr class=":btn :btn-default showingAllTasks::active"}}>My tasks</button>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      {{render "requiredTasks" filteredRequiredTasks}}
-    </div>
-  </div>
+  <ul class="nav nav-tabs nav-justified">
+      <li {{bind-attr class="showingTasksTab:active"}}><a {{action switchToTab "tasks"}}>Tasks</a></li>
+      <li {{bind-attr class="showingNewsTab:active"}}><a {{action switchToTab "news"}}>News Feed</a></li>
+  </ul>
+  {{#if showingTasksTab}}
+    {{render "requiredTasks" filteredRequiredTasks}}
+  {{/if}}
+  {{#if showingNewsTab}}
+    {{!-- News Tab Place Holder --}}
+  {{/if}}
 </div>
 <div class="group-container col-md-3">
   {{render "groupMembers" groupMembers}}

@@ -2,6 +2,8 @@ Sis.ProjectController = Ember.ObjectController.extend({
   projectGroup: null,
   showingAllTasks: true,
   showingProjectDescript: false,
+  showingTasksTab: true,
+  showingNewsTab: false,
 
   // Computed Properties
   ///////////////////////
@@ -57,5 +59,14 @@ Sis.ProjectController = Ember.ObjectController.extend({
     hideProjectDescript: function() {
       this.set('showingProjectDescript', false);
     },
+    switchToTab: function(tab) {
+      if (tab === 'news') {
+        this.set('showingTasksTab', false);
+        this.set('showingNewsTab', true);
+      } else if (tab === 'tasks') {
+        this.set('showingNewsTab', false);
+        this.set('showingTasksTab', true);
+      }
+    }
   }
 });
