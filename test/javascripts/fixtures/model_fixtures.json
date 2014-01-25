@@ -1,257 +1,171 @@
-{
-  "teachers": [
-    {
-      "id": "9f783588476f776f79010000",
-      "email": "mark@email.com",
-      "first_name": "Mark",
-      "last_name": "Sivak",
-      "type": "Teacher",
-      "project_ids": [
-        "eb793588476f776f79080000"
-      ]
-    }
-  ],
-  "required_tasks": [
-    {
-      "id": "047a3588476f776f790b0000",
-      "title": "Write documentation",
-      "due_date": null,
-      "is_completed": false,
-      "project_id": "eb793588476f776f79080000",
-      "subtask_ids": [
-        "1d7a3588476f776f79100000"
-      ]
-    },
-    {
-      "id": "037a3588476f776f790a0000",
-      "title": "Design the web app",
-      "due_date": null,
-      "is_completed": false,
-      "project_id": "eb793588476f776f79080000",
-      "subtask_ids": [
-        "147a3588476f776f790e0000",
-        "197a3588476f776f790f0000"
-      ]
-    },
-    {
-      "id": "007a3588476f776f79090000",
-      "title": "Develope the web app",
-      "due_date": null,
-      "is_completed": false,
-      "project_id": "eb793588476f776f79080000",
-      "subtask_ids": [
-        "0f7a3588476f776f790d0000",
-        "057a3588476f776f790c0000"
-      ]
-    }
-  ],
-  "projects": [
-    {
-      "id": "eb793588476f776f79080000",
-      "title": "Sisyphus Project",
-      "teacher_id": "9f783588476f776f79010000",
-      "required_task_ids": [
-        "007a3588476f776f79090000",
-        "037a3588476f776f790a0000",
-        "047a3588476f776f790b0000"
-      ],
-      "student_ids": [
-        "27793588476f776f79030000",
-        "66793588476f776f79040000",
-        "a2793588476f776f79050000",
-        "dd793588476f776f79060000",
-        "e8783588476f776f79020000"
-      ],
-      "project_group_ids": [
-        "df793588476f776f79070000"
-      ]
-    }
-  ],
-  "subtasks": [
-    {
-      "id": "0f7a3588476f776f790d0000",
-      "title": "Develop the Teachers screen",
-      "due_date": null,
-      "is_completed": false,
-      "is_disputed": false,
-      "project_group_id": "df793588476f776f79070000",
-      "parent_task_id": "007a3588476f776f79090000",
-      "student_ids": [
-        "27793588476f776f79030000"
-      ],
-      "comment_ids": []
-    },
-    {
-      "id": "197a3588476f776f790f0000",
-      "title": "Style the home screen",
-      "due_date": null,
-      "is_completed": false,
-      "is_disputed": false,
-      "project_group_id": "df793588476f776f79070000",
-      "parent_task_id": "037a3588476f776f790a0000",
-      "student_ids": [
-        "a2793588476f776f79050000"
-      ],
-      "comment_ids": []
-    },
-    {
-      "id": "1d7a3588476f776f79100000",
-      "title": "Create the wiki",
-      "due_date": null,
-      "is_completed": false,
-      "is_disputed": false,
-      "project_group_id": "df793588476f776f79070000",
-      "parent_task_id": "047a3588476f776f790b0000",
-      "student_ids": [
-        "66793588476f776f79040000",
-        "a2793588476f776f79050000"
-      ],
-      "comment_ids": []
-    },
-    {
-      "id": "057a3588476f776f790c0000",
-      "title": "Integrate Google Oauth and Drive SDK",
-      "due_date": null,
-      "is_completed": false,
-      "is_disputed": false,
-      "project_group_id": "df793588476f776f79070000",
-      "parent_task_id": "007a3588476f776f79090000",
-      "student_ids": [
-        "e8783588476f776f79020000"
-      ],
-      "comment_ids": [
-        "257a3588476f776f79110000"
-      ]
-    },
-    {
-      "id": "147a3588476f776f790e0000",
-      "title": "Stlye the project screen",
-      "due_date": null,
-      "is_completed": false,
-      "is_disputed": false,
-      "project_group_id": "df793588476f776f79070000",
-      "parent_task_id": "037a3588476f776f790a0000",
-      "student_ids": [
-        "66793588476f776f79040000",
-        "dd793588476f776f79060000"
-      ],
-      "comment_ids": []
-    }
-  ],
-  "project_groups": [
-    {
-      "id": "df793588476f776f79070000",
-      "name": "Capstone Team",
-      "project_id": "eb793588476f776f79080000",
-      "student_ids": [
-        "27793588476f776f79030000",
-        "66793588476f776f79040000",
-        "a2793588476f776f79050000",
-        "dd793588476f776f79060000",
-        "e8783588476f776f79020000"
-      ],
-      "subtask_ids": [
-        "0f7a3588476f776f790d0000",
-        "147a3588476f776f790e0000",
-        "197a3588476f776f790f0000",
-        "1d7a3588476f776f79100000",
-        "057a3588476f776f790c0000"
-      ]
-    }
-  ],
-  "students": [
-    {
-      "id": "27793588476f776f79030000",
-      "email": "craig@email.com",
-      "first_name": "Craig",
-      "last_name": "Berry",
-      "type": "Student",
-      "project_ids": [
-        "eb793588476f776f79080000"
-      ],
-      "project_group_ids": [
-        "df793588476f776f79070000"
-      ],
-      "subtask_ids": [
-        "0f7a3588476f776f790d0000"
-      ]
-    },
-    {
-      "id": "66793588476f776f79040000",
-      "email": "maple@email.com",
-      "first_name": "Maple",
-      "last_name": "Kuo",
-      "type": "Student",
-      "project_ids": [
-        "eb793588476f776f79080000"
-      ],
-      "project_group_ids": [
-        "df793588476f776f79070000"
-      ],
-      "subtask_ids": [
-        "147a3588476f776f790e0000",
-        "1d7a3588476f776f79100000"
-      ]
-    },
-    {
-      "id": "a2793588476f776f79050000",
-      "email": "john@email.com",
-      "first_name": "John",
-      "last_name": "Reardon",
-      "type": "Student",
-      "project_ids": [
-        "eb793588476f776f79080000"
-      ],
-      "project_group_ids": [
-        "df793588476f776f79070000"
-      ],
-      "subtask_ids": [
-        "197a3588476f776f790f0000",
-        "1d7a3588476f776f79100000"
-      ]
-    },
-    {
-      "id": "dd793588476f776f79060000",
-      "email": "sarah@email.com",
-      "first_name": "Sarah",
-      "last_name": "Park",
-      "type": "Student",
-      "project_ids": [
-        "eb793588476f776f79080000"
-      ],
-      "project_group_ids": [
-        "df793588476f776f79070000"
-      ],
-      "subtask_ids": [
-        "147a3588476f776f790e0000"
-      ]
-    },
-    {
-      "id": "e8783588476f776f79020000",
-      "email": "gowie@email.com",
-      "first_name": "Matt",
-      "last_name": "Gowie",
-      "type": "Student",
-      "project_ids": [
-        "eb793588476f776f79080000"
-      ],
-      "project_group_ids": [
-        "df793588476f776f79070000"
-      ],
-      "subtask_ids": [
-        "057a3588476f776f790c0000"
-      ]
-    }
-  ],
-  "comments": [
-    {
-      "id": "257a3588476f776f79110000",
-      "body": "I'll probably end up finishing this over christman break.",
-      "created_at": "2013-11-24T03:44:35.365Z",
-      "updated_at": "2013-11-24T03:44:35.365Z",
-      "is_disputed": false,
-      "user_id": "e8783588476f776f79020000",
-      "subtask_id": "057a3588476f776f790c0000"
-    }
-  ]
+{ "comments" : [  ],
+  "courses" : [ { "code" : "IM4702",
+        "id" : "52e2d17a476f7763a30f0000",
+        "project_ids" : [ "52e2d17a476f7763a3130000" ],
+        "section" : "32087",
+        "semester" : "Spring 2014",
+        "teacher_id" : "52e2d179476f7763a3010000",
+        "title" : "Interactive Capstone 2"
+      } ],
+  "project_groups" : [ { "id" : "52e2d17a476f7763a30d0000",
+        "name" : "Capstone Team",
+        "project_id" : "52e2d17a476f7763a3130000",
+        "student_ids" : [ "52e2d179476f7763a3020000",
+            "52e2d179476f7763a3030000",
+            "52e2d179476f7763a3040000",
+            "52e2d179476f7763a3050000",
+            "52e2d17a476f7763a3060000",
+            "52e2d17a476f7763a3070000",
+            "52e2d17a476f7763a3080000"
+          ],
+        "subtask_ids" : [ "52e2dbbd476f776574020000" ]
+      } ],
+  "projects" : [ { "course_id" : "52e2d17a476f7763a30f0000",
+        "id" : "52e2d17a476f7763a3130000",
+        "project_group_ids" : [ "52e2d17a476f7763a30d0000" ],
+        "required_task_ids" : [ "52e2d17a476f7763a3140000",
+            "52e2d17a476f7763a3150000",
+            "52e2d17a476f7763a3160000",
+            "52e2d17a476f7763a3170000"
+          ],
+        "student_ids" : [ "52e2d179476f7763a3020000",
+            "52e2d179476f7763a3030000",
+            "52e2d179476f7763a3040000",
+            "52e2d179476f7763a3050000",
+            "52e2d17a476f7763a3060000",
+            "52e2d17a476f7763a3070000",
+            "52e2d17a476f7763a3080000"
+          ],
+        "title" : "Sisyphus Project"
+      } ],
+  "required_tasks" : [ { "due_date" : "2014-04-21",
+        "id" : "52e2d17a476f7763a3140000",
+        "is_completed" : false,
+        "project_id" : "52e2d17a476f7763a3130000",
+        "subtask_ids" : [ "52e2dbbd476f776574020000" ],
+        "title" : "User Experience"
+      },
+      { "due_date" : "2014-04-21",
+        "id" : "52e2d17a476f7763a3150000",
+        "is_completed" : false,
+        "project_id" : "52e2d17a476f7763a3130000",
+        "subtask_ids" : [  ],
+        "title" : "User Interface"
+      },
+      { "due_date" : "2014-04-21",
+        "id" : "52e2d17a476f7763a3160000",
+        "is_completed" : false,
+        "project_id" : "52e2d17a476f7763a3130000",
+        "subtask_ids" : [  ],
+        "title" : "Branding"
+      },
+      { "due_date" : "2014-04-21",
+        "id" : "52e2d17a476f7763a3170000",
+        "is_completed" : false,
+        "project_id" : "52e2d17a476f7763a3130000",
+        "subtask_ids" : [  ],
+        "title" : "Development"
+      }
+    ],
+  "students" : [ { "email" : "gowie.matt@gmail.com",
+        "first_name" : "Matt",
+        "id" : "52e2d179476f7763a3020000",
+        "last_login" : "2014-01-25T19:06:14.025Z",
+        "last_name" : "Gowie",
+        "phone" : "484-680-2290",
+        "project_group_ids" : [ "52e2d17a476f7763a30d0000" ],
+        "project_ids" : [ "52e2d17a476f7763a3130000" ],
+        "subtask_ids" : [  ],
+        "type" : "Student"
+      },
+      { "email" : "rjbcc58@gmail.com",
+        "first_name" : "Craig",
+        "id" : "52e2d179476f7763a3030000",
+        "last_login" : null,
+        "last_name" : "Berry",
+        "phone" : "603-321-7060",
+        "project_group_ids" : [ "52e2d17a476f7763a30d0000" ],
+        "project_ids" : [ "52e2d17a476f7763a3130000" ],
+        "subtask_ids" : [  ],
+        "type" : "Student"
+      },
+      { "email" : "kuo.maple@gmail.com",
+        "first_name" : "Maple",
+        "id" : "52e2d179476f7763a3040000",
+        "last_login" : null,
+        "last_name" : "Kuo",
+        "phone" : "626-782-1337",
+        "project_group_ids" : [ "52e2d17a476f7763a30d0000" ],
+        "project_ids" : [ "52e2d17a476f7763a3130000" ],
+        "subtask_ids" : [  ],
+        "type" : "Student"
+      },
+      { "email" : "johnhreardoniv@gmail.com",
+        "first_name" : "John",
+        "id" : "52e2d179476f7763a3050000",
+        "last_login" : null,
+        "last_name" : "Reardon",
+        "phone" : "508-215-8000",
+        "project_group_ids" : [ "52e2d17a476f7763a30d0000" ],
+        "project_ids" : [ "52e2d17a476f7763a3130000" ],
+        "subtask_ids" : [  ],
+        "type" : "Student"
+      },
+      { "email" : "npnussbaum@gmail.com",
+        "first_name" : "Nicole",
+        "id" : "52e2d17a476f7763a3060000",
+        "last_login" : null,
+        "last_name" : "Nussbaum",
+        "phone" : "443-538-8184",
+        "project_group_ids" : [ "52e2d17a476f7763a30d0000" ],
+        "project_ids" : [ "52e2d17a476f7763a3130000" ],
+        "subtask_ids" : [  ],
+        "type" : "Student"
+      },
+      { "email" : "sarahlynnpark@gmail.com",
+        "first_name" : "Sarah",
+        "id" : "52e2d17a476f7763a3070000",
+        "last_login" : null,
+        "last_name" : "Park",
+        "phone" : "443-983-1141",
+        "project_group_ids" : [ "52e2d17a476f7763a30d0000" ],
+        "project_ids" : [ "52e2d17a476f7763a3130000" ],
+        "subtask_ids" : [ "52e2dbbd476f776574020000" ],
+        "type" : "Student"
+      },
+      { "email" : "sivak.mark@gmail.com",
+        "first_name" : "Mark",
+        "id" : "52e2d17a476f7763a3080000",
+        "last_login" : "2014-01-24T20:49:20.297Z",
+        "last_name" : "Sivak",
+        "phone" : "978-621-3770",
+        "project_group_ids" : [ "52e2d17a476f7763a30d0000" ],
+        "project_ids" : [ "52e2d17a476f7763a3130000" ],
+        "subtask_ids" : [  ],
+        "type" : "Student"
+      }
+    ],
+  "subtasks" : [ { "comment_ids" : [  ],
+        "due_date" : "2014-01-24",
+        "id" : "52e2dbbd476f776574020000",
+        "is_completed" : false,
+        "is_disputed" : false,
+        "parent_task_id" : "52e2d17a476f7763a3140000",
+        "project_group_id" : "52e2d17a476f7763a30d0000",
+        "student_ids" : [ "52e2d17a476f7763a3070000" ],
+        "title" : "SHRED"
+      } ],
+  "teachers" : [ { "course_ids" : [ "52e2d17a476f7763a30f0000",
+            "52e2d17a476f7763a3100000",
+            "52e2d17a476f7763a3110000",
+            "52e2d17a476f7763a3120000"
+          ],
+        "email" : "teacher@email.com",
+        "first_name" : "Johnny",
+        "id" : "52e2d179476f7763a3010000",
+        "last_login" : null,
+        "last_name" : "Capstone",
+        "phone" : "555-555-5552",
+        "type" : "Teacher"
+      } ]
 }

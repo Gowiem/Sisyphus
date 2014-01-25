@@ -27,7 +27,9 @@
 
 // Ember Testing Setup
 ///////////////////////
-var fixtures = fixture.load('model_fixtures.json', true);
 Sis.rootElement = '#ember-testing';
 Sis.setupForTesting();
-Sis.injectTestHelpers(Ember.Test);
+Sis.injectTestHelpers();
+
+// Alias Ember.Test#wait as Pavlov has it's own #wait method
+var emberWait = wait;
