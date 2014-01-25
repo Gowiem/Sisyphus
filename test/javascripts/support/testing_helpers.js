@@ -26,13 +26,11 @@ var logoutUser = function() {
 }
 
 // Use ic.ajax.defineFixture to mock ic.ajax calls 
-var initAjaxFixtures = function(studentEmail, fixtures) {
+var initAjaxFixtures = function(userEmail, fixtures) {
   // Login 
   var userJSON = {};
   // Grab our student which has the given email
-  userJSON['student'] = fixtures[0]['students'].find(function(student, idx) {
-    return student['email'] === studentEmail;
-  });
+  userJSON['student'] = fixtures[0]['students'].findBy('email', userEmail)
 
   ic.ajax.defineFixture("/students/sign_in.json", {
     response: userJSON,
@@ -47,9 +45,11 @@ var initAjaxFixtures = function(studentEmail, fixtures) {
   });
 }
 
-var initServer = function(fixtures) {
-  var server = sinon.fakeServer.create()
-      projectsJSON = fixtures[0];
+var initServer = function(userEmail, fixtures) {
+  var server = sinon.fakeServer.create(),
+      projectsJSON = fixtures[0],
+      student = fixtures[0]['students'].findBy('email', userEmail);
+
   // Don't need to call server.respond() all the time
   server.autoRespond = true;
 
@@ -58,5 +58,11 @@ var initServer = function(fixtures) {
     "GET",
     "/projects",
     [200, { "Content-Type": "application/json" }, JSON.stringify(projectsJSON)]);
+
+  server.respondWith(
+    "PUT",
+    new RegExp('/students/'),
+    [204, { "Content-Type": "application/json" }, ""]);
+
   return server;
 }

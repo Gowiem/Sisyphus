@@ -11,7 +11,7 @@ pavlov.specify('Authentication', function() {
 
       initEmber();
       emberWait().then(function() {
-        server = initServer(fixtures);
+        server = initServer(studentEmail, fixtures);
         initAjaxFixtures(studentEmail, fixtures);
       });
     });

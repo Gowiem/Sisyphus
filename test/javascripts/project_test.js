@@ -10,7 +10,7 @@ pavlov.specify('Project screen', function() {
       fixtures = fixture.load('model_fixtures.json', true);
 
       initEmber();
-      server = initServer(fixtures);
+      server = initServer(studentEmail, fixtures);
       initAjaxFixtures(studentEmail, fixtures);
 
       loginStudent(studentEmail, studentPassword);
