@@ -54,7 +54,8 @@ Sis.AuthController = Ember.ObjectController.extend({
       if (jqXHR.status === 401 || jqXHR.status === 406) {
         controller.set("errorMsg", jqXHR.responseJSON['error']);
       } else {
-        console.assert(false, "Login Error - status: ", jqXHR.status, " error: ", jqXHR.responseJSON['error']);
+        controller.set("errorMsg", "Sorry there was an error with loggin you in. Please try again later");
+        console.log("Login Error - jqXHR: ", jqXHR);
       }
     });
   },
