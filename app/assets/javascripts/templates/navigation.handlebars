@@ -37,7 +37,14 @@
           </a>
           <ul class="dropdown-menu">
             <li><h5><a href="#" {{action editAccount}}><i class="fa fa-pencil-square-o fa-fw"></i>Account</a></h5></li>
-            <li><h5><a href="#" {{action logout}}><i class="fa fa-power-off fa-fw"></i>Log Out</a></h5></li>
+            <li>
+              <h5>
+                <a href="#" {{action logout}} id="logout-button">
+                  <i class="fa fa-power-off fa-fw"></i>
+                  Log Out
+                </a>
+              </h5>
+            </li>
           </ul>
       </li>
       {{else}}

@@ -23,7 +23,6 @@ Sis.AuthController = Ember.ObjectController.extend({
     function(result) {
       var data = result.response,
           userJson;
-
       // Normalize our JSON object
       userJson = Sis.normalizeJsonObject(data[userType], userType, self.store);
 
@@ -34,10 +33,12 @@ Sis.AuthController = Ember.ObjectController.extend({
 
       // Push our returned user's JSON data into the store
       self.store.push(userType, data[userType]);
+
+      // Once we've found our user, set currentUser, and transition appropriately
       self.store.find(userType, data[userType].id).then(function(user) {
         self.set('currentUser', user);
         if (user.get('isTeacher')) {
-          route.get('store').find('course').then(function(courses) {        
+          route.get('store').find('course').then(function(courses) {
             route.transitionTo('course', courses.get('firstObject'));
           });
         } else {
