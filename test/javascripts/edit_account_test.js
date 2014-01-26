@@ -35,7 +35,7 @@ pavlov.specify('Editing Account', function() {
         // Have to wait for half a second as it takes bootstrap a bit to get the modal shown
         wait(500, function() {
           assert(isVisible('#edit-account-modal')).isTrue("edit-account-modal was not in the dom");
-          click('#edit-account-cancel');
+          click('.modal-header button.close');
         });
       });
     })
