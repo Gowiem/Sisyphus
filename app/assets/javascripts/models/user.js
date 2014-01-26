@@ -7,6 +7,7 @@ Sis.User = DS.Model.extend({
   phone: DS.attr('string'),
   password: DS.attr('string'),
   passwordConfirmation: DS.attr('string'),
+  currentPassword: DS.attr('string'),
   lastLogin: DS.attr('isodate'),
   // Computed Propeties
   readableLastLogin: function() {
