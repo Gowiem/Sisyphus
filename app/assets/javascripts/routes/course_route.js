@@ -8,6 +8,8 @@ Sis.CourseRoute = Ember.Route.extend({
     controller.set('model', course);
   },
   model: function(params) {
-    return this.get('store').find('course', params.course_id);
+    return this.get('store').find('course').then(function(courses) {
+      return courses.findBy('id', params.course_id);
+    });
   },
 })

@@ -13,8 +13,10 @@
               Semester <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              {{#each course in courses}}
-                <li>{{course.semester}}</li>
+              {{#each semester in uniqueSemesters}}
+                <li>
+                  <h3>{{semester}}</h3>
+                </li>
               {{/each}}
             </ul>
           </li>
