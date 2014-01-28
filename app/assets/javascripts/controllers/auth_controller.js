@@ -23,19 +23,24 @@ Sis.AuthController = Ember.ObjectController.extend({
     function(result) {
       var data = result.response,
           userJson;
-
       // Normalize our JSON object
       userJson = Sis.normalizeJsonObject(data[userType], userType, self.store);
 
       // Reset the error message for this controller.
       controller.set('errorMsg', null);
+      var model = route.currentModel;
+      model.destroy();
 
       // Push our returned user's JSON data into the store
       self.store.push(userType, data[userType]);
+
+      // Once we've found our user, set currentUser, and transition appropriately
       self.store.find(userType, data[userType].id).then(function(user) {
         self.set('currentUser', user);
         if (user.get('isTeacher')) {
-          route.transitionTo('teacher');
+          route.get('store').find('course').then(function(courses) {
+            route.transitionTo('course', courses.get('firstObject'));
+          });
         } else {
           route.get('store').find('project').then(function(projects) {
             route.transitionTo('project', projects.get('firstObject'));
@@ -49,7 +54,8 @@ Sis.AuthController = Ember.ObjectController.extend({
       if (jqXHR.status === 401 || jqXHR.status === 406) {
         controller.set("errorMsg", jqXHR.responseJSON['error']);
       } else {
-        console.assert(false, "Login Error - status: ", jqXHR.status, " error: ", jqXHR.responseJSON['error']);
+        controller.set("errorMsg", "Sorry there was an error with loggin you in. Please try again later");
+        console.log("Login Error - jqXHR: ", jqXHR);
       }
     });
   },

@@ -1,20 +1,24 @@
-  <h2>{{getFullTitle}}</h2>
-  <ul style="width=100%;">
-    <div style="display:block;">
-      <li>Project:
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Primary <span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu">
-              {{#each project in projects}}
-                <li><a href="#">{{project.title}}</a></li>
-              {{/each}}
-            </ul>
-          </div>
-            <!-- Placeholder for Google Drive -->
-        </li>
-        <li>Edit Project</li>
-        <li>Project Folder</li>
-        <li>Email Class</li>
-      </div>
-      {{render "facultyProject" getSelectedProject}}
-  </div>
+<ul class="nav nav-pills nav-justified">
+  <li class="active"><a>{{title}}</a></li>
+  {{#each course in nonActiveCourses}}
+    <li>{{#link-to 'course' course}} {{course.title}} {{/link-to}}</a></li>
+  {{/each}} 
+</ul>
+<p><h2>{{title}} ({{code}})</h2></p>
+<ul class="nav nav-tabs nav-justified">
+  <li>Project:
+    {{view Ember.Select
+           content=projects
+           optionValuePath="content.id"
+           optionLabelPath="content.title"
+           selection=selectedProject}}
+  </li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li><span class="glyphicon glyphicon-pencil"></span>  Edit Project</li>
+  <li><span class="glyphicon glyphicon-folder-open"></span>  Project Folder</li>
+  <li><span class="glyphicon glyphicon-envelope"></span>  Email Class</li>
+</ul>
+{{render "facultyProject" selectedProject}}

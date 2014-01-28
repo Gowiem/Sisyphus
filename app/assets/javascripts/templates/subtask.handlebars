@@ -1,20 +1,38 @@
 <li 
   {{action "editTask" on="click" preventDefault=false}}
-  {{bind-attr class=":subtask-container :clearfix isDisputed:disputed isCompleted:completed isEditing:editing"}}>
+  {{bind-attr class=":subtask-container :clearfix :row 
+                     isDisputed:disputed isCompleted:completed isEditing:editing"}}>
+  {{#if isHovering}}
+    <div class="subtask-edit-pencil">
+      <i class="fa fa-pencil-square-o fa-fw"></i>
+    </div>
+  {{/if}}
+
   {{#if isEditing}}
     {{render "editSubtask" model parentBinding="this"}}
   {{else}}
-    <div class="title-container col-md-11">
-      {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
-      <h4 {{bind-attr class=":subtask-title :center-text isDisputed:disputed"}}>
-        {{title}}
-      </h4>
+    <div class="row col-md-12">
+      <div class="title-container col-md-10">
+        {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
+        <h4 {{bind-attr class=":subtask-title :center-text isDisputed:disputed"}}>
+          {{title}}
+        </h4>
+      </div>
+      <div class="date-container">
+        <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
+      </div>
     </div>
-    <div class="date-container">
-      <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
+    <div class="row col-md-12">
+      <div class="assigned-to-members col-md-12">
+        Assigned to:
+        {{#each student in students}}
+          <span class="assigned-to-member">{{student.fullName}}</span>
+        {{/each}}
+      </div>
     </div>
+
     {{#if showingDispute}}
-      <a class="dispute" {{action disputeSubtask}}><span class="glyphicon glyphicon-ban-circle"></span> Dispute</a>
+      <a class="dispute" {{action disputeSubtask}}><i class="fa fa-ban fa-fw"></i> Dispute</a>
     {{/if}}
 
   <div class="row comments-container">

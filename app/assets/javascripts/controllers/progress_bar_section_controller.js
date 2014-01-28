@@ -5,11 +5,15 @@ Sis.ProgressBarSectionController = Sis.GroupMemberController.extend({
   // on the number of other users in the group.
   progressBarSectionStyle: function() {
     var progressBarStyle = this.get('progressBarStyle'),
-        progressBarPercent = /(\d+)/.exec(progressBarStyle)[0],
-        groupMemberCount = this.get('controllers.project.model.students.length');
-    if (progressBarPercent) {
+        groupMemberCount = this.get('controllers.project.model.students.length'),
+        progressBarMatch = /(\d+)/.exec(progressBarStyle),
+        progressBarPercent;
+
+    // If exec found a match then we have a percentage.
+    if (progressBarMatch) {
       // exec gives us our digit back as a string, convert to int and shrink it
       // so it's 1/number of group members.
+      progressBarPercent = progressBarMatch[0];
       progressBarPercent = parseInt(progressBarPercent) * (1 / groupMemberCount);
     } else {
       progressBarPercent = 0;

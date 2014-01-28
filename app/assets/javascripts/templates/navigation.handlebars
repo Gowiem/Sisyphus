@@ -13,10 +13,11 @@
               Semester <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li>"Spring 2014"</li>
-              <li>{{currentUser.firstName}}</li>
-              <li>{{currentUser.lastName}}</li>
-              <li>{{currentUser.isTeacher}}</li>
+              {{#each semester in uniqueSemesters}}
+                <li>
+                  <h3>{{semester}}</h3>
+                </li>
+              {{/each}}
             </ul>
           </li>
         {{else}}
@@ -37,8 +38,22 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><h5><a href="#" {{action editAccount}}>Account</a></h5></li>
-            <li><h5><a href="#" {{action logout}}>Log Out</a></h5></li>
+            <li>
+              <h5>
+                <a href="#" {{action editAccount}} id="account-button">
+                  <i class="fa fa-pencil-square-o fa-fw"></i>
+                  Account
+                </a>
+              </h5>
+            </li>
+            <li>
+              <h5>
+                <a href="#" {{action logout}} id="logout-button">
+                  <i class="fa fa-power-off fa-fw"></i>
+                  Log Out
+                </a>
+              </h5>
+            </li>
           </ul>
       </li>
       {{else}}

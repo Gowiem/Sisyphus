@@ -1,3 +1,5 @@
+@import "variables";
+
 hr {
   clear: both;
 }
@@ -15,12 +17,14 @@ hr {
   // width: 35px;
 
   .due-soon {
-    background-color: red;
+    background-color: $red;
+    color: #FFFFFF;
+    font-size:13px;
+    border-radius: $roundCorners;
   }
 
   p {
     padding: 0 5px;
-    background-color: #EBC5A4;
   }
 }
 
@@ -39,6 +43,7 @@ hr {
 }
 
 .subtask-container {
+  position: relative;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -46,6 +51,12 @@ hr {
   -ms-user-select: none;
   user-select: none;
   list-style-type: none;
+
+  .subtask-edit-pencil {
+    position: absolute;
+    left: -20px;
+    top: 10px;
+  }
   
   .dispute {
     float: right;

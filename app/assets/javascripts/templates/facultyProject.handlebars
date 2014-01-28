@@ -1,12 +1,14 @@
-{{#each projectGroup in projectGroups}}
-  <table class="table">
-    <thead>
-      <tr>Group Name</tr>
-      <tr>Status</tr>
-      <tr></tr>
-    </thead>
-    <tbody>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>Group Name</td>
+      <td>Status</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each projectGroup in projectGroups}}
       {{render "facultyProjectGroup" projectGroup}}
-    </tbody>
-  </table>
-{{/each}}
+    {{/each}}
+  </tbody>
+</table>

@@ -16,22 +16,22 @@ var loginStudent = function(username, password) {
   visit('/').click('.studentsLogin .btn span')
             .fillIn('#email-field', username)
             .fillIn('#password-field', password)
-            .click('#login-button').then(function() {
-              console.log("Student logged in");
-            });
+            .click('#login-button');
 }
 
-var logoutUser = function(username, password) {
+var logoutUser = function() {
   click('#logout-button').then(function() {
     console.log("User logged out");
   });
 }
 
 // Use ic.ajax.defineFixture to mock ic.ajax calls 
-var initAjaxFixtures = function() {
+var initAjaxFixtures = function(userEmail, fixtures) {
   // Login 
   var userJSON = {};
-  userJSON['student'] = fixtures[0]['students'][4];
+  // Grab our student which has the given email
+  userJSON['student'] = fixtures[0]['students'].findBy('email', userEmail)
+
   ic.ajax.defineFixture("/students/sign_in.json", {
     response: userJSON,
     jqXHR: {},
@@ -45,8 +45,11 @@ var initAjaxFixtures = function() {
   });
 }
 
-var initServer = function() {
-  var server = sinon.fakeServer.create();
+var initServer = function(userEmail, fixtures) {
+  var server = sinon.fakeServer.create(),
+      projectsJSON = fixtures[0],
+      student = fixtures[0]['students'].findBy('email', userEmail);
+
   // Don't need to call server.respond() all the time
   server.autoRespond = true;
 
@@ -54,7 +57,12 @@ var initServer = function() {
   server.respondWith(
     "GET",
     "/projects",
-    [200, { "Content-Type": "application/json" }, JSON.stringify(fixtures[0])]
-  );
+    [200, { "Content-Type": "application/json" }, JSON.stringify(projectsJSON)]);
+
+  server.respondWith(
+    "PUT",
+    new RegExp('/students/'),
+    [204, { "Content-Type": "application/json" }, ""]);
+
   return server;
 }

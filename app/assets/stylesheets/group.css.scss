@@ -4,30 +4,74 @@
 	margin-top: 53px;
 }
 
+.group-member-info-container {
+  position: absolute;
+  left: -170px;
+  display: none;
+  padding: 10px;
+  color: white;
+  background-color: $grey;
+  border-radius: $roundCorners;
+
+  &.showing-group-member-info {
+    display: block;
+  }
+}
+
+.edit-account-pencil {
+  float: right;
+}
+
 .group-member-progress {
   background-image: none;
 }
 
 .group-member-0 {
-  background-color: $darkOrange;
+  background-color: $orange;
 }
 
 .group-member-1 {
-  background-color: $lightOrange;
+  background-color: $yellow;
 }
 
 .group-member-2 {
-  background-color: $lightGreen;
+  background-color: $ygreen;
 }
 
 .group-member-3 {
-  background-color: $lightBlue;
+  background-color: $blue;
 }
 
 .group-member-4 {
-  // Grabbed this one from the web cause I ran out.
-  // I'm not attached to it. Feel free to change.
-  background-color: #006B75;
+  background-color: $purple;
+}
+
+.group-member-5 {
+  background-color: $green;
+}
+
+.group-member-6 {
+  background-color: $orangeDark;
+}
+
+.group-member-7 {
+  background-color: $yellowDark;
+}
+
+.group-member-8 {
+  background-color: $greenDark;
+}
+
+.group-member-9 {
+  background-color: $ygreenDark;
+}
+
+.group-member-10 {
+  background-color: $blueDark;
+}
+
+.group-member-11 {
+  background-color: $purpleDark;
 }
 
 // This is a bit of a hack, but I couldn't figure this out. You designers

@@ -27,6 +27,8 @@ Sisyphus::Application.routes.draw do
   devise_for :teachers, controllers: { sessions: 'sessions' }
 
   resources :projects, :constraints => FormatTest.new(:json)
+  resources :courses, :constraints => FormatTest.new(:json)
+  resources :project_groups, :constraints => FormatTest.new(:json)
   resources :subtasks, :constraints => FormatTest.new(:json)
   resources :students, :constraints => FormatTest.new(:json)
   resources :comments, :constraints => FormatTest.new(:json)
