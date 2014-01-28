@@ -13,7 +13,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'ember-rails'
 
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+# gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
 ## TODO: RailsAdmin is broken with bootstrap-sass 2/3 upgrade issues.
 ## We'll likely want to update this to the master branch once those 

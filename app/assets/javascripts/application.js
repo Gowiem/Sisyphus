@@ -19,7 +19,7 @@
 
 // Bootstrap
 /////////////
-//= require bootstrap
+// require bootstrap
 
 // Handlebars, Ember, Ember-Data
 /////////////////////////////////

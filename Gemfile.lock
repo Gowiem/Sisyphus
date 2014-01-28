@@ -28,13 +28,6 @@ GIT
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
 
-GIT
-  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
-  revision: dc7c1b569585e06d921d9b79bd565b1ed646ab6b
-  specs:
-    bootstrap-sass (3.0.3.0)
-      sass (~> 3.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -234,7 +227,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass!
   database_cleaner
   debugger
   devise
