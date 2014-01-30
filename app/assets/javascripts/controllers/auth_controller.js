@@ -39,6 +39,44 @@ Sis.AuthController = Ember.ObjectController.extend({
         self.set('currentUser', user);
         if (user.get('isTeacher')) {
           route.get('store').find('course').then(function(courses) {
+
+    // var diffSemesters = courses.mapBy('semester').uniq();
+
+    //   var diffYears = [];
+
+    //   // Get unique semester years
+    //   for( var i = 0; i < diffSemesters.length; i++ ) {
+    //     var semStr = diffSemesters[i];
+    //     var semArr = semStr.split(" ");
+    //     var semYear = parseInt( semArr[1], 10 ); // Constant specifies to parse as base 10 value 
+
+    //     // Get unique semester years
+    //     if (!diffYears.contains( semYear )) {
+    //       diffYears.push( semYear );
+    //     }            
+    //   }
+
+    //   // Get the most recent year
+    //   var maxYear = Math.max.apply(Math, diffYears);
+      
+    //   // Extract possible semesters with current year
+    //   diffSemesters = diffSemesters.filter(function (semester) {
+    //     return (semester.indexOf(maxYear) != -1);
+    //   });
+
+    //   // Return Fall if it exists, otherwise return Spring
+    //   var index = diffSemesters.indexOf("Fall " + maxYear);
+    //   if ( index === -1) {
+    //     index = diffSemesters.indexOf("Spring " + maxYear);
+    //   }
+      
+    //   var semester = diffSemesters[index];
+            debugger
+            var semester = user.get('mostRecentSemester');            
+            courses = courses.filter(function (course) {
+              return course.get('semester') === semester;
+            });
+
             route.transitionTo('course', courses.get('firstObject'));
           });
         } else {

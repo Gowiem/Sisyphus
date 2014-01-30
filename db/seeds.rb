@@ -116,12 +116,96 @@ laura = Student.create!(
   password: "password12", 
   password_confirmation: "password12")
 
+bobby = Student.create!(
+  email: "bobby@email.com", 
+  first_name: "Bobby", 
+  last_name: "Berry",
+  phone: "555-555-5554",
+  password: "password12", 
+  password_confirmation: "password12")
 
+lexi = Student.create!(
+  email: "lexi@email.com",
+  first_name: "Lexi",
+  last_name: "Kuo",
+  phone: "555-555-5555",
+  password: "password12", 
+  password_confirmation: "password12")
+
+davey = Student.create!(
+  email: "davey@email.com",
+  first_name: "Davey",
+  last_name: "Reardon",
+  phone: "555-555-5556",
+  password: "password12", 
+  password_confirmation: "password12")
+
+laurie = Student.create!(
+  email: "laurie@email.com",
+  first_name: "Laurie",
+  last_name: "Park",
+  phone: "555-555-5557",
+  password: "password12", 
+  password_confirmation: "password12")
+
+nick = Student.create!(
+  email: "nick@email.com", 
+  first_name: "Nick", 
+  last_name: "Lynch",
+  phone: "555-555-5554",
+  password: "password12", 
+  password_confirmation: "password12")
+
+eric = Student.create!(
+  email: "eric@email.com",
+  first_name: "Eric",
+  last_name: "Carlyle",
+  phone: "555-555-5555",
+  password: "password12", 
+  password_confirmation: "password12")
+
+holly = Student.create!(
+  email: "holly@email.com",
+  first_name: "Holly",
+  last_name: "Doe",
+  phone: "555-555-5556",
+  password: "password12", 
+  password_confirmation: "password12")
+
+jane = Student.create!(
+  email: "jane@email.com",
+  first_name: "Jane",
+  last_name: "Doe",
+  phone: "555-555-5557",
+  password: "password12", 
+  password_confirmation: "password12")
 
 ## Project Groups
 ##################
 team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, maple, john, sarah, nicole, mark ]);
 projectGroup1 = ProjectGroup.create!( name: "Alpha Team", students: [ dave, laura, bob, alex ]);
+projectGroup2 = ProjectGroup.create!( name: "Beta Team", students: [ davey, laurie, bobby, lexi ]);
+projectGroup3 = ProjectGroup.create!( name: "Epsilon Team", students: [ eric, holly, jane, nick]);
+
+projectGroup4 = ProjectGroup.create!( name: "Zeta Team", students: [ gowie, craig, maple, john, sarah, nicole, mark ]);
+projectGroup5 = ProjectGroup.create!( name: "Eta Team", students: [ dave, laura, bob, alex ]);
+projectGroup6 = ProjectGroup.create!( name: "Theta Team", students: [ davey, laurie, bobby, lexi ]);
+projectGroup7 = ProjectGroup.create!( name: "Lambda Team", students: [ eric, holly, jane, nick]);
+
+projectGroup8 = ProjectGroup.create!( name: "Zeta Team", students: [ gowie, craig, maple, john, sarah, nicole, mark ]);
+projectGroup9 = ProjectGroup.create!( name: "Eta Team", students: [ dave, laura, bob, alex ]);
+projectGroup10 = ProjectGroup.create!( name: "Theta Team", students: [ davey, laurie, bobby, lexi ]);
+projectGroup11 = ProjectGroup.create!( name: "Lambda Team", students: [ eric, holly, jane, nick]);
+
+projectGroup12 = ProjectGroup.create!( name: "Mu Team", students: [ gowie, craig, maple, john, sarah, nicole, mark ]);
+projectGroup13 = ProjectGroup.create!( name: "A Team", students: [ dave, laura, bob, alex ]);
+projectGroup14 = ProjectGroup.create!( name: "B Team", students: [ davey, laurie, bobby, lexi ]);
+projectGroup15 = ProjectGroup.create!( name: "F Team", students: [ eric, holly, jane, nick]);
+
+projectGroup16 = ProjectGroup.create!( name: "Mu Team", students: [ gowie, craig, maple, john, sarah, nicole, mark ]);
+projectGroup17 = ProjectGroup.create!( name: "A Team", students: [ dave, laura, bob, alex ]);
+projectGroup18 = ProjectGroup.create!( name: "B Team", students: [ davey, laurie, bobby, lexi ]);
+projectGroup19 = ProjectGroup.create!( name: "F Team", students: [ eric, holly, jane, nick]);
 
 # Courses
 ##########
@@ -141,27 +225,46 @@ software_dev_course = Course.create!(
 
 mad_course = Course.create!(
   teacher: teach,
-  semester: "Spring 2014",
+  semester: "Fall 2013",
   code: "CS5450",
   title: "Mobile Application Development",
   section: "08542")
-
-fall_course = Course.create!(
-  teacher: teach,
-  semester: "Fall 2013",
-  code: "CS4701",
-  title: "Interactive Capstone 1",
-  section: "57849")
-
-
 
 ## Projects
 ##################
 sisyphus = Project.create!(
   title: "Sisyphus Project", 
-  students: [ gowie, craig, maple, john, sarah, mark, nicole, bob, alex, dave, laura ],
+  students: [ gowie, craig, maple, john, sarah, mark, nicole, bob, alex, dave, laura, davey, laurie, lexi, bobby, eric, holly, jane, nick ],
   course: capstone_course,
-  project_groups: [ team, projectGroup1 ]
+  project_groups: [ team, projectGroup1, projectGroup2, projectGroup3]
+)
+
+project1 = Project.create!(
+  title: "Research Project", 
+  students: [ gowie, craig, maple, john, sarah, mark, nicole, bob, alex, dave, laura, davey, laurie, lexi, bobby, eric, holly, jane, nick  ],
+  course: capstone_course,
+  project_groups: [  projectGroup4, projectGroup5, projectGroup6, projectGroup7 ]
+)
+
+project2 = Project.create!(
+  title: "Luzhanqi AI", 
+  students: [ gowie, craig, maple, john, sarah, mark, nicole, bob, alex, dave, laura, davey, laurie, lexi, bobby, eric, holly, jane, nick  ],
+  course: software_dev_course,
+  project_groups: [ projectGroup8, projectGroup9,  projectGroup10, projectGroup11]
+)
+
+project3 = Project.create!(
+  title: "Specification Memo", 
+  students: [ gowie, craig, maple, john, sarah, mark, nicole, bob, alex, dave, laura, davey, laurie, lexi, bobby, eric, holly, jane, nick  ],
+  course: software_dev_course,
+  project_groups: [ projectGroup12, projectGroup13, projectGroup14, projectGroup15 ]
+)
+
+project4 = Project.create!(
+  title: "App Pitch", 
+  students: [ gowie, craig, maple, john, sarah, mark, nicole, bob, alex, dave, laura, davey, laurie, lexi, bobby, eric, holly, jane, nick ],
+  course: mad_course,
+  project_groups: [ projectGroup16, projectGroup19, projectGroup17, projectGroup18 ]
 )
 
 ## Tasks

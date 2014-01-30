@@ -11,12 +11,10 @@ Sis.CourseController = Ember.ObjectController.extend({
         return this.get('content.projects.firstObject');
       }
     } else {
-      console.log("value: ", value);
-      var project = this.store.find('project', value);
-      this.set('selectedProjectVal', project);
-      return project;
+      this.set('selectedProjectVal', value);
+      return value;
     }
-  }.property('selectedProjectVal'),
+  }.property('selectedProjectVal', 'content.projects.@each', 'content.courses'),
 
   nonActiveCourses: function () {
     var id = this.get('id');
