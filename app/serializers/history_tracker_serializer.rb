@@ -1,5 +1,5 @@
 class HistoryTrackerSerializer < BaseSerializer
-  attributes :id, :action, :created_at, :modifier_id, :subject_type, :subject_id
+  attributes :id, :action, :created_at, :modifier_id, :subject_type, :subject_id, :description
 
   def subject_id
     return object.association_chain.last['id'].to_s
