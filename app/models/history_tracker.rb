@@ -5,12 +5,31 @@ class HistoryTracker
 
   def add_description
     user = User.find(self.modifier_id.to_s)
+    subtask = Subtask.find(self.association_chain.first['id'].to_s)
 
-    # Grab the last item in the association_chain, which should be the item
-    # that was updated
-    subject_meta = self.association_chain.last
-
-    action = self.action == 'create' ? 'added a new' : 'updated a'
-    self.description = "#{user.full_name} #{action} #{subject_meta['name']}"
+    self.description = "#{user.full_name} #{readable_action} '#{subtask.title}'"
   end
+
+
+  private 
+    def readable_action
+      type = self.association_chain.last['name']
+      if type == 'Subtask'
+        return subtask_readable_action
+      elsif type == 'comments'
+        return "commented on"
+      end
+    end
+
+    def subtask_readable_action
+      if self.action == 'update'
+        if self.modified['is_completed']
+          "completed"
+        else
+          "edited"
+        end
+      else
+        "created"
+      end
+    end
 end

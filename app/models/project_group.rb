@@ -7,14 +7,13 @@ class ProjectGroup < BaseDocument
   has_many :subtasks
 
   def histories
-    result = []
-
-    result.concat(self.subtasks.map(&:history_tracks))
-
+    # TODO: Without loading the comments below the history_tracks.entires is empty..
+    # I'm not sure what the deal with this is and I'd really like to figure it out
+    # soon.
     comments = self.subtasks.map(&:comments).map(&:entries).flatten
-    result.concat(comments.map(&:history_tracks))
+    histories = self.subtasks.map(&:history_tracks).map(&:entries).flatten
 
-    return result.flatten
+    histories.delete_if { |hist| hist.description == nil }
   end
 end
 

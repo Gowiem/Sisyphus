@@ -8,7 +8,6 @@ Sis.HistoryTracker = DS.Model.extend({
   subjectId: DS.attr('string'),
 
   timeAgo: function() {
-    console.log("createdAt: ", this.get('createdAt'));
     return moment(this.get('createdAt')).fromNow();
   }.property('createdAt')
 });
