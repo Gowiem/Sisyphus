@@ -1,6 +1,8 @@
 class Comment < BaseDocument
   include Mongoid::Timestamps
   include Mongoid::Audit::Trackable
+
+  after_save :update_trackable_with_description
   
   field :body, type: String
   field :is_disputed, type: Boolean, default: false
@@ -17,4 +19,11 @@ class Comment < BaseDocument
                 :track_create   =>  true,
                 :track_update   =>  true,
                 :track_destroy  =>  true
+
+  private
+    def update_trackable_with_description
+      history_track = self.history_tracks.last
+      history_track.add_description
+      history_track.save!
+    end
 end

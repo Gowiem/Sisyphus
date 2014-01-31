@@ -46,8 +46,7 @@ class SubtasksController < ApplicationController
     end
 
     def subtask_params
-      prams = params.require(:subtask).permit(:title, :type, :due_date, :project_group_id, 
+      params.require(:subtask).permit(:title, :type, :due_date, :project_group_id,
         :parent_task_id, :is_disputed, :is_completed, {:comments => []}, {:student_ids => []})
-      prams.merge({ modifier: @current_user })
     end
 end
