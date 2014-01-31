@@ -1,0 +1,13 @@
+.news-items-container {
+  overflow: scroll;
+  height: 300px;
+
+  .news-item {
+    list-style-type: none;
+    display: block;
+  }
+
+  .news-item-time-ago {
+    float: right;
+  }
+}
