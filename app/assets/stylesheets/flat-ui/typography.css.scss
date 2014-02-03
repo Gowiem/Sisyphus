@@ -1,0 +1,263 @@
+/* 
+------------------------------ 
+TYPOGRAPHY
+------------------------------ 
+*/
+
+/* body: gets applied to all elements in body */
+body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.4em;
+  color: #404041;
+  background-color: #F1F2F2;
+}
+a {
+  color: #2BBAAD;
+  text-decoration: none;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+a:hover,
+a:focus {
+  color: #069F8E;
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+}
+.img-rounded {
+  border-radius: 6px;
+}
+.img-comment {
+  font-size: 15px;
+  font-weight:400;
+  line-height: 1.2;
+  font-style: italic;
+  margin: 24px 0;
+}
+.lead {
+  margin-bottom: 30px;
+  font-size: 28px;
+  line-height: 1.4em;
+  font-weight: 300;
+}
+@media (min-width: 768px) {
+  .lead {
+    font-size: 30.006px;
+  }
+}
+small,
+.small {
+  font-size: 83%;
+  line-height: 1.4em;
+}
+.text-muted {
+  color: #bdc3c7;
+}
+.text-inverse {
+  color: #ffffff;
+}
+.text-primary {
+  color: #1abc9c;
+}
+.text-primary:hover {
+  color: #15967d;
+}
+.text-warning {
+  color: #f1c40f;
+}
+.text-warning:hover {
+  color: #c19d0c;
+}
+.text-danger {
+  color: #e74c3c;
+}
+.text-danger:hover {
+  color: #b93d30;
+}
+.text-success {
+  color: #2ecc71;
+}
+.text-success:hover {
+  color: #25a35a;
+}
+.text-info {
+  color: #3498db;
+}
+.text-info:hover {
+  color: #2a7aaf;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  line-height: 1.2em;
+  color: inherit;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small,
+.h1 small,
+.h2 small,
+.h3 small,
+.h4 small,
+.h5 small,
+.h6 small {
+  color: #e7e9ec;
+}
+
+/* h1: Project Name */
+h1,
+.h1 {
+  font-size: 40px;
+  font-weight:600;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.identity h1{
+margin-top: 0px;
+margin-left:21px;
+color: #fff;
+}
+
+/* h2: Sidebar Title */
+h2,
+.h2 {
+  font-size: 20px;
+  line-height:1.4em;
+  font-weight: 600;
+  color:#ffffff;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+/* h3: Required Tasks */
+h3,
+.h3 {
+  font-size: 20px;
+  line-height:1.4em;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+/* h4: Add Task / View Completed Task */
+h4,
+.h4 {
+  font-size: 14px;
+}
+
+/* h5: Add Comment / Assigned To */
+h5,
+.h5 {
+  font-size: 12px;
+  color:#929497;
+}
+h6,
+.h6 {
+  font-size: 10px;
+}
+
+/* p: Sub Tasks */
+p {
+  font-size: 16px;
+  line-height: 1.4em;
+  margin: 0 0 15px;
+}
+.page-header {
+  padding-bottom: 14px;
+  margin: 60px 0 30px;
+  border-bottom: 1px solid #e7e9ec;
+}
+ul,
+ol {
+  margin-bottom: 15px;
+}
+dl {
+  margin-bottom: 30px;
+}
+dt,
+dd {
+  line-height: 1.72222;
+}
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    width: 160px;
+  }
+  .dl-horizontal dd {
+    margin-left: 180px;
+  }
+}
+abbr[title],
+abbr[data-original-title] {
+  border-bottom: 1px dotted #bdc3c7;
+}
+blockquote {
+  border-left: 3px solid #e7e9ec;
+  padding: 0 0 0 16px;
+  margin: 0 0 30px;
+}
+blockquote p {
+  font-size: 20px;
+  line-height: 1.4em;
+  font-weight: normal;
+  margin-bottom: .4em;
+}
+blockquote small {
+  font-size: 18px;
+  line-height: 1.72222;
+  font-style: italic;
+  color: inherit;
+}
+blockquote small:before {
+  content: "";
+}
+blockquote.pull-right {
+  padding-right: 16px;
+  padding-left: 0;
+  border-right: 3px solid #e7e9ec;
+  border-left: 0;
+}
+blockquote.pull-right small:after {
+  content: "";
+}
+address {
+  margin-bottom: 30px;
+  line-height: 1.72222;
+}
+code,
+kdb,
+pre,
+samp {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+code {
+  font-size: 75%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+pre {
+  padding: 8px;
+  margin: 0 0 15px;
+  font-size: 13px;
+  line-height: 1.72222;
+  color: inherit;
+  background-color: #ffffff;
+  border: 2px solid #e7e9ec;
+  border-radius: 6px;
+  white-space: pre;
+}
