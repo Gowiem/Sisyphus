@@ -1,5 +1,8 @@
 <div class="required-task-container clearfix">
-  <h3 class="col-md-11"> {{title}} </h3>
+  <div class="col-md-11"> 
+    <h3 class="pull-left">{{title}}</h3>
+    <span>{{completedCount}}</span>
+  </div>
   <div class="date-container clearfix">
     <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
   </div>
