@@ -28,6 +28,7 @@
 //= require ember-data
 //= require_self
 //= require sisyphus
+//= require proto_extensions
 
 // Other 3rd Party Add ons
 ///////////////////////////
