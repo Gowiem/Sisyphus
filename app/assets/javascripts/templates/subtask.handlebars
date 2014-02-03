@@ -14,21 +14,21 @@
     <div class="row col-md-12">
       <div class="title-container col-md-10">
         {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
-        <h4 {{bind-attr class=":subtask-title :center-text isDisputed:disputed"}}>
+        <p {{bind-attr class=":subtask-title :center-text isDisputed:disputed"}}>
           {{title}}
-        </h4>
+        </p>
       </div>
       <div class="date-container">
         <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
       </div>
     </div>
     <div class="row col-md-12">
-      <div class="assigned-to-members col-md-12">
+      <h5 class="assigned-to-members col-md-12">
         Assigned to:
         {{#each student in students}}
           <span class="assigned-to-member">{{student.fullName}}</span>
         {{/each}}
-      </div>
+      </h5>
     </div>
 
     {{#if showingDispute}}
@@ -41,5 +41,7 @@
   {{/if}}
 
 </li>
+
+<hr>
 
 {{view Sis.DisputeModal}}

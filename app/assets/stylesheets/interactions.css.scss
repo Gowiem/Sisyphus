@@ -11,6 +11,7 @@
   -- ICONS
   —- TEMPORARY LOGO PLACEHOLDER
   —- TASKS
+  -- BUTTONS
   —- FORM INPUT
   —- PROGRESS BAR
   —- TOOLTIP
@@ -209,7 +210,7 @@ TASKS
 */
 .task-window{
 background-color:#fff;
-border-radius:6px;
+border-radius:$corner;
 padding:10px 20px 2px 20px;
 }
 
@@ -225,7 +226,7 @@ BUTTONS
   font-size:14px;
   font-weight: normal;
   line-height: 1.4;
-  border-radius: 4px;
+  border-radius: $corner;
   padding: 10px 15px;
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
@@ -234,7 +235,7 @@ BUTTONS
 .btn:hover,
 .btn:focus {
   outline: none;
-  color: #069F8E;
+  color: $primaryDark;
 }
 .btn:active,
 .btn.active {
@@ -245,7 +246,7 @@ BUTTONS
 .btn.disabled,
 .btn[disabled],
 fieldset[disabled] .btn {
-  background-color: #069F8E;
+  background-color: $primaryDark;
   color: rgba(255, 255, 255, 0.75);
   opacity: 0.7;
   filter: alpha(opacity=70);
@@ -273,8 +274,8 @@ fieldset[disabled] .btn {
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
   color: #ffffff;
-  background-color: #069F8E;
-  border-color: #069F8E;
+  background-color: $primaryDark;
+  border-color: $primaryDark;
 }
 .btn-default:active,
 .btn-default.active,
@@ -311,8 +312,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #069F8E;
-  border-color: #069F8E;
+  background-color: $primaryDark;
+  border-color: $primaryDark;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -335,8 +336,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #069F8E;
-  border-color: #069F8E;
+  background-color: $primaryDark;
+  border-color: $primaryDark;
 }
 .tab{
   color: #ffffff;
@@ -546,7 +547,7 @@ fieldset[disabled] .btn-inverse.active {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #32BCAD;
+  color: $primary;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -561,29 +562,30 @@ fieldset[disabled] .btn-link:focus {
   padding: 13px 20px;
   font-size: 22px;
   line-height: 1.227;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 .btn-lg {
   padding: 10px 19px;
   font-size: 17px;
   line-height: 1.471;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 .btn-sm {
-  padding: 5px 5px;
-  border-radius: 4px;
+  padding: 5px 10px;
+  border-radius: $corner;
 }
 .btn-grey {
-  color:#929497;
+  color:$greyDark;
+  background-color:transparent;
 }
 .btn-grey:hover {
-  color:#6D6E70;
+  color:$charcoal;
 }
 .btn-xs {
   padding: 6px 9px;
   font-size: 12px;
   line-height: 1.083;
-  border-radius: 3px;
+  border-radius: $corner;
 }
 .btn-tip {
   font-weight: 300;
@@ -617,25 +619,25 @@ fieldset[disabled] .btn-link:focus {
   padding: 6px 9px;
   font-size: 12px;
   line-height: 1.083;
-  border-radius: 3px;
+  border-radius: $corner;
 }
 .btn-group-sm > .btn {
   padding: 9px 13px;
   font-size: 13px;
   line-height: 1.385;
-  border-radius: 4px;
+  border-radius: $corner;
 }
 .btn-group-lg > .btn {
   padding: 10px 19px;
   font-size: 17px;
   line-height: 1.471;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 .btn-group-gh > .btn {
   padding: 13px 20px;
   font-size: 22px;
   line-height: 1.227;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 .btn-group > .btn + .btn {
   margin-left: 0;
@@ -784,7 +786,7 @@ fieldset[disabled] .btn-link:focus {
   margin-top: -3px;
 }
 .select .btn .dropdown-toggle {
-  border-radius: 6px;
+  border-radius: $corner;
 }
 .select .btn .dropdown-menu {
   min-width: 100%;
@@ -868,13 +870,13 @@ FORM INPUT
 .form-control {
   border: 2px solid #bdc3c7;
   color: #595959;
-  font-family: "Open-Sans", Helvetica, Arial, sans-serif;
+  font-family: $font-family;
   font-size: 15px;
   line-height: 1.467;
   padding: 8px 12px;
   height: 42px;
   -webkit-appearance: none;
-  border-radius: 6px;
+  border-radius: $corner;
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
@@ -904,14 +906,14 @@ fieldset[disabled] .form-control {
   border-color: #bdc3c7;
 }
 .form-control.flat:focus {
-  border-color: #32BCAD;
+  border-color: $primary;
 }
 .input-sm {
   height: 35px;
   padding: 6px 10px;
   font-size: 13px;
   line-height: 1.462;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 select.input-sm {
   height: 35px;
@@ -925,7 +927,7 @@ textarea.input-sm {
   padding: 10px 15px;
   font-size: 17px;
   line-height: 1.235;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 select.input-lg {
   height: 45px;
@@ -939,7 +941,7 @@ textarea.input-lg {
   padding: 10px 16px;
   font-size: 22px;
   line-height: 1.318;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 select.input-hg {
   height: 53px;
@@ -990,8 +992,8 @@ textarea.input-hg {
   color: #e74c3c;
 }
 .has-error .form-control {
-  color: #F05B55;
-  border-color: #F05B55;
+  color: $red;
+  border-color: $red;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1027,8 +1029,8 @@ textarea.input-hg {
   color: #2ecc71;
 }
 .has-success .form-control {
-  color: #4BAE45;
-  border-color: #4BAE45;
+  color: $green;
+  border-color: $green;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1109,7 +1111,7 @@ textarea.input-hg {
   color: #b2bcc5;
   background-color: #ffffff;
   padding: 0 12px 0 0;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 .input-hg + .input-icon {
   line-height: 49px;
@@ -1125,16 +1127,16 @@ textarea.input-hg {
   padding: 0 10px 0 0;
 }
 .has-success .input-icon {
-  color: #4BAE45;
+  color: $green;
 }
 .has-error .input-icon {
-  color: #F05B55;
+  color: $red;
 }
 .form-control[disabled] + .input-icon,
 .form-control[readonly] + .input-icon,
 fieldset[disabled] .form-control + .input-icon,
 .form-control.disabled + .input-icon {
-  color: #BBBDBF;
+  color: $grey;
   background-color: transparent;
   opacity: 0.7;
   filter: alpha(opacity=70);
@@ -1146,7 +1148,7 @@ fieldset[disabled] .form-control + .input-icon,
   padding: 10px 16px;
   font-size: 22px;
   line-height: 1.318;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 select.input-group-hg > .form-control,
 select.input-group-hg > .input-group-addon,
@@ -1166,7 +1168,7 @@ textarea.input-group-hg > .input-group-btn > .btn {
   padding: 10px 15px;
   font-size: 17px;
   line-height: 1.235;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 select.input-group-lg > .form-control,
 select.input-group-lg > .input-group-addon,
@@ -1186,7 +1188,7 @@ textarea.input-group-lg > .input-group-btn > .btn {
   padding: 6px 10px;
   font-size: 13px;
   line-height: 1.462;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 select.input-group-sm > .form-control,
 select.input-group-sm > .input-group-addon,
@@ -1206,7 +1208,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   text-align: center;
   background-color: #bdc3c7;
   border: 1px solid #bdc3c7;
-  border-radius: 6px;
+  border-radius: $corner;
   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
   transition: border .25s linear, color .25s linear, background-color .25s linear;
 }
@@ -1233,8 +1235,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .form-group.focus .input-group-addon,
 .input-group.focus .input-group-addon {
-  background-color: #32BCAD;
-  border-color: #32BCAD;
+  background-color: $primary;
+  border-color: $primary;
 }
 .form-group.focus .input-group-btn > .btn-default + .btn-default,
 .input-group.focus .input-group-btn > .btn-default + .btn-default {
@@ -1242,14 +1244,14 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .form-group.focus .input-group-btn .btn,
 .input-group.focus .input-group-btn .btn {
-  border-color: #32BCAD;
+  border-color: $primary;
   background-color: #ffffff;
-  color: #32BCAD;
+  color: $primary;
 }
 .form-group.focus .input-group-btn .btn-default,
 .input-group.focus .input-group-btn .btn-default {
   color: #ffffff;
-  background-color: #32BCAD;
+  background-color: $primary;
 }
 .form-group.focus .input-group-btn .btn-default:hover,
 .input-group.focus .input-group-btn .btn-default:hover,
@@ -1304,8 +1306,8 @@ fieldset[disabled] .input-group.focus .input-group-btn .btn-default:active,
 .input-group.focus .input-group-btn .btn-default[disabled].active,
 fieldset[disabled] .form-group.focus .input-group-btn .btn-default.active,
 fieldset[disabled] .input-group.focus .input-group-btn .btn-default.active {
-  background-color: #32BCAD;
-  border-color: #32BCAD;
+  background-color: $primary;
+  border-color: $primary;
 }
 .input-group-btn .btn {
   background-color: #ffffff;
@@ -1484,7 +1486,7 @@ CHECKBOXES
 }
 .checkbox.checked,
 .radio.checked {
-  color: #32BCAD;
+  color: $primary;
 }
 .checkbox.checked .first-icon,
 .radio.checked .first-icon {
@@ -1495,7 +1497,7 @@ CHECKBOXES
 .radio.checked .second-icon {
   opacity: 1;
   filter: alpha(opacity=100);
-  color: #32BCAD;
+  color: $primary;
   -webkit-transition: color 0.25s linear;
   transition: color 0.25s linear;
 }
@@ -1539,11 +1541,11 @@ CHECKBOXES
 }
 .checkbox.primary.checked,
 .radio.primary.checked {
-  color: #32BCAD;
+  color: $primary;
 }
 .checkbox.primary.checked .icons,
 .radio.primary.checked .icons {
-  color: #32BCAD;
+  color: $primary;
 }
 .checkbox.primary.disabled,
 .radio.primary.disabled {
@@ -1588,7 +1590,7 @@ PROGRESS BAR
 
 }
 .progress-bar {
-  background: #32BCAD;
+  background: $primary;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1623,13 +1625,13 @@ TOOL TIP
   padding-bottom: 9px;
 }
 .tooltip.top .tooltip-arrow {
-  border-top-color: #6D6E70;
+  border-top-color: $charcoal;
   border-width: 9px 9px 0;
   bottom: 0;
   margin-left: -9px;
 }
 .tooltip.right .tooltip-arrow {
-  border-right-color: #6D6E70;
+  border-right-color: $charcoal;
   border-width: 9px 9px 9px 0;
   margin-top: -9px;
   left: -3px;
@@ -1638,24 +1640,24 @@ TOOL TIP
   padding-top: 8px;
 }
 .tooltip.bottom .tooltip-arrow {
-  border-bottom-color: #6D6E70;
+  border-bottom-color: $charcoal;
   border-width: 0 9px 9px;
   margin-left: -9px;
   top: -1px;
 }
 .tooltip.left .tooltip-arrow {
-  border-left-color: #6D6E70;
+  border-left-color: $charcoal;
   border-width: 9px 0 9px 9px;
   margin-top: -9px;
   right: -3px;
 }
 .tooltip-inner {
-  background-color: #6D6E70;
+  background-color: $charcoal;
   line-height: 1.4em;
   padding: 12px 12px;
   text-align: center;
   width: 183px;
-  border-radius: 6px;
+  border-radius: $corner;
 }
 
 
@@ -1684,7 +1686,7 @@ DROPDOWN MENU
   visibility: visible;
   width: auto;
   margin-top: 5px;
-  border: 2px solid #32BCAD;
+  border: 2px solid $primary;
   padding: 5px 0;
   background-color: #ffffff;
 }
@@ -1826,7 +1828,7 @@ DROPDOWN MENU
 }
 .dropdown-inverse li.active > a,
 .dropdown-inverse li.selected > a {
-  background: #32BCAD;
+  background: $primary;
   color: #ffffff;
   position: relative;
   z-index: 1;

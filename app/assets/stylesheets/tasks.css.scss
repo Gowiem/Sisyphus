@@ -1,5 +1,24 @@
 @import "variables";
 
+/*
+------------------------------ 
+  INDEX
+
+  Use Ctrl-F to jump to sections quickly
+
+  -- TASKS
+  —- COMMENTS
+
+------------------------------ 
+*/
+
+
+/* 
+------------------------------ 
+TASKS
+------------------------------ 
+*/
+
 hr {
   clear: both;
 }
@@ -20,7 +39,8 @@ hr {
     background-color: $red;
     color: #FFFFFF;
     font-size:13px;
-    border-radius: $roundCorners;
+    border-radius: 3px;
+    padding: 3px 7px;
   }
 
   p {
@@ -33,7 +53,8 @@ hr {
     .completed-action { 
       margin-bottom: 15px;
       float: right;
-      font-size: 11px;
+      font-size: 14px;
+      color:$greyDark;
     }
   }
 }
@@ -51,6 +72,8 @@ hr {
   -ms-user-select: none;
   user-select: none;
   list-style-type: none;
+  margin:0px 20px 0px 20px;
+  padding-top:10px;
 
   .subtask-edit-pencil {
     position: absolute;
@@ -61,6 +84,8 @@ hr {
   .dispute {
     float: right;
     padding-right: 20px;
+    font-size: 14px;
+    color:$red;
   }
 
   .title-container {
@@ -82,22 +107,46 @@ hr {
   cursor: pointer;
 }
 
+
 .edit-subtask-container {
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  list-style-type: none;
+  margin:0px 20px 0px 20px;
+  padding-top:10px;
+  background-color: #DAECF5;
+  cursor: pointer;
+}
+/*  .edit-subtask-container {
   background-color: #DAECF5;
   height: 150px;
   padding-top: 10px;
+
   .col-lg-10 {
     margin-left: 15px;
+  
     .control-label, .datepicker, .btn {
       margin-top: -10px;
       margin-bottom: 10px;
     }
   }
-}
+}*/
 
 input[type="checkbox"] {
   font-size: 120%;
 }
+
+
+/* 
+------------------------------ 
+COMMENTS
+------------------------------ 
+*/
 
 .comments-container, .edit-comments-container {
   width: 100%;
@@ -116,7 +165,6 @@ input[type="checkbox"] {
       color: red;
     }
     h4 {
-      font-weight: bold;
       margin: 0 15px 0 0;
     }
     .comment-date {
@@ -131,7 +179,6 @@ input[type="checkbox"] {
   hr { margin-top: 15px; }
 }
 .edit-comments-container {
-  background-color: #DAECF5;
   margin-left: 0;
 }
 .comment-header {

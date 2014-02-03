@@ -1,3 +1,5 @@
+@import "variables";
+
 /* 
 ------------------------------ 
 TYPOGRAPHY
@@ -6,7 +8,8 @@ TYPOGRAPHY
 
 /* body: gets applied to all elements in body */
 body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: $font-family;
+  font-weight:400;
   font-size: 18px;
   line-height: 1.4em;
   color: #404041;
@@ -20,14 +23,14 @@ a {
 }
 a:hover,
 a:focus {
-  color: #069F8E;
+  color: $primaryDark;
   text-decoration: none;
 }
 a:focus {
   outline: none;
 }
 .img-rounded {
-  border-radius: 6px;
+  border-radius: $corner;
 }
 .img-comment {
   font-size: 15px;
@@ -100,7 +103,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: $font-family;
   line-height: 1.2em;
   color: inherit;
 }
@@ -158,17 +161,21 @@ h3,
 h4,
 .h4 {
   font-size: 14px;
+  font-weight: 400;
 }
 
 /* h5: Add Comment / Assigned To */
 h5,
 .h5 {
   font-size: 12px;
-  color:#929497;
+  color:$greyDark;
+  margin:0px;
+  font-weight: 400;
 }
 h6,
 .h6 {
   font-size: 10px;
+  font-weight: 400;
 }
 
 /* p: Sub Tasks */
@@ -176,6 +183,7 @@ p {
   font-size: 16px;
   line-height: 1.4em;
   margin: 0 0 15px;
+  font-weight: 400;
 }
 .page-header {
   padding-bottom: 14px;
@@ -248,7 +256,7 @@ code {
   font-size: 75%;
   color: #c7254e;
   background-color: #f9f2f4;
-  border-radius: 4px;
+  border-radius: $corner;
 }
 pre {
   padding: 8px;
@@ -258,6 +266,6 @@ pre {
   color: inherit;
   background-color: #ffffff;
   border: 2px solid #e7e9ec;
-  border-radius: 6px;
+  border-radius: $corner;
   white-space: pre;
 }

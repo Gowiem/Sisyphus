@@ -1,5 +1,47 @@
 @import "variables";
 
+/*
+------------------------------ 
+  INDEX
+
+  Use Ctrl-F to jump to sections quickly
+
+  -- SIDEBAR
+  -- PROGRESS BAR COLORS
+  -- TASK COUNT
+
+------------------------------ 
+*/
+
+
+/* 
+------------------------------ 
+SIDEBAR
+------------------------------ 
+*/
+
+
+.sidebar-header{
+background-color:$grey;
+border-top-left-radius:$corner;
+border-top-right-radius:$corner;
+padding-left:12px;
+padding-right:12px;
+padding-top:8px;
+padding-bottom:8px;
+}
+
+.sidebar{
+background-color:#fff;
+border-bottom-left-radius:$corner;
+border-bottom-right-radius:$corner;
+padding:12px;
+}
+
+.sidebar p{
+margin:0px;
+}
+
 .group-container {
 	margin-top: 53px;
 }
@@ -17,6 +59,14 @@
     display: block;
   }
 }
+
+
+/* 
+------------------------------ 
+PROGRESS BAR COLORS
+------------------------------ 
+*/
+
 
 .edit-account-pencil {
   float: right;
@@ -74,11 +124,17 @@
   background-color: $purpleDark;
 }
 
-// This is a bit of a hack, but I couldn't figure this out. You designers
-// have fun though!
+
+/* 
+------------------------------ 
+TASK-COUNT
+------------------------------ 
+*/
+
 .task-count {
   position: absolute;
   text-align: right;
   width: 100%;
   right: 37px;
+  color:#fff;
 }
