@@ -4,5 +4,8 @@
   {{#each historyItem in controller}}
     {{render "newsItem" historyItem}}
   {{/each}}
+  {{#if noHistoryItems}}
+    <p> No News Yet! </p>
+  {{/if}}
   </div>
 </div>
