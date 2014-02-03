@@ -1,4 +1,4 @@
-class HistoryTracker
+class HistoryTracker < BaseDocument
   include Mongoid::Audit::Tracker
 
   field :description
@@ -23,8 +23,12 @@ class HistoryTracker
 
     def subtask_readable_action
       if self.action == 'update'
-        if self.modified['is_completed']
+        if self.modified['is_disputed']
+          "disputed"
+        elsif self.modified['is_completed']
           "completed"
+        elsif self.modified['is_completed'] == false
+          "uncompleted"
         else
           "edited"
         end
