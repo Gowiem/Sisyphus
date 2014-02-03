@@ -37,8 +37,9 @@ Sis.normalizeJsonObject = function(jsonObj, type, store) {
 }
 Sis.newsFeedTimer = null;
 Sis.pushObjectsTimer = null;
-Sis.updateHistoryTrackers = function(store, projectGroup) {
-  var historiesUrl = "/project_groups/" + projectGroup.get('id') + "/history_trackers.json?exclude_old=true";
+Sis.updateHistoryTrackers = function(projectGroup) {
+  var historiesUrl = "/project_groups/" + projectGroup.get('id') + "/history_trackers.json?exclude_old=true",
+      store = Sis.__container__.lookup('store:main');
 
   // If we've got current run.laters in the run loop then cancel them as we'll be
   // overwriting them in a second anyway.
@@ -61,7 +62,8 @@ Sis.updateHistoryTrackers = function(store, projectGroup) {
       // Push our new records into EmberData
       store.pushPayload('historyTracker', historyTrackers);
 
-      Sis.pushObjectsTime = Ember.run.later(this, function() {
+      Sis.pushObjectsTimer = Ember.run.later(this, function() {
+        Sis.pushObjectsTimer = null;
         // Grab the new Ember versions of them and add them to our projectGroup
         emHistoryTrackers = store.all('historyTracker');
         projectGroup.get('historyTrackers').addObjects(emHistoryTrackers);

@@ -13,7 +13,6 @@ Sis.SubtaskController = Sis.TaskController.extend({
 
   isCompleted: function(key, value){
     var model = this.get('model'),
-        store = this.get('store'),
         projectGroup = this.get('content.projectGroup');
 
     if (value === undefined) {
@@ -25,7 +24,7 @@ Sis.SubtaskController = Sis.TaskController.extend({
       model.set('isCompleted', value);
       model.save();
 
-      Sis.updateHistoryTrackers(store, projectGroup);
+      Sis.updateHistoryTrackers(projectGroup);
       return value;
     }
   }.property('model.isCompleted'),
