@@ -15,5 +15,6 @@ Sis.Subtask = Sis.Task.extend({
   projectGroup: DS.belongsTo('projectGroup'),
   parentTask: DS.belongsTo('requiredTask'),
   students: DS.hasMany('student'),
-  comments: DS.hasMany('comment')
+  comments: DS.hasMany('comment'),
+  isOpen: DS.attr('boolean')
 });

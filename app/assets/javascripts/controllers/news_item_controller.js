@@ -2,13 +2,19 @@ Sis.NewsItemController = Ember.ObjectController.extend({
   needs: ['requiredTasks'],
   isHovering: false,
   actions: {
-    openTask: function() {
-      console.log("openTask");
-      var requiredTasks = this.get('controllers.requiredTasks.content');
-      console.log("requiredTasks: ", requiredTasks);
+    open: function() {
+      var subjectType = this.get('subjectType') === 'Subtask' ? 'subtask' : 'comment',
+          subtasks = this.get('controllers.requiredTasks.content').mapBy('subtasks').flatten(),
+          subjectParent;
+      subtasks.setEach('isOpen', false);
+      this.get('store').find(subjectType, this.get('subjectId')).then(function(subject) {
+        if (subjectType === 'comment') {
+          subjectParent = subject.get('subtask');
+          subjectParent.set('showComments', true);
+        } else {
+          subject.set('isOpen', true);
+        }
+      });
     },
-    openComments: function() {
-      console.log("openComments");
-    }
   }
 });

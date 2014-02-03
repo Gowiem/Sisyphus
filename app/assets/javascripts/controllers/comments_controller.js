@@ -15,11 +15,17 @@ Sis.CommentsController = Ember.ArrayController.extend({
       return comments.get('length') + " Comments";
     }
   }.property('content.length'),
+
+  showCommentsObserver: function() {
+    this.set('isShowingComments', true);
+  }.observes('target.model.showComments'),
+
   actions: {
     openComments: function() {
       this.set('isShowingComments', true);
     },
     closeComments: function() {
+      this.set('target.model.showComments', false);
       this.set('isShowingComments', false);
     }
   }

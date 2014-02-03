@@ -11,6 +11,15 @@ Sis.SubtaskController = Sis.TaskController.extend({
     return "dispute-modal-" + this.get('content.id');
   }.property('content'),
 
+  isOpen: function() {
+    var isOpen = this.get('model.isOpen');
+    // If our model is completed then we need to show the completed tasks.
+    if (this.get('model.isCompleted') && isOpen) {
+      this.get('target').set('showingCompleted', true);
+    }
+    this.set('isEditing', isOpen);
+  }.observes('model.isOpen'),
+
   isCompleted: function(key, value){
     var model = this.get('model'),
         projectGroup = this.get('content.projectGroup');
@@ -37,6 +46,7 @@ Sis.SubtaskController = Sis.TaskController.extend({
     },
     cancelEdit: function() {
       this.set('isEditing', false);
+      this.set('model.isOpen', false);
     },
     disputeSubtask: function() {
       var modalId = this.get('disputeModalId');
