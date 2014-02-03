@@ -2,10 +2,7 @@
   <div class="panel-heading"><h3>News Feed</h3></div>
   <div class="panel-body news-items-container">
   {{#each historyItem in controller}}
-    <li class="news-item clearfix">
-      {{historyItem.description}}
-      <p class="news-item-time-ago">{{historyItem.timeAgo}}</p>
-    </li>
+    {{render "newsItem" historyItem}}
   {{/each}}
   </div>
 </div>
