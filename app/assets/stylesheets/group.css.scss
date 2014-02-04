@@ -1,5 +1,24 @@
 @import "variables";
 
+// Global Progress Bar Styles
+//////////////////////////////
+.group-member-progress {
+  position: relative;
+
+  .group-member-bar-info {
+    display: none;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    z-index: 10000;
+    top: 30px;
+    color: black;
+    background-color: red;
+  }
+}
+
+// Group Member Styles
+///////////////////////
 .group-container {
 	margin-top: 53px;
 }

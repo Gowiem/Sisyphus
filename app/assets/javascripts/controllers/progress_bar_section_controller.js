@@ -1,5 +1,17 @@
 Sis.ProgressBarSectionController = Sis.GroupMemberController.extend({
   needs: ['project'],
+  init: function() {
+    var progressBarClass = '.' + this.get('progressBarClass'),
+        barInfoClass = '.group-member-bar-info' + progressBarClass;
+    $('body').delegate(progressBarClass, 'mouseenter', function() {
+      console.log("mouseEnter");
+      $(barInfoClass).show();
+    });
+    $('body').delegate(progressBarClass, 'mouseleave', function() {
+      console.log("mouseLeave");
+      $(barInfoClass).hide();
+    });
+  },
   // Get the progressBarSection style for this user. Uses GroupMemberControllers
   // getProgressBarStlye to get the original size and then shrinks it down depending
   // on the number of other users in the group.
