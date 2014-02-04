@@ -1,4 +1,4 @@
 Sis.GroupMembersController = Ember.ArrayController.extend({
-  sortProperties: ['fullName'],
+  sortProperties: ['lastName'],
   sortAscending: true,
 });
