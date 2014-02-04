@@ -167,27 +167,30 @@ sisyphus = Project.create!(
 ## Tasks
 #########
 
-## Required Tasks
+# Required Tasks
 req_task1 = RequiredTask.create!(
   title: "User Experience",
   project: sisyphus,
   due_date: Date.new(2014, 4, 21),
-  modifier: gowie
-)
+  modifier: gowie)
 
 req_task2 = RequiredTask.create!(
   title: "User Interface",
   project: sisyphus,
-  due_date: Date.new(2014, 4, 21)
-  modifier: gowie,
-)
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
 
 req_task3 = RequiredTask.create!(
   title: "Branding",
   project: sisyphus,
-  due_date: Date.new(2014, 4, 21)
-  modifier: gowie
-)
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
+
+req_task3 = RequiredTask.create!(
+  title: "Development",
+  project: sisyphus,
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
 
 puts "--- Create Super Admin: #{super_admin.email}"
 puts "--- Created Project: #{sisyphus.title}"
