@@ -7,8 +7,7 @@
   {{/if}}
 </div>
 <div class="progress">
-  {{#each student in model.students}}
-    {{render "progressBarSection" student}}
-  {{/each}}
+  {{render "progressBarSection" auth.currentUser}}
+  {{render "groupMemberProgressBars" groupMembers}}
 </div>
 
