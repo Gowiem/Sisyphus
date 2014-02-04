@@ -23,6 +23,12 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
     }
   }.property(),
 
+  completedCount: function() {
+    var numberOfSubtasks = this.get('subtasks.length'),
+        numberOfCompleted = this.get('subtasks').filterBy('isCompleted').get('length');
+    return numberOfCompleted + " / " + numberOfSubtasks;
+  }.property('subtasks.@each.isCompleted'),
+
   showingCompleted: function(key, value) {
     if (value === undefined) {
       var showCompleted = this.get('showCompletedVal');

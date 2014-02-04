@@ -35,3 +35,43 @@ Sis.normalizeJsonObject = function(jsonObj, type, store) {
   // Use our serializer to normalize the jsonObj of the found dataType
   return serializer.normalize(dataType, jsonObj);
 }
+Sis.newsFeedTimer = null;
+Sis.pushObjectsTimer = null;
+Sis.updateHistoryTrackers = function(projectGroup) {
+  var historiesUrl = "/project_groups/" + projectGroup.get('id') + "/history_trackers.json?exclude_old=true",
+      store = Sis.__container__.lookup('store:main');
+
+  // If we've got current run.laters in the run loop then cancel them as we'll be
+  // overwriting them in a second anyway.
+  if (Sis.newsFeedTimer) { Ember.run.cancel(Sis.newsFeedTimer); }
+  if (Sis.pushObjectsTimer) { Ember.run.cancel(Sis.pushObjectsTimer); }
+
+  // Run our AJAX call in 2 seconds
+  Sis.currentHistoryUpdate = Ember.run.later(this, function() {
+    Sis.newsFeedTimer = null;
+    ic.ajax({
+      url: historiesUrl,
+      type: "GET" })
+    // Success
+    .then(function(result) {
+      var historyTrackers = result['response'],
+          emHistoryTrackers;
+
+      console.log("Updating News Feed...");
+
+      // Push our new records into EmberData
+      store.pushPayload('historyTracker', historyTrackers);
+
+      Sis.pushObjectsTimer = Ember.run.later(this, function() {
+        Sis.pushObjectsTimer = null;
+        // Grab the new Ember versions of them and add them to our projectGroup
+        emHistoryTrackers = store.all('historyTracker');
+        projectGroup.get('historyTrackers').addObjects(emHistoryTrackers);
+      }, 1000);
+    },
+    // Error
+    function(result) {
+      console.log("Error updating the News Feed. Error: ", result);
+    });
+  }, 2000);
+}

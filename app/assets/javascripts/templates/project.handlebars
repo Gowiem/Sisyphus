@@ -4,8 +4,11 @@
     <button {{action showAllTasks}} type="button" {{bind-attr class=":btn :btn-primary :tab showingAllTasks:active"}}>All tasks</button>
     <button {{action showUserTasks}} type="button" {{bind-attr class=":btn :btn-primary :tab showingAllTasks::active"}}>My tasks</button>
   </div>
-      {{render "requiredTasks" filteredRequiredTasks}}
+  {{render "requiredTasks" filteredRequiredTasks}}
 </div>
 <div class="group-container col-md-3">
   {{render "groupMembers" groupMembers}}
+</div>
+<div class="news-container col-md-3">
+  {{render "newsFeed" projectGroup.historyTrackers}}
 </div>

@@ -34,12 +34,11 @@
     {{#if showingDispute}}
       <a class="dispute" {{action disputeSubtask}}><i class="fa fa-ban fa-fw"></i> Dispute</a>
     {{/if}}
-
-  <div class="row comments-container">
-  {{render "comments" comments}}
-  </div>
   {{/if}}
-
+  <div class="row comments-container">
+    {{render "comments" comments}}
+  </div>
+  
 </li>
 
 <hr>

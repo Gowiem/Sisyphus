@@ -167,73 +167,30 @@ sisyphus = Project.create!(
 ## Tasks
 #########
 
-## Required Tasks
+# Required Tasks
 req_task1 = RequiredTask.create!(
   title: "User Experience",
   project: sisyphus,
-  due_date: Date.new(2014, 4, 21)
-)
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
 
 req_task2 = RequiredTask.create!(
   title: "User Interface",
   project: sisyphus,
-  due_date: Date.new(2014, 4, 21)
-)
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
 
 req_task3 = RequiredTask.create!(
   title: "Branding",
   project: sisyphus,
-  due_date: Date.new(2014, 4, 21)
-)
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
 
-req_task4 = RequiredTask.create!(
+req_task3 = RequiredTask.create!(
   title: "Development",
   project: sisyphus,
-  due_date: Date.new(2014, 4, 21)
-)
-
-## Subtasks
-############
-
-## No longer need these as we're actually going to use the project. WORD!
-
-# dev_task1 = Subtask.create!(
-#   title: "Integrate Google Oauth and Drive SDK",
-#   project_group: team,
-#   parent_task: req_task1,
-#   students: [gowie],
-# )
-# dev_task2 = Subtask.create!(
-#   title: "Develop the Teachers screen",
-#   project_group: team,
-#   parent_task: req_task1,
-#   students: [craig]
-# )
-# design_task1 = Subtask.create!(
-#   title: "Stlye the project screen",
-#   project_group: team,
-#   parent_task: req_task2,
-#   students: [ sarah, maple ]
-# )
-# design_task2 = Subtask.create!(
-#   title: "Style the home screen",
-#   project_group: team,
-#   parent_task: req_task2,
-#   students: [ john ]
-# )
-# doc_task1 = Subtask.create!(
-#   title: "Create the wiki",
-#   project_group: team,
-#   parent_task: req_task3,
-#   students: [ maple, john ]
-# )
-
-## Comments
-# comment1 = Comment.create!(
-#   body: "I'll probably end up finishing this over christman break.",
-#   user: gowie,
-#   subtask: dev_task1
-# )
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
 
 puts "--- Create Super Admin: #{super_admin.email}"
 puts "--- Created Project: #{sisyphus.title}"

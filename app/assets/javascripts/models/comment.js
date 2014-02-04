@@ -4,5 +4,6 @@ Sis.Comment = DS.Model.extend({
   subtask: DS.belongsTo('subtask'),
   user: DS.belongsTo('student'),
   createdAt: DS.attr('isodate'),
-  updatedAt: DS.attr('isodate')
+  updatedAt: DS.attr('isodate'),
+  isOpen: DS.attr('boolean')
 });
