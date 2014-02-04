@@ -4,6 +4,7 @@ class Task < BaseDocument
   field :title
   field :is_completed, type: Boolean, default: false
   field :due_date, type: Date
+  field :description, type: String
 
   field :type, type: String
 
