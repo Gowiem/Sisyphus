@@ -207,25 +207,33 @@ projectGroup17 = ProjectGroup.create!( name: "A Team", students: [ dave, laura, 
 projectGroup18 = ProjectGroup.create!( name: "B Team", students: [ davey, laurie, bobby, lexi ]);
 projectGroup19 = ProjectGroup.create!( name: "F Team", students: [ eric, holly, jane, nick]);
 
+## Semesters
+##################
+
+s14_semester = Semester.create!(
+  season: "Spring",
+  year: "2014")
+
+f13_semester = Semester.create!(
+  season: "Fall",
+  year: "2013")
+
 # Courses
 ##########
 capstone_course = Course.create!(
-  teacher: teach,
-  semester: "Spring 2014",
+  teacher: f13_semester,
   code: "IM4702",
   title: "Interactive Capstone 2",
   section: "32087")
 
 software_dev_course = Course.create!(
-  teacher: teach,
-  semester: "Spring 2014",
+  teacher: s14_semester,
   code: "CS4500",
   title: "Software Development",
   section: "12345")
 
 mad_course = Course.create!(
   teacher: teach,
-  semester: "Fall 2013",
   code: "CS5450",
   title: "Mobile Application Development",
   section: "08542")
