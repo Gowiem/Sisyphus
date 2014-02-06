@@ -10,7 +10,8 @@
         {{#if currentUser.isTeacher}}
           <li class="dropdown" id="project-nav-container">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              {{currentUser.mostRecentSemester}} 
+              {{debugger}}
+              {{currentUser.currentSemester}} 
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
