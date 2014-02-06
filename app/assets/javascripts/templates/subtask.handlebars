@@ -1,7 +1,5 @@
-<li 
-  {{action "toggleViewing" preventDefault=false}}
-  {{bind-attr class=":subtask-container :clearfix :row 
-                     isDisputed:disputed isCompleted:completed isEditing:editing"}}>
+<li {{action "toggleViewing" preventDefault=false}}
+    {{bind-attr class=":subtask-container :clearfix :row isDisputed:disputed isCompleted:completed isEditing:editing"}}>
   {{#if isHovering}}
     <div class="subtask-edit-pencil">
       <i class="fa fa-pencil-square-o fa-fw"></i>
@@ -36,11 +34,11 @@
           <h5>Description: </h5>
           <p>{{description}}</p>
         {{else}}
-          <a class="add-description-action" {{action "startEditing" preventDefault="false"}}>
+          <a class="add-description-action" {{action "startEditing" preventDefault=false bubbles=false}}>
             Add Description
           </a>
         {{/if}}
-        <a class="edit-action pull-right" {{action "startEditing" preventDefault="false"}}>
+        <a class="edit-action pull-right" {{action "startEditing" preventDefault=false bubbles=false}}>
           <i class="fa fa-pencil-square-o fa-fw"></i>
           Edit
         </a>
