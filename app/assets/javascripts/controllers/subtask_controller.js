@@ -42,6 +42,12 @@ Sis.SubtaskController = Sis.TaskController.extend({
   // Actions
   ///////////
   actions: {
+    toggleViewing: function() {
+      this.toggleProperty('isViewing');
+    },
+    startEditing: function() {
+      this.set('isEditing', true);
+    },
     cancelEdit: function() {
       this.set('isEditing', false);
       this.set('isViewing', true);

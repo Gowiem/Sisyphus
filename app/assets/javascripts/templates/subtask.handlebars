@@ -1,5 +1,5 @@
 <li 
-  {{action toggleProperty "isViewing" on="click" preventDefault=false}}
+  {{action "toggleViewing" preventDefault=false}}
   {{bind-attr class=":subtask-container :clearfix :row 
                      isDisputed:disputed isCompleted:completed isEditing:editing"}}>
   {{#if isHovering}}
@@ -36,13 +36,13 @@
           <h5>Description: </h5>
           <p>{{description}}</p>
         {{else}}
-          <a class="add-description-action" {{action toggleProperty "isEditing" preventDefault="false"}}>
+          <a class="add-description-action" {{action "startEditing" preventDefault="false"}}>
             Add Description
           </a>
         {{/if}}
-        <a class="edit-action pull-right" {{action toggleProperty "isEditing" preventDefault="false"}}>
+        <a class="edit-action pull-right" {{action "startEditing" preventDefault="false"}}>
           <i class="fa fa-pencil-square-o fa-fw"></i>
-          edit
+          Edit
         </a>
       </div>
     {{/if}}
