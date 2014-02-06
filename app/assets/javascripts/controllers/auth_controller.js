@@ -1,4 +1,5 @@
 Sis.AuthController = Ember.ObjectController.extend({
+  needs: ['navigation'],
   currentUser: null,
   isAuthenticated: Em.computed.notEmpty("currentUser"),
 
@@ -37,49 +38,16 @@ Sis.AuthController = Ember.ObjectController.extend({
       // Once we've found our user, set currentUser, and transition appropriately
       self.store.find(userType, data[userType].id).then(function(user) {
         self.set('currentUser', user);
+        debugger
         if (user.get('isTeacher')) {
-          route.get('store').find('course').then(function(courses) {
-
-    // var diffSemesters = courses.mapBy('semester').uniq();
-
-    //   var diffYears = [];
-
-    //   // Get unique semester years
-    //   for( var i = 0; i < diffSemesters.length; i++ ) {
-    //     var semStr = diffSemesters[i];
-    //     var semArr = semStr.split(" ");
-    //     var semYear = parseInt( semArr[1], 10 ); // Constant specifies to parse as base 10 value 
-
-    //     // Get unique semester years
-    //     if (!diffYears.contains( semYear )) {
-    //       diffYears.push( semYear );
-    //     }            
-    //   }
-
-    //   // Get the most recent year
-    //   var maxYear = Math.max.apply(Math, diffYears);
-      
-    //   // Extract possible semesters with current year
-    //   diffSemesters = diffSemesters.filter(function (semester) {
-    //     return (semester.indexOf(maxYear) != -1);
-    //   });
-
-    //   // Return Fall if it exists, otherwise return Spring
-    //   var index = diffSemesters.indexOf("Fall " + maxYear);
-    //   if ( index === -1) {
-    //     index = diffSemesters.indexOf("Spring " + maxYear);
-    //   }
-      
-    //   var semester = diffSemesters[index];
+          debugger
+          route.get('store').find('semester').then(function(semesters) {
             debugger
-            var semester = user.get('mostRecentSemester');            
-            courses = courses.filter(function (course) {
-              return course.get('semester') === semester;
-            });
-
-            route.transitionTo('course', courses.get('firstObject'));
+            self.get('controllers.navigation').set('currentSemester', semesters.get('firstObject'));
+            debugger
+            route.transitionTo('semester', semesters.get('firstObject'));
           });
-        } else {
+        } else {          
           route.get('store').find('project').then(function(projects) {
             route.transitionTo('project', projects.get('firstObject'));
           });
@@ -91,6 +59,7 @@ Sis.AuthController = Ember.ObjectController.extend({
       var jqXHR = result.jqXHR;
       if (jqXHR.status === 401 || jqXHR.status === 406) {
         controller.set("errorMsg", jqXHR.responseJSON['error']);
+
       } else {
         controller.set("errorMsg", "Sorry there was an error with loggin you in. Please try again later");
         console.log("Login Error - jqXHR: ", jqXHR);

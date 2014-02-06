@@ -22,10 +22,8 @@ class SemestersController < ApplicationController
 
     respond_to do |format|
       if @semester.save
-        format.html { notice: 'Semester created succesfully.'}
         format.json { render action: 'show', status: :created, location: @semester }
       else
-        format.html { render action: 'new' }
         format.json { render json: @semester.errors, status: :unprocessable_entity }
       end
     end

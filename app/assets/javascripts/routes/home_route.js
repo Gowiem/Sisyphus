@@ -3,8 +3,8 @@ Sis.HomeRoute = Ember.Route.extend({
     var self;
     if (this.get('auth.currentUser') && this.get('auth.currentUser.isTeacher')) {
       self = this;
-      this.store.find('course').then(function(courses) {
-        self.transitionTo('course', courses.get('firstObject.id'));
+      this.store.find('semester').then(function(semesters) {
+        self.transitionTo('semester', semesters.get('firstObject.id'));
       });
     }
   },

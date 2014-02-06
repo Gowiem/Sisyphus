@@ -3,7 +3,9 @@ Sis.LoginRoute = Ember.Route.extend({
     var currentUser = this.get('auth.currentUser');
     if (currentUser) {
       if (currentUser.get('isTeacher')) {
-        this.transitionTo('teachers');
+        debugger
+        var semesters = this.get('auth.currentUser.semesters');
+        this.transitionTo('semester', semesters.get('firstObject'));
       } else {
         var projects = this.get('auth.currentUser.projects');
         this.transitionTo('project', projects.get('firstObject'));
@@ -30,6 +32,7 @@ Sis.StudentLoginRoute = Sis.LoginRoute.extend({
     return this.store.createRecord('student', {});
   },
 });
+
 Sis.TeacherLoginRoute = Sis.LoginRoute.extend({
   model: function() {
     return this.store.createRecord('teacher', {});

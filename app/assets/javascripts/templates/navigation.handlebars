@@ -8,20 +8,22 @@
     <ul class="nav navbar-nav navbar-right navbar-text">
       {{#if isAuthenticated}}
         {{#if currentUser.isTeacher}}
+         
           <li class="dropdown" id="project-nav-container">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              {{debugger}}
-              {{currentUser.currentSemester}} 
+              {{currentSemester.toString}} 
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              {{#each semester in uniqueSemesters}}
+              {{#each semester in semesters}}
                 <li>
-                  <a>{{semester}}</a>
+                  <a>{{semester.toString}}</a>
                 </li>
               {{/each}}
             </ul>
           </li>
+
+
         {{else}}
           <li class="dropdown" id="project-nav-container">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -212,28 +212,30 @@ projectGroup19 = ProjectGroup.create!( name: "F Team", students: [ eric, holly, 
 
 s14_semester = Semester.create!(
   season: "Spring",
-  year: "2014")
+  year: "2014",
+  teacher: teach)
 
 f13_semester = Semester.create!(
   season: "Fall",
-  year: "2013")
+  year: "2013",
+  teacher: teach)
 
 # Courses
 ##########
 capstone_course = Course.create!(
-  teacher: f13_semester,
+  semester: f13_semester,
   code: "IM4702",
   title: "Interactive Capstone 2",
   section: "32087")
 
 software_dev_course = Course.create!(
-  teacher: s14_semester,
+  semester: s14_semester,
   code: "CS4500",
   title: "Software Development",
   section: "12345")
 
 mad_course = Course.create!(
-  teacher: teach,
+  semester: s14_semester,
   code: "CS5450",
   title: "Mobile Application Development",
   section: "08542")
