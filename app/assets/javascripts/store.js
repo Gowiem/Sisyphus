@@ -29,7 +29,9 @@ Sis.IsodateTransform = DS.Transform.extend({
     if (serialized) {
       var date = new Date(serialized),
           offset = date.getTimezoneOffset();
-      return new Date(date.getTime()+offset*60000)
+      // Seems I was doing this wrong here... this transform might not be 
+      // needed at all.
+      return new Date(serialized); //new Date(date.getTime()+offset*60000)
     } else {
       return null;
     }

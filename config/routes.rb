@@ -34,6 +34,10 @@ Sisyphus::Application.routes.draw do
   resources :comments, :constraints => FormatTest.new(:json)
   resources :semesters,:constraints => FormatTest.new(:json)
 
+  resources :project_groups, :constraints => FormatTest.new(:json) do
+    resources :history_trackers, only: [:index, :show]
+  end
+
   # devise_for :teachers
   # devise_scope :teacher do
   #   get "/teachers/login" => "devise/sessions#new", :as => "teacher_login"

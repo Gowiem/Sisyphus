@@ -1,5 +1,7 @@
 <div class="required-task-container clearfix">
-  <h3 class="col-md-11"> {{title}} </h3>
+  <div class="col-md-11"> 
+    <h3 class="pull-left">{{title}}</h3>
+  </div>
   <div class="date-container clearfix">
     <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
   </div>
@@ -22,7 +24,9 @@
 
 <div class="completed-container col-lg-9">
   {{#if shouldShowCompletedLink}}
-    <a {{action showCompleted}}><span class="completed-action">View completed tasks</span></a>
+    <a {{action showCompleted}}>
+      <span class="completed-action">View completed tasks {{completedCount}}</span>
+    </a>
   {{/if}}
   {{#if showingCompleted}}
     <a {{action hideCompleted}}><span class="completed-action">Hide completed tasks</span></a>

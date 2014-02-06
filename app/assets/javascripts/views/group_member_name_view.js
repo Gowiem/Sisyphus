@@ -1,4 +1,4 @@
-Sis.GroupMemberView = Ember.View.extend({
+Sis.GroupMemberNameView = Ember.View.extend({
   mouseEnter: function() {
     this.get('controller').send('hoveringMemberOn');
   },

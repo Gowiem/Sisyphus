@@ -1,4 +1,5 @@
 class SubtasksController < ApplicationController
+  before_filter :authenticate!
   before_action :set_subtask, only: [:update, :destroy]
 
   def index
@@ -45,7 +46,7 @@ class SubtasksController < ApplicationController
     end
 
     def subtask_params
-      params.require(:subtask).permit(:title, :type, :due_date, :project_group_id, 
+      params.require(:subtask).permit(:title, :type, :due_date, :project_group_id,
         :parent_task_id, :is_disputed, :is_completed, {:comments => []}, {:student_ids => []})
     end
 end

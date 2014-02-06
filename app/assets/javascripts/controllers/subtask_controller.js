@@ -11,8 +11,18 @@ Sis.SubtaskController = Sis.TaskController.extend({
     return "dispute-modal-" + this.get('content.id');
   }.property('content'),
 
+  isOpen: function() {
+    var isOpen = this.get('model.isOpen');
+    // If our model is completed then we need to show the completed tasks.
+    if (this.get('model.isCompleted') && isOpen) {
+      this.get('target').set('showingCompleted', true);
+    }
+    this.set('isEditing', isOpen);
+  }.observes('model.isOpen'),
+
   isCompleted: function(key, value){
-    var model = this.get('model');
+    var model = this.get('model'),
+        projectGroup = this.get('content.projectGroup');
 
     if (value === undefined) {
       return model.get('isCompleted');
@@ -22,7 +32,8 @@ Sis.SubtaskController = Sis.TaskController.extend({
 
       model.set('isCompleted', value);
       model.save();
-      this.get('controllers.project').notifyPropertyChange('progressBarSize');
+
+      Sis.updateHistoryTrackers(projectGroup);
       return value;
     }
   }.property('model.isCompleted'),
@@ -35,11 +46,14 @@ Sis.SubtaskController = Sis.TaskController.extend({
     },
     cancelEdit: function() {
       this.set('isEditing', false);
+      this.set('model.isOpen', false);
     },
     disputeSubtask: function() {
       var modalId = this.get('disputeModalId');
       $('#' + modalId).modal({});
     },
+
+    // TODO: This action is causing scrolling to break on the entire page. Not sure why!
     submitDisputed: function() {
       var subtask = this.get('model'),
           disputeComment = this.store.createRecord(Sis.Comment, {}),

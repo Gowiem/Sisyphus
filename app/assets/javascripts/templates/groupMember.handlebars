@@ -21,6 +21,8 @@
     {{else}}
       {{#if lastLogin}}
         Last login: {{readableLastLogin}}
+      {{else}}
+        User hasn't logged in yet
       {{/if}}
     {{/if}}
   </div>
@@ -28,10 +30,12 @@
 
 <div class="group-member-container">
   <div>
-    {{fullName}}
-    {{#if isCurrentUser}}
-      <span id="me-current-user">(Me)</span>
-    {{/if}}
+    {{#view Sis.GroupMemberNameView}}
+      {{fullName}}
+      {{#if isCurrentUser}}
+        <span id="me-current-user">(Me)</span>
+      {{/if}}
+    {{/view}}
   </div>
   <div class="progress">
     <p class="task-count"> {{completedSubtasks}} / {{subtasks.length}} tasks </p>

@@ -1,0 +1,27 @@
+@import "variables";
+
+.news-items-container {
+  overflow: scroll;
+  min-height: 100px;
+  max-height: 250px;
+
+  .news-item {
+    list-style-type: none;
+    display: block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover {
+      color: $blue;
+      cursor: pointer;
+    }
+
+    .news-item-time-ago {
+      float: right;
+    }
+  }
+}
