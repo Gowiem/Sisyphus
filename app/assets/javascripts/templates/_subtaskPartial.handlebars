@@ -3,17 +3,20 @@
 </div>
 <div class="form-group col-lg-10">
   <label for="subtask-due-date" class="col-lg-2 control-label">Due Date:</label>
-  <div id="new-task-date" class="datepicker input-append date col-lg-2" data-date-format="mm/dd/yyyy"> 
+  <div class="datepicker new-task-date input-append date col-lg-2" data-date-format="mm/dd/yyyy"> 
     {{view Ember.TextField valueBinding="date" class="form-control" size="40"}}
     <span class="add-on"><i class="icon-th"></i></span>
   </div>
   <label for="subtask-users" class="col-lg-3 control-label">Assigned to:</label>
   <div class="select-users-container">
-    <ul id="select-users-list">
+    <ul class="select-users-list">
       {{#each student in controllers.requiredTasks.selectableStudents}}
         {{render "userCheckbox" student}}
       {{/each}}
     </ul>
+  </div>
+  <div class="form-group description-field col-lg-10">
+    {{view Ember.TextArea valueBinding="description" class="form-control" placeholder="Description"}}
   </div>
 </div>
 

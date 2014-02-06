@@ -1,5 +1,5 @@
 <li 
-  {{action "editTask" on="click" preventDefault=false}}
+  {{action toggleProperty "isViewing" on="click" preventDefault=false}}
   {{bind-attr class=":subtask-container :clearfix :row 
                      isDisputed:disputed isCompleted:completed isEditing:editing"}}>
   {{#if isHovering}}
@@ -30,9 +30,28 @@
         {{/each}}
       </div>
     </div>
+    {{#if isViewing}}
+      <div class="viewing-info row col-md-12">
+        {{#if description}}
+          <h5>Description: </h5>
+          <p>{{description}}</p>
+        {{else}}
+          <a class="add-description-action" {{action toggleProperty "isEditing" preventDefault="false"}}>
+            Add Description
+          </a>
+        {{/if}}
+        <a class="edit-action pull-right" {{action toggleProperty "isEditing" preventDefault="false"}}>
+          <i class="fa fa-pencil-square-o fa-fw"></i>
+          edit
+        </a>
+      </div>
+    {{/if}}
 
     {{#if showingDispute}}
-      <a class="dispute" {{action disputeSubtask}}><i class="fa fa-ban fa-fw"></i> Dispute</a>
+      <a class="dispute" {{action disputeSubtask}}>
+        <i class="fa fa-ban fa-fw"></i>
+        Dispute
+      </a>
     {{/if}}
   {{/if}}
 </li>
