@@ -3,7 +3,6 @@
     <div class="required-task-container clearfix">
       <div class="col-md-11"> 
         <h3 class="pull-left">{{title}}</h3>
-        <span>{{completedCount}}</span>
       </div>
       <div class="date-container clearfix">
         <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
@@ -30,7 +29,7 @@
 
     <div class="completed-container col-lg-9">
       {{#if shouldShowCompletedLink}}
-      <p class="completed-action view-completed-tasks"><a {{action showCompleted}}>View completed tasks</a></p>
+      <p class="completed-action view-completed-tasks"><a {{action showCompleted}}>View completed tasks ({{completedCount}})</a></p>
       {{/if}}
       {{#if showingCompleted}}
       <p class="completed-action view-completed-tasks"><a {{action hideCompleted}}>Hide completed tasks</a></p>
