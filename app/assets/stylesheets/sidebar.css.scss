@@ -46,14 +46,23 @@ margin:0px;
 	margin-top: 53px;
 }
 
+.group-member-info-icon {
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+  margin-right: 5px;
+
+  &.active {
+    color: $grey;
+  }
+
+  &.inactive {
+    color: $primary;
+  }
+}
+
 .group-member-info-container {
-  position: absolute;
-  left: -170px;
   display: none;
-  padding: 10px;
-  color: white;
-  background-color: $grey;
-  border-radius: $corner;
 
   &.showing-group-member-info {
     display: block;

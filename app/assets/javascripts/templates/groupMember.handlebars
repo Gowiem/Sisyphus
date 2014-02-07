@@ -1,41 +1,44 @@
-<div {{bind-attr class="isHoveringMember:showing-group-member-info :group-member-info-container"}}>
-  <div class="member-info-name">
-    <h3> {{fullName}} </h3>
-  </div>
-  {{#if isCurrentUser}}
-    <div class="edit-account-pencil">
-      <i class="fa fa-pencil-square-o fa-fw" {{action editAccount}}></i>
-    </div>
-  {{/if}}
-  <div class="member-info-email">
-    <i class="fa fa-envelope-o fa-fw"></i>
-    <span><a {{bind-attr href="emailHref"}} target="_blank">{{email}}</a></span>
-  </div>
-  <div class="member-info-phone">
-    <i class="fa fa-mobile fa-fw"></i>
-    <span>{{phone}}</span>
-  </div>
-  <div class="member-info-online-status">
-    {{#if isCurrentUser}}
-      Online
-    {{else}}
-      {{#if lastLogin}}
-        Last login: {{readableLastLogin}}
-      {{else}}
-        User hasn't logged in yet
-      {{/if}}
-    {{/if}}
-  </div>
-</div>
-
 <div class="group-member-container">
   <div>
-    {{#view Sis.GroupMemberNameView}}
-      {{fullName}}
+    {{fullName}}
+    {{#if isCurrentUser}}
+    <span id="me-current-user">(Me)</span>
+    {{/if}}
+    {{#if isShowingGroupMemberInfo}}
+      <i class="fa fa-info-circle group-member-info-icon active" {{action hideGroupMemberInfo}}></i>
+    {{else}}
+      <i class="fa fa-info-circle group-member-info-icon inactive" {{action showGroupMemberInfo}}></i>
+    {{/if}}
+  </div>
+  <div {{bind-attr class="isShowingGroupMemberInfo:showing-group-member-info :group-member-info-container"}}>
+    {{!-- 
+    Pretty sure we don't care about editing the user from this view anymore, 
+    but just in case I'll leave this around for a week or so.
+    {{#if isCurrentUser}}
+      <div class="edit-account-pencil">
+        <i class="fa fa-pencil-square-o fa-fw" {{action editAccount}}></i>
+      </div>
+    {{/if}}
+    --}}
+    <div class="member-info-email">
+      <i class="fa fa-envelope-o fa-fw"></i>
+      <span><a {{bind-attr href="emailHref"}} target="_blank">{{email}}</a></span>
+    </div>
+    <div class="member-info-phone">
+      <i class="fa fa-mobile fa-fw"></i>
+      <span>{{phone}}</span>
+    </div>
+    <div class="member-info-online-status">
       {{#if isCurrentUser}}
-        <span id="me-current-user">(Me)</span>
+        Online
+      {{else}}
+        {{#if lastLogin}}
+          Last login: {{readableLastLogin}}
+        {{else}}
+          User hasn't logged in yet
+        {{/if}}
       {{/if}}
-    {{/view}}
+    </div>
   </div>
   <div class="progress">
     <p class="task-count"> {{completedSubtasks}} / {{subtasks.length}} tasks </p>
