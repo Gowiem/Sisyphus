@@ -140,6 +140,9 @@ input[type="checkbox"] {
 }
 
 
+.select-users-container{
+}
+
 /* 
 ------------------------------ 
 COMMENTS
@@ -186,4 +189,21 @@ COMMENTS
 }
 .new-comment-form {
   margin-top: -8px;
+  top: 2px;
+  right: 2px;
+  line-height: 37px;
+  height:80px;
+  width:400px;
+  vertical-align: top;
+  font-size: 20px;
+  color: #b2bcc5;
+  background-color: #ffffff;
+  padding: 0 12px 0 0;
+  border-radius: $corner;
+}
+
+.comment{
+max-width:400px;
+word-wrap:break-word;
+
 }
