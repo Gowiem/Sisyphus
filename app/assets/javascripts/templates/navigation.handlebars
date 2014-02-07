@@ -23,8 +23,7 @@
         {{else}}
           <li class="dropdown" id="project-nav-container">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Projects
-              <span class="caret"></span>
+              Projects <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
               {{#each project in projects}}
@@ -33,7 +32,7 @@
             </ul>
           </li>
         {{/if}}
-      <li class="dropdown" id="user-nav-container">
+        <li class="dropdown" id="user-nav-container">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             {{currentUser.fullName}}
             <span class="caret"></span>

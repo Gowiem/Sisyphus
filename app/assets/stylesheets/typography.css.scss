@@ -157,6 +157,7 @@ h3,
   margin-top: 3px;
 }
 
+/* Add Task / View Completed Task */
 .add-task {
   font-size: 14px;
 }
@@ -166,7 +167,8 @@ h3,
   color:$greyDark;
 }
 
-p, .subtask, .group-members {
+/* paragraph &  Sub Tasks */
+p, .subtask {
   font-size: 16px;
   line-height: 1.4em;
   margin: 0 0 15px;
@@ -203,7 +205,6 @@ p, .subtask, .group-members {
   color:$greyDark;
   font-weight:600;
 }
-
 
 /* Newsfeed */
 .newsfeed {

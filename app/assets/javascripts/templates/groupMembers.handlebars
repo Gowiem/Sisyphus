@@ -1,10 +1,6 @@
 <div class="panel panel-default">
-	<div class="sidebar-header"><h2>Group Members</h2></div>
+	<div class="sidebar-header"><h2>Group members</h2></div>
 	<div class="panel-body">
-	<div class="sidebar-header"><h2>Group members</h2></div>
-	<div class="newsfeed panel-body">
-	<div class="sidebar-header"><h2>Group members</h2></div>
-	<div class="newsfeed panel-body">
   {{render "groupMember" auth.currentUser}}
 	{{#each member in controller}}
 		{{render "groupMember" member}}

@@ -8,8 +8,8 @@ NAVIGATION
 
 
 .dropdown-arrow-inverse {
-  border-bottom-color: $charcoal !important;
-  border-top-color: $charcoal !important;
+  border-bottom-color: #595959 !important;
+  border-top-color: #595959 !important;
 }
 .pre-scrollable {
   max-height: 340px;
@@ -20,6 +20,7 @@ NAVIGATION
   margin-bottom: 30px;
   border: none;
   border-radius: 0px;
+
 }
 .navbar-collapse {
   box-shadow: none;
@@ -88,7 +89,7 @@ NAVIGATION
 }
 .navbar-toggle {
   border: none;
-  color: $charcoal;
+  color: #595959;
   margin: 0 0 0 21px;
   padding: 0 21px;
   height: 53px;
@@ -291,7 +292,7 @@ textarea.navbar-form .btn {
 .navbar-text {
   font-size: 16px;
   line-height: 1.438;
-  color: $charcoal;
+  color: #595959;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 15px;
@@ -364,7 +365,7 @@ textarea.navbar-form .btn {
   background-color: #ffffff;
 }
 .navbar-default .navbar-brand {
-  color: $charcoal;
+  color: #595959;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -372,7 +373,7 @@ textarea.navbar-form .btn {
   background-color: transparent;
 }
 .navbar-default .navbar-toggle:before {
-  color: $charcoal;
+  color: #595959;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
@@ -388,7 +389,7 @@ textarea.navbar-form .btn {
   border-width: 2px;
 }
 .navbar-default .navbar-nav > li > a {
-  color: $charcoal;
+  color: #595959;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -408,8 +409,8 @@ textarea.navbar-form .btn {
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .dropdown > a .caret {
-  border-top-color: $charcoal;
-  border-bottom-color: $charcoal;
+  border-top-color: #595959;
+  border-bottom-color: #595959;
 }
 .navbar-default .navbar-nav > .active > a .caret {
   border-top-color: $primary;
@@ -434,7 +435,7 @@ textarea.navbar-form .btn {
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: $charcoal;
+    color: #595959;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -488,10 +489,10 @@ textarea.navbar-form .btn {
   color: $primary;
 }
 .navbar-default .navbar-text {
-  color: $charcoal;
+  color: #595959;
 }
 .navbar-default .navbar-text a {
-  color: $charcoal;
+  color: #595959;
 }
 .navbar-default .navbar-text a:hover,
 .navbar-default .navbar-text a:focus {
@@ -539,7 +540,7 @@ textarea.navbar-form .btn {
 .navbar-inverse .navbar-nav > .disabled > a,
 .navbar-inverse .navbar-nav > .disabled > a:hover,
 .navbar-inverse .navbar-nav > .disabled > a:focus {
-  color: $charcoalDark;
+  color: #444444;
   background-color: transparent;
 }
 .navbar-inverse .navbar-nav > .dropdown > a:hover .caret,
@@ -551,23 +552,23 @@ textarea.navbar-form .btn {
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
   background-color: #ffffff;
-  color: $primary;
+  color: #2BBAAD;
   border-left-color: transparent;
   border-bottom: none;
 }
 .navbar-inverse .navbar-nav > .open > a .caret,
 .navbar-inverse .navbar-nav > .open > a:hover .caret,
 .navbar-inverse .navbar-nav > .open > a:focus .caret {
-  border-top-color: $primary;
-  border-bottom-color: $primary;
+  border-top-color: #2BBAAD;
+  border-bottom-color: #2BBAAD;
 }
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
   border-top-color: $charcoal;
   border-bottom-color: $charcoal;
 }
 .navbar-inverse .navbar-nav > .open > .dropdown-arrow {
-  border-top-color: $charcoal;
-  border-bottom-color: $charcoal;
+  border-top-color: #595959;
+  border-bottom-color: #595959;
 }
 .navbar-inverse .navbar-nav > .open > .dropdown-menu {
   background-color: #ffffff;
@@ -580,7 +581,7 @@ textarea.navbar-form .btn {
   color: #ffffff;
 }
 .navbar-inverse .navbar-nav > .open > .dropdown-menu > .divider {
-  background-color: $charcoalDark;
+  background-color: #666666;
   height: 2px;
   margin-left: -4px;
   margin-right: -4px;
@@ -590,12 +591,12 @@ textarea.navbar-form .btn {
     border-left-width: 0;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-    color: $charcoal;
+    color: #ffffff;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #ffffff;
-    background-color: $primary;
+    color: $primary;
+    background-color: transparent;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
