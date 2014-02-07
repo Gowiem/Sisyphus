@@ -27,10 +27,10 @@
 
     <div class="completed-container col-lg-9">
       {{#if shouldShowCompletedLink}}
-      <a {{action showCompleted}}><h4 class="completed-action">View completed tasks</h4></a>
+      <p class="completed-action view-completed-tasks"><a {{action showCompleted}}>View completed tasks</a></p>
       {{/if}}
       {{#if showingCompleted}}
-      <a {{action hideCompleted}}><h4 class="completed-action">Hide completed tasks</h4></a>
+      <p class="completed-action view-completed-tasks"><a {{action hideCompleted}}>Hide completed tasks</a></p>
       {{/if}}
     </div>
   </div>
