@@ -1,6 +1,6 @@
 <div {{bind-attr class="isHoveringMember:showing-group-member-info :group-member-info-container"}}>
   <div class="member-info-name">
-    <h3> {{fullName}} </h3>
+    <p> {{fullName}} </p>
   </div>
   {{#if isCurrentUser}}
     <div class="edit-account-pencil">
@@ -29,7 +29,7 @@
 </div>
 
 <div class="group-member-container">
-  <div>
+  <div class="group-members">
     {{#view Sis.GroupMemberNameView}}
       {{fullName}}
       {{#if isCurrentUser}}

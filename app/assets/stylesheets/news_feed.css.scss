@@ -6,6 +6,7 @@
   max-height: 250px;
 
   .news-item {
+  
     list-style-type: none;
     display: block;
     -webkit-touch-callout: none;
@@ -21,7 +22,9 @@
     }
 
     .news-item-time-ago {
+      line-height:0%;
       float: right;
+      display: block;
     }
   }
 }
