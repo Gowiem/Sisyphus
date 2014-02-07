@@ -13,9 +13,13 @@ Sis.NewSubtaskController = Sis.AbstractSubtaskController.extend({
       // Set the associated projectGroup and parentTask
       content.set('projectGroup', projectController.get('projectGroup'));
       content.set('parentTask', requiredTask);
-      // Save the new subtask
-      content.save();
+
       this.set('content', this.store.createRecord(Sis.Subtask, {}));
+
+      // Save the new subtask
+      content.save().then(function(subtask) {
+        subtask.set('isOpen', true);
+      });
     },
   }
 });

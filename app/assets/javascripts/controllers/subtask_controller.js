@@ -6,6 +6,14 @@ Sis.SubtaskController = Sis.TaskController.extend({
   isHovering: false,
   disputeReason: null,
 
+  init: function() {
+    // If this model was just created then we set 'isOpen' to true letting us
+    // know that we have to start in viewing mode. 
+    if (this.get('model.isOpen')) {
+      this.set('isViewing', true);
+    }
+  },
+
   // Computed Properties
   ///////////////////////
   disputeModalId: function() {
