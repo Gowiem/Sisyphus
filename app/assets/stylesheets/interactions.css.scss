@@ -1600,7 +1600,10 @@ PROGRESS BAR
   height: 24px;
   -webkit-box-shadow: 1px 1px #bbb;
   box-shadow: 1px 1px #bbb;
+}
 
+.progress-bar-global {
+  width:70%;
 }
 .progress-bar {
   background: $primary;
