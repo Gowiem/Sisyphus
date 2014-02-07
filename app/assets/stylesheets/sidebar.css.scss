@@ -133,8 +133,12 @@ TASK-COUNT
 
 .task-count {
   position: absolute;
+  line-height:0%;
   text-align: right;
   width: 100%;
   right: 37px;
   color:#fff;
+  font-size:12px;
+  font-weight:400;
+  padding-top:12px;
 }
