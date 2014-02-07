@@ -33,7 +33,7 @@ Sis.SubtaskController = Sis.TaskController.extend({
         this.set('model.inLimbo', true);
         Ember.run.later(this, function() {
           this.completeTask(model, value);
-        }, 3000);
+        }, 4000);
       } else {
         this.completeTask(model, value);
       }
