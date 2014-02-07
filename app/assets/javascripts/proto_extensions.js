@@ -1,5 +1,3 @@
-
-console.log("PROTO EXTENSIONS");
 Ember.ArrayProxy.prototype.flatten = Array.prototype.flatten = function() {
   var r = [];
   this.forEach(function(el) {
