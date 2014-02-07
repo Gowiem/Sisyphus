@@ -157,34 +157,69 @@ h3,
   margin-top: 3px;
 }
 
-/* h4: Add Task / View Completed Task */
-h4,
-.h4 {
+/* Add Task / View Completed Task */
+.add-task {
   font-size: 14px;
-  font-weight: 400;
 }
 
-/* h5: Add Comment / Assigned To */
-h5,
-.h5 {
-  font-size: 12px;
+.view-completed-tasks {
+  font-size:14px;
   color:$greyDark;
-  margin:0px;
-  font-weight: 400;
-}
-h6,
-.h6 {
-  font-size: 10px;
-  font-weight: 400;
 }
 
-/* p: Sub Tasks */
-p {
+/* paragraph &  Sub Tasks */
+p, .subtask {
   font-size: 16px;
   line-height: 1.4em;
   margin: 0 0 15px;
-  font-weight: 400;
 }
+
+/* Comments */
+.comment {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin: 0 0 15px;
+}
+
+.comment-name {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin: 0 0 15px;
+  font-weight:600;
+}
+
+.comment-date {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin: 0 0 15px;
+  color:$greyDark;
+}
+
+/* Add Comment */
+.add-comment {
+  font-size: 12px;
+  color:$greyDark;
+}
+.assigned-to {
+  font-size: 12px;
+  color:$greyDark;
+  font-weight:600;
+}
+
+/* Newsfeed */
+.newsfeed {
+  font-size: 14px;
+  line-height: 1.4em;
+  margin: 0 0 15px;
+}
+
+.newsfeed-time {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin: 0 0 15px;
+}
+
+/* Page Header */
 .page-header {
   padding-bottom: 14px;
   margin: 60px 0 30px;
