@@ -1,5 +1,19 @@
 @import "variables";
 
+.global-progress-bar {
+  overflow: visible;
+
+  .progress-section-info {
+    display: none;
+    position: relative;
+    background-color: $grey;
+    color: white;
+    top: 20px;
+    min-width: 150px;
+    border-radius: $roundCorners;
+  }
+}
+
 .group-container {
 	margin-top: 53px;
 }
