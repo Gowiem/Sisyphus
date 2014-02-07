@@ -2,12 +2,14 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
   needs: "project",
   addingNewTask: false,
   showCompletedVal: false,
-  completedLimboSubtasks: [],
-  uncompletedSubtasks: [],
+  completedLimboSubtasks: null,
+
+  init: function() {
+    this.set('completedLimboSubtasks', Ember.A());
+  },
 
   // Computed Properties
   ///////////////////////
-
   newSubtask: function() {
     return this.store.createRecord(Sis.Subtask, {});
   }.property(),
@@ -48,10 +50,7 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
   }.property('subtasks.@each.isCompleted'),
 
   uncompletedSubtasks: function() {
-    var uncompleted = this.get('currentSubtasks').filterBy('isCompleted', false);
-    console.log("SHRED!");
-    return uncompleted;
-    // this.get('uncompletedSubtasks').addObjects(uncompleted);
+    return this.get('currentSubtasks').filterBy('isCompleted', false);
   }.property('currentSubtasks.@each.isCompleted'),
   completedSubtasks: function() {
     return this.get('currentSubtasks').filterBy('isCompleted');

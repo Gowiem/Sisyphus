@@ -72,6 +72,11 @@ hr {
     .subtask-title {
       margin-left: 20px;
     }
+
+    .subtask-in-limbo {
+      text-decoration: line-through;
+    }
+    
     .subtask-title.disputed {
       color: red;
     }

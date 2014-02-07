@@ -21,33 +21,33 @@ Sis.SubtaskController = Sis.TaskController.extend({
   }.observes('model.isOpen'),
 
   isCompleted: function(key, value){
-    var model = this.get('model'),
-        projectGroup = this.get('content.projectGroup');
+    var model = this.get('model');
 
     if (value === undefined) {
-      return model.get('isCompleted');
+      return model.get('isCompleted') || model.get('inLimbo');
     } else {
       // Set this model as undisputed. This is to make sure completed tasks get undisputed. 
       if (value) {
         this.get('target.uncompletedSubtasks').removeObject(model);
         this.get('target.completedLimboSubtasks').addObject(model);
+        this.set('model.inLimbo', true);
         Ember.run.later(this, function() {
           this.completeTask(model, value);
-          this.get('target.completedLimboSubtasks').removeObject(model)
-          Sis.updateHistoryTrackers(projectGroup);
         }, 3000);
       } else {
         this.completeTask(model, value);
-        Sis.updateHistoryTrackers(projectGroup);
       }
       return value;
     }
-  }.property('model.isCompleted'),
+  }.property('model.isCompleted', 'model.inLimbo'),
 
   completeTask: function(model, value) {
-    model.set('isDisputed', false);
-    model.set('isCompleted', value);
-    model.save();
+    var self = this;
+    model.setProperties({ 'isDisputed': false, 'inLimbo': false, 'isCompleted': value });
+    this.get('target.completedLimboSubtasks').removeObject(model);
+    model.save().then(function() {
+      Sis.updateHistoryTrackers(self.get('model.projectGroup'));
+    });
   },
 
   // Actions

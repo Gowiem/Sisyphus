@@ -14,7 +14,7 @@
     <div class="row col-md-12">
       <div class="title-container col-md-10">
         {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
-        <h4 {{bind-attr class=":subtask-title :center-text isDisputed:disputed"}}>
+        <h4 {{bind-attr class=":subtask-title :center-text isDisputed:disputed inLimbo:subtask-in-limbo"}}>
           {{title}}
         </h4>
       </div>
