@@ -28,15 +28,27 @@ Sis.SubtaskController = Sis.TaskController.extend({
       return model.get('isCompleted');
     } else {
       // Set this model as undisputed. This is to make sure completed tasks get undisputed. 
-      model.set('isDisputed', false);
-
-      model.set('isCompleted', value);
-      model.save();
-
-      Sis.updateHistoryTrackers(projectGroup);
+      if (value) {
+        this.get('target.uncompletedSubtasks').removeObject(model);
+        this.get('target.completedLimboSubtasks').addObject(model);
+        Ember.run.later(this, function() {
+          this.completeTask(model, value);
+          this.get('target.completedLimboSubtasks').removeObject(model)
+          Sis.updateHistoryTrackers(projectGroup);
+        }, 3000);
+      } else {
+        this.completeTask(model, value);
+        Sis.updateHistoryTrackers(projectGroup);
+      }
       return value;
     }
   }.property('model.isCompleted'),
+
+  completeTask: function(model, value) {
+    model.set('isDisputed', false);
+    model.set('isCompleted', value);
+    model.save();
+  },
 
   // Actions
   ///////////

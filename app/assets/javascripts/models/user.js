@@ -12,7 +12,7 @@ Sis.User = DS.Model.extend({
   // Computed Propeties
   readableLastLogin: function() {
     var lastLogin = moment(this.get('lastLogin'));
-    return lastLogin.format('M/D') + ' at ' + lastLogin.format('h:mma')
+    return lastLogin.format('M/D') + ' at ' + lastLogin.format('h:mma');
   }.property('lastLogin'),
   fullName: function(key, value) {
     if (this.get('firstName') && this.get('lastName')) {

@@ -2,6 +2,8 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
   needs: "project",
   addingNewTask: false,
   showCompletedVal: false,
+  completedLimboSubtasks: [],
+  uncompletedSubtasks: [],
 
   // Computed Properties
   ///////////////////////
@@ -46,7 +48,10 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
   }.property('subtasks.@each.isCompleted'),
 
   uncompletedSubtasks: function() {
-    return this.get('currentSubtasks').filterBy('isCompleted', false);
+    var uncompleted = this.get('currentSubtasks').filterBy('isCompleted', false);
+    console.log("SHRED!");
+    return uncompleted;
+    // this.get('uncompletedSubtasks').addObjects(uncompleted);
   }.property('currentSubtasks.@each.isCompleted'),
   completedSubtasks: function() {
     return this.get('currentSubtasks').filterBy('isCompleted');
