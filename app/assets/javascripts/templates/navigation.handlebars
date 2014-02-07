@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <div class="brand">
@@ -15,7 +15,7 @@
             <ul class="dropdown-menu">
               {{#each semester in uniqueSemesters}}
                 <li>
-                  <h3>{{semester}}</h3>
+                  {{semester}}
                 </li>
               {{/each}}
             </ul>
@@ -39,20 +39,16 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <h5>
                 <a href="#" {{action editAccount}} id="account-button">
                   <i class="fa fa-pencil-square-o fa-fw"></i>
                   Account
                 </a>
-              </h5>
             </li>
             <li>
-              <h5>
                 <a href="#" {{action logout}} id="logout-button">
                   <i class="fa fa-power-off fa-fw"></i>
                   Log Out
                 </a>
-              </h5>
             </li>
           </ul>
       </li>

@@ -9,12 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require_tree ./vendor
  *= require_tree .
  */
 
 @import "variables";
-@import "bootstrap";
-@import "bootstrap/theme";
 
 body {
   font-family: $font-family;
@@ -36,5 +35,3 @@ h3 {
 h4 {
 	font-size: 16px;
 }
-
-.nav .dropdown-menu { padding-left: 10px; }
