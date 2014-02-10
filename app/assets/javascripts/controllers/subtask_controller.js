@@ -1,9 +1,18 @@
 Sis.SubtaskController = Sis.TaskController.extend({
   needs: "project",
   isEditing: false,
+  isViewing: false,
   showingDispute: false,
   isHovering: false,
   disputeReason: null,
+
+  init: function() {
+    // If this model was just created then we set 'isOpen' to true letting us
+    // know that we have to start in viewing mode. 
+    if (this.get('model.isOpen')) {
+      this.set('isViewing', true);
+    }
+  },
 
   // Computed Properties
   ///////////////////////
@@ -11,13 +20,13 @@ Sis.SubtaskController = Sis.TaskController.extend({
     return "dispute-modal-" + this.get('content.id');
   }.property('content'),
 
-  isOpen: function() {
+  isOpenObserver: function() {
     var isOpen = this.get('model.isOpen');
     // If our model is completed then we need to show the completed tasks.
     if (this.get('model.isCompleted') && isOpen) {
       this.get('target').set('showingCompleted', true);
     }
-    this.set('isEditing', isOpen);
+    this.set('isViewing', isOpen);
   }.observes('model.isOpen'),
 
   isCompleted: function(key, value){
@@ -53,12 +62,15 @@ Sis.SubtaskController = Sis.TaskController.extend({
   // Actions
   ///////////
   actions: {
-    editTask: function() {
+    toggleViewing: function() {
+      this.toggleProperty('isViewing');
+    },
+    startEditing: function() {
       this.set('isEditing', true);
     },
     cancelEdit: function() {
       this.set('isEditing', false);
-      this.set('model.isOpen', false);
+      this.set('isViewing', true);
     },
     disputeSubtask: function() {
       var modalId = this.get('disputeModalId');

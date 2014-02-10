@@ -2,7 +2,7 @@ Sis.NewCommentController = Ember.ObjectController.extend({
   needs: ["comments"],
   actions: {
     createComment: function() {
-      var content = this.get('content'), 
+      var content = this.get('content'),
           subtask = this.get('target.target.model'),
           currentUser = this.get('auth.currentUser'),
           projectGroup = subtask.get('projectGroup');

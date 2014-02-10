@@ -46,7 +46,7 @@ class SubtasksController < ApplicationController
     end
 
     def subtask_params
-      params.require(:subtask).permit(:title, :type, :due_date, :project_group_id,
+      params.require(:subtask).permit(:title, :type, :due_date, :project_group_id, :description,
         :parent_task_id, :is_disputed, :is_completed, {:comments => []}, {:student_ids => []})
     end
 end

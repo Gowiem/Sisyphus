@@ -2,7 +2,8 @@ Sis.Task = DS.Model.extend({
   type: DS.attr('string'),
   title: DS.attr('string'),
   dueDate: DS.attr('isodate'),
-  isCompleted: DS.attr('boolean')
+  isCompleted: DS.attr('boolean'),
+  description: DS.attr('string')
 });
 
 Sis.RequiredTask = Sis.Task.extend({
