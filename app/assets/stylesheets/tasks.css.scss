@@ -55,6 +55,9 @@ hr {
       float: right;
     }
   }
+  ul{
+  padding:0px 15px;
+  }
 }
 
 .panel-body a{
@@ -68,7 +71,7 @@ hr {
 .subtask-container {
   position: relative;
   list-style-type: none;
-  margin:0px 20px 0px 20px;
+  margin:0px;
   padding-top:10px;
 
   .subtask-edit-pencil {
