@@ -1,6 +1,13 @@
 class SubtasksController < ApplicationController
+  before_filter :authenticate!
   before_action :set_subtask, only: [:update, :destroy]
-  serialization_scope :current_student
+
+  def index
+    ## TODO: Index action will only work for '/subtasks/?ids=2,3,4'
+    ## Do we need it to work in it's regular fashion? Hopefully not..
+    @subtasks = Subtask.find(params[:ids])
+    render :json => @subtasks
+  end
 
   # POST /subtasks.json
   def create
@@ -20,7 +27,7 @@ class SubtasksController < ApplicationController
       if @subtask.update(subtask_params)
         format.json { head :no_content }
       else
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.json { render json: @subtask.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,7 +46,7 @@ class SubtasksController < ApplicationController
     end
 
     def subtask_params
-      params.require(:subtask).permit(:title, :type, :due_date, :project_group_id, 
+      params.require(:subtask).permit(:title, :type, :due_date, :project_group_id, :description,
         :parent_task_id, :is_disputed, :is_completed, {:comments => []}, {:student_ids => []})
     end
 end

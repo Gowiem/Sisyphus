@@ -1,0 +1,6 @@
+--color
+--require spec_helper
+--profile
+--format progress
+--format documentation
+--out rspec.txt

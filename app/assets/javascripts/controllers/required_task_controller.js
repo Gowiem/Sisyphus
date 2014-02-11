@@ -1,10 +1,18 @@
-Sis.RequiredTaskController = Ember.ObjectController.extend({
+Sis.RequiredTaskController = Sis.TaskController.extend({
   needs: "project",
   addingNewTask: false,
   showCompletedVal: false,
+  completedLimboSubtasks: null,
+
+  init: function() {
+    this.set('completedLimboSubtasks', Ember.A());
+  },
 
   // Computed Properties
   ///////////////////////
+  newSubtask: function() {
+    return this.store.createRecord(Sis.Subtask, {});
+  }.property(),
 
   currentSubtasks: function() {
     var showingAllTasks = this.get('controllers.project.showingAllTasks'),
@@ -18,6 +26,10 @@ Sis.RequiredTaskController = Ember.ObjectController.extend({
       });
     }
   }.property(),
+
+  completedCount: function() {
+    return this.get('subtasks').filterBy('isCompleted').get('length');
+  }.property('subtasks.@each.isCompleted'),
 
   showingCompleted: function(key, value) {
     if (value === undefined) {

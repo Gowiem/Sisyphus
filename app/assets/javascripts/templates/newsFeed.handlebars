@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="sidebar-header"><h2>News Feed</h2></div>
+  <div class="panel-body news-items-container">
+  {{#each historyItem in controller}}
+    {{render "newsItem" historyItem}}
+  {{/each}}
+  {{#if noHistoryItems}}
+    <p> No News Yet! </p>
+  {{/if}}
+  </div>
+</div>

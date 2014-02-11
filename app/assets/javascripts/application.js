@@ -19,7 +19,7 @@
 
 // Bootstrap
 /////////////
-//= require bootstrap
+// require bootstrap
 
 // Handlebars, Ember, Ember-Data
 /////////////////////////////////
@@ -28,6 +28,7 @@
 //= require ember-data
 //= require_self
 //= require sisyphus
+//= require proto_extensions
 
 // Other 3rd Party Add ons
 ///////////////////////////
@@ -39,6 +40,9 @@ Sis = Ember.Application.create({
   // These will probably be useful down the road.
   // LOG_ACTIVE_GENERATION: true,
   // LOG_VIEW_LOOKUPS: true,
+  ready: function() {
+    console.log("Ember.Application#Ready!");
+  }
 });
 
 Ember.RSVP.configure('onerror', function(error) {

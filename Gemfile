@@ -16,14 +16,17 @@ gem 'omniauth-google-oauth2'
 gem 'haml-rails'
 gem 'ember-rails'
 
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+# gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
 ## TODO: RailsAdmin is broken with bootstrap-sass 2/3 upgrade issues.
 ## We'll likely want to update this to the master branch once those 
 ## are fixed. 
 gem 'rails_admin', github: 'jcoleman/rails_admin', branch: 'vendorize-bootstrap-2'
 
+gem 'mongoid-audit'
+
 group :development, :test do
+  gem 'teaspoon'
   gem 'railroady'
   gem 'fabrication'
   gem 'rspec-rails'

@@ -1,0 +1,5 @@
+<ul class="nav nav-pills nav-justified">
+  {{#each course in controller}}
+    <li {{bind-attr class="isCurrent:active"}}>{{course.title}}</li>
+  {{/each}} 
+</ul>

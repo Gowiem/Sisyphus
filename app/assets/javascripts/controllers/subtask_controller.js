@@ -1,45 +1,83 @@
-Sis.SubtaskController = Ember.ObjectController.extend({
+Sis.SubtaskController = Sis.TaskController.extend({
   needs: "project",
   isEditing: false,
+  isViewing: false,
   showingDispute: false,
+  isHovering: false,
   disputeReason: null,
 
+  init: function() {
+    // If this model was just created then we set 'isOpen' to true letting us
+    // know that we have to start in viewing mode. 
+    if (this.get('model.isOpen')) {
+      this.set('isViewing', true);
+    }
+  },
+
+  // Computed Properties
+  ///////////////////////
   disputeModalId: function() {
     return "dispute-modal-" + this.get('content.id');
   }.property('content'),
+
+  isOpenObserver: function() {
+    var isOpen = this.get('model.isOpen');
+    // If our model is completed then we need to show the completed tasks.
+    if (this.get('model.isCompleted') && isOpen) {
+      this.get('target').set('showingCompleted', true);
+    }
+    this.set('isViewing', isOpen);
+  }.observes('model.isOpen'),
 
   isCompleted: function(key, value){
     var model = this.get('model');
 
     if (value === undefined) {
-      return model.get('isCompleted');
+      return model.get('isCompleted') || model.get('inLimbo');
     } else {
       // Set this model as undisputed. This is to make sure completed tasks get undisputed. 
-      model.set('isDisputed', false);
-
-      model.set('isCompleted', value);
-      model.save();
-      this.get('controllers.project').notifyPropertyChange('progressBarSize');
+      if (value) {
+        this.get('target.uncompletedSubtasks').removeObject(model);
+        this.get('target.completedLimboSubtasks').addObject(model);
+        this.set('model.inLimbo', true);
+        Ember.run.later(this, function() {
+          this.completeTask(model, value);
+        }, 4000);
+      } else {
+        this.completeTask(model, value);
+      }
       return value;
     }
-  }.property('model.isCompleted'),
-  readableDate: function() {
-    var dueDate = this.get('model.dueDate');
-    return dueDate ? moment(dueDate).calendar() : null;
-  }.property('model.dueDate'),
+  }.property('model.isCompleted', 'model.inLimbo'),
+
+  completeTask: function(model, value) {
+    var self = this;
+    model.setProperties({ 'isDisputed': false, 'inLimbo': false, 'isCompleted': value });
+    this.get('target.completedLimboSubtasks').removeObject(model);
+    model.save().then(function() {
+      Sis.updateHistoryTrackers(self.get('model.projectGroup'));
+    });
+  },
 
   // Actions
+  ///////////
   actions: {
-    editTask: function() {
+    toggleViewing: function() {
+      this.toggleProperty('isViewing');
+    },
+    startEditing: function() {
       this.set('isEditing', true);
     },
     cancelEdit: function() {
       this.set('isEditing', false);
+      this.set('isViewing', true);
     },
     disputeSubtask: function() {
       var modalId = this.get('disputeModalId');
       $('#' + modalId).modal({});
     },
+
+    // TODO: This action is causing scrolling to break on the entire page. Not sure why!
     submitDisputed: function() {
       var subtask = this.get('model'),
           disputeComment = this.store.createRecord(Sis.Comment, {}),

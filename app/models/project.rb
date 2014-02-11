@@ -4,7 +4,7 @@ class Project < BaseDocument
   field :title, :type => String
 
   # Relationships
-  belongs_to :teacher
+  belongs_to :course
   has_many :project_groups
   has_and_belongs_to_many :students
   has_many :required_tasks

@@ -1,12 +1,26 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <div class="brand">
-        {{#link-to 'home' }} <img src="http://placekitten.com/150/75"> {{/link-to}}
+        {{#link-to 'home' }} <img src="/assets/logo.png"> {{/link-to}}
       </div>
     </div>
     <ul class="nav navbar-nav navbar-right navbar-text">
-        {{#if isAuthenticated}}
+      {{#if isAuthenticated}}
+        {{#if currentUser.isTeacher}}
+          <li class="dropdown" id="project-nav-container">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Semester <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              {{#each semester in uniqueSemesters}}
+                <li>
+                  {{semester}}
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{else}}
           <li class="dropdown" id="project-nav-container">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Projects <span class="caret"></span>
@@ -17,13 +31,37 @@
               {{/each}}
             </ul>
           </li>
-          <li><a href="#" {{action logout}}> Logout </a></li>
-        {{else}}
-          <a href="/users/auth/google_oauth2">Sign in with Google</a>
-          {{#unless onSignupRoute}}
-            <li>{{#link-to 'registration' }} Sign Up {{/link-to}}</li>
-          {{/unless}}
         {{/if}}
+        <li class="dropdown" id="user-nav-container">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            {{currentUser.fullName}}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+                <a href="#" {{action editAccount}} id="account-button">
+                  <i class="fa fa-pencil-square-o fa-fw"></i>
+                  Account
+                </a>
+            </li>
+            <li>
+                <a href="#" {{action logout}} id="logout-button">
+                  <i class="fa fa-power-off fa-fw"></i>
+                  Log Out
+                </a>
+            </li>
+          </ul>
+      </li>
+      {{else}}
+        <a href="/users/auth/google_oauth2">Sign in with Google</a>
+        {{#unless onSignupRoute}}
+          <li>{{#link-to 'registration' }} Sign Up {{/link-to}}</li>
+        {{/unless}}
+      {{/if}}
     </ul>
   </div>
 </nav>
+
+{{#if isAuthenticated}}
+  {{render "editAccountModal"}}
+{{/if}}

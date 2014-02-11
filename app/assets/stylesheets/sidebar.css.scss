@@ -1,0 +1,158 @@
+@import "variables";
+
+/*
+------------------------------ 
+  INDEX
+
+  Use Ctrl-F to jump to sections quickly
+
+  -- SIDEBAR
+  -- PROGRESS BAR COLORS
+  -- TASK COUNT
+
+------------------------------ 
+*/
+
+
+/* 
+------------------------------ 
+SIDEBAR
+------------------------------ 
+*/
+
+
+.sidebar-header{
+background-color:$grey;
+border-top-left-radius:$corner;
+border-top-right-radius:$corner;
+padding-left:12px;
+padding-right:12px;
+padding-top:8px;
+padding-bottom:8px;
+}
+
+.sidebar{
+background-color:#fff;
+border-bottom-left-radius:$corner;
+border-bottom-right-radius:$corner;
+padding:12px;
+}
+
+.sidebar p{
+margin:0px;
+}
+
+.group-container {
+	margin-top: 53px;
+}
+
+.group-member-info-icon {
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+  margin-right: 5px;
+
+  &.active {
+    color: $grey;
+  }
+
+  &.inactive {
+    color: $primary;
+  }
+}
+
+.group-member-info-container {
+  display: none;
+
+  &.showing-group-member-info {
+    display: block;
+  }
+}
+
+
+/* 
+------------------------------ 
+PROGRESS BAR COLORS
+------------------------------ 
+*/
+
+
+.edit-account-pencil {
+  float: right;
+}
+
+.group-member-progress {
+  background-image: none;
+}
+
+.group-member-progress:first-child{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.group-member-0 {
+  background-color: $orange;
+}
+
+.group-member-1 {
+  background-color: $yellow;
+}
+
+.group-member-2 {
+  background-color: $ygreen;
+}
+
+.group-member-3 {
+  background-color: $blue;
+}
+
+.group-member-4 {
+  background-color: $purple;
+}
+
+.group-member-5 {
+  background-color: $green;
+}
+
+.group-member-6 {
+  background-color: $orangeDark;
+}
+
+.group-member-7 {
+  background-color: $yellowDark;
+}
+
+.group-member-8 {
+  background-color: $greenDark;
+}
+
+.group-member-9 {
+  background-color: $ygreenDark;
+}
+
+.group-member-10 {
+  background-color: $blueDark;
+}
+
+.group-member-11 {
+  background-color: $purpleDark;
+}
+
+
+/* 
+------------------------------ 
+TASK-COUNT
+------------------------------ 
+*/
+
+.task-count {
+  position: absolute;
+  line-height:0%;
+  text-align: right;
+  width: 100%;
+  right: 37px;
+  color:#fff;
+  font-size:12px;
+  font-weight:400;
+  padding-top:12px;
+}

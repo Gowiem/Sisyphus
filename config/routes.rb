@@ -31,10 +31,15 @@ Sisyphus::Application.routes.draw do
   # devise_for :teachers, skip: :sessions
 
   resources :projects, :constraints => FormatTest.new(:json)
+  resources :courses, :constraints => FormatTest.new(:json)
   resources :project_groups, :constraints => FormatTest.new(:json)
   resources :subtasks, :constraints => FormatTest.new(:json)
   resources :students, :constraints => FormatTest.new(:json)
   resources :comments, :constraints => FormatTest.new(:json)
+
+  resources :project_groups, :constraints => FormatTest.new(:json) do
+    resources :history_trackers, only: [:index, :show]
+  end
 
   # devise_for :teachers
   # devise_scope :teacher do

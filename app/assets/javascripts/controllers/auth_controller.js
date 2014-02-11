@@ -1,6 +1,6 @@
 Sis.AuthController = Ember.ObjectController.extend({
   currentUser: null,
-  isAuthenticated: Em.computed.notEmpty("currentUser.email"),
+  isAuthenticated: Em.computed.notEmpty("currentUser"),
 
   // Login
   /////////
@@ -8,33 +8,54 @@ Sis.AuthController = Ember.ObjectController.extend({
     var self = this, 
         userType = route.routeName === "studentLogin" ? "student" : "teacher",
         loginUrl = Sis.urls[userType + 'Login'],
+        controller = route.controllerFor(userType + '_login');
         postData = {};
-    postData["user" + "[email]"] = route.currentModel.get('email');
-    postData["user" + "[password]"] = route.currentModel.get('password');
-    $.ajax({
+    // Set the email and password fields for the post data to those in the form.
+    postData[userType + "[email]"] = route.currentModel.get('email');
+    postData[userType + "[password]"] = route.currentModel.get('password');
+
+    return ic.ajax({
       url: loginUrl,
       type: "POST",
       data: postData,
-      success: function(data) {
-        self.store.push(userType, data[userType]);
-        self.store.find(userType, data[userType].id).then(function(user) {
-          self.set('currentUser', user);
-          if (user.get('isTeacher')) {
-            route.transitionTo('teachers');
-          } else {
-            route.transitionTo('home');
-          }
-        });
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        debugger
-        if (jqXHR.status==401) {
-          route.controllerFor(userType + 'Login').set("errorMsg", "That email/password combo didn't work.  Please try again");
-        } else if (jqXHR.status==406) {
-          route.controllerFor(userType + 'Login').set("errorMsg", "Request not acceptable (406):  make sure Devise responds to JSON.")
+    }).then(
+    // Success Callback
+    function(result) {
+      var data = result.response,
+          userJson;
+      // Normalize our JSON object
+      userJson = Sis.normalizeJsonObject(data[userType], userType, self.store);
+
+      // Reset the error message for this controller.
+      controller.set('errorMsg', null);
+      var model = route.currentModel;
+      model.destroy();
+
+      // Push our returned user's JSON data into the store
+      self.store.push(userType, data[userType]);
+
+      // Once we've found our user, set currentUser, and transition appropriately
+      self.store.find(userType, data[userType].id).then(function(user) {
+        self.set('currentUser', user);
+        if (user.get('isTeacher')) {
+          route.get('store').find('course').then(function(courses) {
+            route.transitionTo('course', courses.get('firstObject'));
+          });
         } else {
-          console.log("Login Error: ", jqXHR.status, "error: ", errorThrown);
+          route.get('store').find('project').then(function(projects) {
+            route.transitionTo('project', projects.get('firstObject'));
+          });
         }
+      });
+    },
+    // Error Callback
+    function(result) {
+      var jqXHR = result.jqXHR;
+      if (jqXHR.status === 401 || jqXHR.status === 406) {
+        controller.set("errorMsg", jqXHR.responseJSON['error']);
+      } else {
+        controller.set("errorMsg", "Sorry there was an error with loggin you in. Please try again later");
+        console.log("Login Error - jqXHR: ", jqXHR);
       }
     });
   },
@@ -42,23 +63,25 @@ Sis.AuthController = Ember.ObjectController.extend({
   // Logout
   //////////
   logout: function() {
-    console.log("AuthController - logout");
     var self = this,
         logoutUrl = this.get('currentUser').get('isTeacher') ? Sis.urls['teacherLogout'] : Sis.urls['studentLogout'];
-    $.ajax({
+    return ic.ajax({
       url: logoutUrl,
       type: "DELETE",
-      dataType: "json",
-      success: function(data, textStatus, jqXHR) {
-        console.log('Logged out successfully');
-        $('meta[name="csrf-token"]').attr('content', data['csrf-token']);
-        $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
-        self.set('currentUser', null);
-        self.transitionToRoute('home');
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        console.log("Error loggin out: ", errorThrown);
-      }
+      dataType: "json"
+    }).then(
+    // Success Callback
+    function(result) {
+      var data = result.response;
+      $('meta[name="csrf-token"]').attr('content', data['csrf-token']);
+      $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
+      self.set('currentUser', null);
+      self.transitionToRoute('home');
+    },
+    // Error Callback
+    function(result) {
+      var jqXHR = result.jqXHR;
+      console.assert(false, "Logout Error - status: ", jqXHR.status, " error: ", jqXHR.responseJSON['error']);
     });
   },
 

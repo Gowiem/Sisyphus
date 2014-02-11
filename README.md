@@ -1,8 +1,6 @@
 Sisyphus
 ========
 
-## First things first: [GitHub Emoji](http://www.emoji-cheat-sheet.com/)
-
 ## Local Development Prereqs
 
 - Install [RVM](http://rvm.io/)
@@ -16,7 +14,7 @@ Sisyphus
 Open up a terminal (terminal.app on OSX) and input the following:
 
 - git clone the Project  => `git clone git@github.com:Gowiem/Sisyphus.git`
-- Change into the Sisyphus project => `cd Sisyphus`
+- Change into the Sisyphus project => `cd Workspace/Sisyphus`
 - Setup a [.rvmrc file](http://rvm.io/workflow/projects) => `rvm --rvmrc --create 2.0.0-p247@sisyphus`
 - Run bundler to install the project's gems (Gems are just Ruby libraries) => `bundle install`
 - Start the Rails Server => `rails server` or `rails s` for short

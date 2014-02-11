@@ -3,10 +3,24 @@ class StudentsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @student.update(student_params)
-        format.json { head :no_content }
+      if student_params.has_value?(:password)
+        if @student.update_with_password(student_params)
+          # If we're updating the user's password then we need to sign 
+          # the user back in so when they refresh they're still auth'd.
+          sign_in(@student, :bypass => true)
+          format.json { head :no_content }
+        else
+          format.json { render json: @student.errors, status: :unprocessable_entity }
+        end
       else
-        format.json { render json: @student.errors, status: :unprocessable_entity }
+        no_password_params = student_params
+        no_password_params.delete(:current_password)
+        puts "Student params: #{no_password_params}"
+        if @student.update(no_password_params)
+          format.json { head :no_content }
+        else
+          format.json { render json: @student.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -18,7 +32,7 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-      params.require(:student).permit(:task_ids)
+      params.require(:student).permit(:task_ids, :first_name, :last_name, :email, :phone, :password, :password_confirmation, :current_password)
     end
 
 end

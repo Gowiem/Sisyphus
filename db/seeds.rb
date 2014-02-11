@@ -1,10 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 puts "--- CREATING SEED DATA ---"
 
@@ -16,119 +11,192 @@ super_admin = SuperAdmin.create!(
   email: "superadmin@email.com",
   first_name: "Super",
   last_name: "Admin",
-  password: "password12", 
+  phone: "555-555-5551",
+  password: "password12",
   password_confirmation: "password12")
 
 ## Teacher
 teach = Teacher.create!(
-  email: "mark@email.com",
-  first_name: "Mark",
-  last_name: "Sivak",
-  password: "password12", 
+  email: "teacher@email.com",
+  first_name: "Johnny",
+  last_name: "Capstone",
+  phone: "555-555-5552",
+  password: "password12",
   password_confirmation: "password12")
 
 ## Students
+############
 gowie = Student.create!(
-  email: "gowie@email.com",
+  email: "gowie.matt@gmail.com",
   first_name: "Matt",
   last_name: "Gowie",
+  phone: "484-680-2290",
   password: "password12",
   password_confirmation: "password12")
 
 craig = Student.create!(
-  email: "craig@email.com", 
+  email: "rjbcc58@gmail.com",
   first_name: "Craig", 
   last_name: "Berry",
-  password: "password12", 
+  phone: "603-321-7060",
+  password: "password12",
   password_confirmation: "password12")
 
 maple = Student.create!(
-  email: "maple@email.com",
+  email: "kuo.maple@gmail.com",
   first_name: "Maple",
   last_name: "Kuo",
+  phone: "626-782-1337",
   password: "password12", 
   password_confirmation: "password12")
 
 john = Student.create!(
-  email: "john@email.com",
+  email: "johnhreardoniv@gmail.com",
   first_name: "John",
   last_name: "Reardon",
+  phone: "508-215-8000",
   password: "password12", 
+  password_confirmation: "password12")
+
+nicole = Student.create!(
+  email: "npnussbaum@gmail.com",
+  first_name: "Nicole",
+  last_name: "Nussbaum",
+  phone: "443-538-8184",
+  password: "password12",
   password_confirmation: "password12")
 
 sarah = Student.create!(
-  email: "sarah@email.com",
+  email: "sarahlynnpark@gmail.com",
   first_name: "Sarah",
   last_name: "Park",
+  phone: "443-983-1141",
+  password: "password12",
+  password_confirmation: "password12")
+
+mark = Student.create!(
+  email: "sivak.mark@gmail.com",
+  first_name: "Mark",
+  last_name: "Sivak",
+  phone: "978-621-3770",
+  password: "password12",
+  password_confirmation: "password12")
+
+
+# Random Students, for testing purposes
+bob = Student.create!(
+  email: "bob@email.com", 
+  first_name: "Bob", 
+  last_name: "Berry",
+  phone: "555-555-5554",
   password: "password12", 
   password_confirmation: "password12")
 
+alex = Student.create!(
+  email: "alex@email.com",
+  first_name: "Alex",
+  last_name: "Kuo",
+  phone: "555-555-5555",
+  password: "password12", 
+  password_confirmation: "password12")
+
+dave = Student.create!(
+  email: "dave@email.com",
+  first_name: "Dave",
+  last_name: "Reardon",
+  phone: "555-555-5556",
+  password: "password12", 
+  password_confirmation: "password12")
+
+laura = Student.create!(
+  email: "laura@email.com",
+  first_name: "Laura",
+  last_name: "Park",
+  phone: "555-555-5557",
+  password: "password12", 
+  password_confirmation: "password12")
+
+
+
 ## Project Groups
 ##################
-devs = ProjectGroup.create!( name: "Developers", students: [ gowie, craig ])
-design = ProjectGroup.create!( name: "Designers", students: [ maple, john, sarah ])
+team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, maple, john, sarah, nicole, mark ]);
+projectGroup1 = ProjectGroup.create!( name: "Alpha Team", students: [ dave, laura, bob, alex ]);
 
-## Project
+# Courses
+##########
+capstone_course = Course.create!(
+  teacher: teach,
+  semester: "Spring 2014",
+  code: "IM4702",
+  title: "Interactive Capstone 2",
+  section: "32087")
+
+software_dev_course = Course.create!(
+  teacher: teach,
+  semester: "Spring 2014",
+  code: "CS4500",
+  title: "Software Development",
+  section: "12345")
+
+mad_course = Course.create!(
+  teacher: teach,
+  semester: "Spring 2014",
+  code: "CS5450",
+  title: "Mobile Application Development",
+  section: "08542")
+
+fall_course = Course.create!(
+  teacher: teach,
+  semester: "Fall 2013",
+  code: "CS4701",
+  title: "Interactive Capstone 1",
+  section: "57849")
+
+
+
+## Projects
+##################
 sisyphus = Project.create!(
   title: "Sisyphus Project", 
-  students: [ gowie, craig, maple, john, sarah ],
-  teacher: teach,
-  project_groups: [ design, devs ]
+  students: [ gowie, craig, maple, john, sarah, mark, nicole, bob, alex, dave, laura ],
+  course: capstone_course,
+  project_groups: [ team, projectGroup1 ]
 )
 
 ## Tasks
 #########
 
-## Required Tasks
-dev_req_task1 = RequiredTask.create!(
-  title: "Learn Ember.js",
-  project: sisyphus
-)
+# Required Tasks
+req_task1 = RequiredTask.create!(
+  title: "User Experience",
+  project: sisyphus,
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
 
-dev_req_task2 = RequiredTask.create!(
-  title: "Write some Unit Tests",
-  project: sisyphus
-)
+req_task2 = RequiredTask.create!(
+  title: "User Interface",
+  project: sisyphus,
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
 
-design_req_task1 = RequiredTask.create!(
-  title: "Design all the things!",
-  project: sisyphus
-)
+req_task3 = RequiredTask.create!(
+  title: "Branding",
+  project: sisyphus,
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
 
-## Subtasks
-dev_task1 = Subtask.create!(
-  title: "Run through the Ember tutorial",
-  project_group: devs,
-  parent_task: dev_req_task1,
-  students: [craig],
-)
-
-dev_task2 = Subtask.create!(
-  title: "Write Unit Tests for the frontend",
-  project_group: devs,
-  parent_task: dev_req_task2,
-  students: [gowie]
-)
-
-design_task1 = Subtask.create!(
-  title: "Design the tasks screen",
-  project_group: design,
-  parent_task: design_req_task1
-)
-
-
-## Comments
-comment1 = Comment.create!(
-  body: "It helped a bit that we're making a task based app and the tutorial was based on todos",
-  user: gowie,
-  subtask: dev_task1
-)
+req_task3 = RequiredTask.create!(
+  title: "Development",
+  project: sisyphus,
+  due_date: Date.new(2014, 4, 21),
+  modifier: gowie)
 
 puts "--- Create Super Admin: #{super_admin.email}"
 puts "--- Created Project: #{sisyphus.title}"
-puts "--- Project has Teacher: #{sisyphus.teacher.full_name} \n"
+puts "--- Project has Course: #{sisyphus.course.title} \n"
 puts "--- Project has Students: #{sisyphus.students.entries.map(&:full_name)} \n"
 puts "--- Project has Project Groups: #{sisyphus.project_groups.entries.map(&:name)}"
 puts "--- Project has Required Tasks: #{sisyphus.required_tasks.map(&:title)}"
-puts "--- Dev Subtasks: #{devs.subtasks.map(&:title)}"
-puts "--- Design Subtasks: #{design.subtasks.map(&:title)}"
+puts "--- TheCourses: #{Course.all.length}"
+puts "--- Team Subtasks: #{team.subtasks.map(&:title)}"

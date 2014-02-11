@@ -1,0 +1,65 @@
+<div class="modal fade" id="edit-account-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Account</h3>
+        <p id="edit-account-status">{{status}}</p>
+      </div>
+      <div class="center-block">
+      <div class="modal-body">
+          <div class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="nameInput" class="col-sm-4 control-label">First Name</label>
+              <div class="col-sm-8">
+                {{view Ember.TextField valueBinding="firstName" id="first-name-input" class="form-control"}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="nameInput" class="col-sm-4 control-label">Last Name</label>
+              <div class="col-sm-8">
+                {{view Ember.TextField valueBinding="lastName" id="last-name-input" class="form-control"}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="emailInput" class="col-sm-4 control-label">Email</label>
+              <div class="col-sm-8">
+                {{view Ember.TextField valueBinding="email" id="email-input" class="form-control"}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phoneInput" class="col-sm-4 control-label">Phone</label>
+              <div class="col-sm-8">
+                {{view Ember.TextField valueBinding="phone" id="phone-number-input" class="form-control"}}
+              </div>
+            </div>
+          </div>
+          <div class="page-header"></div>
+          <div class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Current Password</label>
+              <div class="col-sm-8">
+                {{view Ember.TextField valueBinding="currentPassword" id="current-password-input" class="form-control"}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="newPasswordInput" class="col-sm-4 control-label">New Password</label>
+              <div class="col-sm-8">
+                {{view Ember.TextField valueBinding="password" id="password-input" class="form-control"}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="retypePasswordInput" class="col-sm-4 control-label">Retype Password</label>
+              <div class="col-sm-8">
+                {{view Ember.TextField valueBinding="passwordConfirmation" id="password-confirmation-input" class="form-control"}}
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="edit-account-submit" {{action saveUser}}>Save</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

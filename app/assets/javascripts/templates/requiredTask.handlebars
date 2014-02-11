@@ -1,24 +1,39 @@
-<h3> {{title}} </h3>
-<ul>
-  {{#each task in uncompletedSubtasks}}
-    {{render "subtask" task}}
-  {{/each}}
-  {{#if showingCompleted}}
-    {{#each task in completedSubtasks}}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="required-task-container clearfix">
+      <div class="col-md-11"> 
+        <h3 class="pull-left">{{title}}</h3>
+      </div>
+      <div class="date-container clearfix">
+        <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
+      </div>
+    </div>
+    <ul>
+      {{#each task in uncompletedSubtasks}}
       {{render "subtask" task}}
-    {{/each}}
-  {{/if}}
-</ul>
+      {{/each}}
+      {{#each task in completedLimboSubtasks}}
+      {{render "subtask" task}}
+      {{/each}}
+      {{#if showingCompleted}}
+      {{#each task in completedSubtasks}}
+      {{render "subtask" task}}
+      {{/each}}
+      {{/if}}
+    </ul>
 
-{{#if addingNewTask}}
-  {{render "newTask"}}
-{{/if}}
-<a {{bind-attr class="addingNewTask:hide"}} {{action showNewTask}}><span class="glyphicon glyphicon-plus"></span> Add Task </a>
+    {{#if addingNewTask}}
+    {{render "newSubtask" newSubtask}}
+    {{/if}}
+    <a {{bind-attr class="addingNewTask:hide :add-subtask-link :col-lg-3"}} {{action showNewTask}}><span class="glyphicon glyphicon-plus"></span> Add task</a>
 
-{{#if shouldShowCompletedLink}}
-  <a {{action showCompleted}}><span class="completed">View Completed Tasks</span></a>
-{{/if}}
-{{#if showingCompleted}}
-  <a {{action hideCompleted}}><span class="completed">Hide Completed Tasks</span></a>
-{{/if}}
-<hr>
+    <div class="completed-container col-lg-9">
+      {{#if shouldShowCompletedLink}}
+      <p class="completed-action view-completed-tasks"><a {{action showCompleted}}>View completed tasks ({{completedCount}})</a></p>
+      {{/if}}
+      {{#if showingCompleted}}
+      <p class="completed-action view-completed-tasks"><a {{action hideCompleted}}>Hide completed tasks</a></p>
+      {{/if}}
+    </div>
+  </div>
+</div>

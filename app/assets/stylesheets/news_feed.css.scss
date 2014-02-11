@@ -1,0 +1,23 @@
+@import "variables";
+
+.news-items-container {
+  overflow: scroll;
+  min-height: 100px;
+  max-height: 250px;
+
+  .news-item {
+    list-style-type: none;
+    display: block;
+
+    &:hover {
+      color: $primary;
+      cursor: pointer;
+    }
+
+    .news-item-time-ago {
+      line-height:0%;
+      float: right;
+      display:block;
+    }
+  }
+}

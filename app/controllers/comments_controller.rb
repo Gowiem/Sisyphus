@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate!
   before_action :set_comment, only: [:update, :destroy]
 
   def create

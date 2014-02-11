@@ -1,14 +1,59 @@
+@import "variables";
+
+/*
+------------------------------ 
+  INDEX
+
+  Use Ctrl-F to jump to sections quickly
+
+  -- TASKS
+  —- COMMENTS
+
+------------------------------ 
+*/
+
+
+/* 
+------------------------------ 
+TASKS
+------------------------------ 
+*/
+
+hr {
+  clear: both;
+}
+
 .panel-heading {
   background-color: red;
-  border: 1px red solid;
   a {
     float: right;
   }
 }
 
+.date-container {
+  padding-top: 7px;
+  float: right;
+  // width: 35px;
+
+  .due-soon {
+    background-color: $red;
+    color: #FFFFFF;
+    font-size:13px;
+    border-radius: 3px;
+    padding: 3px 7px;
+  }
+
+  p {
+    padding: 0 5px;
+  }
+}
+
 .panel-body {
-  .completed {
-    border: 1px red solid;
+  .completed-container {
+    .completed-action { 
+      margin-bottom: 15px;
+      float: right;
+    }
   }
 }
 
@@ -17,19 +62,22 @@
 }
 
 .subtask-container {
+  position: relative;
   list-style-type: none;
-  
-  .dispute-icon {
-    float: left;
+  margin:0px 20px 0px 20px;
+  padding-top:10px;
+
+  .subtask-edit-pencil {
+    position: absolute;
+    left: -20px;
+    top: 10px;
   }
-
-  .date-container {
-    padding-top: 7px;
-
-    p {
-      padding-left: 10px;
-      background-color: #EBC5A4;
-    }
+  
+  .dispute {
+    float: right;
+    padding-right: 20px;
+    font-size: 14px;
+    color:$red;
   }
 
   .title-container {
@@ -41,46 +89,120 @@
     .subtask-title {
       margin-left: 20px;
     }
+
+    .subtask-in-limbo {
+      text-decoration: line-through;
+    }
+    
     .subtask-title.disputed {
       color: red;
     }
   }
 }
 .subtask-container:hover {
-  background-color: #B0D5E8;
+  background-color: #DAECF5;
+  cursor: pointer;
 }
 
+
 .edit-subtask-container {
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  list-style-type: none;
+  margin:0px 20px 0px 20px;
+  padding-top:10px;
+  background-color: #DAECF5;
+  cursor: pointer;
+}
+/*  .edit-subtask-container {
   background-color: #DAECF5;
   height: 150px;
   padding-top: 10px;
+
   .col-lg-10 {
     margin-left: 15px;
+  
     .control-label, .datepicker, .btn {
       margin-top: -10px;
       margin-bottom: 10px;
     }
   }
-}
-
-
+}*/
 
 input[type="checkbox"] {
   font-size: 120%;
 }
 
-.comments-container {
 
+.select-users-container{
+}
+
+/* 
+------------------------------ 
+COMMENTS
+------------------------------ 
+*/
+
+.comments-container, .edit-comments-container {
+  width: 100%;
+  float: left;
+  clear: both;
   padding-left: 35px;
-
   a {
     font-size: 11px;
     color: #C2C2C2;
     float: left;
+    padding-bottom: 5px;
   }
+  .comment-actions a { margin-bottom: 5px; }
   .comment {
     .disputed {
       color: red;
     }
+    h4 {
+      margin: 0 15px 0 0;
+    }
+    .comment-date {
+      float: left;
+      width: 100px;
+      color: #AAA;
+    }
   }
+  .btn {
+    margin-top: 10px;
+  }
+  hr { margin-top: 15px; }
+}
+.edit-comments-container {
+  margin-left: 0;
+}
+.comment-header {
+  .comment-delete {
+    color: red;
+  }
+}
+.new-comment-form {
+  margin-top: -8px;
+  top: 2px;
+  right: 2px;
+  line-height: 37px;
+  height:80px;
+  width:400px;
+  vertical-align: top;
+  font-size: 20px;
+  color: #b2bcc5;
+  background-color: #ffffff;
+  padding: 0 12px 0 0;
+  border-radius: $corner;
+}
+
+.comment{
+max-width:400px;
+word-wrap:break-word;
+
 }

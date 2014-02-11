@@ -5,6 +5,7 @@ class User < BaseDocument
 
   field :first_name
   field :last_name
+  field :phone
 
   def full_name 
     "#{first_name} #{last_name}"

@@ -1,8 +1,12 @@
-<form role="form" class="form-horizontal edit-subtask-container">
-  {{partial "subtaskPartial"}}
-  <div class="col-lg-10">
-    <button {{action saveSubtask}} type="button" class="btn btn-primary">Save</button>
-    <button {{action cancelEdit}} type="button" class="btn btn-default">Cancel</button>
-    <button {{action deleteSubtask}} type="button" class="btn btn-default pull-right">Delete</button>
-  </div>
-</form>
+<div class="edit subtask-container">
+	<form role="form" class="form-horizontal">
+	  {{partial "subtaskPartial"}}
+	  <div class="col-lg-10">
+	    <button {{action saveSubtask}} 
+	            type="button" 
+	            {{bind-attr class="userCanSave::disabled :btn :btn-primary :btn-block :btn-sm"}}>Save</button>
+	    <button {{action cancelEdit}} type="button" class="btn btn-sm btn-grey">Cancel</button>
+	    <button {{action deleteSubtask}} type="button" class="btn btn-sm btn-grey pull-right">Delete</button>
+	  </div>
+	</form>
+</div>
