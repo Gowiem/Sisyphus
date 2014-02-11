@@ -58,7 +58,7 @@ hr {
 }
 
 .task-filter-buttons {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .subtask-container {
@@ -107,18 +107,19 @@ hr {
 
 .edit-subtask-container {
   position: relative;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  // -webkit-touch-callout: none;
+  // -webkit-user-select: none;
+  // -khtml-user-select: none;
+  // -moz-user-select: none;
+  // -ms-user-select: none;
+  // user-select: none;
   list-style-type: none;
   margin:0px 20px 0px 20px;
   padding-top:10px;
   background-color: #DAECF5;
   cursor: pointer;
 }
+
 /*  .edit-subtask-container {
   background-color: #DAECF5;
   height: 150px;
@@ -190,15 +191,17 @@ COMMENTS
   margin-top: -8px;
   top: 2px;
   right: 2px;
-  line-height: 37px;
   height:80px;
   width:400px;
   vertical-align: top;
-  font-size: 20px;
+  font-size: 14px;
   color: #b2bcc5;
   background-color: #ffffff;
-  padding: 0 12px 0 0;
   border-radius: $corner;
+}
+
+.new-comment-form input {
+  color: red;
 }
 
 .comment{
