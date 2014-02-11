@@ -1591,6 +1591,10 @@ PROGRESS BAR
 ------------------------------ 
 */
 
+.prog{
+margin-bottom:40px;
+}
+
 .progress {
   background: -webkit-linear-gradient(#bcbcbc, #ccc); /* For Safari */
   background: -o-linear-gradient(#bcbcbc, #ccc); /* For Opera 11.1 to 12.0 */ 
@@ -1605,9 +1609,9 @@ PROGRESS BAR
 .progress-bar-global {
   width:70%;
   overflow: visible;
-  margin-bottom:40px;
-
-  .current-user {
+  float:left;
+  margin-right:20px;
+   .current-user {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
