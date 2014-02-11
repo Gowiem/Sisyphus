@@ -1,5 +1,5 @@
 <hr>
-<form class="form-control new-comment-form" {{action createComment on="submit"}}>
- 	{{view Ember.TextField valueBinding="body"}}
+<form class="new-comment-form" {{action createComment on="submit"}}>
+ 	{{view Ember.TextArea valueBinding="body"}}
 </form>
 <a href="#" {{action createComment}}><button type="button" class="btn btn-default btn-xs">Add comment</button></a>

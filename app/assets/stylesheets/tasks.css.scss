@@ -191,21 +191,18 @@ COMMENTS
     color: red;
   }
 }
-.new-comment-form {
-  margin-top: -8px;
+
+.new-comment-form textarea {
+  background-color: #ffffff;
+  border-radius: $corner;
   top: 2px;
   right: 2px;
   height:80px;
   width:400px;
   vertical-align: top;
   font-size: 14px;
-  color: #b2bcc5;
-  background-color: #ffffff;
-  border-radius: $corner;
-}
-
-.new-comment-form input {
-  color: red;
+  border-color: $grey;
+  color:$charcoalDark;
 }
 
 .comment{
