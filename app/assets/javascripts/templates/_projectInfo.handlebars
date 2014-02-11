@@ -12,6 +12,6 @@
   {{/if}}
 </div>
 <div class="progress progress-bar-global">
-  {{render "progressBarSection" auth.currentUser}}
+  <span class="current-user">{{render "progressBarSection" auth.currentUser}}</span>
   {{render "groupMemberProgressBars" groupMembers}}
 </div>
