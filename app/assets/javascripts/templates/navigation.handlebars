@@ -27,7 +27,11 @@
             </a>
             <ul class="dropdown-menu">
               {{#each project in projects}}
-                {{project-nav-item project=project name=project.title}}
+                <li>
+                  {{#link-to 'project' project}}
+                    {{project.title}}
+                  {{/link-to}}
+                </li>
               {{/each}}
             </ul>
           </li>
