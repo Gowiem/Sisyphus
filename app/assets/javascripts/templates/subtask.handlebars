@@ -10,7 +10,9 @@
   {{else}}
     <div class="row col-md-12">
       <div class="title-container col-md-10">
-        {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
+        <label {{bind-attr class=":checkbox isCompleted:checked:unchecked"}}>
+          {{view Sis.CheckboxView checkedBinding="isCompleted" class="completed-checkbox checkbox"}}
+        </label>
         <p {{bind-attr class=":subtask-title :center-text isDisputed:disputed inLimbo:subtask-in-limbo"}}>
           {{title}}
         </p>
