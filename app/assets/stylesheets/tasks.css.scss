@@ -55,16 +55,23 @@ hr {
       float: right;
     }
   }
+  ul{
+  padding:0px 15px;
+  }
+}
+
+.panel-body a{
+  font-size:14px;
 }
 
 .task-filter-buttons {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .subtask-container {
   position: relative;
   list-style-type: none;
-  margin:0px 20px 0px 20px;
+  margin:0px;
   padding-top:10px;
 
   .subtask-edit-pencil {
@@ -107,18 +114,19 @@ hr {
 
 .edit-subtask-container {
   position: relative;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  // -webkit-touch-callout: none;
+  // -webkit-user-select: none;
+  // -khtml-user-select: none;
+  // -moz-user-select: none;
+  // -ms-user-select: none;
+  // user-select: none;
   list-style-type: none;
   margin:0px 20px 0px 20px;
   padding-top:10px;
   background-color: #DAECF5;
   cursor: pointer;
 }
+
 /*  .edit-subtask-container {
   background-color: #DAECF5;
   height: 150px;
@@ -186,19 +194,18 @@ COMMENTS
     color: red;
   }
 }
-.new-comment-form {
-  margin-top: -8px;
+
+.new-comment-form textarea {
+  background-color: #ffffff;
+  border-radius: $corner;
   top: 2px;
   right: 2px;
-  line-height: 37px;
   height:80px;
   width:400px;
   vertical-align: top;
-  font-size: 20px;
-  color: #b2bcc5;
-  background-color: #ffffff;
-  padding: 0 12px 0 0;
-  border-radius: $corner;
+  font-size: 14px;
+  border-color: $grey;
+  color:$charcoalDark;
 }
 
 .comment{
