@@ -15,11 +15,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %main.container 
-      / - flash.each do |name, msg|
-      /   %div{ class: "alert alert-dismissable alert-#{ name == :notice ? "success" : "info" }" }
-      /     %button{ class: "close", data: { dismiss: "alert" }} x
-      /     = msg
+    %main.container
 
       / Yield brings in the currently rendered view, which in our case will 
       / only be the devise authentication views (sign in, sign up, ect.)

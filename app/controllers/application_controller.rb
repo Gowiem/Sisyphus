@@ -14,13 +14,13 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     :authenticate_student! || :authenticate_teacher!
-    puts "\n\n AUTHENTICATING USER - current_user: #{current_user}"
     @current_user = current_user
   end
 
-  # def current_user
-  #   @current_user ||= student_signed_in? ? current_student : current_teacher
-  # end
+  def current_user
+    @current_user = super
+    @current_user ||= student_signed_in? ? current_student : current_teacher
+  end
 
   def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :email, :password, :password_confirmation)}
