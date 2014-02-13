@@ -260,7 +260,9 @@ Devise.setup do |config|
   ## Our Devise Changes
   ######################
 
-  config.omniauth :google_oauth2, '10090461025.apps.googleusercontent.com', 'dCiH43TenQkSmsRHbP1ExFjo'
+  require 'omniauth-google-oauth2'
+  config.omniauth :google_oauth2, '10090461025.apps.googleusercontent.com', 'dCiH43TenQkSmsRHbP1ExFjo', 
+                  { :scope => "userinfo.email, userinfo.profile", access_type: "offline" }
 
   config.add_mapping :users, {}
   config.add_mapping :students, {}

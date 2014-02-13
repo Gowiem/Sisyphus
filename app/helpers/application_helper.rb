@@ -1,9 +1,5 @@
 module ApplicationHelper
 
-  def user_signed_in?
-    @user_signed_in ||= student_signed_in? ? true : teacher_signed_in?
-  end
-
   def serialized_user
     puts "serailized_user -----> \n\n\n\n\n\n\n\n current_user: #{@current_user}"
     if @current_user 

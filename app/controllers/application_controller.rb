@@ -14,8 +14,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     :authenticate_student! || :authenticate_teacher!
-    # debugger
-    puts "\n\n\n\n\n\n\n AUTHENTICATING USER - current_user: #{current_user} current_student: #{current_student}"
+    puts "\n\n AUTHENTICATING USER - current_user: #{current_user}"
     @current_user = current_user
   end
 
