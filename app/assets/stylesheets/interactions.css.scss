@@ -1617,7 +1617,7 @@ PROGRESS BAR
 */
 
 .prog {
-    margin-bottom:30px;
+  margin-bottom:30px;
 }
 
 .progress {
@@ -1648,11 +1648,11 @@ PROGRESS BAR
   }
 }
 
-.group-member-progress:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
+// <<<<<<< HEAD
+// .group-member-progress:first-child {
+//   border-top-left-radius: 10px;
+//   border-bottom-left-radius: 10px;
+// }
 
 .progress-bar {
   background: $primary;

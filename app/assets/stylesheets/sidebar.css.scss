@@ -87,11 +87,11 @@ PROGRESS BAR COLORS
 
 .group-member-progress {
   background-image: none;
+}
 
-  &:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
+.first-progress-bar {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .group-member-name {
