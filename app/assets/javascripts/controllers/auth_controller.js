@@ -1,4 +1,5 @@
 Sis.AuthController = Ember.ObjectController.extend({
+  needs: ['navigation'],
   currentUser: null,
   isAuthenticated: Em.computed.notEmpty("currentUser"),
 
@@ -38,10 +39,12 @@ Sis.AuthController = Ember.ObjectController.extend({
       self.store.find(userType, data[userType].id).then(function(user) {
         self.set('currentUser', user);
         if (user.get('isTeacher')) {
-          route.get('store').find('course').then(function(courses) {
-            route.transitionTo('course', courses.get('firstObject'));
+          route.get('store').find('semester').then(function(semesters) {
+            self.get('controllers.navigation').set('currentSemester', semesters.get('firstObject'));
+            debugger
+            route.transitionTo('semester', semesters.get('firstObject'));
           });
-        } else {
+        } else {          
           route.get('store').find('project').then(function(projects) {
             route.transitionTo('project', projects.get('firstObject'));
           });
@@ -53,6 +56,7 @@ Sis.AuthController = Ember.ObjectController.extend({
       var jqXHR = result.jqXHR;
       if (jqXHR.status === 401 || jqXHR.status === 406) {
         controller.set("errorMsg", jqXHR.responseJSON['error']);
+
       } else {
         controller.set("errorMsg", "Sorry there was an error with loggin you in. Please try again later");
         console.log("Login Error - jqXHR: ", jqXHR);

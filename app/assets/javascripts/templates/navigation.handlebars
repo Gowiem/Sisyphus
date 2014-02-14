@@ -10,12 +10,13 @@
         {{#if currentUser.isTeacher}}
           <li class="dropdown" id="project-nav-container">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Semester <span class="caret"></span>
+              {{currentSemester.title}} 
+              <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              {{#each semester in uniqueSemesters}}
+              {{#each semester in currentUser.semesters}}
                 <li>
-                  {{semester}}
+                  {{semester.title}}
                 </li>
               {{/each}}
             </ul>
