@@ -1,8 +1,14 @@
 Sis.ProgressBarSectionView = Ember.View.extend({
   classNames: ['progress-bar', 'group-member-progress'],
-  classNameBindings: ['progressBarClass'],
+  classNameBindings: ['progressBarClass', 'progressBarVisible:progress-bar-visible'],
   attributeBindings: ['style'],
-
+  progressBarVisible: function() {
+    Ember.run.scheduleOnce('afterRender', this, function() {
+      $('.progress-bar-global .progress-bar-visible').removeClass('first-progress-bar');
+      $('.progress-bar-global .progress-bar-visible').first().addClass('first-progress-bar');
+    });
+    return this.get('controller.hasCompletedTasks');
+  }.property('style'),
   style: function() {
     return this.get('controller.progressBarSectionStyle');
   }.property('controller.progressBarSectionStyle'),
@@ -10,11 +16,9 @@ Sis.ProgressBarSectionView = Ember.View.extend({
     return this.get('controller.progressBarClass');
   }.property('controller.progressBarClass'),
   mouseEnter: function() {
-    console.log('mouseEnter');
     this.$('.progress-section-info').show();
   },
   mouseLeave: function() {
-    console.log('mouseLeave');
     this.$('.progress-section-info').hide();
   },
 });

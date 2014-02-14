@@ -1591,6 +1591,8 @@ PROGRESS BAR
 ------------------------------ 
 */
 
+// TODO: Show this be moved to sidebar? Or should the sidebar styles be move here?
+
 .prog{
 margin-bottom:40px;
 }
@@ -1611,10 +1613,6 @@ margin-bottom:40px;
   overflow: visible;
   float:left;
   margin-right:20px;
-   .current-user {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
 
   .progress-section-info {
     display: none;
@@ -1626,7 +1624,6 @@ margin-bottom:40px;
     border-radius: $corner;
   }
 }
-
 
 .progress-bar {
   background: $primary;
