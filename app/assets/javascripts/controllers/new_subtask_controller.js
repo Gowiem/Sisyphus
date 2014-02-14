@@ -5,6 +5,9 @@ Sis.NewSubtaskController = Sis.AbstractSubtaskController.extend({
       var content = this.get('content'),
           projectController = this.get('controllers.project'),
           students = content.get('students');
+      if (!this.get('userCanSave')) {
+        return;
+      }
       // TODO: I'm not sure if this is needed or if ember-data will auto-associate the
       // many-to-many relationship on save. Keeping for now.
       students.forEach(function(student, index){
