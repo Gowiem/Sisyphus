@@ -31,7 +31,6 @@ hr {
 }
 
 .date-container {
-  padding-top: 7px;
   float: right;
   // width: 35px;
 
@@ -68,7 +67,6 @@ hr {
 .subtask-container {
   position: relative;
   list-style-type: none;
-  margin:0px 0px 0px 20px;
   padding-top:10px;
 
   .subtask-edit-pencil {
@@ -152,7 +150,9 @@ input[type="checkbox"] {
   padding-top:10px;
 }
 
-
+.edit-task-name, .edit-task-date {
+  float:left;
+}
 
 
 /* 
@@ -162,10 +162,8 @@ COMMENTS
 */
 
 .comments-container, .edit-comments-container {
-  width: 100%;
-  float: left;
-  clear: both;
-  padding-left: 35px;
+  padding-top:10px;
+
   a {
     font-size: 11px;
     color: #C2C2C2;
@@ -225,6 +223,6 @@ word-wrap:break-word;
   width: 100%;
   float: left;
   clear: both;
-  padding-left: 15px;
+  padding-left: 29px;
 
 }
