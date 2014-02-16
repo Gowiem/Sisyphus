@@ -1,15 +1,15 @@
-<div class="form-group col-lg-10 edit-task-name">
+<div class="form-group col-lg-8 edit-task-name">
   {{view Ember.TextField valueBinding="title" placeholder="Title" required="true" class="form-control"}}
 </div>
-<div class="form-group col-lg-5 edit-task-date">
-  <label for="subtask-due-date" class="col-lg-5 control-label">Due Date:</label>
-  <div id="new-task-date" class="datepicker input-append date col-lg-5" data-date-format="mm/dd/yyyy"> 
+<div class="form-group col-lg-4 edit-task-date">
+  <label for="subtask-due-date" class="col-lg-6 control-label">Due Date:</label>
+  <div id="new-task-date" class="datepicker input-append date col-lg-6" data-date-format="mm/dd/yyyy"> 
     {{view Ember.TextField valueBinding="date" class="form-control" size="40"}}
     <span class="add-on"><i class="icon-th"></i></span>
   </div>
   </div>
   <div class="select-users-container col-lg-7">
-    <label for="subtask-users" class="col-lg-4 control-label">Assigned to:</label>
+    <label for="subtask-users" class="control-label">Assigned to:</label>
     <ul id="select-users-list checkbox"><p class="assigned-to">
       {{#each student in controllers.requiredTasks.selectableStudents}}
         {{render "userCheckbox" student}}

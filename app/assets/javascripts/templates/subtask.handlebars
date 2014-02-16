@@ -1,9 +1,5 @@
 <li {{action "toggleViewing" preventDefault=false}}
     {{bind-attr class=":subtask-container :clearfix :row isDisputed:disputed isCompleted:completed isEditing:editing"}}>
-  {{#if isHovering}}
-    <div class="subtask-edit-pencil">
-    </div>
-  {{/if}}
 
   {{#if isEditing}}
     {{render "editSubtask" model parentBinding="this"}}
@@ -24,8 +20,7 @@
     {{#if isViewing}}
       <div class="viewing-info row col-md-12 task-info-container">
         {{#if description}}
-          <p class="description-header">Description: </p>
-          <p class="description">{{description}}</p>
+          <p class="description col-md-10">{{description}}</p>
         {{else}}
           <a class="add-description-action" {{action "startEditing" preventDefault=false bubbles=false}}>
             Add Description
@@ -46,7 +41,7 @@
       </p>
     </div>
     {{#if showingDispute}}
-      <a class="dispute btn btn-transparent btn-block btn-sm" {{action disputeSubtask}}>
+      <a class="dispute btn btn-grey btn-block btn-sm" {{action disputeSubtask}}>
         <i class="fa fa-ban fa-fw"></i>
         Dispute
       </a>

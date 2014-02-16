@@ -9,9 +9,10 @@
         
         {{! Info Section }}
         <div class="dispute-info">
-          <h4>Subtask</h4>
+          <p><strong>Task:</strong></p>
           <p>{{title}}</p>
-          <ul>
+          <p><strong>Assigned to:</strong></p>
+          <ul class="assigned-to">
             {{#each student in students}}
               <li>
                 {{student.fullName}}
@@ -22,14 +23,14 @@
 
         {{! Reason Section }}
         <div class="dispute-reason">
-          <h4>Reason for Disputing</h4>
+          <p>Reason for Disputing</p>
           {{textarea valueBinding="disputeReason" cols="73" rows="6" placeholder="Give constructive feedback on how this task can be improved."}}
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" {{bind-attr class=":btn :btn-primary hasEnteredReason::deactivated"}} 
+        <button type="button" {{bind-attr class=":btn :btn-primary :btn-block :btn-sm hasEnteredReason::deactivated"}} 
           {{action submitDisputed}}>Submit</button>
-        <a data-dismiss="modal">Cancel</a>
+        <a data-dismiss="modal" class="btn btn-sm btn-transparent">Cancel</a>
       </div>
     </div>
   </div>

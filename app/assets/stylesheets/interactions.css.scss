@@ -577,6 +577,7 @@ fieldset[disabled] .btn-link:focus {
 .btn-sm {
   padding: 5px 10px;
   border-radius: $corner;
+  cursor:pointer;
 }
 .btn-grey {
   color:#ffffff;
@@ -852,7 +853,7 @@ input[type="search"] {
   -webkit-appearance: none !important;
 }
 label {
-  font-size: 12px;
+  font-size: 14px;
   font-weight:600;
   line-height: 2.4;
 }
@@ -1084,14 +1085,14 @@ textarea.input-hg {
   position: relative;
   margin-bottom: 20px;
 }
+
 .form-horizontal .control-label,
 .form-horizontal .radio,
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
 .form-horizontal .checkbox-inline {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 6px;
+  margin:0px;
+  padding-top: 0;
   padding-right:10px;
 }
 .form-horizontal .form-group {
@@ -1116,6 +1117,11 @@ textarea.input-hg {
 .form-group {
   position: relative;
 }
+
+.form-password-first {
+  padding-top:10px;
+}
+
 .form-control + .input-icon {
   position: absolute;
   top: 2px;
