@@ -3,7 +3,7 @@ Sis.NewSubtaskController = Sis.AbstractSubtaskController.extend({
   actions: {
     createNewSubtask: function(requiredTask) {
       var content = this.get('content'),
-          projectController = this.get('controllers.project'),
+          projectGroup = this.get('controllers.project.projectGroup'),
           students = content.get('students');
       if (!this.get('userCanSave')) {
         return;
@@ -14,7 +14,7 @@ Sis.NewSubtaskController = Sis.AbstractSubtaskController.extend({
         student.get('subtasks').addObject(content);
       });
       // Set the associated projectGroup and parentTask
-      content.set('projectGroup', projectController.get('projectGroup'));
+      content.set('projectGroup', projectGroup);
       content.set('parentTask', requiredTask);
 
       this.set('content', this.store.createRecord(Sis.Subtask, {}));
@@ -22,6 +22,7 @@ Sis.NewSubtaskController = Sis.AbstractSubtaskController.extend({
       // Save the new subtask
       content.save().then(function(subtask) {
         subtask.set('isOpen', true);
+        Sis.updateHistoryTrackers(projectGroup);
       });
     },
   }
