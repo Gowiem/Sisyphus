@@ -214,6 +214,10 @@ border-radius:$corner;
 padding:10px 20px 2px 20px;
 }
 
+.description-field textarea {
+  width:100%;
+  height:100px;
+}
 
 /* 
 ------------------------------ 
@@ -575,11 +579,21 @@ fieldset[disabled] .btn-link:focus {
   border-radius: $corner;
 }
 .btn-grey {
+  color:#ffffff;
+  background-color:$grey;
+
+  &:hover {
+    color:#ffffff;
+    background-color:$greyDark;
+  }
+}
+.btn-transparent {
   color:$greyDark;
   background-color:transparent;
-}
-.btn-grey:hover {
-  color:$charcoal;
+
+  &:hover {
+    color:$charcoal;
+  }
 }
 .btn-xs {
   padding: 6px 9px;
@@ -868,10 +882,10 @@ FORM INPUT
   color: #b2bcc5;
 }
 .form-control {
-  border: 2px solid #bdc3c7;
+  border: 1px solid #bdc3c7;
   color: #595959;
   font-family: $font-family;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.467;
   padding: 8px 12px;
   height: 42px;
@@ -1590,8 +1604,7 @@ CHECKBOXES
 PROGRESS BAR
 ------------------------------ 
 */
-
-// TODO: Show this be moved to sidebar? Or should the sidebar styles be move here?
+// TODO: Should this be moved to sidebar? Or should the sidebar styles be move here?
 
 .prog{
 margin-bottom:40px;
@@ -1613,6 +1626,7 @@ margin-bottom:40px;
   overflow: visible;
   float:left;
   margin-right:20px;
+  margin-bottom:40px;
 
   .progress-section-info {
     display: none;

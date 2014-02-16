@@ -21,25 +21,25 @@
         <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
       </div>
     </div>
-    <div class="row col-md-12">
-      <h5 class="assigned-to-members col-md-12">
+    <div class="row col-md-12 task-info-container">
+      <p class="assigned-to-members assigned-to col-md-12">
         Assigned to:
         {{#each student in students}}
           <span class="assigned-to-member">{{student.fullName}}</span>
         {{/each}}
-      </h5>
+      </p>
     </div>
     {{#if isViewing}}
-      <div class="viewing-info row col-md-12">
+      <div class="viewing-info row col-md-12 task-info-container">
         {{#if description}}
-          <h5>Description: </h5>
-          <p>{{description}}</p>
+          <p class="description-header">Description: </p>
+          <p class="description">{{description}}</p>
         {{else}}
           <a class="add-description-action" {{action "startEditing" preventDefault=false bubbles=false}}>
             Add Description
           </a>
         {{/if}}
-        <a class="edit-action pull-right" {{action "startEditing" preventDefault=false bubbles=false}}>
+        <a class="edit-action pull-right btn btn-grey btn-block btn-sm" {{action "startEditing" preventDefault=false bubbles=false}}>
           <i class="fa fa-pencil-square-o fa-fw"></i>
           Edit
         </a>

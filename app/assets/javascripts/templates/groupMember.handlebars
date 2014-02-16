@@ -1,5 +1,5 @@
 <div class="group-member-container">
-  <div>
+  <div class="group-member-name">
     {{fullName}}
     {{#if isCurrentUser}}
     <span id="me-current-user">(Me)</span>
@@ -20,6 +20,7 @@
       </div>
     {{/if}}
     --}}
+    <hr>
     <div class="member-info-email">
       <i class="fa fa-envelope-o fa-fw"></i>
       <span><a {{bind-attr href="emailHref"}} target="_blank">{{email}}</a></span>

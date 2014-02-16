@@ -55,14 +55,11 @@ hr {
       float: right;
     }
   }
-  ul{
-  padding:0px 15px;
-  }
 }
 
-.panel-body a{
-  font-size:14px;
-}
+// .panel-body a{
+//   font-size:14px;
+// }
 
 .task-filter-buttons {
   margin-bottom: 15px;
@@ -71,7 +68,7 @@ hr {
 .subtask-container {
   position: relative;
   list-style-type: none;
-  margin:0px;
+  margin:0px 0px 0px 20px;
   padding-top:10px;
 
   .subtask-edit-pencil {
@@ -91,7 +88,6 @@ hr {
     margin-bottom: -7px;
     .completed-checkbox {
       float: left;
-      margin-top: 12px;
     }
     .subtask-title {
       margin-left: 20px;
@@ -110,7 +106,6 @@ hr {
   background-color: #DAECF5;
   cursor: pointer;
 }
-
 
 .edit-subtask-container {
   position: relative;
@@ -150,6 +145,16 @@ input[type="checkbox"] {
 .select-users-container{
 }
 
+.add-task-container {
+  position: relative;
+  list-style-type: none;
+  margin:0px 0px 0px 20px;
+  padding-top:10px;
+}
+
+
+
+
 /* 
 ------------------------------ 
 COMMENTS
@@ -183,6 +188,7 @@ COMMENTS
   }
   .btn {
     margin-top: 10px;
+    margin-bottom:5px;
   }
   hr { margin-top: 15px; }
 }
@@ -192,6 +198,7 @@ COMMENTS
 .comment-header {
   .comment-delete {
     color: red;
+    cursor:pointer;
   }
 }
 
@@ -211,5 +218,13 @@ COMMENTS
 .comment{
 max-width:400px;
 word-wrap:break-word;
+}
+
+
+.task-info-container {
+  width: 100%;
+  float: left;
+  clear: both;
+  padding-left: 15px;
 
 }

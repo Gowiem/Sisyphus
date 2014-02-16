@@ -6,6 +6,7 @@ Sis.Router.map(function() {
   this.route('project', { path: '/projects/:project_id'});
   this.route('studentLogin', { path: '/students/login' });
   this.route('teacherLogin', { path: '/teachers/login' });
+
   this.route('registration', { path: '/sign_up' });
 });
 

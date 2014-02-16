@@ -346,8 +346,6 @@ img {
 }
 
 hr {
-  margin-top: 10px;
-  margin-bottom: 10px;
   border: 0;
   border-top: 1px solid #dddddd;
 }
@@ -672,24 +670,6 @@ pre code {
   clear: both;
 }
 
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
-
 .row {
   margin-right: -15px;
   margin-left: -15px;
@@ -766,7 +746,6 @@ pre code {
   position: relative;
   min-height: 1px;
   padding-right: 15px;
-  padding-left: 15px;
 }
 
 .col-xs-1,
@@ -1186,7 +1165,7 @@ pre code {
     width: 75%;
   }
   .col-md-8 {
-    width: 66.66666666666666%;
+    width: 70%;
   }
   .col-md-7 {
     width: 58.333333333333336%;
@@ -1201,7 +1180,7 @@ pre code {
     width: 33.33333333333333%;
   }
   .col-md-3 {
-    width: 25%;
+    width: 28%;
   }
   .col-md-2 {
     width: 16.666666666666664%;
