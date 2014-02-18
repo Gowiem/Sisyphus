@@ -158,8 +158,13 @@ h3,
 }
 
 /* Add Task / View Completed Task */
-.add-task, .add-description-action {
+.add-task {
   font-size: 14px;
+}
+
+.add-description-action {
+  font-size: 13px;
+  font-style:italic;
 }
 
 .view-completed-tasks {
