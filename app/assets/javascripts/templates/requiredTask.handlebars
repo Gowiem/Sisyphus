@@ -25,12 +25,12 @@
     {{#if addingNewTask}}
       {{render "newSubtask" newSubtask}}
     {{/if}}
-    <a {{bind-attr class="addingNewTask:hide :add-subtask-link :col-lg-3 :add-task"}} 
+    <a {{bind-attr class="addingNewTask:hide :add-subtask-link :add-task"}} 
       {{action showNewTask}}>
       <i class="fa fa-plus"></i>
       Add task
     </a>
-    <div class="completed-container col-lg-9">
+    <div class="completed-container">
       {{#if shouldShowCompletedLink}}
         <p class="completed-action view-completed-tasks">
           <a {{action showCompleted}}>
