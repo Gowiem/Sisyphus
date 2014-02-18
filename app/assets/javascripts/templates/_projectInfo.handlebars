@@ -4,12 +4,12 @@
 <div class="project-description">
 	{{#if showingProjectDescript}}
     <div>
-    	Sample Project Descript
+    	{{description}}
       <a {{action hideProjectDescript}}>x</a>
     </div> 
   {{else}}
     <a {{action showProjectDescript}}>
-      <i class="fa fa-file fa-fw"></i>ßß
+      <i class="fa fa-file fa-fw"></i>
       Project Description
     </a>
   {{/if}}
