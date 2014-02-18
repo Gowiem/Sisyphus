@@ -232,7 +232,7 @@ BUTTONS
   font-weight: normal;
   line-height: 1.4;
   border-radius: $corner;
-  padding: 10px 15px;
+  padding: 10px 20px;
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
   transition: border .25s linear, color .25s linear, background-color .25s linear;
@@ -576,7 +576,7 @@ fieldset[disabled] .btn-link:focus {
   border-radius: $corner;
 }
 .btn-sm {
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: $corner;
   cursor:pointer;
 }
@@ -1464,6 +1464,7 @@ CHECKBOXES
   transition: color 0.25s linear;
   font-size: 14px;
   line-height: 1.5;
+  float:left;
 }
 .checkbox input,
 .radio input {
@@ -1612,10 +1613,9 @@ CHECKBOXES
 PROGRESS BAR
 ------------------------------ 
 */
-// TODO: Should this be moved to sidebar? Or should the sidebar styles be move here?
 
-.prog{
-margin-bottom:40px;
+.prog {
+    margin-bottom:40px;
 }
 
 .progress {
@@ -1634,7 +1634,11 @@ margin-bottom:40px;
   overflow: visible;
   float:left;
   margin-right:20px;
-  margin-bottom:40px;
+
+  .current-user {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
 
   .progress-section-info {
     display: none;
@@ -1646,6 +1650,7 @@ margin-bottom:40px;
     border-radius: $corner;
   }
 }
+
 
 .progress-bar {
   background: $primary;
