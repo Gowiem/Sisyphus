@@ -18,22 +18,22 @@
 body {
   font-family: $font-family;
   h1,h2,h3,h4,h5,h6 {
-  	font-family: $font-family;
+    font-family: $font-family;
   }
 }
 hr { border-color: #DDD; }
 
 h1 { 
-	font-weight: bold; 
+    font-weight: bold; 
 }
 h3 {
-	color: #616161;
-	font-size: 21px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+    color: #616161;
+    font-size: 21px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 h4 {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 // Bootstrap Datepicker Fix 
