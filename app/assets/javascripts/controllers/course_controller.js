@@ -3,11 +3,10 @@ Sis.CourseController = Ember.ObjectController.extend({
 
   selectedProject: function(key, value) {
     if (value === undefined) {
-      var self = this;
       if (this.get('selectedProjectVal') !== null) {
         return this.get('selectedProjectVal');
       } else {
-      this.set('selectedProjectVal', this.get('content.projects.firstObject'));
+        this.set('selectedProjectVal', this.get('content.projects.firstObject'));
         return this.get('content.projects.firstObject');
       }
     } else {
