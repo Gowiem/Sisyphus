@@ -1615,7 +1615,7 @@ PROGRESS BAR
 */
 
 .prog {
-    margin-bottom:40px;
+    margin-bottom:30px;
 }
 
 .progress {
@@ -1635,11 +1635,6 @@ PROGRESS BAR
   float:left;
   margin-right:20px;
 
-  .current-user {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
-
   .progress-section-info {
     display: none;
     position: relative;
@@ -1649,6 +1644,11 @@ PROGRESS BAR
     min-width: 150px;
     border-radius: $corner;
   }
+}
+
+.group-member-progress:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 
