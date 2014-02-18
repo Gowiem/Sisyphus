@@ -9,8 +9,10 @@ Sis.HomeRoute = Ember.Route.extend({
   },
 
   setupController: function (controller, model) {
-    console.log("setupController, HomeRoute");
-    this.set('currentSemester', model.get('firstObject'));
-    this.transitionTo('semester', model.get('firstObject'));
+    if (model != null) {
+      console.log('setupController, HomeRoute');
+      this.set('currentSemester', model.get('firstObject'));
+      this.transitionTo('semester', model.get('firstObject'));
+    }
   }
 })
