@@ -28,7 +28,7 @@
             </a>
             <ul class="dropdown-menu">
               {{#each project in projects}}
-                <li>
+                <li class="project-nav-item">
                   {{#link-to 'project' project}}
                     {{project.title}}
                   {{/link-to}}
@@ -58,6 +58,7 @@
           </ul>
       </li>
       {{else}}
+        <li><a href="/users/auth/google_oauth2">Sign in with Google</a></li>
         {{#unless onSignupRoute}}
           <li>{{#link-to 'registration' }} Sign Up {{/link-to}}</li>
         {{/unless}}

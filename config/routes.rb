@@ -23,8 +23,11 @@ Sisyphus::Application.routes.draw do
   # devise_for :super_admins
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :students, controllers: { sessions: 'sessions' }
-  devise_for :teachers, controllers: { sessions: 'sessions' }
+  devise_for :users, controllers: { sessions: 'sessions',
+                                    omniauth_callbacks: 'omniauth_callbacks',
+                                    registrations: 'registrations' }
+  devise_for :students, skip: ['sessions', 'omniauth_callbacks', 'registrations']
+  devise_for :teachers, skip: ['sessions', 'omniauth_callbacks', 'registrations']
 
   resources :projects, :constraints => FormatTest.new(:json)
   resources :courses, :constraints => FormatTest.new(:json)

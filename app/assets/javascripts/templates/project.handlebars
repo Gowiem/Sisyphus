@@ -1,4 +1,4 @@
-<div class="col-md-9">
+<div class="col-md-8">
   {{partial "projectInfo"}}
   <div class="btn-group task-filter-buttons">
     <button {{action showAllTasks}} type="button" {{bind-attr class=":btn :btn-primary :tab showingAllTasks:active"}}>All tasks</button>
@@ -6,9 +6,10 @@
   </div>
   {{render "requiredTasks" filteredRequiredTasks}}
 </div>
-<div class="group-container col-md-3">
+<div class="col-md-3 sidebar-container">
+<div class="group-container">
   {{render "groupMembers" groupMembers}}
 </div>
-<div class="news-container col-md-3">
+<div class="news-container ">
   {{render "newsFeed" projectGroup.historyTrackers}}
 </div>

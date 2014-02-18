@@ -30,32 +30,63 @@ Sis.SubtaskController = Sis.TaskController.extend({
   }.observes('model.isOpen'),
 
   isCompleted: function(key, value){
-    var model = this.get('model');
-
+    var model = this.get('model'),
+        cancelCompletedKey = model.get('cancelCompletedKey');
     if (value === undefined) {
       return model.get('isCompleted') || model.get('inLimbo');
     } else {
-      // Set this model as undisputed. This is to make sure completed tasks get undisputed. 
-      if (value) {
-        this.get('target.uncompletedSubtasks').removeObject(model);
-        this.get('target.completedLimboSubtasks').addObject(model);
-        this.set('model.inLimbo', true);
-        Ember.run.later(this, function() {
-          this.completeTask(model, value);
-        }, 4000);
+      if (cancelCompletedKey) {
+        // If our model has a cancel key then we need to remove it from limbo
+        // and add it back to the regular uncompleted tasks.
+        this.removeTaskFromLimbo(model, cancelCompletedKey);
+        return false;
+      } else if (value) {
+        // Since we're setting our task to completed we want to give them a
+        // second to change their mind, so add the task to the limbo area.
+        this.addTaskToLimbo(model);
       } else {
-        this.completeTask(model, value);
+        // We have no cancel key and we're setting the task to uncompleted.
+        this.completeTask(model, false);
       }
       return value;
     }
   }.property('model.isCompleted', 'model.inLimbo'),
 
+  addTaskToLimbo: function(model) {
+    // Remove the task from uncompleted and add it to the limbo tasks
+    this.get('target.uncompletedSubtasks').removeObject(model);
+    this.get('target.completedLimboSubtasks').addObject(model);
+    // Mark the task as inLimbo so it puts a strike through the title
+    model.set('inLimbo', true);
+    // Queue the task up to be completed in 4 seconds so the user has a chance
+    // to cancel their action
+    cancelCompletedKey = Ember.run.later(this, function() {
+      this.completeTask(model, true);
+    }, 6000);
+    // Set the result of run#later on our model so if the user undos the 
+    // completion then we can cancel the above call via Ember.run#cancel
+    model.set('cancelCompletedKey', cancelCompletedKey);
+  },
+
+  removeTaskFromLimbo: function(model, cancelKey) {
+    // Cancel our Ember.run#later from earlier
+    Ember.run.cancel(cancelKey);
+    // Swap our subtask from the limbo tasks to the uncompleted
+    this.get('target.uncompletedSubtasks').addObject(model);
+    this.get('target.completedLimboSubtasks').removeObject(model);
+
+    // Null out our cancelCompletedKey and reset the task to uncompleted 
+    // and no longer in limbo
+    model.setProperties({ 'cancelCompletedKey': null, 'isCompleted': false, 'inLimbo': false, });
+  },
+
   completeTask: function(model, value) {
-    var self = this;
-    model.setProperties({ 'isDisputed': false, 'inLimbo': false, 'isCompleted': value });
+    var projectGroup = this.get('model.projectGroup');
+    model.setProperties({ 'isDisputed': false, 'inLimbo': false, 
+                          'isCompleted': value , 'cancelCompletedKey': null});
     this.get('target.completedLimboSubtasks').removeObject(model);
     model.save().then(function() {
-      Sis.updateHistoryTrackers(self.get('model.projectGroup'));
+      Sis.updateHistoryTrackers(projectGroup);
     });
   },
 

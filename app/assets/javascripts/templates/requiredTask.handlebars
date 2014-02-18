@@ -7,35 +7,43 @@
       <div class="date-container clearfix">
         <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
       </div>
-		<div class="col-md-12">
-		  <hr>
-		</div>
+	<hr>
     </div>
     <ul>
       {{#each task in uncompletedSubtasks}}
-      {{render "subtask" task}}
+        {{render "subtask" task}}
       {{/each}}
       {{#each task in completedLimboSubtasks}}
-      {{render "subtask" task}}
+        {{render "subtask" task}}
       {{/each}}
       {{#if showingCompleted}}
-      {{#each task in completedSubtasks}}
-      {{render "subtask" task}}
-      {{/each}}
+        {{#each task in completedSubtasks}}
+          {{render "subtask" task}}
+        {{/each}}
       {{/if}}
     </ul>
-
     {{#if addingNewTask}}
-    {{render "newSubtask" newSubtask}}
+      {{render "newSubtask" newSubtask}}
     {{/if}}
-    <a {{bind-attr class="addingNewTask:hide :add-subtask-link :col-lg-3"}} {{action showNewTask}}><span class="glyphicon glyphicon-plus"></span> Add task</a>
-
+    <a {{bind-attr class="addingNewTask:hide :add-subtask-link :col-lg-3 :add-task"}} 
+      {{action showNewTask}}>
+      <i class="fa fa-plus"></i>
+      Add task
+    </a>
     <div class="completed-container col-lg-9">
       {{#if shouldShowCompletedLink}}
-      <p class="completed-action view-completed-tasks"><a {{action showCompleted}}>View completed tasks ({{completedCount}})</a></p>
+        <p class="completed-action view-completed-tasks">
+          <a {{action showCompleted}}>
+            View completed tasks ({{completedCount}})
+          </a>
+        </p>
       {{/if}}
       {{#if showingCompleted}}
-      <p class="completed-action view-completed-tasks"><a {{action hideCompleted}}>Hide completed tasks</a></p>
+        <p class="completed-action view-completed-tasks">
+          <a {{action hideCompleted}}>
+            Hide completed tasks
+          </a>
+        </p>
       {{/if}}
     </div>
   </div>

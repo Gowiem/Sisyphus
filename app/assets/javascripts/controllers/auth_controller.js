@@ -12,8 +12,8 @@ Sis.AuthController = Ember.ObjectController.extend({
         controller = route.controllerFor(userType + '_login');
         postData = {};
     // Set the email and password fields for the post data to those in the form.
-    postData[userType + "[email]"] = route.currentModel.get('email');
-    postData[userType + "[password]"] = route.currentModel.get('password');
+    postData["user[email]"] = route.currentModel.get('email');
+    postData["user[password]"] = route.currentModel.get('password');
 
     return ic.ajax({
       url: loginUrl,
@@ -24,6 +24,7 @@ Sis.AuthController = Ember.ObjectController.extend({
     function(result) {
       var data = result.response,
           userJson;
+
       // Normalize our JSON object
       userJson = Sis.normalizeJsonObject(data[userType], userType, self.store);
 

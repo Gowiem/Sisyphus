@@ -42,10 +42,6 @@ padding:12px;
 margin:0px;
 }
 
-.group-container {
-	margin-top: 53px;
-}
-
 .group-member-info-icon {
   font-size: 16px;
   cursor: pointer;
@@ -63,12 +59,20 @@ margin:0px;
 
 .group-member-info-container {
   display: none;
+  padding-bottom:5px;
 
   &.showing-group-member-info {
     display: block;
+    font-size: 13px;
+    line-height: 1.4em;
+    color:$charcoal;
   }
 }
 
+
+.member-info-online-status {
+  font-style:italic;
+}
 
 /* 
 ------------------------------ 
@@ -83,11 +87,15 @@ PROGRESS BAR COLORS
 
 .group-member-progress {
   background-image: none;
+}
 
-  &:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
+.first-progress-bar {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.group-member-name {
+  margin-bottom:5px;
 }
 
 .group-member-0 {
@@ -155,4 +163,45 @@ TASK-COUNT
   font-size:12px;
   font-weight:400;
   padding-top:12px;
+}
+
+/* 
+------------------------------ 
+RESPONSIVE CONTAINER
+------------------------------ 
+*/
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+  .sidebar-container {
+    margin-left:0px;
+    margin-top:40px;
+    float:none;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+
+  .sidebar-container {
+    margin-left:0px;
+    margin-top:40px;
+    float:right;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1100px;
+  }
+
+  .sidebar-container{
+  margin-left:0px;
+  margin-top: 95px;
+  float:right;
+  }
 }

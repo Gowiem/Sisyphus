@@ -20,5 +20,8 @@ Sis.ProgressBarSectionController = Sis.GroupMemberController.extend({
     }
 
     return "width:" + progressBarPercent + "%;";
-  }.property('progressBarStyle')
+  }.property('progressBarStyle'),
+  hasCompletedTasks: function() {
+    return this.get('model.subtasks').isAny('isCompleted', true);
+  }.property('model.subtasks.@each.isCompleted'),
 });

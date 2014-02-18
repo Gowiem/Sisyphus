@@ -158,7 +158,7 @@ h3,
 }
 
 /* Add Task / View Completed Task */
-.add-task {
+.add-task, .add-description-action {
   font-size: 14px;
 }
 
@@ -181,15 +181,16 @@ p, .subtask {
   margin: 0 0 15px;
 }
 
-.comment-name {
-  font-size: 12px;
+.comment-name, .assigned-to {
+  font-size: 13px;
   line-height: 1.4em;
-  margin: 0 0 15px;
+  margin: 0 0 10px;
   font-weight:600;
+  padding-right:10px;
 }
 
 .comment-date {
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.4em;
   margin: 0 0 15px;
   color:$greyDark;
@@ -219,6 +220,20 @@ p, .subtask {
   margin: 0 0 15px;
 }
 
+/* Description */
+ .description {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin: 0 0 5px;
+ }
+
+.description-header {
+  font-size: 12px;
+  line-height: 1.4em;
+  font-weight:600;
+  margin-bottom:5px;
+}
+
 /* Page Header */
 .page-header {
   padding-bottom: 14px;
@@ -228,6 +243,7 @@ p, .subtask {
 ul,
 ol {
   margin-bottom: 15px;
+  padding-left:0px;
 }
 dl {
   margin-bottom: 30px;

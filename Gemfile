@@ -10,6 +10,9 @@ gem 'mongoid', github: 'mongoid/mongoid'
 # Devise Authentication, Github: https://github.com/plataformatec/devise
 gem 'devise'
 
+# Google OmniAuth
+gem 'omniauth-google-oauth2'
+
 gem 'haml-rails'
 gem 'ember-rails'
 
