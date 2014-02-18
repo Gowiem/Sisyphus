@@ -8,8 +8,8 @@ Sis.CourseRoute = Ember.Route.extend({
   setupController: function(controller, course) {
     console.log("hitting course route!!");
     // Set selected project to NULL when switching courses
-    // controller.set('selectedProjectVal', null);
-    // controller.set('model', course);
+     controller.set('selectedProjectVal', null);
+     controller.set('model', course);
   },
   model: function(params) {
     console.log("hitting course route!!");
