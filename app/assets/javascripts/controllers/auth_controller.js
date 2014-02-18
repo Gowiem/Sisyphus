@@ -38,17 +38,15 @@ Sis.AuthController = Ember.ObjectController.extend({
 
       // Once we've found our user, set currentUser, and transition appropriately
       self.store.find(userType, data[userType].id).then(function(user) {
-        self.set('currentUser', user);
         if (user.get('isTeacher')) {
           route.get('store').find('semester').then(function(semesters) {
-            self.get('controllers.navigation').then(function(navController) {
-              debugger
-              navController.set('currentSemester', semesters.get('firstObject'));
-              route.transitionTo('semester', semesters.get('firstObject'));
-            });
+            self.set('currentUser', user);
+            self.get('controllers.navigation').set('currentSemester', semesters.get('firstObject'));
+            route.transitionTo('semester', semesters.get('firstObject'));
           });
         } else {          
           route.get('store').find('project').then(function(projects) {
+            self.set('currentUser', user);
             route.transitionTo('project', projects.get('firstObject'));
           });
         }
