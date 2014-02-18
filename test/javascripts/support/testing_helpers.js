@@ -23,27 +23,27 @@ var logoutUser = function() {
   click('#logout-button').then(function() {
     console.log("User logged out");
   });
-}
+};
 
 // Use ic.ajax.defineFixture to mock ic.ajax calls 
 var initAjaxFixtures = function(userEmail, fixtures) {
   // Login 
   var userJSON = {};
   // Grab our student which has the given email
-  userJSON['student'] = fixtures[0]['students'].findBy('email', userEmail)
+  userJSON['student'] = fixtures[0]['students'].findBy('email', userEmail);
 
-  ic.ajax.defineFixture("/students/sign_in.json", {
+  ic.ajax.defineFixture(Sis.urls.studentLogin, {
     response: userJSON,
     jqXHR: {},
     textStatus: 'success'
   });
   // Log out
-  ic.ajax.defineFixture("/students/sign_out.json", {
+  ic.ajax.defineFixture(Sis.urls.studentLogout, {
     response: {'csrf-param': 'authenticity_token', 'csrf-token': 'SgQEpDI0ncccBxXdUTOlMTYtGQmvlpa+Hu5+/aZEgwg='},
     jqXHR: {},
     textStatus: 'success'
   });
-}
+};
 
 var initServer = function(userEmail, fixtures) {
   var server = sinon.fakeServer.create(),
@@ -65,4 +65,4 @@ var initServer = function(userEmail, fixtures) {
     [204, { "Content-Type": "application/json" }, ""]);
 
   return server;
-}
+};
