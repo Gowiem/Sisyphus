@@ -1,6 +1,6 @@
 class ProjectSerializer < BaseSerializer
   embed :ids, include: true
-  attributes :id, :title
+  attributes :id, :title, :description
 
   has_one :course, embed_key: :mongo_id
   has_many :required_tasks, embed_key: :mongo_id

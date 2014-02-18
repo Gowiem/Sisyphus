@@ -1,3 +1,7 @@
-{{#each required in controller}}
-  {{render requiredTask required}}
-{{/each}}
+{{#if hasRequiredTasks}}
+  {{#each required in controller}}
+    {{render requiredTask required}}
+  {{/each}}
+{{else}}
+  <h1>You have no tasks assigned to you.</h1>
+{{/if}}
