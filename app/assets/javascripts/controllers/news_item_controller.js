@@ -10,6 +10,7 @@ Sis.NewsItemController = Ember.ObjectController.extend({
       this.get('store').find(subjectType, this.get('subjectId')).then(function(subject) {
         if (subjectType === 'comment') {
           subjectParent = subject.get('subtask');
+          subjectParent.set('isOpen', true);
           subjectParent.set('showComments', true);
         } else {
           subject.set('isOpen', true);

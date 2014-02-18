@@ -33,9 +33,15 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
 
   showingCompleted: function(key, value) {
     if (value === undefined) {
-      var showCompleted = this.get('showCompletedVal');
-      // If this required tasks has tasks to show then defer to the showCompleted value
-      if (this.get('completedSubtasks.length') > 0) {
+      var showCompleted = this.get('showCompletedVal'),
+          isOpenSubtask = this.get('subtasks').findBy('isOpen', true);
+      // If a subtask was set to be opened and it's completed then we need to
+      // open the completed subtasks
+      if (isOpenSubtask && isOpenSubtask.get('isCompleted')) {
+        this.set('showCompletedVal', true);
+        return true;
+      } else if (this.get('completedSubtasks.length') > 0) {
+        // If this required tasks has tasks to show then defer to the showCompleted value
         return showCompleted;
       } else {
         // If there are no completed subtasks for this required task then set 
@@ -47,7 +53,7 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
       this.set('showCompletedVal', value);
       return value;
     }
-  }.property('subtasks.@each.isCompleted'),
+  }.property('subtasks.@each.isCompleted', 'subtasks.@each.isOpen'),
 
   uncompletedSubtasks: function() {
     return this.get('currentSubtasks').filterBy('isCompleted', false);
