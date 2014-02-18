@@ -31,6 +31,14 @@ Once you've gotten all of the above working and you've been able to check out th
 
 ## Seed Data
 
+### User Testing Data
+
+Now that we're user testing our project we need the project to start off in a blank state for our testers. To do that do the following:
+
+- Open a new tab in your terminal and naviagate to the project. Ex. `cd ~/Workspace/Sisyphus/`
+- Run the rake task to reseed the database: `bundle exec rake extra_seed:scenario1`
+- Once the user has run through the first scenario then you can run the second rake task: `bundle exec rake extra_seed:scenario2`
+
 ###Need some data?
 
 Once you're all setup you can run the following command from the root directory of the project to populate your local database with seed data:
