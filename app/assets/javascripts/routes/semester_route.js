@@ -4,8 +4,8 @@ Sis.SemesterRoute = Ember.Route.extend({
       this.transitionTo('home');
     }
   },
-  setupController: function(controller, semester) {
-    controller.set('model', semester);
+  setupController: function(controller, model) {
+    controller.set('model', model);
     controller.set('selectedProjectVal', null);
   },
   model: function(params) {
