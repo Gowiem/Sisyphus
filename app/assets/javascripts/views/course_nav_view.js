@@ -1,5 +1,6 @@
 Sis.CourseNavView = Ember.View.extend({
-  tagName: 'a',
+  templateName: 'courseNav',
+  tagName: 'li',
   classNameBindings: ['isSelectedCourse:active'],
   isSelectedCourse: function () {
     return false;
