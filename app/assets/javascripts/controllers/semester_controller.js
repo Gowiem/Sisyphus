@@ -2,7 +2,6 @@ Sis.SemesterController = Ember.ObjectController.extend({
   selectedCourseVal: null,
 
   selectedCourse: function (key, value) {
-
     if (value === undefined) {
       if (this.get('selectedCourseVal') != null) {
         console.log("Found SelectedCourseVal: " + this.get('selectedCourseVal'));
@@ -17,5 +16,5 @@ Sis.SemesterController = Ember.ObjectController.extend({
       this.set('selectedCourseVal', value);
       return value;
     }
-  }.property('courses'),
+  }.property('courses','content', 'selectedCourseVal'),
 });

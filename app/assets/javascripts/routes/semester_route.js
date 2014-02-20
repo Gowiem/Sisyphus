@@ -6,7 +6,7 @@ Sis.SemesterRoute = Ember.Route.extend({
   },
   setupController: function(controller, model) {
     controller.set('model', model);
-    controller.set('selectedProjectVal', null);
+    controller.set('selectedCourseVal', null);
   },
   model: function(params) {
     return this.get('store').find('semester', params.semester_id)
