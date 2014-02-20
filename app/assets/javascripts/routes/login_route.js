@@ -3,7 +3,6 @@ Sis.LoginRoute = Ember.Route.extend({
     var currentUser = this.get('auth.currentUser');
     if (currentUser) {
       if (currentUser.get('isTeacher')) {
-        debugger
         var semesters = this.get('auth.currentUser.semesters');
         this.transitionTo('semester', semesters.get('firstObject'));
       } else {
