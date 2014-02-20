@@ -1,7 +1,8 @@
 
 <ul class="nav nav-pills nav-justified">
   {{#each course in courses}}
-    <li><a>{{course.title}}</a></li>
+    {{!-- <li><a>{{course.title}}</a></li> --}}
+    <li>{{view Sis.CourseNavView course}}</li>
   {{/each}} 
 </ul>
 {{render 'course' selectedCourse}}
