@@ -141,6 +141,23 @@ input[type="checkbox"] {
 
 
 .select-users-container{
+  .tagsinput {
+    background-color: white;
+  }
+
+  .tag {
+
+    &:hover {
+      padding: 6px 13px 8px 19px;
+    }
+    &.active {
+      background-color: $primary;
+    }
+    &.inactive {
+      background-color: $grey;
+    }
+  }
+
 }
 
 .add-task-container {

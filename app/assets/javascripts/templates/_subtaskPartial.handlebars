@@ -10,9 +10,9 @@
   </div>
   <div class="select-users-container col-lg-7">
     <label for="subtask-users" class="control-label">Assigned to:</label>
-    <ul id="select-users-list checkbox"><p class="assigned-to">
+    <div id="tagsinput_tagsinput" class="tagsinput">
       {{#each student in controllers.requiredTasks.selectableStudents}}
-        {{render "userCheckbox" student}}
+        {{render "userSelect" student}}
       {{/each}}
     </p>
     </ul>
