@@ -40,7 +40,7 @@
         {{/each}}
       </p>
     </div>
-    {{#if showingDispute}}
+    {{#if model.isCompleted}}
       <a class="dispute btn btn-transparent btn-block btn-sm" {{action disputeSubtask}}>
         <i class="fa fa-ban fa-fw"></i>
         Dispute
