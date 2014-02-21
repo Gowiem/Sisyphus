@@ -1,21 +1,24 @@
 <div class="add-task-container">
 	<form role="form" class="form-horizontal new-subtask-form">
   {{partial "subtaskPartial"}}
-  <div class="col-lg-3">
-    {{!--
-    TODO: {{bind-attr class="userCanSave:disabled"}} wasn't updating on changes 
-    to userCanSave. It's working for the editSubtask.hbs template and I know
-    this #if is working. Should get to the bottom of this as it might be a bug 
-    in Ember. --}}
-    {{#if userCanSave}}
-      <button {{action addNewTask target="view"}} type="button" class="btn btn-primary btn-block btn-sm submit-new-subtask">
-        <i class="icon-plus"></i> Add Task
+    <div class="col-lg-3">
+      {{!--
+      TODO: {{bind-attr class="userCanSave:disabled"}} wasn't updating on changes 
+      to userCanSave. It's working for the editSubtask.hbs template and I know
+      this #if is working. Should get to the bottom of this as it might be a bug 
+      in Ember. --}}
+      {{#if userCanSave}}
+        <button {{action addNewTask target="view"}} type="button" class="btn btn-primary btn-block btn-sm submit-new-subtask">
+          <i class="icon-plus"></i> Add Task
+        </button>
+      {{else}}
+        <button type="button" class="disabled btn btn-primary btn-block btn-sm submit-new-subtask">
+          <i class="icon-plus"></i> Add Task
+        </button>
+      {{/if}}
+      <button {{action cancelNewTask}} type="button" class="btn btn-sm btn-transparent">
+        Cancel
       </button>
-    {{else}}
-      <button type="button" class="disabled btn btn-primary btn-block btn-sm submit-new-subtask">
-        <i class="icon-plus"></i> Add Task
-      </button>
-    {{/if}}
-    <button {{action cancelNewTask}} type="button" class="btn btn-sm btn-transparent">Cancel</button>
-  </div>
-</form>
+    </div>
+  </form>
+</div>
