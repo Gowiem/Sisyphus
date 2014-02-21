@@ -39,6 +39,9 @@ Now that we're user testing our project we need the project to start off in a bl
 - Run the rake task to reseed the database: `bundle exec rake extra_seed:scenario1`
 - Once the user has run through the first scenario then you can run the second rake task: `bundle exec rake extra_seed:scenario2`
 
+- Login: sam.doe@gmail.com
+- Password: password12
+
 ###Need some data?
 
 Once you're all setup you can run the following command from the root directory of the project to populate your local database with seed data:
