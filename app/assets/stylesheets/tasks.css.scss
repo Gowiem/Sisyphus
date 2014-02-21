@@ -64,6 +64,10 @@ hr {
   margin-bottom: 15px;
 }
 
+.add-subtask-link {
+  float:left;
+}
+
 .subtask-container {
   position: relative;
   list-style-type: none;
@@ -93,6 +97,7 @@ hr {
 
     .subtask-in-limbo {
       text-decoration: line-through;
+      color:$greyDark;
     }
     
     .subtask-title.disputed {

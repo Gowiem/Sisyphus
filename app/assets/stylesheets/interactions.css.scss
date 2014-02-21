@@ -232,7 +232,7 @@ BUTTONS
   font-weight: normal;
   line-height: 1.4;
   border-radius: $corner;
-  padding: 10px 15px;
+  padding: 10px 20px;
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
   transition: border .25s linear, color .25s linear, background-color .25s linear;
@@ -285,8 +285,8 @@ fieldset[disabled] .btn {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-  background: #a1a6a9;
-  border-color: #a1a6a9;
+  background: $primary;
+  border-color: $primary;
 }
 .btn-default.disabled,
 .btn-default[disabled],
@@ -303,12 +303,12 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-  background-color: #bdc3c7;
-  border-color: #bdc3c7;
+  background-color: $grey;
+  border-color: $grey;
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #2BBAAD;
+  background-color: $primary;
 }
 
 .btn-primary:hover,
@@ -323,8 +323,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  background: #2BBAAD;
-  border-color: #2BBAAD;
+  background: $primary;
+  border-color: $primary;
 }
 .btn-primary.disabled,
 .btn-primary[disabled],
@@ -341,8 +341,9 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: $primaryDark;
-  border-color: $primaryDark;
+  background-color: $primary;
+  border-color: $primary;
+  color: rgba(255, 255, 255, 0.75);
 }
 .tab{
   color: #ffffff;
@@ -358,14 +359,14 @@ fieldset[disabled] .btn-primary.active {
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
   color: #ffffff;
-  background-color: #5dade2;
-  border-color: #5dade2;
+  background-color: $blue;
+  border-color: $blue;
 }
 .btn-info:active,
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
-  background: #2c81ba;
-  border-color: #2c81ba;
+  background: $blueDark;
+  border-color: $blueDark;
 }
 .btn-info.disabled,
 .btn-info[disabled],
@@ -382,12 +383,12 @@ fieldset[disabled] .btn-info:active,
 .btn-info.disabled.active,
 .btn-info[disabled].active,
 fieldset[disabled] .btn-info.active {
-  background-color: #3498db;
-  border-color: #3498db;
+  background-color: $blue;
+  border-color: $blueDark;
 }
 .btn-danger {
   color: #ffffff;
-  background-color: #e74c3c;
+  background-color: $red;
 }
 .btn-danger:hover,
 .btn-danger:focus,
@@ -395,8 +396,8 @@ fieldset[disabled] .btn-info.active {
 .btn-danger.active,
 .open .dropdown-toggle.btn-danger {
   color: #ffffff;
-  background-color: #ec7063;
-  border-color: #ec7063;
+  background-color: $redDark;
+  border-color: $red;
 }
 .btn-danger:active,
 .btn-danger.active,
@@ -576,7 +577,7 @@ fieldset[disabled] .btn-link:focus {
   border-radius: $corner;
 }
 .btn-sm {
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: $corner;
   cursor:pointer;
 }
@@ -1464,6 +1465,7 @@ CHECKBOXES
   transition: color 0.25s linear;
   font-size: 14px;
   line-height: 1.5;
+  float:left;
 }
 .checkbox input,
 .radio input {
@@ -1612,10 +1614,9 @@ CHECKBOXES
 PROGRESS BAR
 ------------------------------ 
 */
-// TODO: Should this be moved to sidebar? Or should the sidebar styles be move here?
 
-.prog{
-margin-bottom:40px;
+.prog {
+    margin-bottom:30px;
 }
 
 .progress {
@@ -1634,7 +1635,6 @@ margin-bottom:40px;
   overflow: visible;
   float:left;
   margin-right:20px;
-  margin-bottom:40px;
 
   .progress-section-info {
     display: none;
@@ -1646,6 +1646,12 @@ margin-bottom:40px;
     border-radius: $corner;
   }
 }
+
+.group-member-progress:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
 
 .progress-bar {
   background: $primary;
@@ -1928,7 +1934,6 @@ PROGRESS BAR
 */
 
 .tagsinput {
-  background: $primary;
   border: 2px solid #1abc9c;
   border-radius: 6px;
   height: 100px;
