@@ -13,6 +13,11 @@ Sis.SubtaskController = Sis.TaskController.extend({
     }
   },
 
+  // Is this subtask in the default state?
+  isDefault: function() {
+    return !this.get('isViewing') && !this.get('isEditing');
+  }.property('isEditing', 'isViewing'),
+
   // Computed Properties
   ///////////////////////
   disputeModalId: function() {
@@ -87,7 +92,9 @@ Sis.SubtaskController = Sis.TaskController.extend({
   ///////////
   actions: {
     toggleViewing: function() {
-      this.toggleProperty('isViewing');
+      if (!this.get('isEditing')) {
+        this.toggleProperty('isViewing');
+      }
     },
     startEditing: function() {
       this.set('isEditing', true);

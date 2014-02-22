@@ -105,9 +105,23 @@ hr {
     }
   }
 }
-.subtask-container:hover {
-  background-color: #DAECF5;
-  cursor: pointer;
+.subtask-container {
+  padding: 10px;
+
+  &.default:hover {
+    background-color: #DAECF5;
+    cursor: pointer;
+  }
+
+  &.editing {
+    background-color: lighten($grey, 20%);
+    cursor: default !important;
+  }
+
+  &.viewing {
+    background-color: lighten($grey, 20%);
+    cursor: pointer;
+  }
 }
 
 .edit-subtask-container {
