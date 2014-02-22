@@ -6,7 +6,7 @@
       {{/each}}
     {{else}}
       {{#if remainingCommentsCount}}
-        <div {{action "openAllComments"}}>
+        <div {{action "openAllComments" bubbles=false}}>
           <span class="glyphicon glyphicon-comment"></span> 
           View {{remainingCommentsCount}} </a>
         </div>
