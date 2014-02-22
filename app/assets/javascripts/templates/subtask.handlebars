@@ -6,7 +6,7 @@
   {{else}}
     <div class="row col-md-12">
       <div class="title-container col-md-10">
-        <label {{bind-attr class=":checkbox isCompleted:checked:unchecked"}}>
+        <label {{bind-attr class=":checkbox :checkbox-label isCompleted:checked:unchecked"}}>
           {{view Sis.CheckboxView checkedBinding="isCompleted" class="completed-checkbox"}}
         </label>
         <p {{bind-attr class=":subtask-title :center-text isDisputed:disputed inLimbo:subtask-in-limbo"}}>
