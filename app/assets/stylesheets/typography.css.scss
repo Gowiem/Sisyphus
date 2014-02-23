@@ -1,12 +1,37 @@
 @import "variables";
 
-/* 
+/*
 ------------------------------ 
-TYPOGRAPHY
+  TYPOGRAPHY:
+
+  INDEX
+
+  Use Ctrl-F to jump to sections quickly
+
+  -- BODY
+  —- H1
+  —- H2
+  -- H3
+  —- ADD TASK / VIEW COMPLETED TASK
+  —- PARAGRAPH / SUBTASKS
+  —- COMMENTS
+  -- DESCRIPTION
+  -- NEWSFEED
+  -- PAGE HEADER
+  -- EDIT ACCOUNT
+  -- DISPUTE
+  -- MOBILE
+
 ------------------------------ 
 */
 
-/* body: gets applied to all elements in body */
+
+/* 
+------------------------------ 
+BODY: gets applied to all elements
+------------------------------ 
+*/
+
 body {
   font-family: $font-family;
   font-weight:400;
@@ -122,7 +147,12 @@ h6 small,
   color: #e7e9ec;
 }
 
-/* h1: Project Name */
+/* 
+------------------------------ 
+h1: project name
+------------------------------ 
+*/
+
 h1,
 .h1 {
   font-size: 40px;
@@ -137,7 +167,11 @@ margin-left:21px;
 color: #fff;
 }
 
-/* h2: Sidebar Title */
+/* 
+------------------------------ 
+h2: sidebar title
+------------------------------ 
+*/
 h2,
 .h2 {
   font-size: 20px;
@@ -148,7 +182,11 @@ h2,
   margin-bottom: 3px;
 }
 
-/* h3: Required Tasks */
+/* 
+------------------------------ 
+h3: required tasks
+------------------------------ 
+*/
 h3,
 .h3 {
   font-size: 20px;
@@ -157,14 +195,12 @@ h3,
   margin-top: 3px;
 }
 
-/* Edit Account Status */
-#edit-account-status {
-  color:$primary;
-  font-size:14px;
-  float:left;
-}
 
-/* Add Task / View Completed Task */
+/* 
+------------------------------ 
+ADD TASK / VIEW COMPLETED TASK
+------------------------------ 
+*/
 .add-task {
   font-size: 14px;
 }
@@ -179,7 +215,11 @@ h3,
   color:$greyDark;
 }
 
-/* paragraph &  Sub Tasks */
+/* 
+------------------------------ 
+PARAGRAPH / SUBTASKS
+------------------------------ 
+*/
 p, .subtask {
   font-size: 16px;
   line-height: 1.4em;
@@ -190,7 +230,11 @@ strong {
   font-weight:600;  
 }
 
-/* Comments */
+/* 
+------------------------------ 
+COMMENTS
+------------------------------ 
+*/
 .comment {
   font-size: 13px;
   line-height: 1.4em;
@@ -212,7 +256,6 @@ strong {
   color:$greyDark;
 }
 
-/* Add Comment */
 .add-comment {
   font-size: 12px;
   color:$greyDark;
@@ -220,22 +263,14 @@ strong {
 .assigned-to {
   color:$greyDark;
   font-weight:600;
+  list-style-type:none;
 }
 
-/* Newsfeed */
-.newsfeed {
-  font-size: 14px;
-  line-height: 1.4em;
-  margin: 0 0 15px;
-}
-
-.newsfeed-time {
-  font-size: 12px;
-  line-height: 1.4em;
-  margin: 0 0 15px;
-}
-
-/* Description */
+/* 
+------------------------------ 
+DESCRIPTION
+------------------------------ 
+*/
  .description {
   font-size: 14px;
   line-height: 1.4em;
@@ -251,7 +286,29 @@ strong {
   margin-bottom:5px;
 }
 
-/* Page Header */
+/* 
+------------------------------ 
+NEWSFEED
+------------------------------ 
+*/
+.newsfeed {
+  font-size: 14px;
+  line-height: 1.4em;
+  margin: 0 0 15px;
+}
+
+.newsfeed-time {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin: 0 0 15px;
+}
+
+
+/* 
+------------------------------ 
+PAGE HEADER
+------------------------------ 
+*/
 .page-header {
   padding-bottom: 14px;
   margin: 60px 0 30px;
@@ -269,6 +326,41 @@ dt,
 dd {
   line-height: 1.72222;
 }
+
+/* 
+------------------------------ 
+EDIT ACCOUNT
+------------------------------ 
+*/
+
+#edit-account-status {
+  color:$primary;
+  font-size:14px;
+  float:left;
+}
+
+/* 
+------------------------------ 
+DISPUTE
+------------------------------ 
+*/
+
+.dispute-helper-text {
+  font-size:14px;
+  font-weight:600;
+  color:$charcoalDark;
+}
+
+.dispute-info {
+  padding-bottom:10px;
+}
+
+/* 
+------------------------------ 
+MOBILE
+------------------------------ 
+*/
+
 @media (min-width: 768px) {
   .dl-horizontal dt {
     width: 160px;
