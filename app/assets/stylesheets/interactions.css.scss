@@ -216,6 +216,7 @@ padding:10px 20px 2px 20px;
 }
 
 .description-field textarea {
+  max-width: 100%;
   width:100%;
   height:100px;
 }
@@ -343,6 +344,7 @@ fieldset[disabled] .btn-primary:active,
 fieldset[disabled] .btn-primary.active {
   background-color: $primary;
   border-color: $primary;
+  color: rgba(255, 255, 255, 0.75);
 }
 .tab{
   color: #ffffff;
@@ -1615,7 +1617,7 @@ PROGRESS BAR
 */
 
 .prog {
-    margin-bottom:30px;
+  margin-bottom:30px;
 }
 
 .progress {
@@ -1645,12 +1647,6 @@ PROGRESS BAR
     border-radius: $corner;
   }
 }
-
-.group-member-progress:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
 
 .progress-bar {
   background: $primary;
@@ -1928,21 +1924,32 @@ DROPDOWN MENU
 
 /* 
 ------------------------------ 
-PROGRESS BAR
+TAGS
 ------------------------------ 
 */
 
+.select-users-container{
+  .tagsinput {
+  }
+
+  .tag {
+    &.active {
+      background-color: $primary;
+    }
+    &.inactive {
+      background-color: $grey;
+    }
+  }
+
+}
+
 .tagsinput {
-  border: 2px solid #1abc9c;
-  border-radius: 6px;
-  height: 100px;
   margin-bottom: 18px;
-  padding: 6px 1px 1px 6px;
   overflow-y: auto;
   text-align: left;
 }
 .tagsinput .tag {
-  border-radius: 4px;
+  border-radius: $corner;
   color: #ffffff;
   font-size: 14px;
   cursor: pointer;
@@ -1951,12 +1958,12 @@ PROGRESS BAR
   margin-bottom: 5px;
   overflow: hidden;
   line-height: 15px;
-  padding: 6px 13px 8px 19px;
+  padding: 7px 15px;
   position: relative;
   vertical-align: middle;
-  -webkit-transition: 0.25s linear;
-  transition: 0.25s linear;
-  background-color: $primary;
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
+  background-color: $grey;
 
   .tag-active {
     background-color: $primary;
@@ -1976,8 +1983,6 @@ PROGRESS BAR
 }
 .tagsinput .tag:hover {
   color: #ffffff;
-  padding-left: 12px;
-  padding-right: 20px;
 }
 .tagsinput .tag:hover .tagsinput-remove-link {
   color: #ffffff;
@@ -1987,7 +1992,7 @@ PROGRESS BAR
 .tagsinput input {
   background: $primary;
   border: none;
-  color: #34495e;
+  color: $greyDark;
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 14px;
   margin: 0px;
@@ -2023,7 +2028,7 @@ PROGRESS BAR
   display: inline-block;
 }
 .tagsinput-add {
-  background-color: #d6dbdf;
+  background-color: $grey;
   border-radius: 3px;
   color: #ffffff;
   cursor: pointer;
@@ -2037,7 +2042,7 @@ PROGRESS BAR
   transition: 0.25s linear;
 }
 .tagsinput-add:hover {
-  background-color: #1abc9c;
+  background-color: $primary;
 }
 .tagsinput-add:before {
   content: "\e009";

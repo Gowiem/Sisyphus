@@ -1,5 +1,6 @@
-Sis.UserCheckboxController = Ember.ObjectController.extend({
-  userChecked: function(key, value) {
+Sis.UserSelectController = Ember.ObjectController.extend({
+  userSelected: function(key, value) {
+    console.log('userChecked - value: ', value);
     var content = this.get('content'),
         students = this.get('target.content.students');
 

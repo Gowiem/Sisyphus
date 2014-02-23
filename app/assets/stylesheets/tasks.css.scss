@@ -105,9 +105,23 @@ hr {
     }
   }
 }
-.subtask-container:hover {
-  background-color: #DAECF5;
-  cursor: pointer;
+.subtask-container {
+  padding: 10px;
+
+  &.default:hover {
+    background-color: #DAECF5;
+    cursor: pointer;
+  }
+
+  &.editing {
+    background-color: lighten($grey, 20%);
+    cursor: default !important;
+  }
+
+  &.viewing {
+    background-color: lighten($grey, 20%);
+    cursor: pointer;
+  }
 }
 
 .edit-subtask-container {
@@ -142,10 +156,6 @@ hr {
 
 input[type="checkbox"] {
   font-size: 120%;
-}
-
-
-.select-users-container{
 }
 
 .add-task-container {
@@ -212,6 +222,7 @@ COMMENTS
   right: 2px;
   height:80px;
   width:400px;
+  max-width: 100%;
   vertical-align: top;
   font-size: 14px;
   border-color: $grey;

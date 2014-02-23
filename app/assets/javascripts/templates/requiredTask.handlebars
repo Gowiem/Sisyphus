@@ -13,9 +13,6 @@
       {{#each task in uncompletedSubtasks}}
         {{render "subtask" task}}
       {{/each}}
-      {{#each task in completedLimboSubtasks}}
-        {{render "subtask" task}}
-      {{/each}}
       {{#if showingCompleted}}
         {{#each task in completedSubtasks}}
           {{render "subtask" task}}

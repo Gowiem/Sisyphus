@@ -1,56 +1,57 @@
 <li {{action "toggleViewing" preventDefault=false}}
-    {{bind-attr class=":subtask-container :clearfix :row isDisputed:disputed isCompleted:completed isEditing:editing"}}>
-
-  {{#if isEditing}}
-    {{render "editSubtask" model parentBinding="this"}}
-  {{else}}
-    <div class="row col-md-12">
-      <div class="title-container col-md-10">
-        <label {{bind-attr class=":checkbox isCompleted:checked:unchecked"}}>
-          {{view Sis.CheckboxView checkedBinding="isCompleted" class="completed-checkbox"}}
-        </label>
-        <p {{bind-attr class=":subtask-title :center-text isDisputed:disputed inLimbo:subtask-in-limbo"}}>
-          {{title}}
+    {{bind-attr class=":subtask-container :clearfix :row isDisputed:disputed isCompleted:completed isEditing:editing isViewing:viewing isDefault:default"}}>
+  <div {{bind-attr class=":subtask-content"}}>
+    {{#if isEditing}}
+      {{render "editSubtask" model parentBinding="this"}}
+    {{else}}
+      <div class="row col-md-12">
+        <div class="title-container col-md-10">
+          <label {{bind-attr class=":checkbox :checkbox-label isCompleted:checked:unchecked"}}>
+            {{view Sis.CheckboxView checkedBinding="isCompleted" class="completed-checkbox"}}
+          </label>
+          <p {{bind-attr class=":subtask-title :center-text isDisputed:disputed inLimbo:subtask-in-limbo"}}>
+            {{title}}
+          </p>
+        </div>
+        <div class="date-container">
+          <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
+        </div>
+      </div>
+      {{#if isViewing}}
+        <div class="viewing-info row col-md-12 task-info-container">
+          {{#if description}}
+            <p class="description col-md-10">{{description}}</p>
+          {{else}}
+            <a class="add-description-action" {{action "startEditing" preventDefault=false bubbles=false}}>
+              Add details
+            </a>
+          {{/if}}
+          <a class="edit-action pull-right btn btn-grey btn-block btn-xs" {{action "startEditing" preventDefault=false bubbles=false}}>
+            <i class="fa fa-pencil-square-o fa-fw"></i>
+            Edit
+          </a>
+        </div>
+      {{/if}}
+      <div class="row col-md-12 task-info-container">
+        <p class="assigned-to-members assigned-to col-md-12">
+          Assigned to:
+          {{#each student in students}}
+            <span class="assigned-to-member">{{student.fullName}}</span>
+          {{/each}}
         </p>
       </div>
-      <div class="date-container">
-        <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
-      </div>
-    </div>
-    {{#if isViewing}}
-      <div class="viewing-info row col-md-12 task-info-container">
-        {{#if description}}
-          <p class="description col-md-10">{{description}}</p>
-        {{else}}
-          <a class="add-description-action" {{action "startEditing" preventDefault=false bubbles=false}}>
-            Add description
-          </a>
-        {{/if}}
-        <a class="edit-action pull-right btn btn-grey btn-block btn-xs" {{action "startEditing" preventDefault=false bubbles=false}}>
-          <i class="fa fa-pencil-square-o fa-fw"></i>
-          Edit
+      {{#if model.isCompleted}}
+        <a class="dispute btn btn-transparent btn-block btn-sm" {{action disputeSubtask}}>
+          <i class="fa fa-ban fa-fw"></i>
+          Dispute
         </a>
-      </div>
+      {{/if}}
     {{/if}}
-    <div class="row col-md-12 task-info-container">
-      <p class="assigned-to-members assigned-to col-md-12">
-        Assigned to:
-        {{#each student in students}}
-          <span class="assigned-to-member">{{student.fullName}}</span>
-        {{/each}}
-      </p>
-    </div>
-    {{#if showingDispute}}
-      <a class="dispute btn btn-transparent btn-block btn-sm" {{action disputeSubtask}}>
-        <i class="fa fa-ban fa-fw"></i>
-        Dispute
-      </a>
-    {{/if}}
-  {{/if}}
+  </div>
+  <div class="row task-info-container comments-container">
+    {{render "comments" comments}}
+  </div>
 </li>
-<div class="row task-info-container comments-container">
-  {{render "comments" comments}}
-</div>
 
 <hr>
 

@@ -2,7 +2,6 @@ Sis.SubtaskController = Sis.TaskController.extend({
   needs: "project",
   isEditing: false,
   isViewing: false,
-  showingDispute: false,
   isHovering: false,
   disputeReason: null,
 
@@ -13,6 +12,11 @@ Sis.SubtaskController = Sis.TaskController.extend({
       this.set('isViewing', true);
     }
   },
+
+  // Is this subtask in the default state?
+  isDefault: function() {
+    return !this.get('isViewing') && !this.get('isEditing');
+  }.property('isEditing', 'isViewing'),
 
   // Computed Properties
   ///////////////////////
@@ -53,16 +57,13 @@ Sis.SubtaskController = Sis.TaskController.extend({
   }.property('model.isCompleted', 'model.inLimbo'),
 
   addTaskToLimbo: function(model) {
-    // Remove the task from uncompleted and add it to the limbo tasks
-    this.get('target.uncompletedSubtasks').removeObject(model);
-    this.get('target.completedLimboSubtasks').addObject(model);
     // Mark the task as inLimbo so it puts a strike through the title
     model.set('inLimbo', true);
     // Queue the task up to be completed in 4 seconds so the user has a chance
     // to cancel their action
     cancelCompletedKey = Ember.run.later(this, function() {
       this.completeTask(model, true);
-    }, 6000);
+    }, 2500);
     // Set the result of run#later on our model so if the user undos the 
     // completion then we can cancel the above call via Ember.run#cancel
     model.set('cancelCompletedKey', cancelCompletedKey);
@@ -71,9 +72,6 @@ Sis.SubtaskController = Sis.TaskController.extend({
   removeTaskFromLimbo: function(model, cancelKey) {
     // Cancel our Ember.run#later from earlier
     Ember.run.cancel(cancelKey);
-    // Swap our subtask from the limbo tasks to the uncompleted
-    this.get('target.uncompletedSubtasks').addObject(model);
-    this.get('target.completedLimboSubtasks').removeObject(model);
 
     // Null out our cancelCompletedKey and reset the task to uncompleted 
     // and no longer in limbo
@@ -82,9 +80,9 @@ Sis.SubtaskController = Sis.TaskController.extend({
 
   completeTask: function(model, value) {
     var projectGroup = this.get('model.projectGroup');
-    model.setProperties({ 'isDisputed': false, 'inLimbo': false, 
+    model.setProperties({ 'isDisputed': false, 'inLimbo': false,
                           'isCompleted': value , 'cancelCompletedKey': null});
-    this.get('target.completedLimboSubtasks').removeObject(model);
+
     model.save().then(function() {
       Sis.updateHistoryTrackers(projectGroup);
     });
@@ -94,7 +92,9 @@ Sis.SubtaskController = Sis.TaskController.extend({
   ///////////
   actions: {
     toggleViewing: function() {
-      this.toggleProperty('isViewing');
+      if (!this.get('isEditing')) {
+        this.toggleProperty('isViewing');
+      }
     },
     startEditing: function() {
       this.set('isEditing', true);

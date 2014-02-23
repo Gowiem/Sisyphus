@@ -30,7 +30,7 @@ Sis.CommentsController = Ember.ArrayController.extend({
   }.property('content.length'),
   newComment: function() {
     return this.store.createRecord(Sis.Comment, {});
-  }.property(),
+  }.property('isShowingComments', 'isShowingAllComments'),
   commentsCount: function() {
     var comments = this.get('content');
     if (comments.get('length') === 1) {
