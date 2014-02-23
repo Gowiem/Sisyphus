@@ -10,9 +10,9 @@
     </span>
   </div>
 </div>
-<div class="select-users-container col-lg-7">
+<div class="select-users-container col-lg-12">
   <label for="subtask-users" class="control-label">Assigned to:</label>
-  <div id="tagsinput_tagsinput" class="tagsinput">
+  <div id="tagsinput_tagsinput" class="tagsinput tag">
     {{#each student in controllers.requiredTasks.selectableStudents}}
       {{render "userSelect" student}}
     {{/each}}

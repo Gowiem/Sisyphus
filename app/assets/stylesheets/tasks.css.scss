@@ -158,27 +158,6 @@ input[type="checkbox"] {
   font-size: 120%;
 }
 
-
-.select-users-container{
-  .tagsinput {
-    background-color: white;
-  }
-
-  .tag {
-
-    &:hover {
-      padding: 6px 13px 8px 19px;
-    }
-    &.active {
-      background-color: $primary;
-    }
-    &.inactive {
-      background-color: $grey;
-    }
-  }
-
-}
-
 .add-task-container {
   position: relative;
   list-style-type: none;
