@@ -32,25 +32,26 @@
           </a>
         </div>
       {{/if}}
-      <div class="row col-md-12 task-info-container">
-        <p class="assigned-to-members assigned-to col-md-12">
+      <div class="row col-md-9 task-info-container">
+        <p class="assigned-to-members assigned-to">
           Assigned to:
           {{#each student in students}}
             <span class="assigned-to-member">{{student.fullName}}</span>
           {{/each}}
         </p>
       </div>
-      {{#if model.isCompleted}}
-        <a class="dispute btn btn-transparent btn-block btn-sm" {{action disputeSubtask}}>
+    {{/if}}
+            {{#if model.isCompleted}}
+        <a class="dispute" {{action disputeSubtask}}>
           <i class="fa fa-ban fa-fw"></i>
           Dispute
         </a>
       {{/if}}
-    {{/if}}
   </div>
-  <div class="row task-info-container comments-container">
+  <div class="col-md-8 row task-info-container comments-container">
     {{render "comments" comments}}
   </div>
+
 </li>
 
 <hr>

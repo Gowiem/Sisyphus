@@ -4,6 +4,8 @@
 
 /*
 ------------------------------ 
+  INTERACTIONS:
+  
   INDEX
 
   Use Ctrl-F to jump to sections quickly
@@ -233,7 +235,7 @@ BUTTONS
   font-weight: normal;
   line-height: 1.4;
   border-radius: $corner;
-  padding: 10px 20px;
+  padding: 8px 20px;
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
   transition: border .25s linear, color .25s linear, background-color .25s linear;
@@ -858,7 +860,6 @@ input[type="search"] {
 label {
   font-size: 14px;
   font-weight:600;
-  line-height: 2.4;
 }
 
 
@@ -892,7 +893,7 @@ FORM INPUT
   font-size: 14px;
   line-height: 1.467;
   padding: 8px 12px;
-  height: 42px;
+  height: 36px;
   -webkit-appearance: none;
   border-radius: $corner;
   -webkit-box-shadow: none;
@@ -1460,7 +1461,7 @@ CHECKBOXES
 .checkbox,
 .radio {
   margin-bottom: 12px;
-  padding-left: 32px;
+  padding-left: 28px;
   position: relative;
   -webkit-transition: color 0.25s linear;
   transition: color 0.25s linear;
