@@ -18,12 +18,10 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox unchecked">
-        <label>
-          {{view Ember.Checkbox checkedBinding="rememberMe"}}
-          Remember me
-        </label>
-      </div>
+          <label {{bind-attr class=":checkbox :checkbox-label rememberMe:checked:unchecked"}}>
+            {{view Sis.CheckboxView checkedBinding="rememberMe"}}
+            Remember Me
+          </label>
     </div>
   </div>
   <div class="form-group">

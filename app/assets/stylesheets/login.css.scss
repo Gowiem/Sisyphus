@@ -26,3 +26,9 @@ margin: auto;
 	font-size:200px;
 	color:$charcoalDark;
 }
+
+.fui-checkbox-checked, .fui-checkbox-unchecked {
+	span {
+		display:none;
+	}
+}
