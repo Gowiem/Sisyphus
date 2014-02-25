@@ -18,6 +18,7 @@
   -- DESCRIPTION
   -- NEWSFEED
   -- PAGE HEADER
+  -- LOGIN
   -- EDIT ACCOUNT
   -- DISPUTE
   -- MOBILE
@@ -43,8 +44,8 @@ body {
 a {
   color: $primary;
   text-decoration: none;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
 }
 a:hover,
 a:focus {
@@ -325,6 +326,16 @@ dl {
 dt,
 dd {
   line-height: 1.72222;
+}
+
+/* 
+------------------------------ 
+PAGE HEADER
+------------------------------ 
+*/
+
+.remember-me {
+  font-weight:300;
 }
 
 /* 
