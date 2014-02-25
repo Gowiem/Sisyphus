@@ -1,4 +1,4 @@
-Sis.LoginController = Ember.ObjectController.extend({
+Sis.UserLoginController = Ember.ObjectController.extend({
   shouldRemember: undefined,
   errorMsg: null,
   
@@ -42,6 +42,3 @@ Sis.LoginController = Ember.ObjectController.extend({
     }
   }.property('model.email')
 });
-
-Sis.StudentLoginController = Sis.LoginController.extend({});
-Sis.TeacherLoginController = Sis.LoginController.extend({});

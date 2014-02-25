@@ -1,4 +1,4 @@
-Sis.LoginRoute = Ember.Route.extend({
+Sis.UserLoginRoute = Ember.Route.extend({
   beforeModel: function() {
     var currentUser = this.get('auth.currentUser');
     if (currentUser) {
@@ -14,6 +14,9 @@ Sis.LoginRoute = Ember.Route.extend({
     controller.set('content', model);
     controller.set('errorMsg', "");
   },
+  model: function() {
+    return this.store.createRecord('user', {});
+  },
   actions: {
     login: function() {
       this.get('controller').updateEmailCookie();
@@ -25,14 +28,14 @@ Sis.LoginRoute = Ember.Route.extend({
   }
 });
 
-Sis.StudentLoginRoute = Sis.LoginRoute.extend({
-  model: function() {
-    return this.store.createRecord('student', {});
-  },
-});
-Sis.TeacherLoginRoute = Sis.LoginRoute.extend({
-  model: function() {
-    return this.store.createRecord('teacher', {});
-  },  
-});
+// Sis.StudentLoginRoute = Sis.LoginRoute.extend({
+//   model: function() {
+//     return this.store.createRecord('student', {});
+//   },
+// });
+// Sis.TeacherLoginRoute = Sis.LoginRoute.extend({
+//   model: function() {
+//     return this.store.createRecord('teacher', {});
+//   },  
+// });
 

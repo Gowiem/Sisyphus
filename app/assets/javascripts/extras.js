@@ -1,11 +1,9 @@
 Sis.urls = {} || Sis.urls;
 
-Sis.urls.studentLogin = "/users/sign_in.json";
-Sis.urls.studentLogout = "/users/sign_out.json";
-Sis.urls.studentRegister = "/students.json";
+Sis.urls.userLogin = "/users/sign_in.json";
+Sis.urls.userLogout = "/users/sign_out.json";
 
-Sis.urls.teacherLogin = "/users/sign_in.json";
-Sis.urls.teacherLogout = "/users/sign_out.json";
+Sis.urls.studentRegister = "/students.json";
 Sis.urls.teacherRegister = "/teachers.json";
 
 Sis.cookies = Sis.cookies || {};

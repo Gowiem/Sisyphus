@@ -4,9 +4,8 @@ Sis.Router.map(function() {
   this.route('teacher', { path: '/teacher' });
   this.route('course', {path: '/course/:course_id'});
   this.route('project', { path: '/projects/:project_id'});
-  this.route('studentLogin', { path: '/students/login' });
-  this.route('teacherLogin', { path: '/teachers/login' });
-
+  
+  this.route('userLogin', { path: '/users/login' });
   this.route('registration', { path: '/users/sign_up' });
 });
 
