@@ -5,7 +5,7 @@ Sis.AuthController = Ember.ObjectController.extend({
   // Login
   /////////
   login: function(route) {
-    var self = this, 
+    var self = this,
         userType = route.routeName === "studentLogin" ? "student" : "teacher",
         loginUrl = Sis.urls[userType + 'Login'],
         controller = route.controllerFor(userType + '_login');
@@ -97,7 +97,7 @@ Sis.AuthController = Ember.ObjectController.extend({
     registerData[userType + '[password_confirmation]'] = route.currentModel.get('password_confirmation');
     $.ajax({
       url: registerUrl,
-      type: "POST", 
+      type: "POST",
       data: registerData,
       success: function(data) {
         route.transitionTo('home');
