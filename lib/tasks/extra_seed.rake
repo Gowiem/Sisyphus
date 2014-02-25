@@ -36,9 +36,9 @@ namespace :extra_seed do
       password_confirmation: "password12")
     
     @bill = Student.create!(
-      email: "bill.bannana@gmail.com",
+      email: "bill.banana@gmail.com",
       first_name: "Bill", 
-      last_name: "Bannana",
+      last_name: "Banana",
       phone: "555-555-5555",
       password: "password12",
       password_confirmation: "password12")
