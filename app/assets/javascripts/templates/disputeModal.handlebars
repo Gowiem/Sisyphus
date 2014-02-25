@@ -9,21 +9,19 @@
         
         {{! Info Section }}
         <div class="dispute-info">
-          <p><strong>Task:</strong></p>
+          <p class="dispute-helper-text">Task:</p>
+          <div class="task-description">
           <p>{{title}}</p>
-          <p><strong>Assigned to:</strong></p>
-          <ul class="assigned-to">
+          <p class="assigned-to-members assigned-to"><strong>Assigned to:</strong>
             {{#each student in students}}
-              <li>
                 {{student.fullName}}
-              </li>
             {{/each}}
-          </ul>
+          </div>
         </div>
 
         {{! Reason Section }}
         <div class="dispute-reason">
-          <p>Reason for Disputing</p>
+          <p class="dispute-helper-text">Reason for disputing:</p>
           {{textarea valueBinding="disputeReason" cols="73" rows="6" placeholder="Give constructive feedback on how this task can be improved."}}
         </div>
       </div>

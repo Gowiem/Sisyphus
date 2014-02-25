@@ -81,9 +81,9 @@ hr {
   
   .dispute {
     float: right;
-    padding-right: 20px;
-    font-size: 14px;
+    font-size: 13px;
     color:$red;
+    padding-top:6px;
   }
 
   .title-container {
@@ -158,27 +158,6 @@ input[type="checkbox"] {
   font-size: 120%;
 }
 
-
-.select-users-container{
-  .tagsinput {
-    background-color: white;
-  }
-
-  .tag {
-
-    &:hover {
-      padding: 6px 13px 8px 19px;
-    }
-    &.active {
-      background-color: $primary;
-    }
-    &.inactive {
-      background-color: $grey;
-    }
-  }
-
-}
-
 .add-task-container {
   position: relative;
   list-style-type: none;
@@ -198,7 +177,7 @@ COMMENTS
 */
 
 .comments-container, .edit-comments-container {
-  padding-top:10px;
+  padding-top:5px;
 
   a {
     font-size: 12px;
@@ -224,7 +203,9 @@ COMMENTS
     margin-top: 10px;
     margin-bottom:5px;
   }
-  hr { margin-top: 15px; }
+  hr {
+    margin-top: 0px;
+  }
 }
 .edit-comments-container {
   margin-left: 0;
@@ -257,7 +238,6 @@ word-wrap:break-word;
 
 
 .task-info-container {
-  width: 100%;
   float: left;
   clear: both;
   padding-left: 29px;
