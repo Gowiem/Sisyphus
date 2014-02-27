@@ -38,9 +38,11 @@ Now that we're user testing our project we need the project to start off in a bl
 - Open a new tab in your terminal and naviagate to the project. Ex. `cd ~/Workspace/Sisyphus/`
 - Run the rake task to reseed the database: `bundle exec rake extra_seed:scenario1`
 - Once the user has run through the first scenario then you can run the second rake task: `bundle exec rake extra_seed:scenario2`
+- Finished with testing and want to get back to using the project locally with your own email? Either run `bundle exec rake extra_seed:sisyphus` (will keep Janet Orange, Bill Banana, and gang around) or `bundle exec rake db:reset` (Resets the database so only our team is available)
 
-- Login: sam.doe@gmail.com
-- Password: password12
+- User login info:
+  - Email: sam.doe@gmail.com
+  - Password: password12
 
 ###Need some data?
 
