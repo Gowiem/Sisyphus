@@ -9,6 +9,13 @@ Sis.ProjectController = Ember.ObjectController.extend({
     var currentUserId = this.get('auth.currentUser.id');
     return this.get('model.students').rejectProperty('id', currentUserId);
   }.property(),
+
+  totalTasksAssigned: function() {
+    var subtasks = this.get('projectGroup.subtasks');
+    return subtasks.reduce(function(prev, subtask, idx) {
+      return prev + subtask.get('students.length');
+    }, 0);
+  }.property('projectGroup.subtasks.length'),
   
   filteredRequiredTasks: function() {
     var showingAll = this.get('showingAllTasks'),

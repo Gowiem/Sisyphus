@@ -1,26 +1,12 @@
 Sis.ProgressBarSectionController = Sis.GroupMemberController.extend({
   needs: ['project'],
-  // Get the progressBarSection style for this user. Uses GroupMemberControllers
-  // getProgressBarStlye to get the original size and then shrinks it down depending
-  // on the number of other users in the group.
   progressBarSectionStyle: function() {
-    var progressBarStyle = this.get('progressBarStyle'),
-        groupMemberCount = this.get('controllers.project.model.students.length'),
-        progressBarMatch = /(\d+)/.exec(progressBarStyle),
-        progressBarPercent;
+    var completedTasks = this.get('model.subtasks').filterBy('isCompleted').get('length'),
+        totalTasks = this.get('controllers.project.totalTasksAssigned');
+    return "width:" + ((completedTasks / totalTasks) * 100) + "%;";
+  }.property('model.subtasks.@each.isCompleted.length',
+    'controllers.project.totalTasksAssigned'),
 
-    // If exec found a match then we have a percentage.
-    if (progressBarMatch) {
-      // exec gives us our digit back as a string, convert to int and shrink it
-      // so it's 1/number of group members.
-      progressBarPercent = progressBarMatch[0];
-      progressBarPercent = parseInt(progressBarPercent) * (1 / groupMemberCount);
-    } else {
-      progressBarPercent = 0;
-    }
-
-    return "width:" + progressBarPercent + "%;";
-  }.property('progressBarStyle'),
   hasCompletedTasks: function() {
     return this.get('model.subtasks').isAny('isCompleted', true);
   }.property('model.subtasks.@each.isCompleted'),
