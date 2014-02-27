@@ -1,7 +1,9 @@
 Sis.SemesterController = Ember.ObjectController.extend({
+  needs: ['course'],
   selectedCourseVal: null,
 
   selectedCourse: function (key, value) {
+    this.set('controllers.course.selectedProjectVal', null);
     if (value === undefined) {
       if (this.get('selectedCourseVal') != null) {
         console.log("Found SelectedCourseVal: " + this.get('selectedCourseVal'));
