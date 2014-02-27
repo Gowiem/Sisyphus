@@ -65,7 +65,7 @@ namespace :extra_seed do
     
     # Courses
     ##########
-    course = Course.create!(
+    @course = Course.create!(
       teacher: teach,
       semester: "Spring 2014",
       code: "IM4702",
@@ -77,7 +77,7 @@ namespace :extra_seed do
     project = Project.create!(
       title: "Research Project", 
       students: [ @sam, @bill, @sarah, @janet ],
-      course: course,
+      course: @course,
       description: "A research project to design and implement a product that everybody will love.",
       project_groups: [ @team ])
     
@@ -171,6 +171,103 @@ namespace :extra_seed do
       user: @bill,
       subtask: subtask4,
       modifier: @bill)
+  end
 
-  end 
+  desc "Seed database with origin seed data from db/seed.rb"
+  task sisyphus: :environment do
+    Rake::Task['extra_seed:scenario2'].invoke
+    puts "Seeding database with Sisyphus project data..."
+
+    ## Students
+    ############
+    gowie = Student.create!(
+      email: "gowie.matt@gmail.com",
+      first_name: "Matt",
+      last_name: "Gowie",
+      phone: "484-680-2290",
+      password: "password12",
+      password_confirmation: "password12")
+    
+    craig = Student.create!(
+      email: "rjbcc58@gmail.com",
+      first_name: "Craig", 
+      last_name: "Berry",
+      phone: "603-321-7060",
+      password: "password12",
+      password_confirmation: "password12")
+    
+    maple = Student.create!(
+      email: "kuo.maple@gmail.com",
+      first_name: "Maple",
+      last_name: "Kuo",
+      phone: "626-782-1337",
+      password: "password12", 
+      password_confirmation: "password12")
+    
+    john = Student.create!(
+      email: "johnhreardoniv@gmail.com",
+      first_name: "John",
+      last_name: "Reardon",
+      phone: "508-215-8000",
+      password: "password12", 
+      password_confirmation: "password12")
+    
+    nicole = Student.create!(
+      email: "npnussbaum@gmail.com",
+      first_name: "Nicole",
+      last_name: "Nussbaum",
+      phone: "443-538-8184",
+      password: "password12",
+      password_confirmation: "password12")
+    
+    sarah = Student.create!(
+      email: "sarahlynnpark@gmail.com",
+      first_name: "Sarah",
+      last_name: "Park",
+      phone: "443-983-1141",
+      password: "password12",
+      password_confirmation: "password12")
+    
+    mark = Student.create!(
+      email: "sivak.mark@gmail.com",
+      first_name: "Mark",
+      last_name: "Sivak",
+      phone: "978-621-3770",
+      password: "password12",
+      password_confirmation: "password12")
+
+    team = ProjectGroup.create!( name: "Capstone Team", students: [ gowie, craig, maple, john, sarah, nicole, mark ]);
+
+    sisyphus = Project.create!(
+      title: "Sisyphus Project", 
+      students: [ gowie, craig, maple, john, sarah, mark, nicole ],
+      course: @course,
+      description: "Senior Interactive Media Capstone course. Fall 2013 - Spring 2014. Taught by Mark Sivak.",
+      project_groups: [ team ])
+
+    # Required Tasks
+    req_task1 = RequiredTask.create!(
+      title: "User Experience",
+      project: sisyphus,
+      due_date: Date.new(2014, 4, 21),
+      modifier: gowie)
+
+    req_task2 = RequiredTask.create!(
+      title: "User Interface",
+      project: sisyphus,
+      due_date: Date.new(2014, 4, 21),
+      modifier: gowie)
+
+    req_task3 = RequiredTask.create!(
+      title: "Branding",
+      project: sisyphus,
+      due_date: Date.new(2014, 4, 21),
+      modifier: gowie)
+
+    req_task3 = RequiredTask.create!(
+      title: "Development",
+      project: sisyphus,
+      due_date: Date.new(2014, 4, 21),
+      modifier: gowie)
+  end
 end

@@ -32,7 +32,8 @@ Sis.normalizeJsonObject = function(jsonObj, type, store) {
 
   // Use our serializer to normalize the jsonObj of the found dataType
   return serializer.normalize(dataType, jsonObj);
-}
+};
+
 Sis.newsFeedTimer = null;
 Sis.pushObjectsTimer = null;
 Sis.updateHistoryTrackers = function(projectGroup) {
