@@ -1,11 +1,19 @@
 Sis.HomeRoute = Ember.Route.extend({  
-  beforeModel: function() {
-    var self;
+  needs: ['navigation'],
+
+  model: function() {
+    console.log("Model, HomeRoute");
     if (this.get('auth.currentUser') && this.get('auth.currentUser.isTeacher')) {
-      self = this;
-      this.store.find('course').then(function(courses) {
-        self.transitionTo('course', courses.get('firstObject.id'));
-      });
+      return this.store.findAll('semester');   
     }
   },
+
+  setupController: function (controller, model) {
+    if (model != null) {
+      console.log('setupController, HomeRoute');
+      debugger
+      // this.set('currentSemester', model.get('firstObject'));
+      // this.transitionTo('semester', model.get('firstObject'));
+    }
+  }
 })

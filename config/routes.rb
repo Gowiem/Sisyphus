@@ -34,6 +34,7 @@ Sisyphus::Application.routes.draw do
   resources :subtasks, :constraints => FormatTest.new(:json)
   resources :students, :constraints => FormatTest.new(:json)
   resources :comments, :constraints => FormatTest.new(:json)
+  resources :semesters,:constraints => FormatTest.new(:json)
 
   resources :project_groups, :constraints => FormatTest.new(:json) do
     resources :history_trackers, only: [:index, :show]
