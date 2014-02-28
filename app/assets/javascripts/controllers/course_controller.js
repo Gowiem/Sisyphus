@@ -2,6 +2,10 @@ Sis.CourseController = Ember.ObjectController.extend({
   needs: ['semester'],
   selectedProjectVal: null,
 
+  resetSelectedProject: function(key, value) {
+    this.set('selectedProjectVal', null);
+  }.observes('content'),
+
   selectedProject: function(key, value) {
     if (value === undefined) {
       if (this.get('selectedProjectVal') !== null) {
@@ -14,14 +18,7 @@ Sis.CourseController = Ember.ObjectController.extend({
       this.set('selectedProjectVal', value);
       return value;
     }
-  }.property('content.projects.@each.val', 'content.courses'),
-
-
-  initSelectedProject: function(key, value) {
-    debugger
-    this.set('selectedProjectVal', null);
   }.property('content.projects.@each.val'),
-
 
   nonActiveCourses: function () {
     var id = this.get('id');
