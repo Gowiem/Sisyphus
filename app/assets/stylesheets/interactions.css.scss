@@ -4,6 +4,8 @@
 
 /*
 ------------------------------ 
+  INTERACTIONS:
+  
   INDEX
 
   Use Ctrl-F to jump to sections quickly
@@ -16,6 +18,7 @@
   —- PROGRESS BAR
   —- TOOLTIP
   -- DROPDOWN MENU
+  -- TAGS
 
 ------------------------------ 
 */
@@ -215,6 +218,7 @@ padding:10px 20px 2px 20px;
 }
 
 .description-field textarea {
+  max-width: 100%;
   width:100%;
   height:100px;
 }
@@ -231,7 +235,7 @@ BUTTONS
   font-weight: normal;
   line-height: 1.4;
   border-radius: $corner;
-  padding: 10px 15px;
+  padding: 8px 20px;
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
   transition: border .25s linear, color .25s linear, background-color .25s linear;
@@ -284,8 +288,8 @@ fieldset[disabled] .btn {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-  background: #a1a6a9;
-  border-color: #a1a6a9;
+  background: $primary;
+  border-color: $primary;
 }
 .btn-default.disabled,
 .btn-default[disabled],
@@ -302,12 +306,12 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-  background-color: #bdc3c7;
-  border-color: #bdc3c7;
+  background-color: $grey;
+  border-color: $grey;
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #2BBAAD;
+  background-color: $primary;
 }
 
 .btn-primary:hover,
@@ -322,8 +326,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  background: #2BBAAD;
-  border-color: #2BBAAD;
+  background: $primary;
+  border-color: $primary;
 }
 .btn-primary.disabled,
 .btn-primary[disabled],
@@ -340,8 +344,9 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: $primaryDark;
-  border-color: $primaryDark;
+  background-color: $primary;
+  border-color: $primary;
+  color: rgba(255, 255, 255, 0.75);
 }
 .tab{
   color: #ffffff;
@@ -357,14 +362,14 @@ fieldset[disabled] .btn-primary.active {
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
   color: #ffffff;
-  background-color: #5dade2;
-  border-color: #5dade2;
+  background-color: $blue;
+  border-color: $blue;
 }
 .btn-info:active,
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
-  background: #2c81ba;
-  border-color: #2c81ba;
+  background: $blueDark;
+  border-color: $blueDark;
 }
 .btn-info.disabled,
 .btn-info[disabled],
@@ -381,12 +386,12 @@ fieldset[disabled] .btn-info:active,
 .btn-info.disabled.active,
 .btn-info[disabled].active,
 fieldset[disabled] .btn-info.active {
-  background-color: #3498db;
-  border-color: #3498db;
+  background-color: $blue;
+  border-color: $blueDark;
 }
 .btn-danger {
   color: #ffffff;
-  background-color: #e74c3c;
+  background-color: $red;
 }
 .btn-danger:hover,
 .btn-danger:focus,
@@ -394,8 +399,8 @@ fieldset[disabled] .btn-info.active {
 .btn-danger.active,
 .open .dropdown-toggle.btn-danger {
   color: #ffffff;
-  background-color: #ec7063;
-  border-color: #ec7063;
+  background-color: $redDark;
+  border-color: $red;
 }
 .btn-danger:active,
 .btn-danger.active,
@@ -575,8 +580,9 @@ fieldset[disabled] .btn-link:focus {
   border-radius: $corner;
 }
 .btn-sm {
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: $corner;
+  cursor:pointer;
 }
 .btn-grey {
   color:#ffffff;
@@ -852,9 +858,8 @@ input[type="search"] {
   -webkit-appearance: none !important;
 }
 label {
-  font-size: 12px;
+  font-size: 14px;
   font-weight:600;
-  line-height: 2.4;
 }
 
 
@@ -888,7 +893,7 @@ FORM INPUT
   font-size: 14px;
   line-height: 1.467;
   padding: 8px 12px;
-  height: 42px;
+  height: 36px;
   -webkit-appearance: none;
   border-radius: $corner;
   -webkit-box-shadow: none;
@@ -1084,18 +1089,19 @@ textarea.input-hg {
   position: relative;
   margin-bottom: 20px;
 }
+
 .form-horizontal .control-label,
 .form-horizontal .radio,
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
 .form-horizontal .checkbox-inline {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 6px;
+  margin:0px;
+  padding-top: 0;
+  padding-right:10px;
 }
 .form-horizontal .form-group {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .form-horizontal .form-group:before,
 .form-horizontal .form-group:after {
@@ -1115,6 +1121,11 @@ textarea.input-hg {
 .form-group {
   position: relative;
 }
+
+.form-password-first {
+  padding-top:10px;
+}
+
 .form-control + .input-icon {
   position: absolute;
   top: 2px;
@@ -1450,12 +1461,13 @@ CHECKBOXES
 .checkbox,
 .radio {
   margin-bottom: 12px;
-  padding-left: 32px;
+  padding-left: 28px;
   position: relative;
   -webkit-transition: color 0.25s linear;
   transition: color 0.25s linear;
   font-size: 14px;
   line-height: 1.5;
+  float:left;
 }
 .checkbox input,
 .radio input {
@@ -1604,10 +1616,9 @@ CHECKBOXES
 PROGRESS BAR
 ------------------------------ 
 */
-// TODO: Should this be moved to sidebar? Or should the sidebar styles be move here?
 
-.prog{
-margin-bottom:40px;
+.prog {
+  margin-bottom:30px;
 }
 
 .progress {
@@ -1626,7 +1637,6 @@ margin-bottom:40px;
   overflow: visible;
   float:left;
   margin-right:20px;
-  margin-bottom:40px;
 
   .progress-section-info {
     display: none;
@@ -1912,4 +1922,136 @@ DROPDOWN MENU
   border-bottom-color: #526476;
 }
 
+
+/* 
+------------------------------ 
+TAGS
+------------------------------ 
+*/
+
+.select-users-container{
+  .tagsinput {
+  }
+
+  .tag {
+    &.active {
+      background-color: $primary;
+    }
+    &.inactive {
+      background-color: $grey;
+    }
+  }
+
+}
+
+.tagsinput {
+  margin-bottom: 18px;
+  overflow-y: auto;
+  text-align: left;
+}
+.tagsinput .tag {
+  border-radius: $corner;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  line-height: 15px;
+  padding: 7px 15px;
+  position: relative;
+  vertical-align: middle;
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
+  background-color: $grey;
+
+  .tag-active {
+    background-color: $primary;
+
+    &:hover{
+      background-color:$primaryDark;
+    }
+  }
+
+  .tag-inactive {
+    background-color: $grey;
+
+    &:hover {
+      background-color: $greyDark;
+    }
+  }
+}
+.tagsinput .tag:hover {
+  color: #ffffff;
+}
+.tagsinput .tag:hover .tagsinput-remove-link {
+  color: #ffffff;
+  opacity: 1;
+  display: block\9;
+}
+.tagsinput input {
+  background: $primary;
+  border: none;
+  color: $greyDark;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0 0 0 5px;
+  outline: none !important;
+  margin: 6px 5px 0 0;
+  vertical-align: top;
+  width: 12px;
+}
+.tagsinput-remove-link {
+  bottom: 0;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 12px;
+  opacity: 0;
+  padding: 7px 7px 5px 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  text-decoration: none;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  display: none\9;
+}
+.tagsinput-remove-link:before {
+  color: #ffffff;
+  content: "\e00b";
+  font-family: "Flat-UI-Icons";
+}
+.tagsinput-add-container {
+  vertical-align: middle;
+  display: inline-block;
+}
+.tagsinput-add {
+  background-color: $grey;
+  border-radius: 3px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1;
+  margin-bottom: 5px;
+  padding: 7px 9px;
+  vertical-align: top;
+  -webkit-transition: 0.25s linear;
+  transition: 0.25s linear;
+}
+.tagsinput-add:hover {
+  background-color: $primary;
+}
+.tagsinput-add:before {
+  content: "\e009";
+  font-family: "Flat-UI-Icons";
+}
+.tags_clear {
+  clear: both;
+  width: 100%;
+  height: 0px;
+}
 

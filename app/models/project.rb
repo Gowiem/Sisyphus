@@ -2,6 +2,7 @@ class Project < BaseDocument
 
   ## Fields
   field :title, :type => String
+  field :description, :type => String
 
   # Relationships
   belongs_to :course

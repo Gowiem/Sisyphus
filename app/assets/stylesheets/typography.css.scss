@@ -1,12 +1,38 @@
 @import "variables";
 
-/* 
+/*
 ------------------------------ 
-TYPOGRAPHY
+  TYPOGRAPHY:
+
+  INDEX
+
+  Use Ctrl-F to jump to sections quickly
+
+  -- BODY
+  —- H1
+  —- H2
+  -- H3
+  —- ADD TASK / VIEW COMPLETED TASK
+  —- PARAGRAPH / SUBTASKS
+  —- COMMENTS
+  -- DESCRIPTION
+  -- NEWSFEED
+  -- PAGE HEADER
+  -- LOGIN
+  -- EDIT ACCOUNT
+  -- DISPUTE
+  -- MOBILE
+
 ------------------------------ 
 */
 
-/* body: gets applied to all elements in body */
+
+/* 
+------------------------------ 
+BODY: gets applied to all elements
+------------------------------ 
+*/
+
 body {
   font-family: $font-family;
   font-weight:400;
@@ -18,8 +44,8 @@ body {
 a {
   color: $primary;
   text-decoration: none;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
 }
 a:hover,
 a:focus {
@@ -122,7 +148,12 @@ h6 small,
   color: #e7e9ec;
 }
 
-/* h1: Project Name */
+/* 
+------------------------------ 
+h1: project name
+------------------------------ 
+*/
+
 h1,
 .h1 {
   font-size: 40px;
@@ -137,7 +168,11 @@ margin-left:21px;
 color: #fff;
 }
 
-/* h2: Sidebar Title */
+/* 
+------------------------------ 
+h2: sidebar title
+------------------------------ 
+*/
 h2,
 .h2 {
   font-size: 20px;
@@ -148,7 +183,11 @@ h2,
   margin-bottom: 3px;
 }
 
-/* h3: Required Tasks */
+/* 
+------------------------------ 
+h3: required tasks
+------------------------------ 
+*/
 h3,
 .h3 {
   font-size: 20px;
@@ -157,9 +196,19 @@ h3,
   margin-top: 3px;
 }
 
-/* Add Task / View Completed Task */
-.add-task, .add-description-action {
+
+/* 
+------------------------------ 
+ADD TASK / VIEW COMPLETED TASK
+------------------------------ 
+*/
+.add-task {
   font-size: 14px;
+}
+
+.add-description-action {
+  font-size: 13px;
+  font-style:italic;
 }
 
 .view-completed-tasks {
@@ -167,25 +216,37 @@ h3,
   color:$greyDark;
 }
 
-/* paragraph &  Sub Tasks */
+/* 
+------------------------------ 
+PARAGRAPH / SUBTASKS
+------------------------------ 
+*/
 p, .subtask {
   font-size: 16px;
   line-height: 1.4em;
-  margin: 0 0 15px;
+  margin: 0 0 5px;
 }
 
-/* Comments */
+strong {
+  font-weight:600;  
+}
+
+/* 
+------------------------------ 
+COMMENTS
+------------------------------ 
+*/
 .comment {
-  font-size: 12px;
-  line-height: 1.4em;
-  margin: 0 0 15px;
-}
-
-.comment-name, .assigned-to {
   font-size: 13px;
   line-height: 1.4em;
-  margin: 0 0 10px;
+  margin: 0 0 15px;
+}
+
+.comment-name, .assigned-to, .edit-actions {
+  font-size: 13px;
+  line-height: 1.4em;
   font-weight:600;
+  margin: 0 0 10px;
   padding-right:10px;
 }
 
@@ -196,18 +257,41 @@ p, .subtask {
   color:$greyDark;
 }
 
-/* Add Comment */
 .add-comment {
   font-size: 12px;
   color:$greyDark;
 }
 .assigned-to {
-  font-size: 12px;
   color:$greyDark;
   font-weight:600;
+  list-style-type:none;
 }
 
-/* Newsfeed */
+/* 
+------------------------------ 
+DESCRIPTION
+------------------------------ 
+*/
+ .description {
+  font-size: 14px;
+  line-height: 1.4em;
+  margin: 0 0 7px;
+  font-style:italic;
+  color:$charcoalDark;
+ }
+
+.description-header {
+  font-size: 14px;
+  line-height: 1.4em;
+  font-weight:600;
+  margin-bottom:5px;
+}
+
+/* 
+------------------------------ 
+NEWSFEED
+------------------------------ 
+*/
 .newsfeed {
   font-size: 14px;
   line-height: 1.4em;
@@ -220,21 +304,12 @@ p, .subtask {
   margin: 0 0 15px;
 }
 
-/* Description */
- .description {
-  font-size: 12px;
-  line-height: 1.4em;
-  margin: 0 0 5px;
- }
 
-.description-header {
-  font-size: 12px;
-  line-height: 1.4em;
-  font-weight:600;
-  margin-bottom:5px;
-}
-
-/* Page Header */
+/* 
+------------------------------ 
+PAGE HEADER
+------------------------------ 
+*/
 .page-header {
   padding-bottom: 14px;
   margin: 60px 0 30px;
@@ -252,6 +327,51 @@ dt,
 dd {
   line-height: 1.72222;
 }
+
+/* 
+------------------------------ 
+PAGE HEADER
+------------------------------ 
+*/
+
+.remember-me {
+  font-weight:300;
+}
+
+/* 
+------------------------------ 
+EDIT ACCOUNT
+------------------------------ 
+*/
+
+#edit-account-status {
+  color:$primary;
+  font-size:14px;
+  float:left;
+}
+
+/* 
+------------------------------ 
+DISPUTE
+------------------------------ 
+*/
+
+.dispute-helper-text {
+  font-size:14px;
+  font-weight:600;
+  color:$charcoalDark;
+}
+
+.dispute-info {
+  padding-bottom:10px;
+}
+
+/* 
+------------------------------ 
+MOBILE
+------------------------------ 
+*/
+
 @media (min-width: 768px) {
   .dl-horizontal dt {
     width: 160px;

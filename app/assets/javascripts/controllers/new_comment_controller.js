@@ -6,6 +6,11 @@ Sis.NewCommentController = Ember.ObjectController.extend({
           subtask = this.get('target.target.model'),
           currentUser = this.get('auth.currentUser'),
           projectGroup = subtask.get('projectGroup');
+
+      // If the body of the comment is empty then don't create
+      if (Ember.isEmpty(content.get('body'))) {
+        return;
+      }
           
       content.set('user', currentUser);
       subtask.get('comments').addObject(content);

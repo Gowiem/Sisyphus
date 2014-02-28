@@ -6,10 +6,9 @@ Sis.AuthController = Ember.ObjectController.extend({
   // Login
   /////////
   login: function(route) {
-    var self = this, 
-        userType = route.routeName === "studentLogin" ? "student" : "teacher",
-        loginUrl = Sis.urls[userType + 'Login'],
-        controller = route.controllerFor(userType + '_login');
+    var self = this,
+        loginUrl = Sis.urls['userLogin'],
+        controller = route.controllerFor('user_login');
         postData = {};
     // Set the email and password fields for the post data to those in the form.
     postData["user[email]"] = route.currentModel.get('email');
@@ -23,7 +22,18 @@ Sis.AuthController = Ember.ObjectController.extend({
     // Success Callback
     function(result) {
       var data = result.response,
-          userJson;
+          userJson,
+          userType,
+          key;
+
+      for(var key in data) {
+        if (data.hasOwnProperty(key)) {
+          userType = key;
+          break;
+        }
+      }
+
+      console.log("userType: ", userType);
 
       // Normalize our JSON object
       userJson = Sis.normalizeJsonObject(data[userType], userType, self.store);
@@ -69,7 +79,7 @@ Sis.AuthController = Ember.ObjectController.extend({
   //////////
   logout: function() {
     var self = this,
-        logoutUrl = this.get('currentUser').get('isTeacher') ? Sis.urls['teacherLogout'] : Sis.urls['studentLogout'];
+        logoutUrl = Sis.urls['userLogout'];
     return ic.ajax({
       url: logoutUrl,
       type: "DELETE",
@@ -101,7 +111,7 @@ Sis.AuthController = Ember.ObjectController.extend({
     registerData[userType + '[password_confirmation]'] = route.currentModel.get('password_confirmation');
     $.ajax({
       url: registerUrl,
-      type: "POST", 
+      type: "POST",
       data: registerData,
       success: function(data) {
         route.transitionTo('home');

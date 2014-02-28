@@ -9,7 +9,11 @@ Sis.CommentsController = Ember.ArrayController.extend({
   ///////////////////////
   mostRecentComments: function() {
     var len = this.get('content.length');
-    return this.get('content').slice(len - 3, len);
+    if (len > 3) {
+      return this.get('content').slice(len - 3, len);
+    } else {
+      return this.get('content');
+    }
   }.property('content.length'),
   remainingCommentsCount: function() {
     var comments = this.get('content');
@@ -26,7 +30,7 @@ Sis.CommentsController = Ember.ArrayController.extend({
   }.property('content.length'),
   newComment: function() {
     return this.store.createRecord(Sis.Comment, {});
-  }.property(),
+  }.property('isShowingComments', 'isShowingAllComments'),
   commentsCount: function() {
     var comments = this.get('content');
     if (comments.get('length') === 1) {

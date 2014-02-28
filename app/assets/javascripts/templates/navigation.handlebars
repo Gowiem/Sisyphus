@@ -1,9 +1,7 @@
 <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
   <div class="container">
-    <div class="navbar-header">
-      <div class="brand">
-        {{#link-to 'home' }} <img src="/assets/logo.png"> {{/link-to}}
-      </div>
+    <div class="navbar-brand">
+        {{#link-to 'home' }} <i class="fa fa-users"></i> WeTeam {{/link-to}}
     </div>
     <ul class="nav navbar-nav navbar-right navbar-text">
       {{#if isAuthenticated}}

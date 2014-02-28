@@ -9,27 +9,26 @@
         
         {{! Info Section }}
         <div class="dispute-info">
-          <h4>Subtask</h4>
+          <p class="dispute-helper-text">Task:</p>
+          <div class="task-description">
           <p>{{title}}</p>
-          <ul>
+          <p class="assigned-to-members assigned-to"><strong>Assigned to:</strong>
             {{#each student in students}}
-              <li>
                 {{student.fullName}}
-              </li>
             {{/each}}
-          </ul>
+          </div>
         </div>
 
         {{! Reason Section }}
         <div class="dispute-reason">
-          <h4>Reason for Disputing</h4>
+          <p class="dispute-helper-text">Reason for disputing:</p>
           {{textarea valueBinding="disputeReason" cols="73" rows="6" placeholder="Give constructive feedback on how this task can be improved."}}
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" {{bind-attr class=":btn :btn-primary hasEnteredReason::deactivated"}} 
+        <button type="button" {{bind-attr class=":btn :btn-primary :btn-block :btn-sm hasEnteredReason::deactivated"}} 
           {{action submitDisputed}}>Submit</button>
-        <a data-dismiss="modal">Cancel</a>
+        <a data-dismiss="modal" class="btn btn-sm btn-transparent">Cancel</a>
       </div>
     </div>
   </div>

@@ -1,3 +1,11 @@
-{{#each required in controller}}
-  {{render requiredTask required}}
-{{/each}}
+{{#if hasRequiredTasks}}
+  {{#each required in controller}}
+    {{render requiredTask required}}
+  {{/each}}
+{{else}}
+<div class="panel panel-default">
+  <div class="panel-body">
+  	<p>You have no tasks assigned yet.</p>
+  </div>
+</div>
+{{/if}}

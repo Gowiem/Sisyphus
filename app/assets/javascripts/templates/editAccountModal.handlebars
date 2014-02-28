@@ -4,7 +4,6 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h3 class="modal-title">Account</h3>
-        <p id="edit-account-status">{{status}}</p>
       </div>
       <div class="center-block">
       <div class="modal-body">
@@ -34,9 +33,9 @@
               </div>
             </div>
           </div>
-          <div class="page-header"></div>
+          <hr>
           <div class="form-horizontal" role="form">
-            <div class="form-group">
+            <div class="form-group form-password-first">
               <label class="col-sm-4 control-label">Current Password</label>
               <div class="col-sm-8">
                 {{view Ember.TextField valueBinding="currentPassword" id="current-password-input" class="form-control"}}
@@ -57,7 +56,8 @@
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="edit-account-submit" {{action saveUser}}>Save</button>
+        <div id="edit-account-status">{{status}}</div>
+        <button type="button" class="btn btn-primary btn-block btn-sm" id="edit-account-submit" {{action saveUser}}>Save</button>
       </div>
     </div>
   </div>

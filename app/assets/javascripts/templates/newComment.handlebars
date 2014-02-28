@@ -1,5 +1,8 @@
-<hr>
 <form class="new-comment-form" {{action createComment on="submit"}}>
- 	{{view Ember.TextArea valueBinding="body"}}
+ 	{{view Sis.TextAreaView valueBinding="body"}}
 </form>
-<a href="#" {{action createComment}}><button type="button" class="btn btn-xs btn-grey">Add comment</button></a>
+<a href="#" {{action createComment bubbles=false}}>
+  <button type="button" class="btn btn-sm btn-grey">
+    Add comment
+  </button>
+</a>

@@ -2,7 +2,6 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
   needs: "project",
   addingNewTask: false,
   showCompletedVal: false,
-  completedLimboSubtasks: null,
 
   init: function() {
     this.set('completedLimboSubtasks', Ember.A());

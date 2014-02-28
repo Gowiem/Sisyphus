@@ -8,14 +8,14 @@
  *
  */
 .datepicker {
-  padding: 4px;
   -webkit-border-radius: $corner;
   -moz-border-radius: $corner;
   border-radius: $corner;
   direction: ltr;
+  float:right;
   /*.dow {
-		border-top: 1px solid #ddd !important;
-	}*/
+    border-top: 1px solid #ddd !important;
+  }*/
 
 }
 .datepicker-inline {

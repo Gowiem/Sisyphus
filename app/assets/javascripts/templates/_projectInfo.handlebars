@@ -1,20 +1,23 @@
 <div class="clearfix project-info-container">
   <h1 class="pull-left project-title"> {{title}} </h1>
 </div>
+<div class="prog">
+  
+<div class="progress progress-bar-global">
+  <span class="current-user">{{render "progressBarSection" auth.currentUser}}</span>
+  {{render "groupMemberProgressBars" groupMembers}}
+</div>
 <div class="project-description">
-	{{#if showingProjectDescript}}
+  {{#if showingProjectDescript}}
     <div>
-    	Sample Project Descript
+      {{description}}
       <a {{action hideProjectDescript}}>x</a>
     </div> 
   {{else}}
     <a {{action showProjectDescript}}>
-      <i class="fa fa-file fa-fw"></i>ßß
+      <i class="fa fa-file fa-fw"></i>
       Project Description
     </a>
   {{/if}}
 </div>
-<div class="progress progress-bar-global">
-  <span class="current-user">{{render "progressBarSection" auth.currentUser}}</span>
-  {{render "groupMemberProgressBars" groupMembers}}
 </div>

@@ -3,7 +3,7 @@ Sis.Comment = DS.Model.extend({
   isDisputed: DS.attr('boolean'),
   subtask: DS.belongsTo('subtask'),
   user: DS.belongsTo('student'),
-  createdAt: DS.attr('isodate'),
-  updatedAt: DS.attr('isodate'),
+  createdAt: DS.attr('isodatetime'),
+  updatedAt: DS.attr('isodatetime'),
   isOpen: DS.attr('boolean')
 });

@@ -8,7 +8,7 @@ Sis.User = DS.Model.extend({
   password: DS.attr('string'),
   passwordConfirmation: DS.attr('string'),
   currentPassword: DS.attr('string'),
-  lastLogin: DS.attr('isodate'),
+  lastLogin: DS.attr('isodatetime'),
   // Computed Propeties
   readableLastLogin: function() {
     var lastLogin = moment(this.get('lastLogin'));
