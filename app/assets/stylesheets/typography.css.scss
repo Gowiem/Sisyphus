@@ -51,6 +51,7 @@ a:hover,
 a:focus {
   color: $primaryDark;
   text-decoration: none;
+
 }
 a:focus {
   outline: none;
@@ -204,6 +205,7 @@ ADD TASK / VIEW COMPLETED TASK
 */
 .add-task {
   font-size: 14px;
+  cursor: pointer;
 }
 
 .add-description-action {
@@ -214,6 +216,7 @@ ADD TASK / VIEW COMPLETED TASK
 .view-completed-tasks {
   font-size:14px;
   color:$greyDark;
+  cursor: pointer;
 }
 
 /* 
