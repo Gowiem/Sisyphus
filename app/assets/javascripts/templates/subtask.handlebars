@@ -9,7 +9,7 @@
           <label {{bind-attr class=":checkbox :checkbox-label isCompleted:checked:unchecked"}}>
             {{view Sis.CheckboxView checkedBinding="isCompleted" class="completed-checkbox"}}
           </label>
-          <p {{bind-attr class=":subtask-title :center-text isDisputed:disputed inLimbo:subtask-in-limbo"}}>
+          <p {{bind-attr class=":subtask-title :center-text isCompleted:subtask-title-completed isDisputed:disputed inLimbo:subtask-in-limbo"}}>
             {{title}}
           </p>
         </div>
@@ -42,7 +42,7 @@
       </div>
     {{/if}}
             {{#if model.isCompleted}}
-        <a class="dispute" {{action disputeSubtask bubbles=false}}>
+        <a class="dispute btn btn-danger btn-xs" {{action disputeSubtask bubbles=false}}>
           <i class="fa fa-ban fa-fw"></i>
           Dispute
         </a>
