@@ -9,6 +9,9 @@ Sis.urls.teacherRegister = "/teachers.json";
 Sis.cookies = Sis.cookies || {};
 Sis.cookies.email = 'SISYPHUS_EMAIL';
 
+// Number of seconds a task stays in the limbo state
+Sis.SECONDS_IN_LIMBO_TIME = 1.5;
+
 // Make sure new CSRF tokens which are passed over to the client via 
 // ApplicationController#set_csrf_token are added to all ajax requests.
 // New tokens come over when we login/logout

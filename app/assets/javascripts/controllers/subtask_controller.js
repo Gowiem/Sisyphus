@@ -63,7 +63,7 @@ Sis.SubtaskController = Sis.TaskController.extend({
     // to cancel their action
     cancelCompletedKey = Ember.run.later(this, function() {
       this.completeTask(model, true);
-    }, 2500);
+    }, Sis.SECONDS_IN_LIMBO_TIME * 1000);
     // Set the result of run#later on our model so if the user undos the 
     // completion then we can cancel the above call via Ember.run#cancel
     model.set('cancelCompletedKey', cancelCompletedKey);
