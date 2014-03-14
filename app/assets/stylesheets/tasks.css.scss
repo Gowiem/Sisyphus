@@ -41,7 +41,7 @@ hr {
   .due-soon {
     background-color: $red;
     color: #FFFFFF;
-    border-radius: 3px;
+    border-radius: $corner;
     padding: 3px 7px;
   }
 
