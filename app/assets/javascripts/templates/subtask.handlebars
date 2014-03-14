@@ -14,7 +14,7 @@
           </p>
         </div>
         <div class="date-container">
-          <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
+          <p {{bind-attr class="isDueSoonish:due-soon isCompleted:due-completed :center-block"}}>{{readableDate}}</p>
         </div>
       </div>
       {{#if isViewing}}

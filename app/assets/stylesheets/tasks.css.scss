@@ -34,17 +34,25 @@ hr {
   float: right;
   // width: 35px;
 
+  .required-date {
+    font-size:16px !important;
+    margin-top:8px;
+  }
   .due-soon {
     background-color: $red;
     color: #FFFFFF;
-    font-size:13px;
     border-radius: 3px;
     padding: 3px 7px;
   }
 
+  .due-completed {
+      background-color:transparent;
+      color: $greyDark;
+  }
 
   p {
     padding: 0 5px;
+    font-size:13px;
   }
 }
 
@@ -100,7 +108,6 @@ hr {
     margin-left: 20px;
     text-decoration: line-through;
     color:$greyDark;
-
     }
 
     .subtask-in-limbo {
