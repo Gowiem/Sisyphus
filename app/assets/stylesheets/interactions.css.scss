@@ -1485,7 +1485,7 @@ CHECKBOXES
   width: 20px;
   text-align: center;
   line-height: 21px;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
   -webkit-transition: color 0.25s linear;
   transition: color 0.25s linear;
@@ -1507,6 +1507,7 @@ CHECKBOXES
 .radio .icons .second-icon {
   opacity: 0;
   filter: alpha(opacity=0);
+  color:#32BCAD;
 }
 .checkbox:hover,
 .radio:hover {
@@ -1525,7 +1526,7 @@ CHECKBOXES
 }
 .checkbox.checked,
 .radio.checked {
-  color: $primary;
+  color: $grey;
 }
 .checkbox.checked .first-icon,
 .radio.checked .first-icon {
@@ -1536,7 +1537,7 @@ CHECKBOXES
 .radio.checked .second-icon {
   opacity: 1;
   filter: alpha(opacity=100);
-  color: $primary;
+  color: $grey;
   -webkit-transition: color 0.25s linear;
   transition: color 0.25s linear;
 }
