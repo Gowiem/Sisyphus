@@ -22,7 +22,7 @@
     {{#if addingNewTask}}
       {{render "newSubtask" newSubtask}}
     {{/if}}
-    <a {{bind-attr class="addingNewTask:hide :add-subtask-link :add-task"}} 
+    <a {{bind-attr class="addingNewTask:hide :add-subtask-link :add-task :btn-primary :btn-xs"}} 
       {{action showNewTask}}>
       <i class="fa fa-plus"></i>
       Add task
