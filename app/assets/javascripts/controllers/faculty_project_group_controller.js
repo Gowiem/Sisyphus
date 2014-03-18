@@ -1,5 +1,4 @@
 Sis.FacultyProjectGroupController = Ember.ObjectController.extend({
-    // needs: ['project'],
 
   progressBarStyle: function () {
     var totalTasks = this.get('model.subtasks').get('length');

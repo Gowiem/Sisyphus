@@ -246,6 +246,7 @@ sisyphus = Project.create!(
   title: "Sisyphus Project", 
   students: [ gowie, craig, maple, john, sarah, mark, nicole, bob, alex, dave, laura, davey, laurie, lexi, bobby, eric, holly, jane, nick ],
   course: capstone_course,
+  description: "Senior Interactive Media Capstone course. Fall 2013 - Spring 2014. Taught by Mark Sivak.",
   project_groups: [ team, projectGroup1, projectGroup2, projectGroup3]
 )
 

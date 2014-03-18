@@ -29,15 +29,3 @@ Sis.UserLoginRoute = Ember.Route.extend({
   }
 });
 
-Sis.StudentLoginRoute = Sis.LoginRoute.extend({
-  model: function() {
-    return this.store.createRecord('student', {});
-  },
-});
-
-Sis.TeacherLoginRoute = Sis.LoginRoute.extend({
-  model: function() {
-    return this.store.createRecord('teacher', {});
-  },  
-});
-

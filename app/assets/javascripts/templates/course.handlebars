@@ -14,20 +14,5 @@
     </div>
   </div>
 </div>
-{{!-- {{render 'facultyProject' selectedProjectVal}} --}}
-{{#with selectedProjectVal}}
-  <table class="table table-striped table-hover">
-    <thead>
-      <tr>
-        <td>Group Name</td>
-        <td>Status</td>
-        <td></td>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each projectGroup in projectGroups}}
-        {{render "facultyProjectGroup" projectGroup}}
-      {{/each}}
-    </tbody>
-  </table>
-{{/with}}
+
+{{render 'facultyProject' selectedProject}}

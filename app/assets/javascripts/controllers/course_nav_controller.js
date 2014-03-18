@@ -2,7 +2,7 @@ Sis.CourseNavController = Ember.ObjectController.extend({
   needs: ['semester'],
 
   isSelected: function() {
-    return this.get('id') === this.get('target.selectedCourse.id')
+    return this.get('id') === this.get('target.selectedCourse.id');
   }.property('content', 'target.selectedCourse'),
 
   actions: {
