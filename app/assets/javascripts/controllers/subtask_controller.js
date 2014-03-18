@@ -105,7 +105,7 @@ Sis.SubtaskController = Sis.TaskController.extend({
     },
     disputeSubtask: function() {
       var modalId = this.get('disputeModalId');
-      $('#' + modalId).modal({});
+      $('#' + modalId).modal('show');
     },
 
     // TODO: This action is causing scrolling to break on the entire page. Not sure why!
@@ -128,11 +128,14 @@ Sis.SubtaskController = Sis.TaskController.extend({
       subtask.set('isDisputed', true);
       subtask.set('isCompleted', false);
       subtask.get('comments').pushObject(disputeComment);
-      subtask.save();
-
-      // Reset the disputeReason and hide the modal
-      this.set('disputeReason', null);
-      $('#' + modalId).modal('hide');
+      subtask.save().then(function() {
+        // Reset the disputeReason and hide the modal
+        this.set('disputeReason', null);
+        // Fuck you modal!
+        $('#' + modalId).modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').hide();
+      });
     },
   }
 });
