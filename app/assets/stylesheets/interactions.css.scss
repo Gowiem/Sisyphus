@@ -1935,6 +1935,42 @@ TAGS
   }
 
   .tag {
+    &.active .group-member-0{
+      background-color: $orange;
+    }
+    &.active .group-member-1{
+      background-color: $yellow;
+    }
+	&.active .group-member-2{
+      background-color: $ygreen;
+    }
+    &.active .group-member-3{
+      background-color: $blue;
+    }
+    &.active .group-member-4{
+      background-color: $purple;
+    }
+    &.active .group-member-5{
+      background-color: $green;
+    }
+    &.active .group-member-6{
+      background-color: $orangeDark;
+    }
+    &.active .group-member-7{
+      background-color: $yellowDark;
+    }
+	&.active .group-member-8{
+      background-color: $greenDark;
+    }
+    &.active .group-member-9{
+      background-color: $ygreenDark;
+    }
+    &.active .group-member-10{
+      background-color: $blueDark;
+    }
+    &.active .group-member-11{
+      background-color: $purpleDark;
+    }
     &.active {
       background-color: $primary;
     }
@@ -1953,14 +1989,14 @@ TAGS
 .tagsinput .tag {
   border-radius: $corner;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 13px;
   cursor: pointer;
   display: inline-block;
   margin-right: 0px;
   margin-bottom: 5px;
   overflow: hidden;
   line-height: 15px;
-  padding: 3px 9px;
+  padding: 3px 7px;
   position: relative;
   vertical-align: middle;
   -webkit-transition: 0.1s linear;
