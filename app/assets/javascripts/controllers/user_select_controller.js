@@ -1,4 +1,5 @@
-Sis.UserSelectController = Ember.ObjectController.extend({
+Sis.UserSelectController = Ember.ObjectController.extend(
+  Sis.GroupMemberMixin, {
   userSelected: function(key, value) {
     console.log('userChecked - value: ', value);
     var content = this.get('content'),
