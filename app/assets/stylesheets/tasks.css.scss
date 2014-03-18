@@ -130,17 +130,17 @@ hr {
   padding: 10px;
 
   &.default:hover {
-    background-color: #e2f7f5;
+    background-color: $hoverColor;
     cursor: pointer;
   }
 
   &.editing {
-    background-color: lighten($grey, 20%);
+    background-color: $hoverColor;
     cursor: default !important;
   }
 
   &.viewing {
-    background-color: lighten($grey, 20%);
+    background-color: $hoverColor;
     cursor: pointer;
   }
 }
