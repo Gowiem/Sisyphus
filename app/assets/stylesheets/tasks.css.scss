@@ -34,24 +34,33 @@ hr {
   float: right;
   // width: 35px;
 
+  .required-date {
+    font-size:16px !important;
+    margin-top:8px;
+  }
   .due-soon {
     background-color: $red;
     color: #FFFFFF;
-    font-size:13px;
-    border-radius: 3px;
+    border-radius: $corner;
     padding: 3px 7px;
   }
 
+  .due-completed {
+      background-color:transparent;
+      color: $greyDark;
+  }
 
   p {
     padding: 0 5px;
+    font-size:13px;
   }
 }
 
 .panel-body {
   .completed-container {
     .completed-action { 
-      margin-bottom: 15px;
+      margin-top:5px;
+      margin-bottom: 10px;
       float: right;
     }
   }
@@ -100,7 +109,6 @@ hr {
     margin-left: 20px;
     text-decoration: line-through;
     color:$greyDark;
-
     }
 
     .subtask-in-limbo {
@@ -122,7 +130,7 @@ hr {
   padding: 10px;
 
   &.default:hover {
-    background-color: #DAECF5;
+    background-color: #e2f7f5;
     cursor: pointer;
   }
 

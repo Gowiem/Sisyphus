@@ -1485,7 +1485,7 @@ CHECKBOXES
   width: 20px;
   text-align: center;
   line-height: 21px;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
   -webkit-transition: color 0.25s linear;
   transition: color 0.25s linear;
@@ -1507,6 +1507,7 @@ CHECKBOXES
 .radio .icons .second-icon {
   opacity: 0;
   filter: alpha(opacity=0);
+  color:#32BCAD;
 }
 .checkbox:hover,
 .radio:hover {
@@ -1525,7 +1526,7 @@ CHECKBOXES
 }
 .checkbox.checked,
 .radio.checked {
-  color: $primary;
+  color: $grey;
 }
 .checkbox.checked .first-icon,
 .radio.checked .first-icon {
@@ -1536,7 +1537,7 @@ CHECKBOXES
 .radio.checked .second-icon {
   opacity: 1;
   filter: alpha(opacity=100);
-  color: $primary;
+  color: $grey;
   -webkit-transition: color 0.25s linear;
   transition: color 0.25s linear;
 }
@@ -1934,6 +1935,42 @@ TAGS
   }
 
   .tag {
+    &.active .group-member-0{
+      background-color: $orange;
+    }
+    &.active .group-member-1{
+      background-color: $yellow;
+    }
+	&.active .group-member-2{
+      background-color: $ygreen;
+    }
+    &.active .group-member-3{
+      background-color: $blue;
+    }
+    &.active .group-member-4{
+      background-color: $purple;
+    }
+    &.active .group-member-5{
+      background-color: $green;
+    }
+    &.active .group-member-6{
+      background-color: $orangeDark;
+    }
+    &.active .group-member-7{
+      background-color: $yellowDark;
+    }
+	&.active .group-member-8{
+      background-color: $greenDark;
+    }
+    &.active .group-member-9{
+      background-color: $ygreenDark;
+    }
+    &.active .group-member-10{
+      background-color: $blueDark;
+    }
+    &.active .group-member-11{
+      background-color: $purpleDark;
+    }
     &.active {
       background-color: $primary;
     }
@@ -1952,14 +1989,14 @@ TAGS
 .tagsinput .tag {
   border-radius: $corner;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
   display: inline-block;
-  margin-right: 5px;
+  margin-right: 0px;
   margin-bottom: 5px;
   overflow: hidden;
   line-height: 15px;
-  padding: 7px 15px;
+  padding: 3px 7px;
   position: relative;
   vertical-align: middle;
   -webkit-transition: 0.1s linear;

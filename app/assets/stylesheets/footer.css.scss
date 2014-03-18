@@ -8,25 +8,25 @@ FOOTER
 
 
 footer {
-  background-color: #666666;
-  color: #bac1c8;
-  font-size: 15px;
+  background-color: $charcoalDark;
+  color: #ffffff;
+  font-size: 13px;
   padding: 0;
 }
 footer a {
-  color: #9aa4af;
-  font-weight: 700;
+  color: $primary;
 }
 footer p {
-  font-size: 15px;
+  font-size: 13px;
   line-height: 20px;
   margin-bottom: 10px;
 }
 .footer-title {
-  margin: 0 0 22px;
+  margin: 10px 0 22px;
   padding-top: 21px;
   font-size: 24px;
   line-height: 40px;
+  text-align:center;
 }
 .footer-brand {
   display: block;
@@ -37,8 +37,8 @@ footer p {
   width: 216px;
 }
 .footer-banner {
-  background-color: #1abc9c;
-  color: #d1f2eb;
+  background-color: $primary;
+  color: #FFFFFF;
   margin-left: 42px;
   min-height: 250px;
   padding: 0 30px 30px;

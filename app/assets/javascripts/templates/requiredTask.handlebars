@@ -5,7 +5,7 @@
         <h3 class="pull-left">{{title}}</h3>
       </div>
       <div class="date-container clearfix">
-        <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
+        <h3 {{bind-attr class=":required-date :center-block"}}>{{readableDate}}</h3>
       </div>
 	<hr>
     </div>
@@ -22,7 +22,7 @@
     {{#if addingNewTask}}
       {{render "newSubtask" newSubtask}}
     {{/if}}
-    <a {{bind-attr class="addingNewTask:hide :add-subtask-link :add-task"}} 
+    <a {{bind-attr class="addingNewTask:hide :add-subtask-link :add-task :btn-primary :btn-xs"}} 
       {{action showNewTask}}>
       <i class="fa fa-plus"></i>
       Add task
