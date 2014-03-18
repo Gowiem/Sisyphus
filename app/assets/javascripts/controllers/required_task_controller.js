@@ -27,8 +27,12 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
   }.property(),
 
   completedCount: function() {
-    return this.get('subtasks').filterBy('isCompleted').get('length');
-  }.property('subtasks.@each.isCompleted'),
+    if (this.get('controllers.project.showingAllTasks')) {
+      return this.get('subtasks').filterBy('isCompleted').get('length');
+    } else {
+      return this.get('auth.currentUser.subtasks').filterBy('isCompleted').get('length');
+    }
+  }.property('subtasks.@each.isCompleted', 'controllers.project.showingAllTasks'),
 
   showingCompleted: function(key, value) {
     if (value === undefined) {
@@ -76,7 +80,7 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
   actions: {
     showCompleted: function() {
       this.set('showingCompleted', true);
-    }, 
+    },
     hideCompleted: function() {
       this.set('showingCompleted', false);
     },
