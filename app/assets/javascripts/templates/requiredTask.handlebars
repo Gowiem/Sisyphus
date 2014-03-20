@@ -7,41 +7,42 @@
       <div class="date-container clearfix">
         <h3 {{bind-attr class=":required-date :center-block"}}>{{readableDate}}</h3>
       </div>
-	<hr>
-    </div>
-    <ul>
-      {{#each task in uncompletedSubtasks}}
-        {{render "subtask" task}}
-      {{/each}}
-      {{#if showingCompleted}}
-        {{#each task in completedSubtasks}}
+      <hr>
+      <ul>
+        {{#each task in uncompletedSubtasks}}
           {{render "subtask" task}}
         {{/each}}
+        {{#if showingCompleted}}
+          {{#each task in completedSubtasks}}
+            {{render "subtask" task}}
+          {{/each}}
+        {{/if}}
+      </ul>
+      {{#if addingNewTask}}
+        {{render "newSubtask" newSubtask}}
       {{/if}}
-    </ul>
-    {{#if addingNewTask}}
-      {{render "newSubtask" newSubtask}}
-    {{/if}}
-    <a {{bind-attr class="addingNewTask:hide :add-subtask-link :add-task :btn-primary :btn-xs"}} 
-      {{action showNewTask}}>
-      <i class="fa fa-plus"></i>
-      Add task
-    </a>
-    <div class="completed-container">
-      {{#if shouldShowCompletedLink}}
+      <a {{bind-attr class="addingNewTask:hide :add-subtask-link
+                            :add-task :btn-primary :btn-xs"}}
+                            {{action showNewTask}}>
+        <i class="fa fa-plus"></i>
+        Add task
+      </a>
+      <div class="completed-container">
+        {{#if shouldShowCompletedLink}}
         <p class="completed-action view-completed-tasks">
           <a {{action showCompleted}}>
             View completed tasks ({{completedCount}})
           </a>
         </p>
-      {{/if}}
-      {{#if showingCompleted}}
+        {{/if}}
+        {{#if showingCompleted}}
         <p class="completed-action view-completed-tasks">
           <a {{action hideCompleted}}>
             Hide completed tasks
           </a>
         </p>
-      {{/if}}
+        {{/if}}
+      </div>
     </div>
   </div>
 </div>
