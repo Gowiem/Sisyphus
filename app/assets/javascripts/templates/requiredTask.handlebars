@@ -12,11 +12,11 @@
         {{#each task in uncompletedSubtasks}}
           {{render "subtask" task}}
         {{/each}}
-        {{#if showingCompleted}}
+        <div class="completed-tasks">
           {{#each task in completedSubtasks}}
             {{render "subtask" task}}
           {{/each}}
-        {{/if}}
+        </div>
       </ul>
       {{#if addingNewTask}}
         {{render "newSubtask" newSubtask}}

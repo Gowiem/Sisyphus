@@ -1,4 +1,10 @@
 Sis.RequiredTaskView = Ember.View.extend({
-  // This view needs to be here for the new task view to get it's parent
-  // required task and assign it to the parentTask relationship. 
+  didInsertElement: function() {
+    this.addObserver('controller.showingCompleted', this, this.animateCompletedTasks);
+  },
+  animateCompletedTasks: function() {
+    Ember.run.scheduleOnce('afterRender', this, function() {
+      this.$('.completed-tasks').slideToggle('slow');
+    });
+  }
 });
