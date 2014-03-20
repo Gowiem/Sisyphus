@@ -231,6 +231,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sprockets_better_errors (0.0.4)
+      sprockets-rails (>= 1.0.0)
     teaspoon (0.7.8)
       phantomjs (>= 1.8.1.1)
       railties (>= 3.2.5, < 5)
@@ -274,6 +276,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
+  sprockets_better_errors
   teaspoon
   therubyracer
   turbolinks
