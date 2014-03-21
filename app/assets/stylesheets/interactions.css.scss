@@ -1725,6 +1725,11 @@ TOOL TIP
 TAGS
 ------------------------------ 
 */
+.subtask-container.completed .assigned-tags.user-tags-container {
+  .tag {
+    background-color: $grey !important;
+  }
+}
 
 .user-tags-container{
 
