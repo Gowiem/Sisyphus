@@ -1,4 +1,5 @@
-Sis.NewsItemController = Ember.ObjectController.extend({
+Sis.NewsItemController = Ember.ObjectController.extend(
+  Ember.GoogleAnalyticsTrackingMixin, {
   needs: ['requiredTasks'],
   isHovering: false,
   actions: {
@@ -16,6 +17,7 @@ Sis.NewsItemController = Ember.ObjectController.extend({
           subject.set('isOpen', true);
         }
       });
+      this.trackEvent('news_item', 'clicked');
     },
   }
 });

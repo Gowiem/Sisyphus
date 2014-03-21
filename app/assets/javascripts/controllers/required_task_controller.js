@@ -1,4 +1,5 @@
-Sis.RequiredTaskController = Sis.TaskController.extend({
+Sis.RequiredTaskController = Sis.TaskController.extend(
+  Ember.GoogleAnalyticsTrackingMixin, {
   needs: "project",
   addingNewTask: false,
   showCompletedVal: false,
@@ -80,16 +81,19 @@ Sis.RequiredTaskController = Sis.TaskController.extend({
   actions: {
     showCompleted: function() {
       this.set('showingCompleted', true);
-      console.log("showCompleted called");
+      this.trackEvent('completed_tasks', 'showing_completed');
     },
     hideCompleted: function() {
       this.set('showingCompleted', false);
+      this.trackEvent('completed_tasks', 'hiding_completed');
     },
     showNewTask: function() {
       this.set('addingNewTask', true);
+      this.trackEvent('new_tasks', 'adding_new_task');
     },
     cancelNewTask: function() {
       this.set('addingNewTask', false);
+      this.trackEvent('new_tasks', 'canceled_adding_new_task');
     }
   }
 });
