@@ -108,7 +108,6 @@ Sis.SubtaskController = Sis.TaskController.extend({
       $('#' + modalId).modal('show');
     },
 
-    // TODO: This action is causing scrolling to break on the entire page. Not sure why!
     submitDisputed: function() {
       var subtask = this.get('model'),
           disputeComment = this.store.createRecord(Sis.Comment, {}),
