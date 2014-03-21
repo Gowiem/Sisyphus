@@ -1726,165 +1726,45 @@ TAGS
 ------------------------------ 
 */
 
-.select-users-container{
+.user-tags-container{
+
   .tagsinput {
+    margin-bottom: 18px;
+    overflow-y: auto;
+    text-align: left;
   }
 
   .tag {
-    &.active.group-member-0{
-      background-color: $orange;
-    }
-    &.active.group-member-1{
-      background-color: $yellow;
-    }
-	&.active.group-member-2{
-      background-color: $ygreen;
-    }
-    &.active.group-member-3{
-      background-color: $blue;
-    }
-    &.active.group-member-4{
-      background-color: $purple;
-    }
-    &.active.group-member-5{
-      background-color: $green;
-    }
-    &.active.group-member-6{
-      background-color: $orangeDark;
-    }
-    &.active.group-member-7{
-      background-color: $yellowDark;
-    }
-	&.active.group-member-8{
-      background-color: $greenDark;
-    }
-    &.active.group-member-9{
-      background-color: $ygreenDark;
-    }
-    &.active.group-member-10{
-      background-color: $blueDark;
-    }
-    &.active.group-member-11{
-      background-color: $purpleDark;
-    }
-    &.active {
-      background-color: $primary;
-    }
-    &.inactive {
-      background-color: $grey;
-    }
-  }
-
-}
-
-.tagsinput {
-  margin-bottom: 18px;
-  overflow-y: auto;
-  text-align: left;
-}
-.tagsinput .tag {
-  border-radius: $corner;
-  color: #ffffff;
-  font-size: 13px;
-  cursor: pointer;
-  display: inline-block;
-  margin-right: 0px;
-  margin-bottom: 5px;
-  overflow: hidden;
-  line-height: 15px;
-  padding: 3px 7px;
-  position: relative;
-  vertical-align: middle;
-  -webkit-transition: 0.1s linear;
-  transition: 0.1s linear;
-  background-color: $grey;
-
-  .tag-active {
-    background-color: $primary;
-
-    &:hover{
-      background-color:$primaryDark;
-    }
-  }
-
-  .tag-inactive {
+    border-radius: $corner;
+    color: #ffffff;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    line-height: 15px;
+    padding: 3px 7px;
+    position: relative;
+    vertical-align: middle;
+    -webkit-transition: 0.1s linear;
+    transition: 0.1s linear;
     background-color: $grey;
 
-    &:hover {
-      background-color: $greyDark;
-    }
+    &.active.group-member-0{ background-color: $orange; }
+    &.active.group-member-1{ background-color: $yellow; }
+    &.active.group-member-2{ background-color: $ygreen; }
+    &.active.group-member-3{ background-color: $blue; }
+    &.active.group-member-4{ background-color: $purple; }
+    &.active.group-member-5{ background-color: $green; }
+    &.active.group-member-6{ background-color: $orangeDark; }
+    &.active.group-member-7{ background-color: $yellowDark; }
+    &.active.group-member-8{ background-color: $greenDark; }
+    &.active.group-member-9{ background-color: $ygreenDark; }
+    &.active.group-member-10{ background-color: $blueDark; }
+    &.active.group-member-11{ background-color: $purpleDark; }
+    &.active { background-color: $primary; }
+    &.inactive { background-color: $grey; }
   }
-}
-.tagsinput .tag:hover {
-  color: #ffffff;
-}
-.tagsinput .tag:hover .tagsinput-remove-link {
-  color: #ffffff;
-  opacity: 1;
-  display: block\9;
-}
-.tagsinput input {
-  background: $primary;
-  border: none;
-  color: $greyDark;
-  font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  margin: 0px;
-  padding: 0 0 0 5px;
-  outline: none !important;
-  margin: 6px 5px 0 0;
-  vertical-align: top;
-  width: 12px;
-}
-.tagsinput-remove-link {
-  bottom: 0;
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 12px;
-  opacity: 0;
-  padding: 7px 7px 5px 0;
-  position: absolute;
-  right: 0;
-  text-align: right;
-  text-decoration: none;
-  top: 0;
-  width: 100%;
-  z-index: 2;
-  display: none\9;
-}
-.tagsinput-remove-link:before {
-  color: #ffffff;
-  content: "\e00b";
-  font-family: "Flat-UI-Icons";
-}
-.tagsinput-add-container {
-  vertical-align: middle;
-  display: inline-block;
-}
-.tagsinput-add {
-  background-color: $grey;
-  border-radius: 3px;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  line-height: 1;
-  margin-bottom: 5px;
-  padding: 7px 9px;
-  vertical-align: top;
-  -webkit-transition: 0.25s linear;
-  transition: 0.25s linear;
-}
-.tagsinput-add:hover {
-  background-color: $primary;
-}
-.tagsinput-add:before {
-  content: "\e009";
-  font-family: "Flat-UI-Icons";
-}
-.tags_clear {
-  clear: both;
-  width: 100%;
-  height: 0px;
 }
 
