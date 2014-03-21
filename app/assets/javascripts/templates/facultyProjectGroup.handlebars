@@ -1,5 +1,9 @@
 <tr>
-  <td>{{name}}</td>
+  <td>
+   {{#link-to 'project' project}} 
+    {{name}}
+   {{/link-to}}
+  </td>
   <td>
     <div class="progress">
       <div class="progress-bar" {{bind-attr style="progressBarStyle"}}></div>

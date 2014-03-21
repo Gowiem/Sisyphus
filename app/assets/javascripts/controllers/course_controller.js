@@ -26,4 +26,13 @@ Sis.CourseController = Ember.ObjectController.extend({
       return !(id===course.get('id'));
     });
   }.property('auth.currentUser.courses.length', 'content.id'),
+  
+  emailHref: function() {
+    debugger
+    var emails = "";
+    // this.get('students').forEach(function (item, index, enumerable) {
+    //   emails += item.get('email') + ",";
+    // });
+    return "mailto:" + emails + "?subject=" + this.get('project.title') + " on EasyGroupApp.com";
+  }.property('students.@each.email'),
 });

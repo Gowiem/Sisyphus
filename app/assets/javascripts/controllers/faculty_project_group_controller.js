@@ -10,12 +10,11 @@ Sis.FacultyProjectGroupController = Ember.ObjectController.extend({
   }.property('model.subtasks.@each.isCompleted'),
 
   emailHref: function() {
-    debugger
     var emails = "";
     this.get('students').forEach(function (item, index, enumerable) {
       emails += item.get('email') + ",";
     });
-    return "mailto:" + emails + "?subject=" + "test subject" + " on EasyGroupApp.com";
+    return "mailto:" + emails + "?subject=" + this.get('project.title') + " on EasyGroupApp.com";
   }.property('students.@each.email'),
 
 });

@@ -10,7 +10,7 @@
     <div class="row pull-right">
       <button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>  Edit Project</button>
       <button class="btn btn-default"><span class="glyphicon glyphicon-folder-open"></span>  Project Folder</button>
-      <button class="btn btn-default"><span class="glyphicon glyphicon-envelope"></span>  Email Class</button>
+      <a {{bind-attr href="emailHref"}} target="_blank"><button class="btn btn-default"><span class="glyphicon glyphicon-envelope"></span>  Email Class</button></a>
     </div>
   </div>
 </div>
