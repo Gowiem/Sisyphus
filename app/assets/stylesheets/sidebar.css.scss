@@ -60,13 +60,9 @@ margin:0px;
 .group-member-info-container {
   display: none;
   padding-bottom:5px;
-
-  &.showing-group-member-info {
-    display: block;
-    font-size: 13px;
-    line-height: 1.4em;
-    color:$charcoal;
-  }
+  font-size: 13px;
+  line-height: 1.4em;
+  color:$charcoal;
 }
 
 
