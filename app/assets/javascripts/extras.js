@@ -76,4 +76,4 @@ Sis.updateHistoryTrackers = function(projectGroup) {
       console.log("Error updating the News Feed. Error: ", result);
     });
   }, 2000);
-}
+};
