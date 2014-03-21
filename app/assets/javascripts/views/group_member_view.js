@@ -3,6 +3,6 @@ Sis.GroupMemberView = Ember.View.extend({
     this.addObserver('controller.isShowingGroupMemberInfo', this, this.animateGroupMemberInfo);
   },
   animateGroupMemberInfo: function() {
-    this.$('.group-member-info-container').slideToggle('slow');
+    this.$('.group-member-info-container').slideToggle('fast');
   }
 });

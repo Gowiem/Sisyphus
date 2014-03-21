@@ -5,7 +5,7 @@ Sis.RequiredTaskView = Ember.View.extend({
   animateCompletedTasks: function() {
     Ember.run.scheduleOnce('afterRender', this, function() {
       if (this.$('.completed-tasks') !== undefined) {
-        this.$('.completed-tasks').slideToggle('slow');
+        this.$('.completed-tasks').slideToggle('fast');
       }
     });
   }
