@@ -5,6 +5,10 @@ Sis.ProjectController = Ember.ObjectController.extend({
 
   // Computed Properties
   ///////////////////////
+  hasDescription: function() {
+    return this.get('description') !== null && this.get('description') !== "";
+  }.property(),
+
   groupMembers: function() {
     var currentUserId = this.get('auth.currentUser.id');
     return this.get('model.students').rejectProperty('id', currentUserId);
