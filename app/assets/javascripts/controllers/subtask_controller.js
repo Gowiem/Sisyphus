@@ -135,7 +135,7 @@ Sis.SubtaskController = Sis.TaskController.extend({
         $('#' + modalId).modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').hide();
-      });
+      }.bind(this));
     },
   }
 });
