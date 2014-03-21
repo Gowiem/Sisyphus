@@ -8,6 +8,8 @@ Sis.Router.map(function() {
   
   this.route('userLogin', { path: '/users/login' });
   this.route('registration', { path: '/users/sign_up' });
+
+  this.route("fourOhFour", { path: "*path"});
 });
 
 Sis.Router.reopen({

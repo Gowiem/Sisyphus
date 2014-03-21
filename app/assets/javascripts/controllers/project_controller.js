@@ -12,9 +12,13 @@ Sis.ProjectController = Ember.ObjectController.extend({
 
   totalTasksAssigned: function() {
     var subtasks = this.get('projectGroup.subtasks');
-    return subtasks.reduce(function(prev, subtask, idx) {
-      return prev + subtask.get('students.length');
-    }, 0);
+    if (subtasks) {
+      return subtasks.reduce(function(prev, subtask, idx) {
+        return prev + subtask.get('students.length');
+      }, 0);
+    } else {
+      return 0;
+    }
   }.property('projectGroup.subtasks.length'),
   
   filteredRequiredTasks: function() {

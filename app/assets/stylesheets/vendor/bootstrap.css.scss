@@ -1,4 +1,4 @@
-@import "../variables";
+@import "variables";
 
 /*!
  * Bootstrap v3.0.3 (http://getbootstrap.com)
@@ -5038,7 +5038,8 @@ a.list-group-item.active:focus .list-group-item-text {
 
 .panel-body {
   padding: 15px;
-  bord
+  border: 1px solid #ccc;
+  border-radius: 0 0 $corner $corner;
 }
 
 .panel-body:before,

@@ -87,11 +87,9 @@ Sis.AuthController = Ember.ObjectController.extend({
     }).then(
     // Success Callback
     function(result) {
-      var data = result.response;
-      $('meta[name="csrf-token"]').attr('content', data['csrf-token']);
-      $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
-      self.set('currentUser', null);
-      self.transitionToRoute('home');
+      // Cause a page refresh so we don't deal with all the overwriting user 
+      // info headaches that we were dealing with before. 
+      window.location = "/";
     },
     // Error Callback
     function(result) {

@@ -10,15 +10,15 @@
     </span>
   </div>
 </div>
-<div class="select-users-container col-lg-12">
+<div class="form-group description-field col-lg-10">
+  {{view Ember.TextArea valueBinding="description" class="form-control" placeholder="Task details"}}
+</div>
+<div class="user-tags-container col-lg-12">
   <label for="subtask-users" class="control-label">Assigned to:</label>
-  <div id="tagsinput_tagsinput" class="tagsinput tag">
+  <div id="tagsinput_tagsinput" class="tagsinput">
     {{#each student in controllers.requiredTasks.selectableStudents}}
       {{render "userSelect" student}}
     {{/each}}
   </div>
-</div>
-<div class="form-group description-field col-lg-10">
-  {{view Ember.TextArea valueBinding="description" class="form-control" placeholder="Task details"}}
 </div>
 

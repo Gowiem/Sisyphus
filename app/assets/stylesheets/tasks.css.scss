@@ -30,28 +30,41 @@ hr {
   }
 }
 
+.completed-tasks {
+  display: none;
+}
+
 .date-container {
   float: right;
   // width: 35px;
 
+  .required-date {
+    font-size:16px !important;
+    margin-top:8px;
+  }
   .due-soon {
     background-color: $red;
     color: #FFFFFF;
-    font-size:13px;
-    border-radius: 3px;
+    border-radius: $corner;
     padding: 3px 7px;
   }
 
+  .due-completed {
+      background-color:transparent;
+      color: $greyDark;
+  }
 
   p {
     padding: 0 5px;
+    font-size:13px;
   }
 }
 
 .panel-body {
   .completed-container {
     .completed-action { 
-      margin-bottom: 15px;
+      margin-top:5px;
+      margin-bottom: 10px;
       float: right;
     }
   }
@@ -94,13 +107,13 @@ hr {
     }
     .subtask-title {
       margin-left: 20px;
+      margin-bottom:10px;
     }
 
     .subtask-title-completed{
     margin-left: 20px;
     text-decoration: line-through;
     color:$greyDark;
-
     }
 
     .subtask-in-limbo {
@@ -122,17 +135,17 @@ hr {
   padding: 10px;
 
   &.default:hover {
-    background-color: #DAECF5;
+    background-color: $hoverColor;
     cursor: pointer;
   }
 
   &.editing {
-    background-color: lighten($grey, 20%);
+    background-color: $hoverColor;
     cursor: default !important;
   }
 
   &.viewing {
-    background-color: lighten($grey, 20%);
+    background-color: $hoverColor;
     cursor: pointer;
   }
 }

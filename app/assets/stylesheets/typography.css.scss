@@ -44,8 +44,8 @@ body {
 a {
   color: $primary;
   text-decoration: none;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
+  // -webkit-transition: 0.1s;
+  // transition: 0.1s;
 }
 a:hover,
 a:focus {
@@ -276,12 +276,15 @@ DESCRIPTION
 ------------------------------ 
 */
  .description {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.4em;
-  margin: 0 0 7px;
-  font-style:italic;
+  margin: 10px 0px;
   color:$charcoalDark;
  }
+
+.description-completed {
+  color:$greyDark;
+}
 
 .description-header {
   font-size: 14px;
