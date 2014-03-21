@@ -584,21 +584,29 @@ textarea.navbar-form .btn {
   border-top-color: $charcoal;
   border-bottom-color: $charcoal;
 }
-.navbar-inverse .navbar-nav > .open > .dropdown-menu {
-  background-color: #ffffff;
 
-  &:last-child {
+.navbar-inverse .navbar-nav > .open > .dropdown-menu > li {
+  background-color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu {
   border-radius: 0 0 $corner $corner;
+
+  li:last-child {
+    border-radius: 0 0 $corner $corner;
+    
+    a:last-child {
+      border-radius: 0 0 $corner $corner;
+    }
   }
 }
-.navbar-inverse .navbar-nav > .open > .dropdown-menu > li > a {
+
+.navbar-inverse .navbar-nav > .open > .dropdown-menu > li a {
   color: $charcoalDark;
   background-color: #ffffff;
-
-  &:last-child {
-  border-radius: 0 0 $corner $corner;
-  }
 }
+
+
 .navbar-inverse .navbar-nav > .open > .dropdown-menu > li > a:hover,
 .navbar-inverse .navbar-nav > .open > .dropdown-menu > li > a:focus {
   color: $charcoalDark;
