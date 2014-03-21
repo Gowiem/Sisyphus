@@ -107,7 +107,7 @@ hr {
     }
     .subtask-title {
       margin-left: 20px;
-      margin-bottom:10px;
+      margin-bottom:12px;
     }
 
     .subtask-title-completed{
@@ -133,6 +133,7 @@ hr {
 }
 .subtask-container {
   padding: 10px;
+  padding-bottom:0px;
 
   &.default:hover {
     background-color: $hoverColor;
@@ -203,13 +204,13 @@ COMMENTS
 */
 
 .comments-container, .edit-comments-container {
-  padding-top:5px;
+  padding-top:0px;
 
   a {
     font-size: 12px;
     color: $grey;
     float: left;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
   }
   .comment-actions a { margin-bottom: 5px; }
   .comment {
