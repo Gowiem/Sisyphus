@@ -20,7 +20,7 @@
       {{#if isViewing}}
         <div class="viewing-info row col-md-12 task-info-container">
           {{#if description}}
-            <p class="description col-md-10">{{description}}</p>
+            <p {{bind-attr class=":description :col-md-10 isCompleted:description-completed"}}>{{description}}</p>
           {{else}}
             <a class="add-description-action" {{action "startEditing" preventDefault=false bubbles=false}}>
               Add details
