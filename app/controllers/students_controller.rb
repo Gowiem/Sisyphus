@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
 
   def update
     respond_to do |format|
-      if student_params.has_key?("password")
+      if student_params.has_key?("password") && student_params.has_value?("password")
         if @student.update_with_password(student_params)
           # If we're updating the user's password then we need to sign 
           # the user back in so they're still auth'd.

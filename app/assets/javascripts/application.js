@@ -26,6 +26,7 @@
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require ./vendor/ember-google-analytics
 //= require_self
 //= require sisyphus
 //= require extensions

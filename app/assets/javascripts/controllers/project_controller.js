@@ -1,10 +1,15 @@
-Sis.ProjectController = Ember.ObjectController.extend({
+Sis.ProjectController = Ember.ObjectController.extend(
+  Ember.GoogleAnalyticsTrackingMixin, {
   projectGroup: null,
   showingAllTasks: true,
   showingProjectDescript: false,
 
   // Computed Properties
   ///////////////////////
+  hasDescription: function() {
+    return this.get('description') !== null && this.get('description') !== "";
+  }.property(),
+
   groupMembers: function() {
     var currentUserId = this.get('auth.currentUser.id');
     return this.get('model.students').rejectProperty('id', currentUserId);
@@ -36,15 +41,19 @@ Sis.ProjectController = Ember.ObjectController.extend({
   ///////////
   actions: {
     showAllTasks: function() {
+      this.trackEvent('task_filtering', 'showing_all_tasks');
       this.set('showingAllTasks', true);
     },
     showUserTasks: function() {
+      this.trackEvent('task_filtering', 'showing_user_tasks');
       this.set('showingAllTasks', false);
     },
     showProjectDescript: function() {
+      this.trackEvent('project_description', 'opened');
       this.set('showingProjectDescript', true);
     },
     hideProjectDescript: function() {
+      this.trackEvent('project_description', 'closed');
       this.set('showingProjectDescript', false);
     },
   }
