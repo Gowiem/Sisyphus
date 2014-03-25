@@ -4,7 +4,8 @@ pavlov.specify('Authentication', function() {
     var studentEmail = "gowie.matt@gmail.com",
         studentPassword = "password12",
         server,
-        fixtures;
+        fixtures,
+        logoutRedirectStub;
 
     before(function() {
       fixtures = fixture.load('model_fixtures.json', true);
@@ -14,10 +15,13 @@ pavlov.specify('Authentication', function() {
         server = initServer(studentEmail, fixtures);
         initAjaxFixtures(studentEmail, fixtures);
       });
+
+      logoutRedirectStub = sinon.stub(Sis, 'logoutRedirect');
     });
 
     after(function() {
       server.restore();
+      logoutRedirectStub.restore();
     });
 
     describe('logging in', function() {
