@@ -59,8 +59,6 @@ Sis.updateHistoryTrackers = function(projectGroup) {
       var historyTrackers = result['response'],
           emHistoryTrackers;
 
-      console.log("Updating News Feed...");
-
       // Push our new records into EmberData
       store.pushPayload('historyTracker', historyTrackers);
 

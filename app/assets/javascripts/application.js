@@ -42,7 +42,6 @@ Sis = Ember.Application.create({
   // LOG_ACTIVE_GENERATION: true,
   // LOG_VIEW_LOOKUPS: true,
   ready: function() {
-    console.log("Ember.Application#Ready!");
   }
 });
 
