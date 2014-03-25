@@ -30,7 +30,6 @@ Sis.CourseController = Ember.ObjectController.extend({
   emailHref: function() {
     var emails = [];
     var emailStr = "";
-    debugger
     var projects = this.get('content.projects');
     for (var i=0; i < projects.get('length'); i++) {
       var students = projects.objectAt(i).get('students');
