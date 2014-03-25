@@ -24,7 +24,7 @@ hr {
 }
 
 .panel-heading {
-  background-color: red;
+  background-color: $red;
   a {
     float: right;
   }
@@ -122,7 +122,7 @@ hr {
     }
     
     .subtask-title.disputed {
-      color: red;
+      color: $red;
     }
     
     .subtask-title.disputed.subtask-in-limbo {
@@ -215,7 +215,7 @@ COMMENTS
   .comment-actions a { margin-bottom: 5px; }
   .comment {
     .disputed {
-      color: red;
+      color: $red;
     }
     h4 {
       margin: 0 15px 0 0;
@@ -239,7 +239,7 @@ COMMENTS
 }
 .comment-header {
   .comment-delete {
-    color: red;
+    color: $red;
     cursor:pointer;
   }
 }
