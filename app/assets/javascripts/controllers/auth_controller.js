@@ -33,8 +33,6 @@ Sis.AuthController = Ember.ObjectController.extend({
         }
       }
 
-      console.log("userType: ", userType);
-
       // Normalize our JSON object
       userJson = Sis.normalizeJsonObject(data[userType], userType, self.store);
 

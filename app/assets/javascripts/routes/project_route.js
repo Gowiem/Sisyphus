@@ -12,8 +12,7 @@ Sis.ProjectRoute = Ember.Route.extend({
   setupController: function(controller, project) {
     // Setup our model and projectGroup on the projectController as we only have one. 
     controller.set('model', project);
-    controller.set('projectGroup', project.get('projectGroups').objectAt(0));
-    // console.log("History Trackers: ", controller.get('projectGroup.historyTrackers'));
+    controller.set('projectGroup', project.get('projectGroups').objectAt(0));W
 
     // Setup the requiredTasks controller
     this.controllerFor('requiredTasks').set('content', project.get('requiredTasks'));
