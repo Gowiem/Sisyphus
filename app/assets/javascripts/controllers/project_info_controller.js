@@ -1,6 +1,7 @@
 Sis.ProjectInfoController = Ember.ObjectController.extend(
   Ember.GoogleAnalyticsTrackingMixin, {
   needs: ['projectProjectGroup'],
+  projectGroupName: Ember.computed.alias('controllers.projectProjectGroup.content.name'),
   groupMembers: Ember.computed.alias('controllers.projectProjectGroup.groupMembers'),
   showingProjectDescript: false,
 
