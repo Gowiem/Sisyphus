@@ -25,10 +25,10 @@
               Projects <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              {{#each project in projects}}
+              {{#each group in projectGroups}}
                 <li class="project-nav-item">
-                  {{#link-to 'project' project}}
-                    {{project.title}}
+                  {{#link-to 'project.project_group' group.project group}}
+                    {{group.project.title}}
                   {{/link-to}}
                 </li>
               {{/each}}

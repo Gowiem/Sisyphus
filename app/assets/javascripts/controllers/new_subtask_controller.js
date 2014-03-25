@@ -1,9 +1,9 @@
 Sis.NewSubtaskController = Sis.AbstractSubtaskController.extend({
-  needs: ["project"],
+  needs: ["projectProjectGroup"],
   actions: {
     createNewSubtask: function(requiredTask) {
       var content = this.get('content'),
-          projectGroup = this.get('controllers.project.projectGroup'),
+          projectGroup = this.get('controllers.projectProjectGroup.content'),
           students = content.get('students');
       if (!this.get('userCanSave')) {
         return;

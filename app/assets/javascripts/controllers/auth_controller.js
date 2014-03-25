@@ -33,8 +33,6 @@ Sis.AuthController = Ember.ObjectController.extend({
         }
       }
 
-      console.log("userType: ", userType);
-
       // Normalize our JSON object
       userJson = Sis.normalizeJsonObject(data[userType], userType, self.store);
 
@@ -54,10 +52,17 @@ Sis.AuthController = Ember.ObjectController.extend({
             self.get('controllers.navigation').set('currentSemester', semesters.get('firstObject'));
             route.transitionTo('semester', semesters.get('firstObject'));
           });
-        } else {          
+        } else {
           route.get('store').find('project').then(function(projects) {
+            var project = projects.get('firstObject'),
+                projectGroup = project.get('projectGroups.firstObject');
+
             self.set('currentUser', user);
-            route.transitionTo('project', projects.get('firstObject'));
+            if (project && projectGroup) {
+              route.transitionTo('project.project_group', project, projectGroup);
+            } else {
+              route.transitionTo('home');
+            }
           });
         }
       });

@@ -16,7 +16,7 @@
 <div class="user-tags-container col-lg-12">
   <label for="subtask-users" class="control-label">Assigned to:</label>
   <div id="tagsinput_tagsinput" class="tagsinput">
-    {{#each student in controllers.requiredTasks.selectableStudents}}
+    {{#each student in controllers.projectProjectGroup.students}}
       {{render "userSelect" student}}
     {{/each}}
   </div>

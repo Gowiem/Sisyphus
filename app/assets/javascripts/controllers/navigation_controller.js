@@ -11,9 +11,9 @@ Sis.NavigationController = Ember.ObjectController.extend({
     return this.get('controllers.application.currentPath') === 'registration';
   }.property('controllers.application.currentPath'),
 
-  projects: function() {
+  projectGroups: function() {
     if (this.get('isAuthenticated')) {
-      return this.store.findAll('project');
+      return this.store.findAll('project_group');
     }
   }.property('auth.currentUser'),
 

@@ -1,6 +1,6 @@
 Sis.SubtaskController = Sis.TaskController.extend(
   Ember.GoogleAnalyticsTrackingMixin, {
-  needs: "project",
+  needs: ["projectProjectGroup"],
   isEditing: false,
   isViewing: false,
   isHovering: false,

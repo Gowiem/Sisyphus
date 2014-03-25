@@ -7,7 +7,8 @@ Sis.UserLoginRoute = Ember.Route.extend({
         this.transitionTo('semester', semesters.get('firstObject'));
       } else {
         var projects = this.get('auth.currentUser.projects');
-        this.transitionTo('project', projects.get('firstObject'));
+        this.transitionTo('project.project_group', projects.get('firstObject'),
+          projects.get('firstObject').get('projectGroups.firstObject'));
       }
     }
   },
