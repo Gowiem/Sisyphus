@@ -6,7 +6,12 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects
+    # TODO: This is a hack. We should really be getting this teachers projects
+    if current_user.teacher?
+      @projects = current_user.semesters
+    else
+      @projects = current_user.projects
+    end
     render :json => @projects
   end
 
