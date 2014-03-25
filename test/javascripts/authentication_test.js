@@ -22,7 +22,7 @@ pavlov.specify('Authentication', function() {
 
     describe('logging in', function() {
       before(function() {
-        visit('/students/login')
+        visit('/users/login')
           .fillIn('#email-field', studentEmail)
           .fillIn('#password-field', studentPassword)
           .click('#login-button');
