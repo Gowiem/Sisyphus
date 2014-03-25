@@ -3,7 +3,9 @@
 </div>
 <div class="prog clearfix">
   <div class="progress progress-bar-global">
-    <span class="current-user">{{render "progressBarSection" auth.currentUser}}</span>
+    {{#if auth.currentUser.isStudent}}
+      <span class="current-user">{{render "progressBarSection" auth.currentUser}}</span>
+    {{/if}}
     {{render "groupMemberProgressBars" groupMembers}}
   </div>
   {{#if hasDescription}}
