@@ -1,4 +1,5 @@
-Sis.SubtaskController = Sis.TaskController.extend({
+Sis.SubtaskController = Sis.TaskController.extend(
+  Ember.GoogleAnalyticsTrackingMixin, {
   needs: "project",
   isEditing: false,
   isViewing: false,
@@ -98,17 +99,19 @@ Sis.SubtaskController = Sis.TaskController.extend({
     },
     startEditing: function() {
       this.set('isEditing', true);
+      this.trackEvent('editing_task', 'editing_opened');
     },
     cancelEdit: function() {
       this.set('isEditing', false);
       this.set('isViewing', true);
+      this.trackEvent('editing_task', 'editing_closed');
     },
     disputeSubtask: function() {
       var modalId = this.get('disputeModalId');
       $('#' + modalId).modal('show');
+      this.trackEvent('disputing_task', 'modal_opened');
     },
 
-    // TODO: This action is causing scrolling to break on the entire page. Not sure why!
     submitDisputed: function() {
       var subtask = this.get('model'),
           disputeComment = this.store.createRecord(Sis.Comment, {}),
@@ -136,6 +139,7 @@ Sis.SubtaskController = Sis.TaskController.extend({
         $('body').removeClass('modal-open');
         $('.modal-backdrop').hide();
       }.bind(this));
+      this.trackEvent('disputing_task', 'dispute_submitted');
     },
   }
 });

@@ -1,5 +1,5 @@
 Sis.GroupMemberController = Ember.ObjectController.extend(
-  Sis.GroupMemberMixin, {
+  Sis.GroupMemberMixin, Ember.GoogleAnalyticsTrackingMixin, {
   needs: ['project'],
   isShowingGroupMemberInfo: false,
   progressBarStyle: function () {
@@ -24,9 +24,11 @@ Sis.GroupMemberController = Ember.ObjectController.extend(
       $('#edit-account-modal').modal({});
     },
     showGroupMemberInfo: function() {
+      this.trackEvent('group_member_info', 'open');
       this.set('isShowingGroupMemberInfo', true);
     },
     hideGroupMemberInfo: function() {
+      this.trackEvent('group_member_info', 'close');
       this.set('isShowingGroupMemberInfo', false);
     },
   }

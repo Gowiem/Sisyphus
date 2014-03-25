@@ -1,4 +1,5 @@
-Sis.NewCommentController = Ember.ObjectController.extend({
+Sis.NewCommentController = Ember.ObjectController.extend(
+  Ember.GoogleAnalyticsTrackingMixin, {
   needs: ["comments"],
   actions: {
     createComment: function() {
@@ -21,6 +22,7 @@ Sis.NewCommentController = Ember.ObjectController.extend({
       Sis.updateHistoryTrackers(projectGroup);
 
       this.set('content', this.store.createRecord(Sis.Comment, {}));
+      this.trackEvent('comments', 'comment_created');
     }
   }
 });
