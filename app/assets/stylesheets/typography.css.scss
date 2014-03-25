@@ -226,9 +226,12 @@ PARAGRAPH / SUBTASKS
 */
 p, .subtask {
   font-size: 16px;
-  font-weight:600;
   line-height: 1.4em;
   margin: 0 0 5px;
+}
+
+.subtask {
+  font-weight:600;
 }
 
 strong {
@@ -244,6 +247,7 @@ COMMENTS
   font-size: 13px;
   line-height: 1.4em;
   margin: 0 0 15px;
+  font-weight:400;
 }
 
 .comment-name, .assigned-to, .edit-actions {
