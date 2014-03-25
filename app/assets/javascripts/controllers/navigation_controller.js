@@ -5,6 +5,11 @@ Sis.NavigationController = Ember.ObjectController.extend({
   ///////////////////////
   isAuthenticated: Em.computed.alias("auth.isAuthenticated"),
   currentUser: Em.computed.alias("auth.currentUser"),
+  currentSemester: null,
+
+  onSignupRoute: function() {
+    return this.get('controllers.application.currentPath') === 'registration';
+  }.property('controllers.application.currentPath'),
 
   projects: function() {
     if (this.get('isAuthenticated')) {
