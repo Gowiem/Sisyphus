@@ -31,5 +31,5 @@ Sisyphus::Application.configure do
   config.assets.debug = true
 
   # https://github.com/schneems/sprockets_better_errors#install
-  config.assets.raise_production_errors = true
+  # config.assets.raise_production_errors = true
 end
