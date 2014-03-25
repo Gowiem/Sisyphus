@@ -202,10 +202,10 @@ projectGroup13 = ProjectGroup.create!( name: "A Team", students: [ dave, laura, 
 projectGroup14 = ProjectGroup.create!( name: "B Team", students: [ davey, laurie, bobby, lexi ]);
 projectGroup15 = ProjectGroup.create!( name: "F Team", students: [ eric, holly, jane, nick]);
 
-projectGroup16 = ProjectGroup.create!( name: "Mu Team", students: [ gowie, craig, maple, john, sarah, nicole, mark ]);
-projectGroup17 = ProjectGroup.create!( name: "A Team", students: [ dave, laura, bob, alex ]);
-projectGroup18 = ProjectGroup.create!( name: "B Team", students: [ davey, laurie, bobby, lexi ]);
-projectGroup19 = ProjectGroup.create!( name: "F Team", students: [ eric, holly, jane, nick]);
+projectGroup16 = ProjectGroup.create!( name: "Q Team", students: [ gowie, craig, maple, john, sarah, nicole, mark ]);
+projectGroup17 = ProjectGroup.create!( name: "X Team", students: [ dave, laura, bob, alex ]);
+projectGroup18 = ProjectGroup.create!( name: "Y Team", students: [ davey, laurie, bobby, lexi ]);
+projectGroup19 = ProjectGroup.create!( name: "Z Team", students: [ eric, holly, jane, nick]);
 
 ## Semesters
 ##################

@@ -30,23 +30,17 @@ Sis.CourseController = Ember.ObjectController.extend({
   emailHref: function() {
     var emails = [];
     var emailStr = "";
-    var self = this;
-    var returnVal = "";
-    this.get('projects').then(function (projects) {
-      for (var i=0; i < projects.get('length'); i++) {
-        var students = projects.objectAt(i).get('students');
-        for (var k=0; k < students.get('length'); k++) {
-          emails.push(students.objectAt(k).get('email'));
-        }
+    debugger
+    var projects = this.get('content.projects');
+    for (var i=0; i < projects.get('length'); i++) {
+      var students = projects.objectAt(i).get('students');
+      for (var k=0; k < students.get('length'); k++) {
+        emails.push(students.objectAt(k).get('email'));
       }
-      for (var m = 0; m < emails.length; m++) {
-        emailStr += emails[m] + ",";
-      }
-      debugger
-      // returnVal = "mailto:" + emailStr + "?subject=" + self.get('title') + " on EasyGroupApp.com";
-      // return returnVal;
-    });
-    // return "mailto:" + emailStr + "?subject=" + self.get('title') + " on EasyGroupApp.com";
-
-  }.property('project.students.@each.email'),
+    }
+    for (var m = 0; m < emails.length; m++) {
+      emailStr += emails[m] + ",";
+    }
+    return "mailto:" + emailStr + "?subject=" + this.get('title') + " on EasyGroupApp.com";
+  }.property('content.projects.students.@each.email'),
 });
