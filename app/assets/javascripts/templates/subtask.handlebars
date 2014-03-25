@@ -16,6 +16,9 @@
         <div class="date-container">
           <p {{bind-attr class="isDueSoonish:due-soon isCompleted:due-completed :center-block"}}>{{readableDate}}</p>
         </div>
+        {{#if model.isDisputed}}
+        <div class="subtask-container disputed-indicator"><i class="fa fa-ban fa-fw"></i>Disputed</a></div>
+        {{/if}}
       </div>
       {{#if isViewing}}
         <div class="viewing-info row col-md-12 task-info-container">
