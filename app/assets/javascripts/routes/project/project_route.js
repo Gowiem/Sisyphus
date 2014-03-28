@@ -4,11 +4,6 @@ Sis.ProjectRoute = Ember.Route.extend({
       this.transitionTo('home');
     }
   },
-  afterModel: function(model) {
-    model.get('students').forEach(function(student, idx) {
-      student.set('index', idx);
-    });
-  },
   setupController: function(controller, project) {
     // Setup our model
     controller.set('model', project);
