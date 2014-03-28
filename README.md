@@ -48,16 +48,11 @@ Now that we're user testing our project we need the project to start off in a bl
 
 Once you're all setup you can run the following command from the root directory of the project to populate your local database with seed data:
 
-`rake db:seed`
+`rake db:reset`
 
-###Want to change your password or change the data for some reason?
+###Need the data for some reason?
 
-Check out 'db/seeds.rb'. It's just a simple ruby file which you can probably figure out and change depending on what you want. If you change something however and then run `rake db:seed` again you'll get an error because you're trying to create users which are already in the database, so to get around that do the following: 
-
-1. Open the rails console => `rails console`
-2. Clear out the database => `DatabaseCleaner.clean`
-3. Exit rails console => `exit`
-4. Re-seed the database => `rake db:seed`
+Check out 'db/seeds.rb'. It's just a simple ruby file which you can probably figure out and change depending on what you want. If you change something however make sure to run `rake db:reset` again as this will populate your changes.
 
 ## Useful Resources 
 
