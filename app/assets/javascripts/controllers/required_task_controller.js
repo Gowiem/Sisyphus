@@ -3,6 +3,7 @@ Sis.RequiredTaskController = Sis.TaskController.extend(
   needs: "projectProjectGroup",
   addingNewTask: false,
   showCompletedVal: false,
+  projectGroup: Ember.computed.alias('controllers.projectProjectGroup.model'),
   showingAllTasks: Ember.computed.alias('controllers.projectProjectGroup.showingAllTasks'),
 
   init: function() {
@@ -17,12 +18,21 @@ Sis.RequiredTaskController = Sis.TaskController.extend(
 
   currentSubtasks: function() {
     var showingAllTasks = this.get('showingAllTasks'),
-        currentUserSubtaskIds;
+        projectGroupId = this.get('projectGroup.id'),
+        currentUserSubtaskIds,
+        allSubtasks;
+
+    // Make sure the subtasks from this required task are only for the current
+    // project group since all subtasks are loaded when the teacher is checking
+    // on and therefore they see all subtasks attached to the required task.
+    allSubtasks = this.get('subtasks').filter(function(subtask, idx) {
+      return subtask.get('projectGroup.id') === projectGroupId;
+    });
     if (showingAllTasks) {
-      return this.get('subtasks');
+      return allSubtasks;
     } else {
       currentUserSubtaskIds = this.get('auth.currentUser.subtasks.@each.id');
-      return this.get('subtasks').filter(function(subtask, idx) {
+      return allSubtasks.filter(function(subtask, idx) {
         return currentUserSubtaskIds.contains(subtask.get('id'));
       });
     }
