@@ -37,6 +37,10 @@ Sis.normalizeJsonObject = function(jsonObj, type, store) {
   return serializer.normalize(dataType, jsonObj);
 };
 
+Sis.logoutRedirect = function() {
+  window.location = "/";
+};
+
 Sis.newsFeedTimer = null;
 Sis.pushObjectsTimer = null;
 Sis.updateHistoryTrackers = function(projectGroup) {

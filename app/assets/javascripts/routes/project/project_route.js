@@ -10,11 +10,11 @@ Sis.ProjectRoute = Ember.Route.extend({
     });
   },
   setupController: function(controller, project) {
-    // Setup our model and projectGroup on the projectController as we only have one. 
+    // Setup our model
     controller.set('model', project);
-    controller.set('projectGroup', project.get('projectGroups').objectAt(0));
 
     // Setup the requiredTasks controller
+    // TODO: Below seems a bit wonk. Probably not needed.
     this.controllerFor('requiredTasks').set('content', project.get('requiredTasks'));
     this.controllerFor('requiredTasks').set('project', project);
   },

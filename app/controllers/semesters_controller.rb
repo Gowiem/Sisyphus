@@ -1,5 +1,6 @@
 class SemestersController < ApplicationController
   before_filter :authenticate!
+  before_filter :set_semester, only: [:show, :edit]
 
   def index
     @semesters = current_user.semesters

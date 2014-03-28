@@ -1,8 +1,9 @@
 Sis.RequiredTaskController = Sis.TaskController.extend(
   Ember.GoogleAnalyticsTrackingMixin, {
-  needs: "project",
+  needs: "projectProjectGroup",
   addingNewTask: false,
   showCompletedVal: false,
+  showingAllTasks: Ember.computed.alias('controllers.projectProjectGroup.showingAllTasks'),
 
   init: function() {
     this.set('completedLimboSubtasks', Ember.A());
@@ -15,7 +16,7 @@ Sis.RequiredTaskController = Sis.TaskController.extend(
   }.property(),
 
   currentSubtasks: function() {
-    var showingAllTasks = this.get('controllers.project.showingAllTasks'),
+    var showingAllTasks = this.get('showingAllTasks'),
         currentUserSubtaskIds;
     if (showingAllTasks) {
       return this.get('subtasks');
@@ -28,12 +29,12 @@ Sis.RequiredTaskController = Sis.TaskController.extend(
   }.property(),
 
   completedCount: function() {
-    if (this.get('controllers.project.showingAllTasks')) {
+    if (this.get('showingAllTasks')) {
       return this.get('subtasks').filterBy('isCompleted').get('length');
     } else {
       return this.get('auth.currentUser.subtasks').filterBy('isCompleted').get('length');
     }
-  }.property('subtasks.@each.isCompleted', 'controllers.project.showingAllTasks'),
+  }.property('subtasks.@each.isCompleted', 'showingAllTasks'),
 
   showingCompleted: function(key, value) {
     if (value === undefined) {

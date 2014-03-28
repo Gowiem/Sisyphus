@@ -52,10 +52,17 @@ Sis.AuthController = Ember.ObjectController.extend({
             self.get('controllers.navigation').set('currentSemester', semesters.get('firstObject'));
             route.transitionTo('semester', semesters.get('firstObject'));
           });
-        } else {          
+        } else {
           route.get('store').find('project').then(function(projects) {
+            var project = projects.get('firstObject'),
+                projectGroup = project.get('projectGroups.firstObject');
+
             self.set('currentUser', user);
-            route.transitionTo('project', projects.get('firstObject'));
+            if (project && projectGroup) {
+              route.transitionTo('project.project_group', project, projectGroup);
+            } else {
+              route.transitionTo('home');
+            }
           });
         }
       });
@@ -87,7 +94,7 @@ Sis.AuthController = Ember.ObjectController.extend({
     function(result) {
       // Cause a page refresh so we don't deal with all the overwriting user 
       // info headaches that we were dealing with before. 
-      window.location = "/";
+      Sis.logoutRedirect();
     },
     // Error Callback
     function(result) {
