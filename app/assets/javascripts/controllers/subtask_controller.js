@@ -124,7 +124,7 @@ Sis.SubtaskController = Sis.TaskController.extend(
       disputeComment.set('isDisputed', true);
       disputeComment.set('body', disputeReason);
       disputeComment.set('subtask', subtask);
-      disputeComment.set('student', user);
+      disputeComment.set('user', user);
       disputeComment.save();
 
       // Set this subtask as disputed, not completed, add the new comment, and save.
