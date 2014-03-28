@@ -50,9 +50,9 @@ Once you're all setup you can run the following command from the root directory 
 
 `rake db:reset`
 
-###Need the data for some reason?
+###Need to change the data for some reason?
 
-Check out 'db/seeds.rb'. It's just a simple ruby file which you can probably figure out and change depending on what you want. If you change something however make sure to run `rake db:reset` again as this will populate your changes.
+Check out 'db/seeds.rb'. It's just a simple ruby file which you can probably figure out by looking at it and change it depending on what you want. If you change something however make sure to run `rake db:reset` again as this will populate your changes.
 
 ## Useful Resources 
 
