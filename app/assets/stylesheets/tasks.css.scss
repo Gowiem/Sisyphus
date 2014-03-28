@@ -238,6 +238,8 @@ COMMENTS
   margin-left: 0;
 }
 .comment-header {
+  line-height:0em;
+
   .comment-delete {
     color: $red;
     cursor:pointer;
@@ -249,11 +251,11 @@ COMMENTS
   border-radius: $corner;
   top: 2px;
   right: 2px;
-  height:80px;
+  height:30px;
   width:400px;
   max-width: 100%;
   vertical-align: top;
-  font-size: 14px;
+  font-size: 13px;
   border-color: $grey;
   color:$charcoalDark;
 }
@@ -268,5 +270,6 @@ word-wrap:break-word;
   float: left;
   clear: both;
   padding-left: 29px;
+  margin-top:5px;
 
 }

@@ -250,7 +250,7 @@ COMMENTS
   font-weight:400;
 }
 
-.comment-name, .assigned-to, .edit-actions {
+.assigned-to, .edit-actions {
   font-size: 13px;
   line-height: 1.4em;
   font-weight:600;
@@ -258,10 +258,17 @@ COMMENTS
   padding-right:10px;
 }
 
+.comment-name, {
+  font-size: 13px;
+  line-height: 1.4em;
+  font-weight:600;
+  margin: 0;
+  padding-right:10px;
+}
 .comment-date {
   font-size: 11px;
   line-height: 1.4em;
-  margin: 0 0 15px;
+  margin-top: 2px;
   color:$greyDark;
 }
 

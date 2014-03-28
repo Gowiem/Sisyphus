@@ -16,10 +16,10 @@
         <div class="date-container">
           <p {{bind-attr class="isDueSoonish:due-soon isCompleted:due-completed :center-block"}}>{{readableDate}}</p>
         </div>
-        {{#if model.isDisputed}}
+{{!--         {{#if model.isDisputed}}
         <div class="subtask-container disputed-indicator"><i class="fa fa-ban fa-fw"></i>Disputed</a></div>
         {{/if}}
-      </div>
+ --}}      </div>
       {{#if isViewing}}
         <div class="viewing-info row col-md-12 task-info-container">
           {{#if description}}
@@ -35,7 +35,7 @@
           </a>
         </div>
       {{/if}}
-      <div class="row col-md-9 task-info-container">
+      <div class="row col-md-10 task-info-container">
         <div class="assigned-to-members assigned-tags user-tags-container">
             {{#each student in students}}
               {{render "userSelect" student}}
