@@ -122,7 +122,13 @@ hr {
     }
     
     .subtask-title.disputed {
-      color: $red;
+      color: $charcoalDark;
+    }
+
+    .subtask-title.disputed:before {
+    color: $red; 
+    content: '[DISPUTED]';
+    
     }
     
     .subtask-title.disputed.subtask-in-limbo {
