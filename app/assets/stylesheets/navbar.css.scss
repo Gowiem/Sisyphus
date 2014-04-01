@@ -10,6 +10,7 @@
 
   -- DROPDOWN MENU
   —- NAVIGATION
+  -- LOGIN BUTTON
 
 ------------------------------ 
 */
@@ -20,7 +21,6 @@
 NAVIGATION
 ------------------------------ 
 */
-
 
 .dropdown-arrow-inverse {
   border-bottom-color: $charcoal !important;
@@ -1068,4 +1068,16 @@ DROPDOWN MENU
 .open > .dropdown-arrow {
   margin-top: 11px;
   opacity: 1;
+}
+
+/* 
+------------------------------ 
+LOGIN BUTTON
+------------------------------ 
+*/
+
+.btn-login{
+  float: right;
+  margin-top: 12px;
+  padding: 10px 40px;
 }
