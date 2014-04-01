@@ -34,25 +34,13 @@ Sisyphus::Application.routes.draw do
   resources :subtasks, :constraints => FormatTest.new(:json)
   resources :students, :constraints => FormatTest.new(:json)
   resources :comments, :constraints => FormatTest.new(:json)
+  resources :semesters,:constraints => FormatTest.new(:json)
 
   resources :project_groups, :constraints => FormatTest.new(:json) do
     resources :history_trackers, only: [:index, :show]
   end
 
-  # devise_for :teachers
-  # devise_scope :teacher do
-  #   get "/teachers/login" => "devise/sessions#new", :as => "teacher_login"
-  #   get "/teachers/logout" => "devise/sessions#destroy", :as => "teacher_logout"
-  #   get "/teachers/register" => "devise/registrations#new", :as => "teacher_register"
-  # end
-
-  # devise_for :students
-  # devise_scope :student do
-  #   get "/students/login" => "devise/sessions#new", :as => "student_login"
-  #   get "/students/logout" => "devise/sessions#destroy", :as => "student_logout"
-  #   get "/students/register" => "devise/registrations#new", :as => "student_register"
-  # end
-
+  get '/users/:id', to: 'users#show'
   root :to => "ember#index", as: :ember_root, :constraints => FormatTest.new(:html)
 
   ## Catch all Route which will just render ember, and ember can figure out the route

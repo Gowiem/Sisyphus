@@ -16,6 +16,10 @@ gem 'omniauth-google-oauth2'
 gem 'haml-rails'
 gem 'ember-rails'
 
+# Heroku deployment helpers
+gem 'sprockets_better_errors'
+gem 'rails_12factor'
+
 # gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
 ## TODO: RailsAdmin is broken with bootstrap-sass 2/3 upgrade issues.

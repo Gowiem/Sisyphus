@@ -5,21 +5,17 @@ Sis.NavigationController = Ember.ObjectController.extend({
   ///////////////////////
   isAuthenticated: Em.computed.alias("auth.isAuthenticated"),
   currentUser: Em.computed.alias("auth.currentUser"),
+  currentSemester: null,
+
   onSignupRoute: function() {
     return this.get('controllers.application.currentPath') === 'registration';
   }.property('controllers.application.currentPath'),
 
-  projects: function() {
+  projectGroups: function() {
     if (this.get('isAuthenticated')) {
-      return this.store.findAll('project');
+      return this.store.findAll('project_group');
     }
   }.property('auth.currentUser'),
-
-  uniqueSemesters: function() {
-    if (this.get('isAuthenticated')) {
-      return this.get('currentUser.courses').mapBy('semester').uniq();
-    }
-  }.property('currentUser.courses.length'),
 
   // Actions
   ///////////

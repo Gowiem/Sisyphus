@@ -10,14 +10,14 @@ var initEmber = function() {
   // Start Ember
   Sis.reset();
   Ember.run(Sis, Sis.advanceReadiness);
-}
+};
 
 var loginStudent = function(username, password) {
   visit('/').click('.studentsLogin .btn span')
             .fillIn('#email-field', username)
             .fillIn('#password-field', password)
             .click('#login-button');
-}
+};
 
 var logoutUser = function() {
   click('#logout-button').then(function() {
@@ -32,13 +32,13 @@ var initAjaxFixtures = function(userEmail, fixtures) {
   // Grab our student which has the given email
   userJSON['student'] = fixtures[0]['students'].findBy('email', userEmail);
 
-  ic.ajax.defineFixture(Sis.urls.studentLogin, {
+  ic.ajax.defineFixture(Sis.urls.userLogin, {
     response: userJSON,
     jqXHR: {},
     textStatus: 'success'
   });
   // Log out
-  ic.ajax.defineFixture(Sis.urls.studentLogout, {
+  ic.ajax.defineFixture(Sis.urls.userLogout, {
     response: {'csrf-param': 'authenticity_token', 'csrf-token': 'SgQEpDI0ncccBxXdUTOlMTYtGQmvlpa+Hu5+/aZEgwg='},
     jqXHR: {},
     textStatus: 'success'

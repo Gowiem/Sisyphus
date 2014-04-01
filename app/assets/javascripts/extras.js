@@ -37,6 +37,10 @@ Sis.normalizeJsonObject = function(jsonObj, type, store) {
   return serializer.normalize(dataType, jsonObj);
 };
 
+Sis.logoutRedirect = function() {
+  window.location = "/";
+};
+
 Sis.newsFeedTimer = null;
 Sis.pushObjectsTimer = null;
 Sis.updateHistoryTrackers = function(projectGroup) {
@@ -59,8 +63,6 @@ Sis.updateHistoryTrackers = function(projectGroup) {
       var historyTrackers = result['response'],
           emHistoryTrackers;
 
-      console.log("Updating News Feed...");
-
       // Push our new records into EmberData
       store.pushPayload('historyTracker', historyTrackers);
 
@@ -76,4 +78,4 @@ Sis.updateHistoryTrackers = function(projectGroup) {
       console.log("Error updating the News Feed. Error: ", result);
     });
   }, 2000);
-}
+};

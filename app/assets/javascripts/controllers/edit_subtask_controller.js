@@ -1,5 +1,5 @@
 Sis.EditSubtaskController = Sis.AbstractSubtaskController.extend({
-  needs: ["subtask", "project"],
+  needs: ["subtask", "projectProjectGroup"],
   actions: {
     saveSubtask: function() {
       if (!this.get('userCanSave')) {
@@ -12,7 +12,7 @@ Sis.EditSubtaskController = Sis.AbstractSubtaskController.extend({
       this.get('target').set('isViewing', true);
       // Make sure to let the project_controller know to check the 'filteredRequiredTasks' 
       // computer property as it may have changed when this subtask was saved.
-      this.get('controllers.project').notifyPropertyChange('filteredRequiredTasks');
+      this.get('controllers.projectProjectGroup').notifyPropertyChange('filteredRequiredTasks');
     },
     deleteSubtask: function() {
       var subtask = this.get('model');

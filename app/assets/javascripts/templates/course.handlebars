@@ -1,24 +1,18 @@
-<ul class="nav nav-pills nav-justified">
-  <li class="active"><a>{{title}}</a></li>
-  {{#each course in nonActiveCourses}}
-    <li>{{#link-to 'course' course}} {{course.title}} {{/link-to}}</a></li>
-  {{/each}} 
-</ul>
-<p><h2>{{title}} ({{code}})</h2></p>
-<ul class="nav nav-tabs nav-justified">
-  <li>Project:
-    {{view Ember.Select
-           content=projects
-           optionValuePath="content.id"
-           optionLabelPath="content.title"
-           selection=selectedProject}}
-  </li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li><span class="glyphicon glyphicon-pencil"></span>  Edit Project</li>
-  <li><span class="glyphicon glyphicon-folder-open"></span>  Project Folder</li>
-  <li><span class="glyphicon glyphicon-envelope"></span>  Email Class</li>
-</ul>
-{{render "facultyProject" selectedProject}}
+<div class="row">
+  <div class="col-md-4">
+    Project:{{view Ember.Select
+                   content=projects
+                   optionValuePath="content"
+                   optionLabelPath="content.title"
+                   selection=selectedProject}}
+  </div>
+  <div class="col-md-5">
+    <div class="row pull-right">
+      <button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>  Edit Project</button>
+      <button class="btn btn-default"><span class="glyphicon glyphicon-folder-open"></span>  Project Folder</button>
+      <a {{bind-attr href="emailHref"}} target="_blank"><button class="btn btn-default"><span class="glyphicon glyphicon-envelope"></span>  Email Class</button></a>
+    </div>
+  </div>
+</div>
+
+{{render 'facultyProject' selectedProject}}

@@ -26,9 +26,10 @@
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require ./vendor/ember-google-analytics
 //= require_self
 //= require sisyphus
-//= require proto_extensions
+//= require extensions
 
 // Other 3rd Party Add ons
 ///////////////////////////
@@ -41,7 +42,6 @@ Sis = Ember.Application.create({
   // LOG_ACTIVE_GENERATION: true,
   // LOG_VIEW_LOOKUPS: true,
   ready: function() {
-    console.log("Ember.Application#Ready!");
   }
 });
 

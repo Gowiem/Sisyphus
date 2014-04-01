@@ -1,4 +1,5 @@
 Sis.AuthController = Ember.ObjectController.extend({
+  needs: ['navigation'],
   currentUser: null,
   isAuthenticated: Em.computed.notEmpty("currentUser"),
 
@@ -32,8 +33,6 @@ Sis.AuthController = Ember.ObjectController.extend({
         }
       }
 
-      console.log("userType: ", userType);
-
       // Normalize our JSON object
       userJson = Sis.normalizeJsonObject(data[userType], userType, self.store);
 
@@ -47,14 +46,23 @@ Sis.AuthController = Ember.ObjectController.extend({
 
       // Once we've found our user, set currentUser, and transition appropriately
       self.store.find(userType, data[userType].id).then(function(user) {
-        self.set('currentUser', user);
         if (user.get('isTeacher')) {
-          route.get('store').find('course').then(function(courses) {
-            route.transitionTo('course', courses.get('firstObject'));
+          route.get('store').find('semester').then(function(semesters) {
+            self.set('currentUser', user);
+            self.get('controllers.navigation').set('currentSemester', semesters.get('firstObject'));
+            route.transitionTo('semester', semesters.get('firstObject'));
           });
         } else {
           route.get('store').find('project').then(function(projects) {
-            route.transitionTo('project', projects.get('firstObject'));
+            var project = projects.get('firstObject'),
+                projectGroup = project.get('projectGroups.firstObject');
+
+            self.set('currentUser', user);
+            if (project && projectGroup) {
+              route.transitionTo('project.project_group', project, projectGroup);
+            } else {
+              route.transitionTo('home');
+            }
           });
         }
       });
@@ -64,6 +72,7 @@ Sis.AuthController = Ember.ObjectController.extend({
       var jqXHR = result.jqXHR;
       if (jqXHR.status === 401 || jqXHR.status === 406) {
         controller.set("errorMsg", jqXHR.responseJSON['error']);
+
       } else {
         controller.set("errorMsg", "Sorry there was an error with loggin you in. Please try again later");
         console.log("Login Error - jqXHR: ", jqXHR);
@@ -83,11 +92,9 @@ Sis.AuthController = Ember.ObjectController.extend({
     }).then(
     // Success Callback
     function(result) {
-      var data = result.response;
-      $('meta[name="csrf-token"]').attr('content', data['csrf-token']);
-      $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
-      self.set('currentUser', null);
-      self.transitionToRoute('home');
+      // Cause a page refresh so we don't deal with all the overwriting user 
+      // info headaches that we were dealing with before. 
+      Sis.logoutRedirect();
     },
     // Error Callback
     function(result) {

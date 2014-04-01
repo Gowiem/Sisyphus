@@ -11,7 +11,19 @@ PROJECT NAME
   padding-bottom:10px;
 }
 
-.project-description {
+#project-description-container {
+  float: left;
+  cursor: pointer;
   font-size:14px;
-  padding-bottom:10px;
+
+  #project-description {
+    cursor: default;
+    padding-bottom:10px;
+
+    #close-project-description {
+      position: relative;
+      top: -10px;
+      cursor: pointer;
+    }
+  }
 }
