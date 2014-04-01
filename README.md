@@ -38,24 +38,21 @@ Now that we're user testing our project we need the project to start off in a bl
 - Open a new tab in your terminal and naviagate to the project. Ex. `cd ~/Workspace/Sisyphus/`
 - Run the rake task to reseed the database: `bundle exec rake extra_seed:scenario1`
 - Once the user has run through the first scenario then you can run the second rake task: `bundle exec rake extra_seed:scenario2`
+- Finished with testing and want to get back to using the project locally with your own email? Either run `bundle exec rake extra_seed:sisyphus` (will keep Janet Orange, Bill Banana, and gang around) or `bundle exec rake db:reset` (Resets the database so only our team is available)
 
-- Login: sam.doe@gmail.com
-- Password: password12
+- User login info:
+  - Email: sam.doe@gmail.com
+  - Password: password12
 
 ###Need some data?
 
 Once you're all setup you can run the following command from the root directory of the project to populate your local database with seed data:
 
-`rake db:seed`
+`rake db:reset`
 
-###Want to change your password or change the data for some reason?
+###Need to change the data for some reason?
 
-Check out 'db/seeds.rb'. It's just a simple ruby file which you can probably figure out and change depending on what you want. If you change something however and then run `rake db:seed` again you'll get an error because you're trying to create users which are already in the database, so to get around that do the following: 
-
-1. Open the rails console => `rails console`
-2. Clear out the database => `DatabaseCleaner.clean`
-3. Exit rails console => `exit`
-4. Re-seed the database => `rake db:seed`
+Check out 'db/seeds.rb'. It's just a simple ruby file which you can probably figure out by looking at it and change it depending on what you want. If you change something however make sure to run `rake db:reset` again as this will populate your changes.
 
 ## Useful Resources 
 

@@ -8,7 +8,7 @@ Sis.User = DS.Model.extend({
   password: DS.attr('string'),
   passwordConfirmation: DS.attr('string'),
   currentPassword: DS.attr('string'),
-  lastLogin: DS.attr('isodate'),
+  lastLogin: DS.attr('isodatetime'),
   // Computed Propeties
   readableLastLogin: function() {
     var lastLogin = moment(this.get('lastLogin'));
@@ -39,5 +39,42 @@ Sis.Student = Sis.User.extend({
 });
 
 Sis.Teacher = Sis.User.extend({
-  courses: DS.hasMany('course', { async: true }),
+  semesters: DS.hasMany('semester'),
+  
+  // mostRecentSemester: function() {
+  //   var self = this;
+
+  //   this.get('courses').then(function (courses) {
+  //     // var diffSemesters = courses.mapBy('semester').uniq();
+  //     // var diffYears = [];
+
+  //     // // Get unique semester years
+  //     // for( var i = 0; i < diffSemesters.length; i++ ) {
+  //     //   var semStr = diffSemesters[i];
+  //     //   var semArr = semStr.split(" ");
+  //     //   var semYear = parseInt( semArr[1], 10 ); // Constant specifies to parse as base 10 value 
+
+  //     //   // Get unique semester years
+  //     //   if (!diffYears.contains( semYear )) {
+  //     //     diffYears.push( semYear );
+  //     //   }            
+  //     // }
+
+  //     // // Get the most recent year
+  //     // var maxYear = Math.max.apply( Math, diffYears );
+      
+  //     // // Extract possible semesters with current year
+  //     // diffSemesters = diffSemesters.filter(function (semester) {
+  //     //   return (semester.indexOf(maxYear) != -1);
+  //     // });
+
+  //     // // Return Fall if it exists, otherwise return Spring
+  //     // var index = diffSemesters.indexOf( "Fall " + maxYear );
+  //     // if ( index === -1 ) {
+  //     //   index = diffSemesters.indexOf( "Spring " + maxYear );
+  //     // }
+  //     // debugger
+  //     // self.set('currentSemester', diffSemesters[index]);
+  //   });
+  // }.observes('courses.@each','content'),
 });

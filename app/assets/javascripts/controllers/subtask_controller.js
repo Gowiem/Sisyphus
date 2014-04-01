@@ -1,5 +1,6 @@
-Sis.SubtaskController = Sis.TaskController.extend({
-  needs: "project",
+Sis.SubtaskController = Sis.TaskController.extend(
+  Ember.GoogleAnalyticsTrackingMixin, {
+  needs: ["projectProjectGroup"],
   isEditing: false,
   isViewing: false,
   isHovering: false,
@@ -63,7 +64,7 @@ Sis.SubtaskController = Sis.TaskController.extend({
     // to cancel their action
     cancelCompletedKey = Ember.run.later(this, function() {
       this.completeTask(model, true);
-    }, 2500);
+    }, Sis.SECONDS_IN_LIMBO_TIME * 1000);
     // Set the result of run#later on our model so if the user undos the 
     // completion then we can cancel the above call via Ember.run#cancel
     model.set('cancelCompletedKey', cancelCompletedKey);
@@ -98,17 +99,19 @@ Sis.SubtaskController = Sis.TaskController.extend({
     },
     startEditing: function() {
       this.set('isEditing', true);
+      this.trackEvent('editing_task', 'editing_opened');
     },
     cancelEdit: function() {
       this.set('isEditing', false);
       this.set('isViewing', true);
+      this.trackEvent('editing_task', 'editing_closed');
     },
     disputeSubtask: function() {
       var modalId = this.get('disputeModalId');
-      $('#' + modalId).modal({});
+      $('#' + modalId).modal('show');
+      this.trackEvent('disputing_task', 'modal_opened');
     },
 
-    // TODO: This action is causing scrolling to break on the entire page. Not sure why!
     submitDisputed: function() {
       var subtask = this.get('model'),
           disputeComment = this.store.createRecord(Sis.Comment, {}),
@@ -121,18 +124,22 @@ Sis.SubtaskController = Sis.TaskController.extend({
       disputeComment.set('isDisputed', true);
       disputeComment.set('body', disputeReason);
       disputeComment.set('subtask', subtask);
-      disputeComment.set('student', user);
+      disputeComment.set('user', user);
       disputeComment.save();
 
       // Set this subtask as disputed, not completed, add the new comment, and save.
       subtask.set('isDisputed', true);
       subtask.set('isCompleted', false);
       subtask.get('comments').pushObject(disputeComment);
-      subtask.save();
-
-      // Reset the disputeReason and hide the modal
-      this.set('disputeReason', null);
-      $('#' + modalId).modal('hide');
+      subtask.save().then(function() {
+        // Reset the disputeReason and hide the modal
+        this.set('disputeReason', null);
+        // Fuck you modal!
+        $('#' + modalId).modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').hide();
+      }.bind(this));
+      this.trackEvent('disputing_task', 'dispute_submitted');
     },
   }
 });

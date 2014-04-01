@@ -1,9 +1,13 @@
 <tr>
-  <td>{{name}}</td>
+  <td>
+   {{#link-to 'project.project_group' project.id this}}
+    {{name}}
+   {{/link-to}}
+  </td>
   <td>
     <div class="progress">
-      <div class="progress-bar" style="width:60%;"></div>
+      <div class="progress-bar" {{bind-attr style="progressBarStyle"}}></div>
     </div>
   </td>
-  <td><button type="button" class="btn btn-default" style="float:right;"><span class="glyphicon glyphicon-envelope"></span>  Email Group</button></td>
+  <td><a {{bind-attr href="emailHref"}} target="_blank"><button type="button" class="btn btn-default" style="float:right;"><span class="glyphicon glyphicon-envelope"></span>  Email Group</button></a></td>
 </tr>

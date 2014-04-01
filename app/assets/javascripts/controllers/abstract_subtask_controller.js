@@ -1,4 +1,8 @@
 Sis.AbstractSubtaskController = Ember.ObjectController.extend({
+  // TODO: This is bad design. edit_subtask_controller isn't inheriting the
+  // subtask_controller's isEditing property which it should. I could move
+  // that property to here, but I think it might be smarter to make this a
+  // mixin which both classes use. I should think about this.
   needs: ['requiredTasks'],
   isShowingUsers: false,
   userCanSave: false,

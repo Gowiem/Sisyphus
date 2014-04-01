@@ -187,6 +187,11 @@ GEM
       sprockets-rails (~> 2.0.0)
     rails-observers (0.1.2)
       activemodel (~> 4.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.0.0)
       actionpack (= 4.0.0)
       activesupport (= 4.0.0)
@@ -226,6 +231,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sprockets_better_errors (0.0.4)
+      sprockets-rails (>= 1.0.0)
     teaspoon (0.7.8)
       phantomjs (>= 1.8.1.1)
       railties (>= 3.2.5, < 5)
@@ -264,10 +271,12 @@ DEPENDENCIES
   omniauth-google-oauth2
   railroady
   rails (= 4.0.0)
+  rails_12factor
   rails_admin!
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
+  sprockets_better_errors
   teaspoon
   therubyracer
   turbolinks

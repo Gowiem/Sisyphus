@@ -1,4 +1,5 @@
-Sis.GroupMemberController = Ember.ObjectController.extend({
+Sis.GroupMemberController = Ember.ObjectController.extend(
+  Sis.GroupMemberMixin, Ember.GoogleAnalyticsTrackingMixin, {
   needs: ['project'],
   isShowingGroupMemberInfo: false,
   progressBarStyle: function () {
@@ -18,21 +19,16 @@ Sis.GroupMemberController = Ember.ObjectController.extend({
     return this.get('model.id') === this.get('auth.currentUser.id');
   }.property(),
 
-  // Grab the this group member's index from our model (set in the afterModel
-  // hook of our project_route.js) and use it to create the class which styles
-  // the color of our progress bar. ex: .group-member-1
-  progressBarClass: function() {
-    return 'group-member-' + this.get('index');
-  }.property(),
-
   actions: {
     editAccount: function() {
       $('#edit-account-modal').modal({});
     },
     showGroupMemberInfo: function() {
+      this.trackEvent('group_member_info', 'open');
       this.set('isShowingGroupMemberInfo', true);
     },
     hideGroupMemberInfo: function() {
+      this.trackEvent('group_member_info', 'close');
       this.set('isShowingGroupMemberInfo', false);
     },
   }

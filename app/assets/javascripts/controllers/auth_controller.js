@@ -1,14 +1,14 @@
 Sis.AuthController = Ember.ObjectController.extend({
+  needs: ['navigation'],
   currentUser: null,
   isAuthenticated: Em.computed.notEmpty("currentUser"),
 
   // Login
   /////////
   login: function(route) {
-    var self = this, 
-        userType = route.routeName === "studentLogin" ? "student" : "teacher",
-        loginUrl = Sis.urls[userType + 'Login'],
-        controller = route.controllerFor(userType + '_login');
+    var self = this,
+        loginUrl = Sis.urls['userLogin'],
+        controller = route.controllerFor('user_login');
         postData = {};
     // Set the email and password fields for the post data to those in the form.
     postData["user[email]"] = route.currentModel.get('email');
@@ -22,7 +22,16 @@ Sis.AuthController = Ember.ObjectController.extend({
     // Success Callback
     function(result) {
       var data = result.response,
-          userJson;
+          userJson,
+          userType,
+          key;
+
+      for(var key in data) {
+        if (data.hasOwnProperty(key)) {
+          userType = key;
+          break;
+        }
+      }
 
       // Normalize our JSON object
       userJson = Sis.normalizeJsonObject(data[userType], userType, self.store);
@@ -37,14 +46,23 @@ Sis.AuthController = Ember.ObjectController.extend({
 
       // Once we've found our user, set currentUser, and transition appropriately
       self.store.find(userType, data[userType].id).then(function(user) {
-        self.set('currentUser', user);
         if (user.get('isTeacher')) {
-          route.get('store').find('course').then(function(courses) {
-            route.transitionTo('course', courses.get('firstObject'));
+          route.get('store').find('semester').then(function(semesters) {
+            self.set('currentUser', user);
+            self.get('controllers.navigation').set('currentSemester', semesters.get('firstObject'));
+            route.transitionTo('semester', semesters.get('firstObject'));
           });
         } else {
           route.get('store').find('project').then(function(projects) {
-            route.transitionTo('project', projects.get('firstObject'));
+            var project = projects.get('firstObject'),
+                projectGroup = project.get('projectGroups.firstObject');
+
+            self.set('currentUser', user);
+            if (project && projectGroup) {
+              route.transitionTo('project.project_group', project, projectGroup);
+            } else {
+              route.transitionTo('home');
+            }
           });
         }
       });
@@ -54,6 +72,7 @@ Sis.AuthController = Ember.ObjectController.extend({
       var jqXHR = result.jqXHR;
       if (jqXHR.status === 401 || jqXHR.status === 406) {
         controller.set("errorMsg", jqXHR.responseJSON['error']);
+
       } else {
         controller.set("errorMsg", "Sorry there was an error with loggin you in. Please try again later");
         console.log("Login Error - jqXHR: ", jqXHR);
@@ -65,7 +84,7 @@ Sis.AuthController = Ember.ObjectController.extend({
   //////////
   logout: function() {
     var self = this,
-        logoutUrl = this.get('currentUser').get('isTeacher') ? Sis.urls['teacherLogout'] : Sis.urls['studentLogout'];
+        logoutUrl = Sis.urls['userLogout'];
     return ic.ajax({
       url: logoutUrl,
       type: "DELETE",
@@ -73,11 +92,9 @@ Sis.AuthController = Ember.ObjectController.extend({
     }).then(
     // Success Callback
     function(result) {
-      var data = result.response;
-      $('meta[name="csrf-token"]').attr('content', data['csrf-token']);
-      $('meta[name="csrf-param"]').attr('content', data['csrf-param']);
-      self.set('currentUser', null);
-      self.transitionToRoute('home');
+      // Cause a page refresh so we don't deal with all the overwriting user 
+      // info headaches that we were dealing with before. 
+      Sis.logoutRedirect();
     },
     // Error Callback
     function(result) {
@@ -97,7 +114,7 @@ Sis.AuthController = Ember.ObjectController.extend({
     registerData[userType + '[password_confirmation]'] = route.currentModel.get('password_confirmation');
     $.ajax({
       url: registerUrl,
-      type: "POST", 
+      type: "POST",
       data: registerData,
       success: function(data) {
         route.transitionTo('home');

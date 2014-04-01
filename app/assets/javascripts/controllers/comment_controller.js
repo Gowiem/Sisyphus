@@ -8,7 +8,6 @@ Sis.CommentController = Ember.ObjectController.extend({
   readableCreateAtDate: function() {
     var createdAt = this.get('model.createdAt');
     var date = moment(createdAt);
-    date.subtract('minutes', date.zone());
     return date.fromNow();
   }.property('model.createdAt'),
 

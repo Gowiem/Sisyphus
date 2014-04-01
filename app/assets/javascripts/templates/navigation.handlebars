@@ -1,19 +1,20 @@
 <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
   <div class="container">
     <div class="navbar-brand">
-        {{#link-to 'home' }} <i class="fa fa-users"></i> WeTeam {{/link-to}}
+        {{#link-to 'home' }}<img width="200px" src="/assets/weteam-logo.png">{{/link-to}}
     </div>
     <ul class="nav navbar-nav navbar-right navbar-text">
       {{#if isAuthenticated}}
         {{#if currentUser.isTeacher}}
           <li class="dropdown" id="project-nav-container">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Semester <span class="caret"></span>
+              Semester
+              <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              {{#each semester in uniqueSemesters}}
+              {{#each semester in currentUser.semesters}}
                 <li>
-                  {{semester}}
+                  {{#link-to 'semester' semester}}{{semester.title}}{{/link-to}}
                 </li>
               {{/each}}
             </ul>
@@ -24,10 +25,10 @@
               Projects <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              {{#each project in projects}}
+              {{#each group in projectGroups}}
                 <li class="project-nav-item">
-                  {{#link-to 'project' project}}
-                    {{project.title}}
+                  {{#link-to 'project.project_group' group.project group}}
+                    {{group.project.title}}
                   {{/link-to}}
                 </li>
               {{/each}}
@@ -41,24 +42,19 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-                <a href="#" {{action editAccount}} id="account-button">
-                  <i class="fa fa-pencil-square-o fa-fw"></i>
-                  Account
-                </a>
+              <a href="#" {{action editAccount}} id="account-button">
+                <i class="fa fa-pencil-square-o fa-fw"></i>
+                Account
+              </a>
             </li>
             <li>
-                <a href="#" {{action logout}} id="logout-button">
-                  <i class="fa fa-power-off fa-fw"></i>
-                  Log Out
-                </a>
+              <a href="#" {{action logout}} id="logout-button">
+                <i class="fa fa-power-off fa-fw"></i>
+                Log Out
+              </a>
             </li>
           </ul>
-      </li>
-      {{else}}
-        <li><a href="/users/auth/google_oauth2">Sign in with Google</a></li>
-        {{#unless onSignupRoute}}
-          <li>{{#link-to 'registration' }} Sign Up {{/link-to}}</li>
-        {{/unless}}
+        </li>
       {{/if}}
     </ul>
   </div>

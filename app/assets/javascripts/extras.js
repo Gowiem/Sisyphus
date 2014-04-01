@@ -1,15 +1,16 @@
 Sis.urls = {} || Sis.urls;
 
-Sis.urls.studentLogin = "/users/sign_in.json";
-Sis.urls.studentRegister = "/users.json";
-Sis.urls.studentLogout = "/users/sign_out.json";
+Sis.urls.userLogin = "/users/sign_in.json";
+Sis.urls.userLogout = "/users/sign_out.json";
 
-Sis.urls.teacherLogin = "/users/sign_in.json";
-Sis.urls.teacherRegister = "/users.json";
-Sis.urls.teacherLogout = "/users/sign_out.json";
+Sis.urls.studentRegister = "/students.json";
+Sis.urls.teacherRegister = "/teachers.json";
 
 Sis.cookies = Sis.cookies || {};
 Sis.cookies.email = 'SISYPHUS_EMAIL';
+
+// Number of seconds a task stays in the limbo state
+Sis.SECONDS_IN_LIMBO_TIME = 1.5;
 
 // Make sure new CSRF tokens which are passed over to the client via 
 // ApplicationController#set_csrf_token are added to all ajax requests.
@@ -34,7 +35,12 @@ Sis.normalizeJsonObject = function(jsonObj, type, store) {
 
   // Use our serializer to normalize the jsonObj of the found dataType
   return serializer.normalize(dataType, jsonObj);
-}
+};
+
+Sis.logoutRedirect = function() {
+  window.location = "/";
+};
+
 Sis.newsFeedTimer = null;
 Sis.pushObjectsTimer = null;
 Sis.updateHistoryTrackers = function(projectGroup) {
@@ -57,8 +63,6 @@ Sis.updateHistoryTrackers = function(projectGroup) {
       var historyTrackers = result['response'],
           emHistoryTrackers;
 
-      console.log("Updating News Feed...");
-
       // Push our new records into EmberData
       store.pushPayload('historyTracker', historyTrackers);
 
@@ -74,4 +78,4 @@ Sis.updateHistoryTrackers = function(projectGroup) {
       console.log("Error updating the News Feed. Error: ", result);
     });
   }, 2000);
-}
+};

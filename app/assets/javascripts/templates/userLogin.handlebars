@@ -1,0 +1,34 @@
+<h3>Login</h3>
+<form {{action login content on="submit"}} class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-3">
+    <div class="control-group">
+      <p>{{view Ember.TextField valueBinding='rememberedEmail' name='email' id='email-field' class='form-control'}}</p>
+    </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-3">
+    <div class="control-group">
+      <p>{{view Ember.TextField type="password" valueBinding='password' id='password-field' class='form-control'}}</p>
+    </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+          <label {{bind-attr class=":remember-me :checkbox :checkbox-label rememberMe:checked:unchecked"}}>
+            {{view Sis.CheckboxView checkedBinding="rememberMe"}}
+            Remember Me
+          </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    <p class="error">{{ errorMsg }}</p>
+      <button  type="submit" id="login-button" class="btn btn-primary" value="Login">Login</button>
+      <a href='#' {{action cancel}} class='btn btn-transparent'>Cancel</a>
+    </div>
+  </div>
+</form>

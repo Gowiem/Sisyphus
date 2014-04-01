@@ -9,18 +9,21 @@
           <label {{bind-attr class=":checkbox :checkbox-label isCompleted:checked:unchecked"}}>
             {{view Sis.CheckboxView checkedBinding="isCompleted" class="completed-checkbox"}}
           </label>
-          <p {{bind-attr class=":subtask-title :center-text isDisputed:disputed inLimbo:subtask-in-limbo"}}>
+          <p {{bind-attr class=":subtask :subtask-title :center-text isCompleted:subtask-title-completed isDisputed:disputed inLimbo:subtask-in-limbo"}}>
             {{title}}
           </p>
         </div>
         <div class="date-container">
-          <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
+          <p {{bind-attr class="isDueSoonish:due-soon isCompleted:due-completed :center-block"}}>{{readableDate}}</p>
         </div>
-      </div>
+{{!--         {{#if model.isDisputed}}
+        <div class="subtask-container disputed-indicator"><i class="fa fa-ban fa-fw"></i>Disputed</a></div>
+        {{/if}}
+ --}}      </div>
       {{#if isViewing}}
         <div class="viewing-info row col-md-12 task-info-container">
           {{#if description}}
-            <p class="description col-md-10">{{description}}</p>
+            <p {{bind-attr class=":description :col-md-10 isCompleted:description-completed"}}>{{description}}</p>
           {{else}}
             <a class="add-description-action" {{action "startEditing" preventDefault=false bubbles=false}}>
               Add details
@@ -32,21 +35,22 @@
           </a>
         </div>
       {{/if}}
-      <div class="row col-md-9 task-info-container">
-        <p class="assigned-to-members assigned-to">
-          Assigned to:
-          {{#each student in students}}
-            <span class="assigned-to-member">{{student.fullName}}</span>
-          {{/each}}
-        </p>
+      <div class="row col-md-10 task-info-container">
+        <div class="assigned-to-members assigned-tags user-tags-container">
+            {{#each student in students}}
+              {{render "userSelect" student}}
+            {{/each}}
+        </div>
       </div>
     {{/if}}
-            {{#if model.isCompleted}}
-        <a class="dispute" {{action disputeSubtask}}>
+    {{#if model.isCompleted}}
+      {{#unless isEditing}}
+        <a class="dispute btn btn-grey btn-xs" {{action disputeSubtask bubbles=false}}>
           <i class="fa fa-ban fa-fw"></i>
           Dispute
         </a>
-      {{/if}}
+      {{/unless}}
+    {{/if}}
   </div>
   <div class="col-md-8 row task-info-container comments-container">
     {{render "comments" comments}}
