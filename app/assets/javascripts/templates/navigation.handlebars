@@ -3,6 +3,11 @@
     <div class="navbar-brand">
         {{#link-to 'home' }}<img width="200px" src="/assets/weteam-logo.png">{{/link-to}}
     </div>
+    {{#link-to 'userLogin' }}
+    <div class="btn btn-primary btn-lg btn-login" role="button">
+       <span style="color:white;">Login</span>
+    </div>
+    {{/link-to}}
     <ul class="nav navbar-nav navbar-right navbar-text">
       {{#if isAuthenticated}}
         {{#if currentUser.isTeacher}}
