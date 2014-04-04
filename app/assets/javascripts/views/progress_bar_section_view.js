@@ -7,7 +7,7 @@ Sis.ProgressBarSectionView = Ember.View.extend({
       var $visibleProgressBars = $('.progress-bar-global .progress-bar-visible');
 
       // Make sure the 'first-progress-bar' class is on the first progress bar.
-      $visibleProgressBars.removeClass('first-progress-bar')
+      $visibleProgressBars.removeClass('first-progress-bar');
       $visibleProgressBars.first().addClass('first-progress-bar');
 
       // If all subtasks are completed then we want to add the 'last-progress-bar'
