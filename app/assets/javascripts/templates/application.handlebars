@@ -1,6 +1,6 @@
-  {{render "navigation"}}
-<main class="container">
-  <div class="row">
+{{render "navigation"}}
+<main {{bind-attr class="onHomeRoute:on-home-route :container"}}>
+  <div id="main-outlet-row" class="row">
     {{ outlet }}
   </div>
 </main>
