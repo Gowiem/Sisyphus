@@ -1,19 +1,24 @@
-<div class="form-group col-lg-10">
+<div class="form-group col-lg-8 edit-task-name">
   {{view Ember.TextField valueBinding="title" placeholder="Title" required="true" class="form-control"}}
 </div>
-<div class="form-group col-lg-10">
-  <label for="subtask-due-date" class="col-lg-2 control-label">Due Date:</label>
-  <div id="new-task-date" class="datepicker input-append date col-lg-2" data-date-format="mm/dd/yyyy"> 
-    {{view Ember.TextField valueBinding="date" class="form-control" size="40"}}
-    <span class="add-on"><i class="icon-th"></i></span>
+<div class="form-group col-lg-4 edit-task-date">
+  <label for="subtask-due-date" class="col-lg-6 control-label">Due Date:</label>
+  <div id="new-task-date" class="datepicker input-append date col-lg-6" data-date-format="mm/dd/yyyy">
+    {{view Ember.TextField valueBinding="date" class="form-control datepicker-text-field" size="40"}}
+    <span class="add-on">
+      <i class="icon-th"></i>
+    </span>
   </div>
-  <label for="subtask-users" class="col-lg-3 control-label">Assigned to:</label>
-  <div class="select-users-container">
-    <ul id="select-users-list">
-      {{#each student in controllers.requiredTasks.selectableStudents}}
-        {{render "userCheckbox" student}}
-      {{/each}}
-    </ul>
+</div>
+<div class="form-group description-field col-lg-10">
+  {{view Ember.TextArea valueBinding="description" class="form-control" placeholder="Task details"}}
+</div>
+<div class="user-tags-container col-lg-12">
+  <label for="subtask-users" class="control-label">Assigned to:</label>
+  <div id="tagsinput_tagsinput" class="tagsinput">
+    {{#each student in controllers.projectProjectGroup.students}}
+      {{render "userSelect" student}}
+    {{/each}}
   </div>
 </div>
 

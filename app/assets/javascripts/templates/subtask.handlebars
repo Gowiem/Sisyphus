@@ -1,45 +1,63 @@
-<li 
-  {{action "editTask" on="click" preventDefault=false}}
-  {{bind-attr class=":subtask-container :clearfix :row 
-                     isDisputed:disputed isCompleted:completed isEditing:editing"}}>
-  {{#if isHovering}}
-    <div class="subtask-edit-pencil">
-      <i class="fa fa-pencil-square-o fa-fw"></i>
-    </div>
-  {{/if}}
-
-  {{#if isEditing}}
-    {{render "editSubtask" model parentBinding="this"}}
-  {{else}}
-    <div class="row col-md-12">
-      <div class="title-container col-md-10">
-        {{view Ember.Checkbox checkedBinding="isCompleted" class="completed-checkbox"}}
-        <h4 {{bind-attr class=":subtask-title :center-text isDisputed:disputed"}}>
-          {{title}}
-        </h4>
+<li {{action "toggleViewing" preventDefault=false}}
+    {{bind-attr class=":subtask-container :clearfix :row isDisputed:disputed isCompleted:completed isEditing:editing isViewing:viewing isDefault:default"}}>
+  <div {{bind-attr class=":subtask-content"}}>
+    {{#if isEditing}}
+      {{render "editSubtask" model parentBinding="this"}}
+    {{else}}
+      <div class="row col-md-12">
+        <div class="title-container col-md-10">
+          <label {{bind-attr class=":checkbox :checkbox-label isCompleted:checked:unchecked"}}>
+            {{view Sis.CheckboxView checkedBinding="isCompleted" class="completed-checkbox"}}
+          </label>
+          <p {{bind-attr class=":subtask :subtask-title :center-text isCompleted:subtask-title-completed isDisputed:disputed inLimbo:subtask-in-limbo"}}>
+            {{title}}
+          </p>
+        </div>
+        <div class="date-container">
+          <p {{bind-attr class="isDueSoonish:due-soon isCompleted:due-completed :center-block"}}>{{readableDate}}</p>
+        </div>
+{{!--         {{#if model.isDisputed}}
+        <div class="subtask-container disputed-indicator"><i class="fa fa-ban fa-fw"></i>Disputed</a></div>
+        {{/if}}
+ --}}      </div>
+      {{#if isViewing}}
+        <div class="viewing-info row col-md-12 task-info-container">
+          {{#if description}}
+            <p {{bind-attr class=":description :col-md-10 isCompleted:description-completed"}}>{{description}}</p>
+          {{else}}
+            <a class="add-description-action" {{action "startEditing" preventDefault=false bubbles=false}}>
+              Add details
+            </a>
+          {{/if}}
+          <a class="edit-action pull-right btn btn-grey btn-block btn-xs" {{action "startEditing" preventDefault=false bubbles=false}}>
+            <i class="fa fa-pencil-square-o fa-fw"></i>
+            Edit
+          </a>
+        </div>
+      {{/if}}
+      <div class="row col-md-10 task-info-container">
+        <div class="assigned-to-members assigned-tags user-tags-container">
+            {{#each student in students}}
+              {{render "userSelect" student}}
+            {{/each}}
+        </div>
       </div>
-      <div class="date-container">
-        <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
-      </div>
-    </div>
-    <div class="row col-md-12">
-      <div class="assigned-to-members col-md-12">
-        Assigned to:
-        {{#each student in students}}
-          <span class="assigned-to-member">{{student.fullName}}</span>
-        {{/each}}
-      </div>
-    </div>
-
-    {{#if showingDispute}}
-      <a class="dispute" {{action disputeSubtask}}><i class="fa fa-ban fa-fw"></i> Dispute</a>
     {{/if}}
-
-  <div class="row comments-container">
-  {{render "comments" comments}}
+    {{#if model.isCompleted}}
+      {{#unless isEditing}}
+        <a class="dispute btn btn-grey btn-xs" {{action disputeSubtask bubbles=false}}>
+          <i class="fa fa-ban fa-fw"></i>
+          Dispute
+        </a>
+      {{/unless}}
+    {{/if}}
   </div>
-  {{/if}}
+  <div class="col-md-8 row task-info-container comments-container">
+    {{render "comments" comments}}
+  </div>
 
 </li>
+
+<hr>
 
 {{view Sis.DisputeModal}}

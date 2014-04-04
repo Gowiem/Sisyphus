@@ -23,8 +23,10 @@ Sisyphus::Application.routes.draw do
   # devise_for :super_admins
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :students, controllers: { sessions: 'sessions' }
-  devise_for :teachers, controllers: { sessions: 'sessions' }
+  devise_for :users, controllers: { sessions: 'sessions',
+                                    omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :students, skip: ['sessions', 'omniauth_callbacks' ]
+  devise_for :teachers, skip: ['sessions', 'omniauth_callbacks' ]
 
   resources :projects, :constraints => FormatTest.new(:json)
   resources :courses, :constraints => FormatTest.new(:json)
@@ -32,21 +34,13 @@ Sisyphus::Application.routes.draw do
   resources :subtasks, :constraints => FormatTest.new(:json)
   resources :students, :constraints => FormatTest.new(:json)
   resources :comments, :constraints => FormatTest.new(:json)
+  resources :semesters,:constraints => FormatTest.new(:json)
 
-  # devise_for :teachers
-  # devise_scope :teacher do
-  #   get "/teachers/login" => "devise/sessions#new", :as => "teacher_login"
-  #   get "/teachers/logout" => "devise/sessions#destroy", :as => "teacher_logout"
-  #   get "/teachers/register" => "devise/registrations#new", :as => "teacher_register"
-  # end
+  resources :project_groups, :constraints => FormatTest.new(:json) do
+    resources :history_trackers, only: [:index, :show]
+  end
 
-  # devise_for :students
-  # devise_scope :student do
-  #   get "/students/login" => "devise/sessions#new", :as => "student_login"
-  #   get "/students/logout" => "devise/sessions#destroy", :as => "student_logout"
-  #   get "/students/register" => "devise/registrations#new", :as => "student_register"
-  # end
-
+  get '/users/:id', to: 'users#show', :constraints => FormatTest.new(:json)
   root :to => "ember#index", as: :ember_root, :constraints => FormatTest.new(:html)
 
   ## Catch all Route which will just render ember, and ember can figure out the route

@@ -17,3 +17,24 @@ width:250px;
 padding:10px;
 margin: auto;
 }
+
+.error{
+ color: #F05B55;
+ font-size: 14px;
+ margin-bottom: 22px;
+ }
+
+.jumbotron {
+	background-color:transparent;
+}
+
+.login-silhouette {
+	font-size:200px;
+	color:$charcoalDark;
+}
+
+.fui-checkbox-checked, .fui-checkbox-unchecked {
+	span {
+		display:none;
+	}
+}

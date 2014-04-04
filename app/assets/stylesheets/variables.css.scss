@@ -1,25 +1,55 @@
+/* 
+------------------------------ 
+VARIABLES
+------------------------------ 
+*/
+
 // Fonts
 /////////
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,600);
-$font-family: "Open Sans", Calibri, Arial, sans-serif;
+$font-family: "Open Sans", Helvetica, Calibri, Arial, sans-serif;
 
 // Color Variables
 ///////////////////
 
-// Teal color
+// Primary color (turquoise)
 $primary: #32BCAD;
+$primaryDark: #069F8E;
 
-$red: #F15B4E;
-$orange: #F99D1B;
-$yellow: #F7C943;
-$lightGreen: #8DC63F;
-$darkGreen: #4EB857;
-$blue: #3CB4E7;
+// Light turquoise hover
+$hoverColor: #E2F7F5;
+
+$red: #F05B55;
+$redDark: #C8493D;
+
+$orange: #F69332;
+$orangeDark: #D4752E;
+
+$yellow: #FFCA06;
+$yellowDark: #E4A212;
+
+$green: #4BAE45;
+$greenDark: #3B9239;
+
+$ygreen: #A5CD38;
+$ygreenDark: #73A433;
+
+$blue: #32B4E8;
+$blueDark: #148EB2;
+
 $purple: #956DAF;
-$lightGrey: #BCBEC0;
-$darkGrey: #333333;
+$purpleDark: #76528A;
+
+$grey: #BBBDBF;
+$greyDark: #929497;
+
+$charcoal: #6D6E70;
+$charcoalDark: #404041;
+
+$white: #FFFFFF;
+$whiteDark: #e5e5e5;
 
 // Rounded Corners
 ///////////////////
 
-$roundCorners: 3px;
+$corner: 5px;

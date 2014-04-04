@@ -1,7 +1,9 @@
 <div class="panel panel-default">
-	<div class="panel-heading"><h3>Group members</h3></div>
-	<div class="panel-body">
-  {{render "groupMember" auth.currentUser}}
+	<div class="sidebar-header"><h2>Group Members</h2></div>
+	<div class="newsfeed panel-body">
+  {{#if auth.currentUser.isStudent}}
+    {{render "groupMember" auth.currentUser}}
+  {{/if}}
 	{{#each member in controller}}
 		{{render "groupMember" member}}
 	{{/each}}

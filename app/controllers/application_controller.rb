@@ -14,10 +14,11 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     :authenticate_student! || :authenticate_teacher!
-    current_user
+    @current_user = current_user
   end
 
   def current_user
+    @current_user = super
     @current_user ||= student_signed_in? ? current_student : current_teacher
   end
 

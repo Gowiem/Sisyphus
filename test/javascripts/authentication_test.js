@@ -1,23 +1,39 @@
 pavlov.specify('Authentication', function() {
+  fixture.preload("model_fixtures.json");
   describe('Authentication', function() {
+    var studentEmail = "gowie.matt@gmail.com",
+        studentPassword = "password12",
+        server,
+        fixtures,
+        logoutRedirectStub;
 
-    var server;
     before(function() {
+      fixtures = fixture.load('model_fixtures.json', true);
+
       initEmber();
-      server = initServer();
-      initAjaxFixtures();
+      emberWait().then(function() {
+        server = initServer(studentEmail, fixtures);
+        initAjaxFixtures(studentEmail, fixtures);
+      });
+
+      logoutRedirectStub = sinon.stub(Sis, 'logoutRedirect');
     });
 
     after(function() {
       server.restore();
+      logoutRedirectStub.restore();
     });
 
     describe('logging in', function() {
       before(function() {
-        visit('/students/login')
-          .fillIn('#email-field', "gowie@email.com")
-          .fillIn('#password-field', "password12")
+        visit('/users/login')
+          .fillIn('#email-field', studentEmail)
+          .fillIn('#password-field', studentPassword)
           .click('#login-button');
+      });
+
+      after(function() {
+        logoutUser();
       });
 
       it('should have a currentUser and redirect to the project route', function() {
@@ -27,11 +43,12 @@ pavlov.specify('Authentication', function() {
       });
 
       it('should show the users projects in the project select', function() {
-        Ember.run(function() {
+        emberWait().then(function() {
           var numberOfProjects = emberHelpers.getController('auth').get('currentUser.projects.length');
           assert($('.project-nav-item').length).equals(numberOfProjects, "Number of project-nav-items didn't match numberOfProjects");
         });
       });
+
     });
 
     describe('logging out', function() {

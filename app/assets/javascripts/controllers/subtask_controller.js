@@ -90,10 +90,10 @@ Sis.SubtaskController = Sis.TaskController.extend(
   },
 
   hasEnteredReason: function() {
-    debugger
     var disputeReason = this.get('disputeReason');
     return disputeReason != "" && disputeReason != null;
   }.property("disputeReason"),
+
 
   // Actions
   ///////////

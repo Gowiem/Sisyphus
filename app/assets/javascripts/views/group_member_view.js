@@ -1,8 +1,8 @@
 Sis.GroupMemberView = Ember.View.extend({
-  mouseEnter: function() {
-    this.get('controller').send('hoveringMemberOn');
+  didInsertElement: function() {
+    this.addObserver('controller.isShowingGroupMemberInfo', this, this.animateGroupMemberInfo);
   },
-  mouseLeave: function() {
-    this.get('controller').send('hoveringMemberOff');
-  },
+  animateGroupMemberInfo: function() {
+    this.$('.group-member-info-container').slideToggle('fast');
+  }
 });

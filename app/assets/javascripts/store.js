@@ -23,23 +23,39 @@ Sis.ApplicationSerializer = DS.ActiveModelSerializer.extend({
 });
 
 
-// Convert Dates to and from what Rails expects
+// Convert Date to and from what Rails expects
 Sis.IsodateTransform = DS.Transform.extend({
   deserialize: function(serialized) {
     if (serialized) {
-      var date = new Date(serialized),
-          offset = date.getTimezoneOffset();
-      return new Date(date.getTime()+offset*60000)
+      return moment(serialized, "YYYY-MM-DD").toDate();
     } else {
       return null;
     }
-  }, 
+  },
   serialize: function(date) {
     if (date) {
       return moment(date).format("YYYY-MM-DD");
     } else {
       return null;
-    } 
+    }
+  }
+});
+
+// Convert DateTime to and from what Rails expects
+Sis.IsodatetimeTransform = DS.Transform.extend({
+  deserialize: function(serialized) {
+    if (serialized) {
+      return new Date(serialized);
+    } else {
+      return null;
+    }
+  },
+  serialize: function(date) {
+    if (date) {
+      return date;
+    } else {
+      return null;
+    }
   }
 });
   

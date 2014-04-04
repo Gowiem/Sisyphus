@@ -1,6 +1,6 @@
 class SubtaskSerializer < BaseSerializer
   embed :ids, include: true
-  attributes :id, :title, :due_date, :is_completed, :is_disputed 
+  attributes :id, :title, :due_date, :is_completed, :is_disputed, :description
 
   has_one :project_group, embed_key: :mongo_id
   has_one :parent_task, embed_key: :mongo_id, root: :required_tasks

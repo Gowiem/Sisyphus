@@ -1,0 +1,29 @@
+@import "variables";
+
+/* 
+------------------------------ 
+PROJECT NAME
+------------------------------ 
+*/
+
+
+.project-title {
+  padding-bottom:10px;
+}
+
+#project-description-container {
+  float: left;
+  cursor: pointer;
+  font-size:14px;
+
+  #project-description {
+    cursor: default;
+    padding-bottom:10px;
+
+    #close-project-description {
+      position: relative;
+      top: -10px;
+      cursor: pointer;
+    }
+  }
+}

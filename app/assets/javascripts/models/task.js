@@ -2,7 +2,8 @@ Sis.Task = DS.Model.extend({
   type: DS.attr('string'),
   title: DS.attr('string'),
   dueDate: DS.attr('isodate'),
-  isCompleted: DS.attr('boolean')
+  isCompleted: DS.attr('boolean'),
+  description: DS.attr('string')
 });
 
 Sis.RequiredTask = Sis.Task.extend({
@@ -15,5 +16,6 @@ Sis.Subtask = Sis.Task.extend({
   projectGroup: DS.belongsTo('projectGroup'),
   parentTask: DS.belongsTo('requiredTask'),
   students: DS.hasMany('student'),
-  comments: DS.hasMany('comment')
+  comments: DS.hasMany('comment'),
+  isOpen: DS.attr('boolean')
 });

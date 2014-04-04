@@ -19,13 +19,31 @@ class User < BaseDocument
     self._type == "Student"
   end
 
+  def self.from_omniauth(auth)
+    if user = User.where(:email => auth.info.email).first
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user
+    else
+      where(auth.slice(:provider, :uid)).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+      end
+    end
+  end
+
   ## Devise Fields/Settings
   ##########################
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :omniauthable,
+         :recoverable, :rememberable, :trackable, :validatable, :omniauth_providers => [:google_oauth2]
+
+  ## oauth required
+  field :provider
+  field :uid
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""

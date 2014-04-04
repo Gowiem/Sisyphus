@@ -1,0 +1,208 @@
+@import "variables";
+
+/*
+------------------------------ 
+  INDEX
+
+  Use Ctrl-F to jump to sections quickly
+
+  -- SIDEBAR
+  -- PROGRESS BAR COLORS
+  -- TASK COUNT
+
+------------------------------ 
+*/
+
+
+/* 
+------------------------------ 
+SIDEBAR
+------------------------------ 
+*/
+
+
+.sidebar-header{
+background-color:$grey;
+border-top-left-radius:$corner;
+border-top-right-radius:$corner;
+padding-left:12px;
+padding-right:12px;
+padding-top:8px;
+padding-bottom:8px;
+}
+
+.sidebar{
+background-color:#fff;
+border-bottom-left-radius:$corner;
+border-bottom-right-radius:$corner;
+padding:12px;
+}
+
+.sidebar p{
+margin:0px;
+}
+
+.group-member-info-icon {
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+  margin-right: 5px;
+
+  &.active {
+    color: $grey;
+  }
+
+  &.inactive {
+    color: $primary;
+  }
+}
+
+.group-member-info-container {
+  display: none;
+  padding-bottom:5px;
+  font-size: 13px;
+  line-height: 1.4em;
+  color:$charcoal;
+}
+
+
+.member-info-online-status {
+  font-style:italic;
+}
+
+/* 
+------------------------------ 
+PROGRESS BAR COLORS
+------------------------------ 
+*/
+
+
+.edit-account-pencil {
+  float: right;
+}
+
+.group-member-progress {
+  background-image: none;
+}
+
+.first-progress-bar {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.last-progress-bar {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.group-member-name {
+  margin-bottom:5px;
+}
+
+.group-member-0 {
+  background-color: $orange;
+}
+
+.group-member-1 {
+  background-color: $yellow;
+}
+
+.group-member-2 {
+  background-color: $ygreen;
+}
+
+.group-member-3 {
+  background-color: $blue;
+}
+
+.group-member-4 {
+  background-color: $purple;
+}
+
+.group-member-5 {
+  background-color: $green;
+}
+
+.group-member-6 {
+  background-color: $orangeDark;
+}
+
+.group-member-7 {
+  background-color: $yellowDark;
+}
+
+.group-member-8 {
+  background-color: $greenDark;
+}
+
+.group-member-9 {
+  background-color: $ygreenDark;
+}
+
+.group-member-10 {
+  background-color: $blueDark;
+}
+
+.group-member-11 {
+  background-color: $purpleDark;
+}
+
+
+/* 
+------------------------------ 
+TASK-COUNT
+------------------------------ 
+*/
+
+.task-count {
+  position: absolute;
+  line-height:0%;
+  text-align: right;
+  width: 100%;
+  right: 37px;
+  color:#fff;
+  font-size:12px;
+  font-weight:400;
+  padding-top:12px;
+}
+
+/* 
+------------------------------ 
+RESPONSIVE CONTAINER
+------------------------------ 
+*/
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+  .sidebar-container {
+    margin-left:0px;
+    margin-top:40px;
+    float:none;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+
+  .sidebar-container {
+    margin-left:0px;
+    margin-top:40px;
+    float:right;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1100px;
+  }
+
+  .sidebar-container{
+  margin-left:0px;
+  margin-top: 95px;
+  float:right;
+  }
+}

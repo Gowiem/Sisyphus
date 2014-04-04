@@ -9,32 +9,61 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require_tree ./vendor
  *= require_tree .
  */
 
 @import "variables";
-@import "bootstrap";
-@import "bootstrap/theme";
 
 body {
   font-family: $font-family;
   h1,h2,h3,h4,h5,h6 {
-  	font-family: $font-family;
+    font-family: $font-family;
   }
 }
 hr { border-color: #DDD; }
 
 h1 { 
-	font-weight: bold; 
+    font-weight: bold; 
 }
 h3 {
-	color: #616161;
-	font-size: 21px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+    color: #616161;
+    font-size: 21px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 h4 {
-	font-size: 16px;
+    font-size: 16px;
 }
 
-.nav .dropdown-menu { padding-left: 10px; }
+// Bootstrap Datepicker Fix 
+// From: https://github.com/designmodo/Flat-UI-Pro-Support/issues/124
+
+.panel-body {
+    border:none !important;
+}
+
+.panel {
+    border:none !important;
+}
+
+.dropdown-menu-date {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    list-style: none;
+    background-color:#fff;
+    border: 1px solid#ccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+}

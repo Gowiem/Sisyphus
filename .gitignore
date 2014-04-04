@@ -7,6 +7,8 @@
 # Ignore doc/*
 /doc/*
 
+rspec.txt
+
 # Ignore bundler config.
 /.bundle
 

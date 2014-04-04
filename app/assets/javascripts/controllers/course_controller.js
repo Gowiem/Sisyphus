@@ -1,28 +1,24 @@
 Sis.CourseController = Ember.ObjectController.extend({
+  needs: ['semester'],
   selectedProjectVal: null,
 
+  resetSelectedProject: function(key, value) {
+    this.set('selectedProjectVal', null);
+  }.observes('content'),
+
   selectedProject: function(key, value) {
-    if (value === undefined) {      
-      var self = this;
-
-      if (this.get('selectedProjectVal')!==null) {
+    if (value === undefined) {
+      if (this.get('selectedProjectVal') !== null) {
         return this.get('selectedProjectVal');
-      } else {          
-        return this.get('content.projects').then(function (projects) {
-          var project = projects.objectAt(0);
-          console.log("project: ", project);
-          self.set('selectedProjectVal', project);
-          return project;
-        });
+      } else {
+        this.set('selectedProjectVal', this.get('content.projects.firstObject'));
+        return this.get('content.projects.firstObject');
       }
-
     } else {
-      console.log("value: ", value);
-      var project = this.store.find('project', value);
-      this.set('selectedProjectVal', project);
-      return project;
+      this.set('selectedProjectVal', value);
+      return value;
     }
-  }.property('selectedProjectVal'),
+  }.property('content.projects.@each.val'),
 
   nonActiveCourses: function () {
     var id = this.get('id');
@@ -30,4 +26,20 @@ Sis.CourseController = Ember.ObjectController.extend({
       return !(id===course.get('id'));
     });
   }.property('auth.currentUser.courses.length', 'content.id'),
+  
+  emailHref: function() {
+    var emails = [];
+    var emailStr = "";
+    var projects = this.get('content.projects');
+    for (var i=0; i < projects.get('length'); i++) {
+      var students = projects.objectAt(i).get('students');
+      for (var k=0; k < students.get('length'); k++) {
+        emails.push(students.objectAt(k).get('email'));
+      }
+    }
+    for (var m = 0; m < emails.length; m++) {
+      emailStr += emails[m] + ",";
+    }
+    return "mailto:" + emailStr + "?subject=" + this.get('title') + " on EasyGroupApp.com";
+  }.property('content.projects.students.@each.email'),
 });

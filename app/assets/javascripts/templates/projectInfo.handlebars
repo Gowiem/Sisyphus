@@ -1,0 +1,26 @@
+<div class="clearfix project-info-container">
+  <h1 class="pull-left project-title"> {{title}} - {{projectGroupName}}</h1>
+</div>
+<div class="prog clearfix">
+  <div class="progress progress-bar-global">
+    {{#if auth.currentUser.isStudent}}
+      <span class="current-user">{{render "progressBarSection" auth.currentUser}}</span>
+    {{/if}}
+    {{render "groupMemberProgressBars" groupMembers}}
+  </div>
+  {{#if hasDescription}}
+    <div id="project-description-container">
+      {{#if showingProjectDescript}}
+        <div id="project-description">
+          {{description}}
+          <a id="close-project-description" {{action hideProjectDescript}}>x</a>
+        </div>
+      {{else}}
+        <a {{action showProjectDescript}}>
+          <i class="fa fa-file fa-fw"></i>
+          Project Description
+        </a>
+      {{/if}}
+    </div>
+  {{/if}}
+</div>

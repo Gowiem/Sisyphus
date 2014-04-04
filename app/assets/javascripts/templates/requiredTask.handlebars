@@ -1,31 +1,48 @@
-<div class="required-task-container clearfix">
-  <h3 class="col-md-11"> {{title}} </h3>
-  <div class="date-container clearfix">
-    <p {{bind-attr class="isDueSoonish:due-soon :center-block"}}>{{readableDate}}</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="required-task-container clearfix">
+      <div class="col-md-10"> 
+        <h3 class="pull-left">{{title}}</h3>
+      </div>
+      <div class="date-container clearfix">
+        <h3 {{bind-attr class=":required-date :center-block"}}>{{readableDate}}</h3>
+      </div>
+      <hr>
+      <ul>
+        {{#each task in uncompletedSubtasks}}
+          {{render "subtask" task}}
+        {{/each}}
+        <div class="completed-tasks">
+          {{#each task in completedSubtasks}}
+            {{render "subtask" task}}
+          {{/each}}
+        </div>
+      </ul>
+      {{#if addingNewTask}}
+        {{render "newSubtask" newSubtask}}
+      {{/if}}
+      <a {{bind-attr class="addingNewTask:hide :add-subtask-link
+                            :add-task :btn-primary :btn-xs"}}
+                            {{action showNewTask}}>
+        <i class="fa fa-plus"></i>
+        Add task
+      </a>
+      <div class="completed-container">
+        {{#if shouldShowCompletedLink}}
+        <p class="completed-action view-completed-tasks">
+          <a {{action showCompleted}}>
+            View completed tasks ({{completedCount}})
+          </a>
+        </p>
+        {{/if}}
+        {{#if showingCompleted}}
+        <p class="completed-action view-completed-tasks">
+          <a {{action hideCompleted}}>
+            Hide completed tasks
+          </a>
+        </p>
+        {{/if}}
+      </div>
+    </div>
   </div>
 </div>
-<ul>
-  {{#each task in uncompletedSubtasks}}
-    {{render "subtask" task}}
-  {{/each}}
-  {{#if showingCompleted}}
-    {{#each task in completedSubtasks}}
-      {{render "subtask" task}}
-    {{/each}}
-  {{/if}}
-</ul>
-
-{{#if addingNewTask}}
-  {{render "newSubtask" newSubtask}}
-{{/if}}
-<a {{bind-attr class="addingNewTask:hide :add-subtask-link :col-lg-3"}} {{action showNewTask}}><span class="glyphicon glyphicon-plus"></span> Add task</a>
-
-<div class="completed-container col-lg-9">
-  {{#if shouldShowCompletedLink}}
-    <a {{action showCompleted}}><span class="completed-action">View completed tasks</span></a>
-  {{/if}}
-  {{#if showingCompleted}}
-    <a {{action hideCompleted}}><span class="completed-action">Hide completed tasks</span></a>
-  {{/if}}
-</div>
-<hr>

@@ -1,5 +1,5 @@
 <div class="jumbotron text-center">
-  <h1>Welcome to Easy Group</h1>
+  <h1>WeTeam</h1>
   <p>Making group projects easier since 2013.</p> 
 
   <br>
@@ -8,25 +8,13 @@
     <tr>
       <td>
         <div class="studentsLogin text-center">
-          {{#link-to 'studentLogin' }}
-            <img src="/assets/person.png" width="180" height="162"/>
+          {{#link-to 'userLogin' }}
+           <i class="fa fa-user login-silhouette"></i>
           {{/link-to}}
-          {{#link-to 'studentLogin' }}
-            <span class="btn btn-primary btn-lg" role="button">
-              <span style="color:white;">Students</span>
-            </span>
-          {{/link-to}}
-        </div>
-      </td>
-      <td>
-        <div class="facultyLogin text-center">
-          {{#link-to 'teacherLogin' }}
-            <img src="/assets/person.png" width="180" height="162"/>
-          {{/link-to}}
-          {{#link-to 'teacherLogin' }}
-            <span class="btn btn-primary btn-lg" role="button">
-              <span style="color:white;">Faculty</span>
-            </span>
+          {{#link-to 'userLogin' }}
+            <div class="btn btn-primary btn-lg" role="button">
+              <span style="color:white;">Login</span>
+            </div>
           {{/link-to}}
         </div>
       </td>

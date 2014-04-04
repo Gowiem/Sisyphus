@@ -10,15 +10,24 @@ gem 'mongoid', github: 'mongoid/mongoid'
 # Devise Authentication, Github: https://github.com/plataformatec/devise
 gem 'devise'
 
+# Google OmniAuth
+gem 'omniauth-google-oauth2'
+
 gem 'haml-rails'
 gem 'ember-rails'
 
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+# Heroku deployment helpers
+gem 'sprockets_better_errors'
+gem 'rails_12factor'
+
+# gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
 ## TODO: RailsAdmin is broken with bootstrap-sass 2/3 upgrade issues.
 ## We'll likely want to update this to the master branch once those 
 ## are fixed. 
 gem 'rails_admin', github: 'jcoleman/rails_admin', branch: 'vendorize-bootstrap-2'
+
+gem 'mongoid-audit'
 
 group :development, :test do
   gem 'teaspoon'

@@ -1,20 +1,14 @@
 Sis.ProgressBarSectionController = Sis.GroupMemberController.extend({
-  needs: ['project'],
-  // Get the progressBarSection style for this user. Uses GroupMemberControllers
-  // getProgressBarStlye to get the original size and then shrinks it down depending
-  // on the number of other users in the group.
-  progressBarSectionStyle: function() {
-    var progressBarStyle = this.get('progressBarStyle'),
-        progressBarPercent = /(\d+)/.exec(progressBarStyle)[0],
-        groupMemberCount = this.get('controllers.project.model.students.length');
-    if (progressBarPercent) {
-      // exec gives us our digit back as a string, convert to int and shrink it
-      // so it's 1/number of group members.
-      progressBarPercent = parseInt(progressBarPercent) * (1 / groupMemberCount);
-    } else {
-      progressBarPercent = 0;
-    }
+  needs: ['projectProjectGroup'],
+  allSubtasksCompleted: Ember.computed.alias('controllers.projectProjectGroup.allSubtasksCompleted'),
 
-    return "width:" + progressBarPercent + "%;";
-  }.property('progressBarStyle')
+  progressBarSectionStyle: function() {
+    var completedTasks = this.get('model.completedSubtasks'),
+        totalTasks = this.get('controllers.projectProjectGroup.totalTasksAssigned');
+    return "width:" + ((completedTasks / totalTasks) * 100) + "%;";
+  }.property('model.completedSubtasks', 'controllers.projectProjectGroup.totalTasksAssigned'),
+
+  hasCompletedTasks: function() {
+    return this.get('model.currentSubtasks').isAny('isCompleted', true);
+  }.property('model.currentSubtasks.@each.isCompleted'),
 });
