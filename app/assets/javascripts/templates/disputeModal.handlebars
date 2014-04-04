@@ -11,11 +11,12 @@
         <div class="dispute-info">
           <p class="dispute-helper-text">Task:</p>
           <div class="task-description">
-          <p>{{title}}</p>
-          <div class="assigned-to-members assigned-to user-tags-container"><strong>Assigned to:</strong>
-            {{#each student in students}}
+            <p>{{title}}</p>
+            <div class="assigned-to-members assigned-to user-tags-container"><strong>Assigned to:</strong>
+              {{#each student in students}}
                 {{render "userSelect" student}}
-            {{/each}}
+              {{/each}}
+            </div>
           </div>
         </div>
 
