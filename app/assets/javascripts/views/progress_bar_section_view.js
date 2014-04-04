@@ -4,10 +4,19 @@ Sis.ProgressBarSectionView = Ember.View.extend({
   attributeBindings: ['style'],
   progressBarVisible: function() {
     Ember.run.scheduleOnce('afterRender', this, function() {
-      $('.progress-bar-global .progress-bar-visible').removeClass('first-progress-bar')
-                                                     .removeClass('last-progess-bar');
-      $('.progress-bar-global .progress-bar-visible').first().addClass('first-progress-bar');
-      $('.progress-bar-global .progress-bar-visible').last().addClass('last-progress-bar');
+      var $visibleProgressBars = $('.progress-bar-global .progress-bar-visible');
+
+      // Make sure the 'first-progress-bar' class is on the first progress bar.
+      $visibleProgressBars.removeClass('first-progress-bar')
+      $visibleProgressBars.first().addClass('first-progress-bar');
+
+      // If all subtasks are completed then we want to add the 'last-progress-bar'
+      // class to our last section as it needs to have rounded corners.
+      if (this.get('controller.allSubtasksCompleted')) {
+        $visibleProgressBars.last().addClass('last-progress-bar');
+      } else {
+        $visibleProgressBars.last().removeClass('last-progress-bar');
+      }
     });
     return this.get('controller.hasCompletedTasks');
   }.property('style'),

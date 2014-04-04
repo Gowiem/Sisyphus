@@ -18,6 +18,10 @@ Sis.ProjectProjectGroupController = Ember.ObjectController.extend(
       return 0;
     }
   }.property('model.subtasks.length'),
+
+  allSubtasksCompleted: function() {
+    return this.get('model.subtasks').isEvery('isCompleted');
+  }.property('model.subtasks.@each.isCompleted'),
   
   filteredRequiredTasks: function() {
     var showingAll = this.get('showingAllTasks'),
