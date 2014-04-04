@@ -33,9 +33,18 @@ Sis.Student = Sis.User.extend({
   projectGroups: DS.hasMany('projectGroup'),
   subtasks: DS.hasMany('subtask'),
 
+  // Filter our student's subtasks so we are only ever referring to their
+  // current projectGroup subtasks.
+  currentSubtasks: function() {
+    var projectGroupId = this.get('projectGroupId');
+    return this.get('subtasks').filter(function(subtask, idx) {
+      return subtask.get('projectGroup.id') === projectGroupId;
+    });
+  }.property('subtasks.length', 'projectGroupId'),
+
   completedSubtasks: function() {
-    return this.get('subtasks').filterBy('isCompleted').get('length');
-  }.property('subtasks.@each.isCompleted')
+    return this.get('currentSubtasks').filterBy('isCompleted').get('length');
+  }.property('currentSubtasks.@each.isCompleted')
 });
 
 Sis.Teacher = Sis.User.extend({

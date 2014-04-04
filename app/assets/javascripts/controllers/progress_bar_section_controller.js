@@ -1,13 +1,12 @@
 Sis.ProgressBarSectionController = Sis.GroupMemberController.extend({
   needs: ['projectProjectGroup'],
   progressBarSectionStyle: function() {
-    var completedTasks = this.get('model.subtasks').filterBy('isCompleted').get('length'),
+    var completedTasks = this.get('model.completedSubtasks'),
         totalTasks = this.get('controllers.projectProjectGroup.totalTasksAssigned');
     return "width:" + ((completedTasks / totalTasks) * 100) + "%;";
-  }.property('model.subtasks.@each.isCompleted.length',
-    'controllers.projectProjectGroup.totalTasksAssigned'),
+  }.property('model.completedSubtasks', 'controllers.projectProjectGroup.totalTasksAssigned'),
 
   hasCompletedTasks: function() {
-    return this.get('model.subtasks').isAny('isCompleted', true);
-  }.property('model.subtasks.@each.isCompleted'),
+    return this.get('model.currentSubtasks').isAny('isCompleted', true);
+  }.property('model.currentSubtasks.@each.isCompleted'),
 });

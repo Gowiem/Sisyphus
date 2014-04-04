@@ -7,6 +7,7 @@ Sis.ProjectProjectGroupRoute = Ember.Route.extend({
   afterModel: function(model) {
     model.get('students').forEach(function(student, idx) {
       student.set('index', idx);
+      student.set('projectGroupId', model.get('id'));
     });
   },
   model: function(params) {
