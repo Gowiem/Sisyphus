@@ -1,0 +1,65 @@
+.landing-page{
+	width:100%;
+	color:#ffffff;
+	min-height:300px;
+	padding: 60px 20px;
+}	
+
+#page-1{
+	background-color: #32BCAD;
+	height:500px;
+}
+
+#page-2{
+	background-color: #F69332;
+}	
+
+#page-3{
+	background-color: #FFCA06;
+	height:500px;
+}	
+
+#page-4{
+	background-color: #A5CD38;
+	height:500px;
+}
+
+#page-5{
+	background-color: #32B4E8;
+	height:750px;
+}
+
+.pyramid{
+  border-radius:400px;
+  border: 10px solid #069F8E;
+}
+
+.survey{
+	width:500px;
+	height:auto;
+	border-radius:10px;
+	border: 10px solid #E4A212;
+}
+
+.concept-flow{
+	width:500px;
+	height:auto;
+	border-radius:10px;
+	border: 10px solid #73A433;
+}
+
+.team-member-image{
+   width:160px;
+   height:160px;
+   border-radius:160px;
+   border:10px solid #148EB2;
+   background-color:#ffffff;
+   margin-bottom:12px;
+}
+
+.who-member{
+  text-align:center;
+  color:#fff;
+  float:left;
+  margin:20px;
+}
