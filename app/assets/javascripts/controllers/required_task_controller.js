@@ -36,15 +36,11 @@ Sis.RequiredTaskController = Sis.TaskController.extend(
         return currentUserSubtaskIds.contains(subtask.get('id'));
       });
     }
-  }.property(),
+  }.property('projectGroup.id'),
 
   completedCount: function() {
-    if (this.get('showingAllTasks')) {
-      return this.get('subtasks').filterBy('isCompleted').get('length');
-    } else {
-      return this.get('auth.currentUser.subtasks').filterBy('isCompleted').get('length');
-    }
-  }.property('subtasks.@each.isCompleted', 'showingAllTasks'),
+    return this.get('currentSubtasks').filterBy('isCompleted').get('length');
+  }.property('currentSubtasks.@each.isCompleted', 'showingAllTasks'),
 
   showingCompleted: function(key, value) {
     if (value === undefined) {

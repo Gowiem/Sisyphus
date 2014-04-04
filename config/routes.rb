@@ -40,7 +40,7 @@ Sisyphus::Application.routes.draw do
     resources :history_trackers, only: [:index, :show]
   end
 
-  get '/users/:id', to: 'users#show'
+  get '/users/:id', to: 'users#show', :constraints => FormatTest.new(:json)
   root :to => "ember#index", as: :ember_root, :constraints => FormatTest.new(:html)
 
   ## Catch all Route which will just render ember, and ember can figure out the route

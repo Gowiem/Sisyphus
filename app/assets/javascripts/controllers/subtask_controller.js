@@ -89,6 +89,12 @@ Sis.SubtaskController = Sis.TaskController.extend(
     });
   },
 
+  hasEnteredReason: function() {
+    var disputeReason = this.get('disputeReason');
+    return disputeReason != "" && disputeReason != null;
+  }.property("disputeReason"),
+
+
   // Actions
   ///////////
   actions: {
@@ -113,33 +119,35 @@ Sis.SubtaskController = Sis.TaskController.extend(
     },
 
     submitDisputed: function() {
-      var subtask = this.get('model'),
-          disputeComment = this.store.createRecord(Sis.Comment, {}),
-          disputeReason = this.get('disputeReason'),
-          modalId = this.get('disputeModalId'),
-          user = this.get('auth.currentUser');
+      if (this.get('hasEnteredReason')) {
+        var subtask = this.get('model'),
+            disputeComment = this.store.createRecord(Sis.Comment, {}),
+            disputeReason = this.get('disputeReason'),
+            modalId = this.get('disputeModalId'),
+            user = this.get('auth.currentUser');
+            
+        // Create the new comment which disputes this subtask being completed.
+        // currentUser.model returns a promise so we need to wrap the save in this 'then'
+        disputeComment.set('isDisputed', true);
+        disputeComment.set('body', disputeReason);
+        disputeComment.set('subtask', subtask);
+        disputeComment.set('student', user);
+        disputeComment.save();
 
-      // Create the new comment which disputes this subtask being completed.
-      // currentUser.model returns a promise so we need to wrap the save in this 'then'
-      disputeComment.set('isDisputed', true);
-      disputeComment.set('body', disputeReason);
-      disputeComment.set('subtask', subtask);
-      disputeComment.set('user', user);
-      disputeComment.save();
-
-      // Set this subtask as disputed, not completed, add the new comment, and save.
-      subtask.set('isDisputed', true);
-      subtask.set('isCompleted', false);
-      subtask.get('comments').pushObject(disputeComment);
-      subtask.save().then(function() {
-        // Reset the disputeReason and hide the modal
-        this.set('disputeReason', null);
-        // Fuck you modal!
-        $('#' + modalId).modal('hide');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').hide();
-      }.bind(this));
-      this.trackEvent('disputing_task', 'dispute_submitted');
+        // Set this subtask as disputed, not completed, add the new comment, and save.
+        subtask.set('isDisputed', true);
+        subtask.set('isCompleted', false);
+        subtask.get('comments').pushObject(disputeComment);
+        subtask.save().then(function() {
+          // Reset the disputeReason and hide the modal
+          this.set('disputeReason', null);
+          // Fuck you modal!
+          $('#' + modalId).modal('hide');
+          $('body').removeClass('modal-open');
+          $('.modal-backdrop').hide();
+        }.bind(this));
+        this.trackEvent('disputing_task', 'dispute_submitted');
+      }
     },
   }
 });
