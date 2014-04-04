@@ -10,11 +10,14 @@ main.on-home-route.container {
 	color:#ffffff;
 	min-height:300px;
 	padding: 60px 20px;
+  	padding-left:100px;
+  	padding-right:100px;
 }	
 
 #page-1{
+	padding-top:100px;
 	background-color: #32BCAD;
-	height:500px;
+	height:650px;
 }
 
 #page-2{
@@ -34,6 +37,12 @@ main.on-home-route.container {
 #page-5{
 	background-color: #32B4E8;
 	height:750px;
+}
+
+.subhead{
+font-size:22px;
+line-height:30px;
+font-weight:300;
 }
 
 .pyramid{
@@ -64,9 +73,15 @@ main.on-home-route.container {
    margin-bottom:12px;
 }
 
-.who-member{
+.our-team-members li{
   text-align:center;
   color:#fff;
   float:left;
   margin:20px;
+  list-style:none;
+  margin-left:50px;
+}
+
+.our-team-members{
+horizontal-align:center;
 }
