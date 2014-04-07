@@ -1,5 +1,81 @@
 namespace :extra_seed do
 
+  desc "Scout Team"
+  task scout_team: :environment do
+    teacher = Teacher.where(
+      email: "lauraivanka@gmail.com",
+      first_name: "Laura",
+      last_name: "Ivanka",
+      phone: "Change Me",
+      password: "password12",
+      password_confirmation: "password12").first_or_create
+
+    lexi = Student.create!(
+      email: "lexi1@email.com",
+      first_name: "Lexi",
+      last_name: "Kuo",
+      phone: "555-555-5555",
+      password: "password12", 
+      password_confirmation: "password12")
+
+    davey = Student.create!(
+      email: "davey1@email.com",
+      first_name: "Davey",
+      last_name: "Reardon",
+      phone: "555-555-5556",
+      password: "password12", 
+      password_confirmation: "password12")
+
+    laurie = Student.create!(
+      email: "laurie1@email.com",
+      first_name: "Laurie",
+      last_name: "Park",
+      phone: "555-555-5557",
+      password: "password12", 
+      password_confirmation: "password12")
+
+    nick = Student.create!(
+      email: "nick1@email.com", 
+      first_name: "Nick", 
+      last_name: "Lynch",
+      phone: "555-555-5554",
+      password: "password12", 
+      password_confirmation: "password12")
+
+    projectGroup = ProjectGroup.create!( name: "Mock Team", students: [ nick, laurie, davey, lexi ]);
+
+    s14_semester = Semester.create!(
+      season: "Spring",
+      year: "2014",
+      teacher: teacher)
+
+    lauras_course = Course.create!(
+      semester: s14_semester,
+      code: "ST1000",
+      title: "Scout Team",
+      section: "1")
+
+    project = Project.create!(
+      title: "Scout",
+      students: [ nick, laurie, davey, lexi ],
+      course: lauras_course,
+      description: "Mock project for the Scout team to checkout.",
+      project_groups: [ projectGroup ])
+
+    req_task1 = RequiredTask.create!(
+      title: "Research",
+      project: project,
+      due_date: Date.new(2014, 4, 21),
+      modifier: nick)
+    
+    req_task2 = RequiredTask.create!(
+      title: "Prototype",
+      project: project,
+      due_date: Date.new(2014, 4, 21),
+      modifier: nick)
+
+  end
+
   desc "Marks Engineering class"
   task marks_clazz: :environment do
     Student.where({ email: "sivak.mark@gmail.com" }).delete

@@ -11,11 +11,12 @@
         <div class="dispute-info">
           <p class="dispute-helper-text">Task:</p>
           <div class="task-description">
-          <p>{{title}}</p>
-          <p class="assigned-to-members assigned-to"><strong>Assigned to:</strong>
-            {{#each student in students}}
-                {{student.fullName}}
-            {{/each}}
+            <p>{{title}}</p>
+            <div class="assigned-to-members assigned-to user-tags-container"><strong>Assigned to:</strong>
+              {{#each student in students}}
+                {{render "userSelect" student}}
+              {{/each}}
+            </div>
           </div>
         </div>
 
@@ -26,7 +27,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" {{bind-attr class=":btn :btn-primary :btn-block :btn-sm hasEnteredReason::deactivated"}} 
+        <button type="button" {{bind-attr class=":btn :btn-primary :btn-block :btn-sm hasEnteredReason::disabled"}}
           {{action submitDisputed}}>Submit</button>
         <a data-dismiss="modal" class="btn btn-sm btn-transparent">Cancel</a>
       </div>

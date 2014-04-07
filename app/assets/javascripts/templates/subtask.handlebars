@@ -9,9 +9,15 @@
           <label {{bind-attr class=":checkbox :checkbox-label isCompleted:checked:unchecked"}}>
             {{view Sis.CheckboxView checkedBinding="isCompleted" class="completed-checkbox"}}
           </label>
-          <p {{bind-attr class=":subtask :subtask-title :center-text isCompleted:subtask-title-completed isDisputed:disputed inLimbo:subtask-in-limbo"}}>
+          
+            
+            
+            <p {{bind-attr class=":subtask :subtask-title :center-text isCompleted:subtask-title-completed isDisputed:disputed isDueSoonish:overdue inLimbo:subtask-in-limbo"}}>
             {{title}}
           </p>
+            
+            
+            
         </div>
         <div class="date-container">
           <p {{bind-attr class="isDueSoonish:due-soon isCompleted:due-completed :center-block"}}>{{readableDate}}</p>

@@ -43,7 +43,7 @@ hr {
     margin-top:8px;
   }
   .due-soon {
-    background-color: $red;
+    background-color: $orangeDark;
     color: #FFFFFF;
     border-radius: $corner;
     padding: 2px 7px;
@@ -125,9 +125,21 @@ hr {
       color: $charcoalDark;
     }
 
+    .subtask-title.overdue:before {
+        color: $orangeDark; 
+        content: '[OVERDUE]';
+        
+        }
+
     .subtask-title.disputed:before {
     color: $red; 
     content: '[DISPUTED]';
+    
+    }
+
+    .subtask-title.overdue.disputed:before {
+    color: $orangeDark; 
+    content: '[OVERDUE] [DISPUTED]';
     
     }
     
