@@ -54,9 +54,9 @@ margin-top:20px;
 
 #page-2 ul li{
 	margin-top:14px;
-	font-size:14px;
-	line-height:17px;
 	list-style:none;
+	font-size:16px;
+	line-height:1.4em;
 }
 
 #page-3{
@@ -84,7 +84,7 @@ font-weight:300;
 
 
 .product{
-  width:100%;
+  max-width:500px;
   height:auto;
   border-radius:10px;
   border:10px solid #D4752E;
@@ -116,15 +116,16 @@ font-weight:300;
    margin-bottom:12px;
 }
 
-.our-team-members li{
+.team-bio, .our-team-members li{
   text-align:center;
   color:#fff;
   float:left;
   margin:20px;
-  list-style:none;
   margin-left:50px;
 }
 
-.our-team-members{
-horizontal-align:center;
+.row1, .row2{
+margin-left:auto;
+margin-right:auto;
+text-align:center;
 }
