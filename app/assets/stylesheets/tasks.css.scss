@@ -126,7 +126,7 @@ hr {
     }
 
     .subtask-title.overdue:before {
-        color: $orangeDark; 
+        color: $red; 
         content: '[OVERDUE]';
         
         }
@@ -138,7 +138,7 @@ hr {
     }
 
     .subtask-title.overdue.disputed:before {
-    color: $orangeDark; 
+    color: $red; 
     content: '[OVERDUE] [DISPUTED]';
     
     }
