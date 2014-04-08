@@ -1,0 +1,131 @@
+
+main.on-home-route.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.landing-page{
+	width:100%;
+	color:#ffffff;
+	padding: 60px 20px;
+  	padding-left:8%;
+  	padding-right:8%;
+  	padding-bottom:50px;
+}	
+
+.landing-page h2{
+	font-weight:700;
+	font-size:20px;
+	text-transform:uppercase;
+}
+
+#page-0{
+	padding-top:100px;
+	background-color: #32BCAD;
+}
+
+#page-1{
+background-color:#fff;
+text-align:center;
+}
+
+#page-1 h2{
+color:#555;
+margin-bottom:16px;
+margin-top:20px;
+}
+
+#page-1 p{
+color:#666;
+width:80%;
+margin-left:auto;
+margin-right:auto;
+margin-bottom:20px;
+}
+
+#page-1 img{
+margin-top:20px;
+}
+
+#page-2{
+	background-color: #F69332;
+}	
+
+#page-2 ul li{
+	margin-top:14px;
+	list-style:none;
+	font-size:16px;
+	line-height:1.4em;
+}
+
+#page-3{
+	background-color: #FFCA06;
+	}	
+
+#page-4{
+	background-color: #A5CD38;
+}
+
+#page-5{
+	background-color: #32B4E8;
+}
+
+.subhead{
+font-size:22px;
+line-height:30px;
+font-weight:300;
+}
+
+.pyramid{
+  border-radius:400px;
+  border: 10px solid #069F8E;
+}
+
+
+.product{
+  max-width:500px;
+  height:auto;
+  border-radius:10px;
+  border:10px solid #D4752E;
+  	clear:both;
+
+}
+
+.survey{
+	width:100%;
+	max-width:500px;
+	height:auto;
+	border-radius:10px;
+	border: 10px solid #E4A212;
+	clear:both;
+
+}
+
+
+.concept-flow{
+	width:100%;
+	max-width:500px;
+	height:auto;
+	border-radius:10px;
+	border: 10px solid #73A433;
+	clear:both;
+}
+
+.team-member-image{
+   margin-bottom:12px;
+}
+
+.team-bio, .our-team-members li{
+  text-align:center;
+  color:#fff;
+  float:left;
+  margin:20px;
+  margin-left:50px;
+}
+
+.row1, .row2{
+margin-left:auto;
+margin-right:auto;
+text-align:center;
+}

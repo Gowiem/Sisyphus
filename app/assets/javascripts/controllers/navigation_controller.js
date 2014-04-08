@@ -7,9 +7,11 @@ Sis.NavigationController = Ember.ObjectController.extend({
   currentUser: Em.computed.alias("auth.currentUser"),
   currentSemester: null,
 
+  // TODO: These onXRoute CP's can probably move to a handlebars helper.
   onSignupRoute: function() {
     return this.get('controllers.application.currentPath') === 'registration';
   }.property('controllers.application.currentPath'),
+  onHomeRoute: Em.computed.alias('controllers.application.onHomeRoute'),
 
   projectGroups: function() {
     if (this.get('isAuthenticated')) {
